@@ -50,6 +50,12 @@ Theme-Park-Prüfung: `GAME/MAIN.EXE`, `GAME/DATA/MPALETTE.DAT`, `THEME.CD/`.
 <details>
 <summary><b>Aus dem Quellcode bauen</b></summary>
 
+Quellcode (öffentlich): [XRShell-Quest](https://github.com/friedensbringer-peacemaker/XRShell-Quest)
+
+```bash
+git clone https://github.com/friedensbringer-peacemaker/XRShell-Quest.git
+```
+
 Küchengeräte: JDK 17, Android Platform 34, NDK 30.0.16248370, CMake 3.22.1, immer den
 Gradle-Wrapper (8.11.1) verwenden, nie ein systemweites `gradle`.
 
@@ -99,4 +105,4 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 - Core-Wahl nach Lizenz: Cores mit reiner GPLv2-Lizenz passen nicht zum OpenXR-Loader (Apache-2.0).
 </details>
 
-Port-Repo: `<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform` · Skill: `xr-emulator-profiles`
+Port-Repo: [XRShell-Quest](https://github.com/friedensbringer-peacemaker/XRShell-Quest) · Skill: `xr-emulator-profiles`
