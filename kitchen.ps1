@@ -16,6 +16,7 @@
   .\kitchen.ps1 lint                            # alle Rezepte auf Regeln prüfen
   .\kitchen.ps1 publish-check ..\XR-OpenRA      # Repo vor dem Veröffentlichen prüfen
   .\kitchen.ps1 publish-prepare ..\XR-OpenRA    # bereinigten Zweig xr-public erzeugen + prüfen
+  .\kitchen.ps1 publish-prepare ..\XR-Foo main  # dasselbe aus einem anderen Zweig (ohne Umschalten)
   .\kitchen.ps1 publish ..\XR-Foo -Name xr.foo [-Fork owner/repo]   # erstmals veröffentlichen (fragt nach)
   .\kitchen.ps1 publish ..\XR-CorsixTH          # Update eines veröffentlichten Repos (normaler Push)
   -Lang en | de                                 # Sprache / language
@@ -559,6 +560,7 @@ function Test-PublishName([string] $path, $rules, $assetNames) {
     if ($rules.errors.game_data_ext -contains $ext) { return @("E", "Spieldaten-Endung $ext") }
     if ($assetNames -contains $leaf.ToLower()) { return @("E", "Originaldatei aus einem Rezept") }
     foreach ($g in $rules.errors.game_data_names) { if ($leaf -like $g) { return @("E", "Installer/Spielstand ($g)") } }
+    foreach ($g in $rules.errors.circumvention_names) { if ($leaf -like $g) { return @("E", "Entschlüsselung/Kopierschutz-Umgehung ($g) – nie veröffentlichen") } }
     foreach ($g in $rules.errors.secret_names) { if ($leaf -like $g) { return @("E", "Schlüssel/Zugangsdaten ($g)") } }
     foreach ($g in $rules.errors.log_names) { if ($leaf -like $g) { return @("E", "Gerätelog ($g)") } }
     foreach ($d in $rules.warnings.screenshot_paths) { if ($slashed -like "*/$d*") { return @("W", "Aufnahmen/Logs-Ordner ($d)") } }
@@ -717,20 +719,23 @@ function Get-NoreplyIdentity([string] $top) {
     @{ Name = $name; Mail = $mail }
 }
 
-function Invoke-PublishPrepare([string] $path, [string] $branch) {
+function Invoke-PublishPrepare([string] $path, [string] $branch, [string] $from) {
     if (-not $branch) { $branch = "xr-public" }
     if (-not $path -or -not (Test-Path $path)) { Fail "Pfad fehlt/existiert nicht: .\kitchen.ps1 publish-prepare <Repo-Ordner>" }
     $top = (& git -C $path rev-parse --show-toplevel 2>$null)
     if (-not $top) { Fail "'$path' ist kein Git-Repo." }
     $top = $top -replace '/', '\'
     function RepoGit { & git -C $top @args 2>$null }
-    $current = (RepoGit rev-parse --abbrev-ref HEAD)
-    if ($current -eq $branch) { Fail "Auf dem Zweig '$branch' selbst kann nicht vorbereitet werden – anderen Zweig auschecken." }
-    $dirty = @(RepoGit status --porcelain --untracked-files=no)
+    # Quelle: ausgecheckter Stand oder ein angegebener Zweig/Commit (ohne Umschalten des Arbeitsordners)
+    $src = if ($from) { $from } else { "HEAD" }
+    if (-not (RepoGit rev-parse --verify -q "$src^{commit}")) { Fail "Quelle '$src' gibt es in diesem Repo nicht." }
+    $current = if ($from) { $from } else { (RepoGit rev-parse --abbrev-ref HEAD) }
+    if ($current -eq $branch) { Fail "Der Zweig '$branch' selbst kann nicht die Quelle sein." }
+    $dirty = if ($from) { @() } else { @(RepoGit status --porcelain --untracked-files=no) }
     $up = Get-UpstreamInfo $top
     $who = Get-NoreplyIdentity $top
-    $head = (RepoGit rev-parse HEAD)
-    $tree = (RepoGit rev-parse "HEAD^{tree}")
+    $head = (RepoGit rev-parse $src)
+    $tree = (RepoGit rev-parse "$src^{tree}")
 
     Write-Host ""
     Write-Host "Veröffentlichungszweig vorbereiten: $top" -ForegroundColor Cyan
@@ -740,7 +745,7 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
     # Basis: neuester Upstream-Commit, von dem die eigenen Commits abzweigen
     $base = $null
     if ($up.Remotes.Count) {
-        $boundary = @(RepoGit rev-list --boundary HEAD --not @($up.Exclude) | Where-Object { $_ -like "-*" } | ForEach-Object { $_.Substring(1) })
+        $boundary = @(RepoGit rev-list --boundary $src --not @($up.Exclude) | Where-Object { $_ -like "-*" } | ForEach-Object { $_.Substring(1) })
         foreach ($b in $boundary) {
             $newest = $true
             foreach ($o in $boundary) { if ($o -ne $b) { & git -C $top merge-base --is-ancestor $o $b 2>$null; if ($LASTEXITCODE -ne 0) { $newest = $false; break } } }
@@ -782,7 +787,7 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
     # dort vorhanden), wird der Verweis auf den öffentlichen Commit und die öffentliche Adresse umgestellt.
     $localSubs = @()
     $remaps = @()   # @{ Path; Sha; Url }
-    foreach ($line in @(RepoGit ls-tree -r HEAD | Where-Object { $_ -match '^160000 commit ([0-9a-f]{40})\t(.+)$' })) {
+    foreach ($line in @(RepoGit ls-tree -r $src | Where-Object { $_ -match '^160000 commit ([0-9a-f]{40})\t(.+)$' })) {
         $null = $line -match '^160000 commit ([0-9a-f]{40})\t(.+)$'
         $sha = $Matches[1]; $sub = $Matches[2]
         $subDir = Join-Path $top $sub
@@ -809,8 +814,8 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
         $gmFile = [IO.Path]::GetTempFileName()
         $env:GIT_INDEX_FILE = $idx
         try {
-            $null = RepoGit read-tree HEAD
-            [IO.File]::WriteAllText($gmFile, ((RepoGit show "HEAD:.gitmodules") -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
+            $null = RepoGit read-tree $src
+            [IO.File]::WriteAllText($gmFile, ((RepoGit show "${src}:.gitmodules") -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
             foreach ($m in $remaps) {
                 $null = RepoGit update-index --cacheinfo "160000,$($m.Sha),$($m.Path)"
                 $names = @(& git config -f $gmFile --get-regexp '^submodule\..*\.path$' 2>$null | Where-Object { ($_ -split ' ', 2)[1] -eq $m.Path })
@@ -883,7 +888,7 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
 # Standardzweig setzen, Remote „public“ + kitchen.publicbranch eintragen. Danach: Update per normalem Push.
 
 function Invoke-Publish([string] $path) {
-    if (-not $path -or -not (Test-Path $path)) { Fail "Pfad fehlt: .\kitchen.ps1 publish <Repo-Ordner> [-Name xr.<name>] [-Fork owner/repo]" }
+    if (-not $path -or -not (Test-Path $path)) { Fail "Pfad fehlt: .\kitchen.ps1 publish <Repo-Ordner> [<Quellzweig>] [-Name xr.<name>] [-Fork owner/repo]" }
     $top = (& git -C $path rev-parse --show-toplevel 2>$null)
     if (-not $top) { Fail "'$path' ist kein Git-Repo." }
     function RepoGit { & git -C $top @args 2>$null }
@@ -891,7 +896,9 @@ function Invoke-Publish([string] $path) {
     if (-not $login) { Fail "gh ist nicht angemeldet (gh auth login)." }
 
     # 1. Vorbereiten und prüfen (eigener Prozess, damit ein Fehler hier sauber abbricht)
-    powershell -NoProfile -ExecutionPolicy Bypass -File $PSCommandPath publish-prepare $top
+    $ppArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $PSCommandPath, "publish-prepare", $top)
+    if ($Source) { $ppArgs += $Source }
+    powershell @ppArgs
     if ($LASTEXITCODE -ne 0) { Fail "publish-prepare ist nicht sauber – nichts veröffentlicht." }
     $pub = (RepoGit rev-parse --verify -q "refs/heads/xr-public")
     if (-not $pub) { Fail "Zweig xr-public fehlt." }
@@ -1359,7 +1366,7 @@ switch ($Command) {
     "guide"  { Invoke-Guide (Get-RecipeById $Recipe) }
     "lint"   { Invoke-Lint }
     "publish-check" { Invoke-PublishCheck $Recipe }
-    "publish-prepare" { Invoke-PublishPrepare $Recipe $Name }
+    "publish-prepare" { Invoke-PublishPrepare $Recipe $Name $Source }
     "publish" { Invoke-Publish $Recipe }
     "menu"   { Invoke-Menu }
     default  { Get-Help $PSCommandPath -Examples }

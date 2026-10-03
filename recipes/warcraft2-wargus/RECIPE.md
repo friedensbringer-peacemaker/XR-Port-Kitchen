@@ -11,7 +11,10 @@ Konverter **wartool**, der die eigene Kopie in ein freies Format umwandelt. Beid
 Wargus-Community seit vielen Jahren. Credits: [Stratagus](https://github.com/Wargus/stratagus),
 [Wargus](https://github.com/Wargus/wargus).
 
-## Kurzfassung für Einsteiger (mit fertiger APK, 30–60 min)
+## Kurzfassung (wenn die App gebaut ist, 30–60 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 Du brauchst die **Warcraft II Battle.net Edition** (GOG) oder die Original-CD.
 

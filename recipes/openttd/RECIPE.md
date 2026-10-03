@@ -10,7 +10,10 @@ Deluxe. Die freien Pakete **OpenGFX, OpenSFX und OpenMSX** ersetzen Grafik, Tön
 Credits: [OpenTTD-Mitwirkende](https://github.com/OpenTTD/OpenTTD/graphs/contributors),
 [OpenTTD-Downloads](https://www.openttd.org/downloads).
 
-## Kurzfassung für Einsteiger (mit fertiger APK, ~5 min)
+## Kurzfassung (wenn die App gebaut ist, ~5 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 **Du brauchst kein Originalspiel.** Die freien Pakete stecken schon in der APK.
 

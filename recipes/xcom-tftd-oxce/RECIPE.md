@@ -12,7 +12,10 @@ von Meridian erweitert es, und die OXCE-Gemeinschaft pflegt einen Android-Port. 
 [OXCE-Android](https://github.com/MeridianOXC/OpenXcom-Android),
 [ursprünglicher Android-Port von sfalexrog](https://github.com/sfalexrog/OpenXcom-Android).
 
-## Kurzfassung für Einsteiger (mit fertiger APK, 15–30 min)
+## Kurzfassung (wenn die App gebaut ist, 15–30 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 Du brauchst **X-COM: Terror from the Deep** (GOG, Steam oder CD).
 

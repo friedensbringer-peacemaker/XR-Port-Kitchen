@@ -13,7 +13,10 @@ libretro-Ökosystem. XRShell liefert Leinwand, Laser-Maus und VR-Menü.
 Wenn es für ein Spiel eine native Engine gibt (z. B. CorsixTH, OpenTTD), ist das eigene Rezept
 dafür meist besser: Es bringt mehr XR-Potenzial und schärfere Grafik.
 
-## Kurzfassung für Einsteiger (mit fertiger APK, 15–30 min)
+## Kurzfassung (wenn die App gebaut ist, 15–30 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 1. Entwicklermodus einschalten, Quest anstecken, USB-Debugging bestätigen.
 2. `Kitchen.cmd` → „DOS-Spiele via XRShell“ → Ordner mit dem entpackten Spiel angeben.

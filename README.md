@@ -133,7 +133,7 @@ runs, because its own adb conflicts with the kitchen's).
 
 | Rezept | Aufbauend auf | Portierbarkeit | XR-Potenzial | Originalspiel nötig? | Port-Code | Stand |
 |---|---|:---:|:---:|---|---|---|
-| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | folgt | 🟢 im Headset spielbar |
+| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25) | 🟢 im Headset spielbar |
 | [**Command & Conquer: Alarmstufe Rot**](recipes/openra-redalert/RECIPE.md) | OpenRA | ★★★☆☆ | ★★★★★ | nein – Freeware-Daten | [xr.openra](https://github.com/friedensbringer-peacemaker/xr.openra) | 🟢 läuft, VR-Funktionen in Abnahme |
 | [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) | 🟢 im Headset gespielt |
 | [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) | 🟢 im Headset gespielt |

@@ -43,7 +43,7 @@
     }
   ],
   "port": {
-    "repo": "https://github.com/friedensbringer-peacemaker/XR-Settlers2.5 (privat)",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.settlers25",
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Settlers2.5"
   },
@@ -231,7 +231,6 @@
   ],
   "links": {
     "Ersteinrichtung": "<XR-Ordner>/XR-Settlers2.5/docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md",
-    "Build": "<XR-Ordner>/XR-Settlers2.5/docs/BUILD.md",
-    "Releases": "https://github.com/friedensbringer-peacemaker/XR-Settlers2.5/releases"
+    "Build": "<XR-Ordner>/XR-Settlers2.5/docs/BUILD.md"
   }
 }

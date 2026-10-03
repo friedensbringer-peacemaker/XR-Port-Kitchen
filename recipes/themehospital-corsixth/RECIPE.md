@@ -10,7 +10,10 @@ noch nicht geprüft. App `xr.corsixth`.
 [CorsixTH-Mitwirkende](https://github.com/CorsixTH/CorsixTH/graphs/contributors). Der
 Android-Fanport von Alan Woolley diente als Referenz.
 
-## Kurzfassung für Einsteiger (mit fertiger APK, 30–60 min)
+## Kurzfassung (wenn die App gebaut ist, 30–60 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 Du brauchst **Theme Hospital** (GOG oder Original-CD).
 

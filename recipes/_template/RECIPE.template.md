@@ -5,7 +5,10 @@ Stand: Entwurf. App `xr.<name>`.
 
 Wer hat die Engine gebaut? Credits und Links zuerst.
 
-## Kurzfassung für Einsteiger (mit fertiger APK, ? min)
+## Kurzfassung (wenn die App gebaut ist, ? min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 1. Entwicklermodus einschalten, Quest anstecken, USB-Debugging bestätigen.
 2. `Kitchen.cmd` / `Kitchen.command` → Rezept wählen → Ordner mit den Spieldaten angeben.

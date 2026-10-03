@@ -9,7 +9,10 @@ Kitchen ergänzt nur einen OpenXR-Videotreiber und VR-Bedienung. Credits:
 [RttR-Mitwirkende](https://github.com/Return-To-The-Roots/s25client/graphs/contributors),
 [s25rttr-android](https://github.com/Farmer-Markus/s25rttr-android).
 
-## Kurzfassung für Einsteiger (mit fertiger APK, 30–60 min)
+## Kurzfassung (wenn die App gebaut ist, 30–60 min)
+
+**Zuerst die App selbst bauen** – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen.
+Wie das geht, steht unten unter „Aus dem Quellcode bauen“. Danach geht es so weiter:
 
 Du brauchst eine Meta Quest mit Entwicklermodus, einen PC oder Mac, ein USB-C-Kabel und
 **Die Siedler II Gold Edition** (GOG oder Original-CD).
@@ -18,8 +21,7 @@ Du brauchst eine Meta Quest mit Entwicklermodus, einen PC oder Mac, ein USB-C-Ka
    und in der Brille „USB-Debugging zulassen“ bestätigen.
 2. `Kitchen.cmd` (Windows) bzw. `Kitchen.command` (Mac) starten → „Die Siedler II“ → APK: ja →
    Ordner mit deinen Spieldaten angeben. Alles sollte grün sein.
-3. APK installieren: `adb install -r XR-Settlers-2.5-Quest.apk` (Vorabversionen:
-   GitHub-Releases des Port-Repos).
+3. Deine selbst gebaute APK installieren (macht auch der Assistent).
 4. Spieldaten übertragen: `.\kitchen.ps1 push settlers2-rttr "<Gold-Ordner>"` (Mac:
    `./kitchen.sh push …`). Übertragen werden nur `DATA` und `GFX`; vorhandene Daten ersetzt der
    Befehl nur mit `-Replace`.
@@ -42,12 +44,17 @@ Andere Ausgaben (10th Anniversary, Remakes) gelten nicht automatisch als kompati
 <details>
 <summary><b>Aus dem Quellcode bauen (2–4 h beim ersten Mal)</b></summary>
 
+Quellcode (öffentlich): [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25)
+
+```bash
+git clone --recurse-submodules https://github.com/friedensbringer-peacemaker/xr.settlers25.git
+```
+
 Küchengeräte: JDK 17, Android Platform 36, Build-Tools 35, NDK 27.0.12077973, CMake 3.22.1,
 Python ≥ 3.9 (Tkinter für die GUI), Git. Windows zusätzlich: echtes `python` im PATH, gettext
 (`winget install --id mlocati.GetText`), kurzer Checkout-Pfad.
 
 ```bash
-git clone --recurse-submodules <port-repo>
 python3 scripts/build-quest.py --check --sdk <SDK> --java <JDK17>
 python3 scripts/build-quest.py --sdk <SDK> --java <JDK17>
 python3 scripts/quest.py install
@@ -86,5 +93,5 @@ APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ
 - Getrennte Menü-Ebenen und ein drehbarer Fenstergriff brachten Regressionen und sind zurückgestellt (VR-010).
 </details>
 
-Port-Repo: `<XR-Ordner>/XR-Settlers2.5` · Schritt-für-Schritt-Anleitung:
+Port-Repo: [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25) · Schritt-für-Schritt-Anleitung:
 `docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md`

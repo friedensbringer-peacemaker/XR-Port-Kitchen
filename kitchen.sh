@@ -14,7 +14,7 @@
 #   ./kitchen.sh doctor
 #   ./kitchen.sh lint                  # alle Rezepte auf Regeln prüfen
 #   ./kitchen.sh publish-check ../XR-OpenRA   # Repo vor dem Veröffentlichen prüfen
-#   ./kitchen.sh publish-prepare ../XR-OpenRA # bereinigten Zweig xr-public erzeugen + prüfen
+#   ./kitchen.sh publish-prepare ../XR-OpenRA [<zweig>] # bereinigten Zweig xr-public erzeugen + prüfen
 #   ./kitchen.sh publish ../XR-Foo --name xr.foo [--fork owner/repo]  # erstmals veröffentlichen
 #   ./kitchen.sh publish ../XR-CorsixTH       # Update eines veröffentlichten Repos
 #   --lang de | en                     # Sprache / language
@@ -937,6 +937,8 @@ pub_name() {
     for _pn_e in $RU_GAMEEXT; do [ "$_pn_ext" = "$_pn_e" ] && { printf 'E\tSpieldaten-Endung %s\n' "$_pn_e"; return; }; done
     printf '%s\n' "$ASSET_NAMES" | grep -qxF "$_pn_lleaf" && { printf 'E\tOriginaldatei aus einem Rezept\n'; return; }
     for _pn_g in $RU_GAMENAMES; do case "$_pn_leaf" in $_pn_g) printf 'E\tInstaller/Spielstand (%s)\n' "$_pn_g"; return ;; esac; done
+    _pn_lower=$(printf '%s' "$_pn_leaf" | tr 'A-Z' 'a-z')
+    for _pn_g in $RU_CIRC; do case "$_pn_lower" in $_pn_g) printf 'E\tEntschlüsselung/Kopierschutz-Umgehung (%s) – nie veröffentlichen\n' "$_pn_g"; return ;; esac; done
     for _pn_g in $RU_SECRETS; do case "$_pn_leaf" in $_pn_g) printf 'E\tSchlüssel/Zugangsdaten (%s)\n' "$_pn_g"; return ;; esac; done
     for _pn_g in $RU_LOGS; do case "$_pn_leaf" in $_pn_g) printf 'E\tGerätelog (%s)\n' "$_pn_g"; return ;; esac; done
     for _pn_d in $RU_SHOTS; do case "/$_pn_p" in */"$_pn_d"*) printf 'W\tAufnahmen/Logs-Ordner (%s)\n' "$_pn_d"; return ;; esac; done
@@ -954,6 +956,7 @@ cmd_publish_check() {
     set -f   # Muster aus den Regeln nicht als Dateinamen expandieren
     RU_DERIVED=$(ru_list errors.derived_paths); RU_GAMEEXT=$(ru_list errors.game_data_ext)
     RU_GAMENAMES=$(ru_list errors.game_data_names); RU_SECRETS=$(ru_list errors.secret_names)
+    RU_CIRC=$(ru_list errors.circumvention_names)
     RU_LOGS=$(ru_list errors.log_names); RU_SHOTS=$(ru_list warnings.screenshot_paths)
     RU_MEDIA=$(ru_list warnings.media_ext); RU_BIN=$(ru_list warnings.binary_ext)
     ASSET_NAMES=$(recipe_asset_names)
@@ -1090,13 +1093,15 @@ EOF
 
 cmd_publish_prepare() {
     [ -n "$1" ] && [ -e "$1" ] || die "Pfad fehlt/existiert nicht: ./kitchen.sh publish-prepare <Repo-Ordner>"
-    _pp_branch=${2:-xr-public}
+    _pp_branch=xr-public
+    _pp_src=${2:-HEAD}   # Quelle: ausgecheckter Stand oder angegebener Zweig/Commit (ohne Umschalten)
     _pp_top=$(git -C "$1" rev-parse --show-toplevel 2>/dev/null) || die "'$1' ist kein Git-Repo."
     pg() { git -C "$_pp_top" "$@" 2>/dev/null; }
-    _pp_cur=$(pg rev-parse --abbrev-ref HEAD)
+    pg rev-parse --verify -q "$_pp_src^{commit}" >/dev/null || die "Quelle '$_pp_src' gibt es in diesem Repo nicht."
+    if [ "$_pp_src" = HEAD ]; then _pp_cur=$(pg rev-parse --abbrev-ref HEAD); else _pp_cur=$_pp_src; fi
     [ "$_pp_cur" != "$_pp_branch" ] || die "Auf dem Zweig '$_pp_branch' selbst kann nicht vorbereitet werden – anderen Zweig auschecken."
-    _pp_dirty=$(pg status --porcelain --untracked-files=no | grep -c .)
-    _pp_head=$(pg rev-parse HEAD); _pp_tree=$(pg rev-parse 'HEAD^{tree}')
+    if [ "$_pp_src" = HEAD ]; then _pp_dirty=$(pg status --porcelain --untracked-files=no | grep -c .); else _pp_dirty=0; fi
+    _pp_head=$(pg rev-parse "$_pp_src"); _pp_tree=$(pg rev-parse "$_pp_src^{tree}")
 
     # noreply-Identität
     _pp_login=$(gh api user -q .login 2>/dev/null)
@@ -1129,7 +1134,7 @@ cmd_publish_prepare() {
         _pp_sh=$(pg rev-parse --git-path shallow)
         case "$_pp_sh" in /*|[A-Za-z]:*) ;; *) _pp_sh="$_pp_top/$_pp_sh" ;; esac
         [ -f "$_pp_sh" ] && for _pp_c in $(grep -E '^[0-9a-f]{40}$' "$_pp_sh"); do set -- "$@" "$_pp_c"; done
-        _pp_bound=$(pg rev-list --boundary HEAD --not "$@" | sed -n 's/^-//p')
+        _pp_bound=$(pg rev-list --boundary "$_pp_src" --not "$@" | sed -n 's/^-//p')
         for _pp_b in $_pp_bound; do
             _pp_newest=1
             for _pp_o in $_pp_bound; do
@@ -1167,11 +1172,11 @@ cmd_publish_prepare() {
     fi
 
     # Submodule, die auf nur lokal vorhandene Commits zeigen
-    _pp_subs=$(pg ls-tree -r HEAD | awk '$1 == "160000" { sub(/^[^\t]*\t/, ""); print }')
+    _pp_subs=$(pg ls-tree -r "$_pp_src" | awk '$1 == "160000" { sub(/^[^\t]*\t/, ""); print }')
     _pp_subwarn=""; _pp_remaps=""
     while IFS= read -r _pp_s; do
         [ -n "$_pp_s" ] || continue
-        _pp_sha=$(pg ls-tree HEAD "$_pp_s" | awk '{ print $3 }')
+        _pp_sha=$(pg ls-tree "$_pp_src" "$_pp_s" | awk '{ print $3 }')
         if [ ! -e "$_pp_top/$_pp_s/.git" ]; then
             _pp_subwarn="$_pp_subwarn$NL$_pp_s (nicht initialisiert – Herkunft von $(printf '%s' "$_pp_sha" | cut -c1-10) prüfen)"
         # veröffentlicht = in einem Remote-Zweig oder einem Tag enthalten (Releases liegen oft nur als Tag vor)
@@ -1200,8 +1205,8 @@ EOF
     # Verweise umstellen: neuer Baum über einen temporären Index (Arbeitsstand bleibt unberührt)
     if [ -n "$_pp_remaps" ]; then
         _pp_idx=$(mktemp); _pp_gm=$(mktemp)
-        GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" read-tree HEAD
-        pg show HEAD:.gitmodules > "$_pp_gm"
+        GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" read-tree "$_pp_src"
+        pg show "$_pp_src:.gitmodules" > "$_pp_gm"
         while IFS="$TAB" read -r _pp_mp _pp_ms _pp_mu; do
             [ -n "$_pp_mp" ] || continue
             GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" update-index --cacheinfo "160000,$_pp_ms,$_pp_mp"
@@ -1274,7 +1279,7 @@ cmd_publish() {
     _pu_login=$(gh api user -q .login 2>/dev/null)
     [ -n "$_pu_login" ] || die "gh ist nicht angemeldet (gh auth login)."
 
-    sh "$0" publish-prepare "$_pu_top" || die "publish-prepare ist nicht sauber – nichts veröffentlicht."
+    sh "$0" publish-prepare "$_pu_top" $P_FROM || die "publish-prepare ist nicht sauber – nichts veröffentlicht."
     _pu_pub=$(pug rev-parse --verify -q refs/heads/xr-public)
     [ -n "$_pu_pub" ] || die "Zweig xr-public fehlt."
 
@@ -1357,7 +1362,7 @@ case "$_cmd" in
     publish-check) cmd_publish_check "$1" ;;
     publish-prepare) cmd_publish_prepare "$1" "$2" ;;
     publish)
-        _repo=$1; [ $# -gt 0 ] && shift; P_NAME=""; P_FORK=""; P_BRANCH=""; P_DESC=""; P_YES=0
+        _repo=$1; [ $# -gt 0 ] && shift; P_NAME=""; P_FORK=""; P_BRANCH=""; P_DESC=""; P_YES=0; P_FROM=""
         while [ $# -gt 0 ]; do
             case "$1" in
                 --name) P_NAME=$2; shift ;;
@@ -1365,6 +1370,8 @@ case "$_cmd" in
                 --branch) P_BRANCH=$2; shift ;;
                 --description) P_DESC=$2; shift ;;
                 --yes) P_YES=1 ;;
+                --*) ;;
+                *) P_FROM=$1 ;;
             esac
             shift
         done

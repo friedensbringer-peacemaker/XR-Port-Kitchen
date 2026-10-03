@@ -58,6 +58,18 @@
       "*.logcat",
       "bugreport*.zip",
       "bugreport*.txt"
+    ],
+    "circumvention_names": [
+      "*decrypt*",
+      "*crack*",
+      "*keygen*",
+      "*nocd*",
+      "*no-cd*",
+      "*no_cd*",
+      "*drm-remov*",
+      "*drm_remov*",
+      "*unprotect*",
+      "*denuvo*"
     ]
   },
   "warnings": {
