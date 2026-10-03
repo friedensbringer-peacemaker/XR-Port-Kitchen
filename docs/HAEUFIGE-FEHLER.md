@@ -59,6 +59,7 @@ Windows war das bei fast jedem Port die erste Hürde.
 | PowerShell-Skript bricht mit „Unerwartetes Token“ ab | typografische Anführungszeichen („ “ ”) in einem Text mit doppelten Anführungszeichen – PowerShell wertet sie als Anführungszeichen | in Code-Texten nur ' oder " verwenden; deutsche Anführungszeichen nur in einfachen Anführungszeichen oder in Textdateien | Kitchen |
 | Umlaute in PowerShell-Ausgaben kaputt | Skript ohne BOM gespeichert, PowerShell 5.1 liest es als ANSI | `.ps1` als UTF-8 **mit** BOM speichern | Kitchen |
 | Dateien „geändert“ ohne Inhaltsänderung | `autocrlf` nach `sed -i` | `git update-index --refresh`; `.gitattributes` | alle |
+| Selbstbau scheitert: `libopenxr_loader.so` fehlt | Loader nicht im Repo, nur von einem anderen Port kopiert | offizielles Khronos-Paket `org.khronos.openxr:openxr_loader_for_android` (Maven Central) per Skript holen, Prüfsumme prüfen | TTD |
 | GitHub-ZIP baut nicht | Submodule fehlen im ZIP | `git clone --recurse-submodules` | Siedler |
 
 ## B. Gerät, Installation, Daten

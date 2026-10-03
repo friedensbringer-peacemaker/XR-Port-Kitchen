@@ -230,7 +230,7 @@
     "Quellen während des Builds geändert → preview.7 verworfen",
     "Systemdialoge und Guardian blockieren Tests bei abgelegter Brille",
     "Jukebox zeigt „NoMusic“ (AUDIO-002, offen)",
-    "OpenXR-Loader-.so liegt nicht im Repo; README verweist auf den privaten Siedler-Port – für Dritte: Khronos-AAR org.khronos.openxr:openxr_loader_for_android:1.1.58 (Skript fehlt noch)"
+    "OpenXR-Loader-.so liegt nicht im Repo – tools/fetch-openxr-loader.sh holt ihn (Khronos, Maven Central, SHA-1-geprüft)"
   ],
   "legal": [
     "Freie Basis-Sets dürfen in die APK; Originaldaten nie – apk-gate.sh prüft das",

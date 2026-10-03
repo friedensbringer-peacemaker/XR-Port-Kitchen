@@ -150,7 +150,7 @@ nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
 Heroes of Might & Magic II (fheroes2), Dungeon Keeper (KeeperFX), Diablo (DevilutionX).
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
-**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 84
+**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 87
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,
 Eingabe, Daten, Leistung), jeweils mit Ursache, Lösung und betroffenem Port – plus eine Checkliste
 für jeden neuen Port.

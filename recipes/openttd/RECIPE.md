@@ -55,6 +55,7 @@ Gradle-Wrapper 8.11.1. Unter Windows zusätzlich llvm-mingw für die Host-Werkze
 
 ```bash
 tools/build-host-tools.sh          # strgen/settingsgen nach .build/host-tools
+tools/fetch-openxr-loader.sh       # OpenXR-Loader von Khronos (einmalig)
 cd android && ./gradlew assembleDebug
 ```
 
@@ -62,11 +63,9 @@ APK: `android/build/outputs/apk/debug/XR-OpenTTD-<versionName>-debug.apk`. Prüf
 `tools/apk-gate.sh` (Paket, keine Originaldaten), `tools/tests/run.sh`,
 `tools/quest-smoke-test.sh --install <apk>`.
 
-**Hinweis (offener Punkt):** Die OpenXR-Loader-`libopenxr_loader.so` liegt nicht im Repo, und
-`third_party/openxr/README.md` nennt bisher nur den Weg über den (privaten) Siedler-Port. Für alle
-zugänglich ist der offizielle Loader von Khronos (Apache-2.0): das Maven-Paket
-`org.khronos.openxr:openxr_loader_for_android:1.1.58` – die `.so` für `arm64-v8a` aus dem AAR
-nehmen und nach `third_party/openxr/lib/arm64-v8a/` legen. Ein Skript dafür fehlt noch.
+**OpenXR-Loader:** liegt nicht im Repo, sondern wird mit `tools/fetch-openxr-loader.sh` eingerichtet –
+das Skript lädt den offiziellen Loader 1.1.58 von Khronos (Maven Central, Apache-2.0), prüft die
+Prüfsumme und legt ihn nach `third_party/openxr/lib/arm64-v8a/`.
 </details>
 
 <details>
