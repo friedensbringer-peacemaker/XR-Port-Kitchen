@@ -42,6 +42,9 @@ Auftrag wie „Führe Rezept `settlers2-rttr` bis Stufe S4 aus“:
 5. Sobald der Port-Code öffentlich ist: `port.repo` setzen und `build` ergänzen (`repo`, `branch`,
    `submodules`, `steps` als Shell-Befehle im Repo-Ordner, `apk` als Muster relativ zum Repo,
    `note`/`note_en`). `kitchen build <id>` holt und baut damit; ungetestete Wege in `note` kennzeichnen.
+6. Sobald der Port im Headset läuft: `PORTING.md` nach `recipes/_template/PORTING.template.md`
+   (Eingriffspunkte mit Permalinks auf einen festen Commit, kurze Ausschnitte nur aus eigenem Port-Code,
+   „Fertig, wenn“ je Schritt). Vorbild: `recipes/openttd/PORTING.md`.
 
 ## Zweisprachig (Deutsch/Englisch)
 

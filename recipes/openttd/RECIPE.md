@@ -99,6 +99,11 @@ Prüfsumme und legt ihn nach `third_party/openxr/lib/arm64-v8a/`.
 - Die Jukebox zeigt „NoMusic“ (AUDIO-002, offen).
 </details>
 
+## Selbst portieren
+
+Wie der Port gebaut ist, an welchen Stellen OpenTTD eingehakt wird (mit Permalinks und
+Code-Ausschnitten) und wie man das auf andere Spiele überträgt: [PORTING.md](PORTING.md).
+
 ## Rechtliches
 
 Die freien Pakete dürfen in die APK, Originaldaten nie (`apk-gate.sh` prüft das). Ob die GPL-2.0
