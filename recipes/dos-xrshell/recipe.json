@@ -29,7 +29,7 @@
     },
     {
       "name": "XRShell",
-      "url": "https://github.com/friedensbringer-peacemaker/XRShell-Quest",
+      "url": "https://github.com/friedensbringer-peacemaker/xr.shell",
       "license": "eigen (MIT/Apache geplant)",
       "role": "OpenXR-Host: Leinwand, Laser-Maus, VR-Menü, libretro-Frontend"
     },
@@ -41,7 +41,7 @@
     }
   ],
   "port": {
-    "repo": "https://github.com/friedensbringer-peacemaker/XRShell-Quest",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform"
   },

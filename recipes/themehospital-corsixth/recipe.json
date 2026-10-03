@@ -65,7 +65,7 @@
     }
   ],
   "port": {
-    "repo": "https://github.com/friedensbringer-peacemaker/CorsixTH-Quest",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.corsixth",
     "branch": "xr-quest",
     "local_path": "<XR-Ordner>/XR-CorsixTH"
   },

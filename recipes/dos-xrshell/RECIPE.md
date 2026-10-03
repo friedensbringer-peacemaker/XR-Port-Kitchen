@@ -50,10 +50,10 @@ Theme-Park-Prüfung: `GAME/MAIN.EXE`, `GAME/DATA/MPALETTE.DAT`, `THEME.CD/`.
 <details>
 <summary><b>Aus dem Quellcode bauen</b></summary>
 
-Quellcode (öffentlich): [XRShell-Quest](https://github.com/friedensbringer-peacemaker/XRShell-Quest)
+Quellcode (öffentlich): [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell)
 
 ```bash
-git clone https://github.com/friedensbringer-peacemaker/XRShell-Quest.git
+git clone https://github.com/friedensbringer-peacemaker/xr.shell.git
 ```
 
 Küchengeräte: JDK 17, Android Platform 34, NDK 30.0.16248370, CMake 3.22.1, immer den
@@ -105,4 +105,4 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 - Core-Wahl nach Lizenz: Cores mit reiner GPLv2-Lizenz passen nicht zum OpenXR-Loader (Apache-2.0).
 </details>
 
-Port-Repo: [XRShell-Quest](https://github.com/friedensbringer-peacemaker/XRShell-Quest) · Skill: `xr-emulator-profiles`
+Port-Repo: [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) · Skill: `xr-emulator-profiles`

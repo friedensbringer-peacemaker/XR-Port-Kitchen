@@ -41,10 +41,10 @@ geht der Weg über `run-as`, und das klappt nur mit einer Debug-APK.
 <details>
 <summary><b>Aus dem Quellcode bauen (2–4 h)</b></summary>
 
-Quellcode (öffentlich, Fork von CorsixTH): [CorsixTH-Quest](https://github.com/friedensbringer-peacemaker/CorsixTH-Quest), Zweig `xr-quest`
+Quellcode (öffentlich, Fork von CorsixTH): [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth), Zweig `xr-quest`
 
 ```bash
-git clone -b xr-quest https://github.com/friedensbringer-peacemaker/CorsixTH-Quest.git
+git clone -b xr-quest https://github.com/friedensbringer-peacemaker/xr.corsixth.git
 ```
 
 Küchengeräte: JDK 17, Android Platform 36, Build-Tools 35, NDK 27.0.12077973, CMake 3.22.1,
@@ -86,4 +86,4 @@ APK: `Artifacts/xr-corsixth-quest3.apk`. Der erste Windows-Build ist sehr langsa
 - Das Spiel rendert bis zu 108 fps bei 72 Hz (PERF-001).
 </details>
 
-Port-Repo: [CorsixTH-Quest](https://github.com/friedensbringer-peacemaker/CorsixTH-Quest) (Zweig `xr-quest`) · Build: `docs/xr/BUILD-QUEST.md`
+Port-Repo: [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) (Zweig `xr-quest`) · Build: `docs/xr/BUILD-QUEST.md`
