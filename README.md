@@ -248,6 +248,7 @@ automatisch).
 | `lint` | prüft alle Rezepte auf die Regeln (Pflichtfelder, App-Name `xr.<name>`, Sterne 1–5, bekannte Küchengeräte, keine lokalen Pfade) |
 | `publish-check <repo>` | prüft ein Port-Repo, bevor es öffentlich wird (siehe unten) |
 | `publish-prepare <repo>` | erzeugt den bereinigten Zweig `xr-public` und prüft ihn |
+| `publish <repo>` | veröffentlicht: beim ersten Mal neues Repo bzw. Fork (`-Name xr.<name>`, `-Fork owner/repo`), danach Updates per normalem Push – fragt vorher nach |
 
 `check` und `push` lesen nur deine eigenen Dateien und schicken sie per USB an deine Quest. Nichts
 wird hochgeladen. Für macOS braucht die Küchenhilfe nur Bordmittel (`osascript`); unter Windows
@@ -300,6 +301,10 @@ dort `publish-prepare`, den Zweig `xr-public` in ein öffentliches Repo pushen u
 `public` eintragen. Danach stellt `publish-prepare` im Hauptrepo den Submodul-Verweis und die
 Adresse in `.gitmodules` automatisch auf den öffentlichen Stand um. (Flache Klone lassen sich nur
 in einen GitHub-Fork des Originals pushen, nicht in ein leeres neues Repo.)
+
+**Updates:** Ist ein Repo schon veröffentlicht (Remote `public`), wird jeder neue Stand ein
+Folge-Commit auf den veröffentlichten – ein normaler Push genügt, und wer das Repo geklont hat,
+kann einfach `git pull` machen. `publish` erledigt Vorbereiten, Prüfen und Pushen in einem Schritt.
 
 ## Bewertung: zwei Achsen statt einer Note
 

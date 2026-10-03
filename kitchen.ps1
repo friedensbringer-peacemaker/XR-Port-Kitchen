@@ -16,6 +16,8 @@
   .\kitchen.ps1 lint                            # alle Rezepte auf Regeln prüfen
   .\kitchen.ps1 publish-check ..\XR-OpenRA      # Repo vor dem Veröffentlichen prüfen
   .\kitchen.ps1 publish-prepare ..\XR-OpenRA    # bereinigten Zweig xr-public erzeugen + prüfen
+  .\kitchen.ps1 publish ..\XR-Foo -Name xr.foo [-Fork owner/repo]   # erstmals veröffentlichen (fragt nach)
+  .\kitchen.ps1 publish ..\XR-CorsixTH          # Update eines veröffentlichten Repos (normaler Push)
   -Lang en | de                                 # Sprache / language
 #>
 param(
@@ -29,7 +31,11 @@ param(
     [string] $Serial,
     [switch] $Replace,
     [switch] $DryRun,
-    [string] $Lang
+    [string] $Lang,
+    [string] $Fork,
+    [string] $Branch,
+    [string] $Description,
+    [switch] $Yes
 )
 
 $ErrorActionPreference = "Continue"
@@ -749,6 +755,28 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
         Write-Host "  Kein Upstream – ein einzelner Commit ohne Vorgeschichte"
     }
 
+    # Schon veröffentlicht (Remote „public“)? Dann wird der neue Stand ein Folge-Commit auf den
+    # veröffentlichten Zweig – ein normaler Push reicht, die Klone anderer bleiben gültig.
+    $pubTip = $null; $pubBranch = $null
+    if (RepoGit remote get-url public) {
+        $pubBranch = (RepoGit config kitchen.publicbranch)
+        if (-not $pubBranch) {
+            $sym = @(RepoGit ls-remote --symref public HEAD | Where-Object { $_ -match '^ref: refs/heads/(\S+)\s+HEAD' })
+            if ($sym.Count -and $sym[0] -match '^ref: refs/heads/(\S+)') { $pubBranch = $Matches[1] }
+        }
+        if ($pubBranch) {
+            $null = RepoGit fetch -q public "+refs/heads/${pubBranch}:refs/remotes/public/$pubBranch"
+            $pubTip = (RepoGit rev-parse --verify -q "refs/remotes/public/$pubBranch")
+        }
+        # Nur auf Stände aufbauen, die selbst aus publish-prepare stammen – sonst würde eine alte,
+        # unbereinigte Historie (z. B. mit privater E-Mail) für immer festgeschrieben
+        if ($pubTip -and -not ((RepoGit log -1 --format=%s $pubTip) -like "XR-Port:*")) {
+            Write-Warn "public/$pubBranch stammt nicht aus publish-prepare (alte Historie) – frischer Einzel-Commit; zum Ersetzen ist ein Force-Push nötig"
+            $pubTip = $null
+        }
+        if ($pubTip) { Write-Host "  Veröffentlicht: public/$pubBranch @ $($pubTip.Substring(0, 10)) – neuer Stand wird ein Folge-Commit (Update)" }
+    }
+
     # Submodule, die auf nur lokal vorhandene Commits zeigen. Wurde ein solches Submodul selbst schon
     # vorbereitet (Zweig xr-public mit gleichem Inhalt) und veröffentlicht (Remote „public“, Zweig
     # dort vorhanden), wird der Verweis auf den öffentlichen Commit und die öffentliche Adresse umgestellt.
@@ -802,7 +830,21 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
     }
 
     $repoName = Split-Path $top -Leaf
-    $msg = "XR-Port: öffentlicher Stand von $repoName`n`nAlle eigenen Änderungen zusammengefasst in einem Commit (Stand $(Get-Date -Format yyyy-MM-dd))."
+    if ($pubTip -and ((RepoGit rev-parse "$pubTip^{tree}") -eq $tree)) {
+        Write-Ok "Keine Änderungen seit der letzten Veröffentlichung (public/$pubBranch) – nichts zu tun"
+        $null = RepoGit branch -f $branch $pubTip
+        return
+    }
+    $parents = @()
+    if ($pubTip) {
+        $parents += $pubTip
+        # Neuerer Upstream eingemergt? Dann zusätzlich als zweite Eltern-Linie, damit die Herkunft sichtbar bleibt
+        if ($base) { & git -C $top merge-base --is-ancestor $base $pubTip 2>$null; if ($LASTEXITCODE -ne 0) { $parents += $base } }
+        $msg = "XR-Port: Update von $repoName (Stand $(Get-Date -Format yyyy-MM-dd))`n`nÄnderungen seit der letzten Veröffentlichung zusammengefasst."
+    } else {
+        if ($base) { $parents += $base }
+        $msg = "XR-Port: öffentlicher Stand von $repoName`n`nAlle eigenen Änderungen zusammengefasst in einem Commit (Stand $(Get-Date -Format yyyy-MM-dd))."
+    }
     if ($base) { $msg += "`nBasis: $((RepoGit remote get-url $up.Remotes[0])) @ $($base.Substring(0, 12))" }
     $env:GIT_AUTHOR_NAME = $who.Name; $env:GIT_AUTHOR_EMAIL = $who.Mail
     $env:GIT_COMMITTER_NAME = $who.Name; $env:GIT_COMMITTER_EMAIL = $who.Mail
@@ -810,7 +852,7 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
         $msgFile = [IO.Path]::GetTempFileName()
         [IO.File]::WriteAllText($msgFile, $msg, (New-Object System.Text.UTF8Encoding $false))
         $ctArgs = @("commit-tree", $tree, "-F", $msgFile)
-        if ($base) { $ctArgs += @("-p", $base) }
+        foreach ($p in $parents) { $ctArgs += @("-p", $p) }
         $new = (RepoGit @ctArgs)
     } finally {
         Remove-Item Env:GIT_AUTHOR_NAME, Env:GIT_AUTHOR_EMAIL, Env:GIT_COMMITTER_NAME, Env:GIT_COMMITTER_EMAIL -ErrorAction SilentlyContinue
@@ -834,6 +876,71 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
     if ($code -eq 0 -and -not $localSubs.Count) { Write-Host "Bereit zum Veröffentlichen: Zweig $branch" -ForegroundColor Green }
     elseif ($code -eq 0) { Write-Host "Zweig $branch ist sauber, aber Submodule müssen zuerst veröffentlicht werden (siehe oben)." -ForegroundColor Yellow }
     else { Write-Host "Zweig $branch ist noch NICHT veröffentlichungsfähig – Fehler oben beheben, committen, erneut vorbereiten." -ForegroundColor Red; exit 1 }
+}
+
+# --- Veröffentlichen (publish) --------------------------------------------
+# publish-prepare + Push. Erstveröffentlichung: neues Repo (gh repo create) oder Fork (-Fork owner/repo),
+# Standardzweig setzen, Remote „public“ + kitchen.publicbranch eintragen. Danach: Update per normalem Push.
+
+function Invoke-Publish([string] $path) {
+    if (-not $path -or -not (Test-Path $path)) { Fail "Pfad fehlt: .\kitchen.ps1 publish <Repo-Ordner> [-Name xr.<name>] [-Fork owner/repo]" }
+    $top = (& git -C $path rev-parse --show-toplevel 2>$null)
+    if (-not $top) { Fail "'$path' ist kein Git-Repo." }
+    function RepoGit { & git -C $top @args 2>$null }
+    $login = (& gh api user -q .login 2>$null)
+    if (-not $login) { Fail "gh ist nicht angemeldet (gh auth login)." }
+
+    # 1. Vorbereiten und prüfen (eigener Prozess, damit ein Fehler hier sauber abbricht)
+    powershell -NoProfile -ExecutionPolicy Bypass -File $PSCommandPath publish-prepare $top
+    if ($LASTEXITCODE -ne 0) { Fail "publish-prepare ist nicht sauber – nichts veröffentlicht." }
+    $pub = (RepoGit rev-parse --verify -q "refs/heads/xr-public")
+    if (-not $pub) { Fail "Zweig xr-public fehlt." }
+
+    $pubUrl = (RepoGit remote get-url public)
+    if ($pubUrl) {
+        # 2. Update eines schon veröffentlichten Repos
+        $target = (RepoGit config kitchen.publicbranch); if (-not $target) { $target = "main" }
+        $null = RepoGit fetch -q public "+refs/heads/${target}:refs/remotes/public/$target"
+        $tip = (RepoGit rev-parse --verify -q "refs/remotes/public/$target")
+        if ($tip -eq $pub) { Write-Ok "Schon aktuell: $pubUrl ($target)"; return }
+        if ($tip) { & git -C $top merge-base --is-ancestor $tip $pub 2>$null; if ($LASTEXITCODE -ne 0) { Fail "public/$target ist kein Vorgänger von xr-public – dafür wäre ein Force-Push nötig (bewusst nicht automatisch)." } }
+        $what = "Update von $pubUrl (Zweig $target)"
+    } else {
+        # 3. Erstveröffentlichung
+        if (-not $Name) { Fail "Für die Erstveröffentlichung -Name angeben (Schema: xr.<name>, wie die App-ID)." }
+        $target = if ($Branch) { $Branch } elseif ($Fork) { "xr-quest" } else { "main" }
+        $pubUrl = "https://github.com/$login/$Name.git"
+        if (& gh repo view "$login/$Name" --json name 2>$null) { Fail "$login/$Name existiert schon – anderen Namen wählen oder als Remote 'public' eintragen." }
+        $what = if ($Fork) { "neuer öffentlicher Fork $login/$Name von $Fork (Zweig $target)" } else { "neues öffentliches Repo $login/$Name (Zweig $target)" }
+    }
+
+    Write-Host ""
+    Write-Host "Veröffentlichen: $what" -ForegroundColor Cyan
+    if (-not $Yes) {
+        if ([Console]::IsInputRedirected) { Fail "Ohne Rückfrage nur mit -Yes." }
+        if (-not (Read-YesNo "Jetzt öffentlich machen?")) { Write-Host (T 'aborted'); return }
+    }
+
+    if (-not (RepoGit remote get-url public)) {
+        if ($Fork) {
+            $null = & gh repo fork $Fork --fork-name $Name --clone=false 2>&1
+            for ($i = 0; $i -lt 30 -and -not (& gh repo view "$login/$Name" --json name 2>$null); $i++) { Start-Sleep -Seconds 4 }
+        } else {
+            $desc = if ($Description) { $Description } else { "Teil der XR-Port-Kitchen (Meta Quest)." }
+            $null = & gh repo create "$login/$Name" --public --description $desc 2>&1
+        }
+        if (-not (& gh repo view "$login/$Name" --json name 2>$null)) { Fail "Repo $login/$Name konnte nicht angelegt werden." }
+        $null = RepoGit remote add public $pubUrl
+        $null = RepoGit config kitchen.publicbranch $target
+    }
+    & git -C $top push public "refs/heads/xr-public:refs/heads/$target"
+    if ($LASTEXITCODE -ne 0) { Fail "Push fehlgeschlagen. (Flacher Klon? Dann nur in einen Fork des Originals pushbar: -Fork owner/repo)" }
+    $repoSlug = ($pubUrl -replace '^https://github.com/', '' -replace '\.git$', '')
+    $null = & gh repo edit $repoSlug --default-branch $target 2>&1
+    if ($Description -and $Fork) { $null = & gh repo edit $repoSlug --description $Description 2>&1 }
+    Write-Host ""
+    Write-Ok "Öffentlich: https://github.com/$repoSlug (Zweig $target)"
+    Write-Hint "Rezept ergänzen: port.repo = https://github.com/$repoSlug, port.branch = $target"
 }
 
 # --- Rezepte prüfen (lint) ------------------------------------------------
@@ -1253,6 +1360,7 @@ switch ($Command) {
     "lint"   { Invoke-Lint }
     "publish-check" { Invoke-PublishCheck $Recipe }
     "publish-prepare" { Invoke-PublishPrepare $Recipe $Name }
+    "publish" { Invoke-Publish $Recipe }
     "menu"   { Invoke-Menu }
     default  { Get-Help $PSCommandPath -Examples }
 }

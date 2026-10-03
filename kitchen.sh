@@ -15,6 +15,8 @@
 #   ./kitchen.sh lint                  # alle Rezepte auf Regeln prüfen
 #   ./kitchen.sh publish-check ../XR-OpenRA   # Repo vor dem Veröffentlichen prüfen
 #   ./kitchen.sh publish-prepare ../XR-OpenRA # bereinigten Zweig xr-public erzeugen + prüfen
+#   ./kitchen.sh publish ../XR-Foo --name xr.foo [--fork owner/repo]  # erstmals veröffentlichen
+#   ./kitchen.sh publish ../XR-CorsixTH       # Update eines veröffentlichten Repos
 #   --lang de | en                     # Sprache / language
 
 ROOT=$(cd "$(dirname "$0")" && pwd)
@@ -1145,6 +1147,25 @@ cmd_publish_prepare() {
         echo "  Kein Upstream – ein einzelner Commit ohne Vorgeschichte"
     fi
 
+    # Schon veröffentlicht (Remote public)? Dann wird der neue Stand ein Folge-Commit auf den
+    # veröffentlichten Zweig – ein normaler Push reicht, die Klone anderer bleiben gültig.
+    _pp_ptip=""; _pp_pbr=""
+    if pg remote get-url public >/dev/null; then
+        _pp_pbr=$(pg config kitchen.publicbranch)
+        [ -n "$_pp_pbr" ] || _pp_pbr=$(pg ls-remote --symref public HEAD | sed -n 's#^ref: refs/heads/\([^[:space:]]*\)[[:space:]]*HEAD#\1#p')
+        if [ -n "$_pp_pbr" ]; then
+            pg fetch -q public "+refs/heads/$_pp_pbr:refs/remotes/public/$_pp_pbr"
+            _pp_ptip=$(pg rev-parse --verify -q "refs/remotes/public/$_pp_pbr")
+        fi
+        # Nur auf Stände aufbauen, die selbst aus publish-prepare stammen (sonst bliebe alte Historie fest)
+        if [ -n "$_pp_ptip" ]; then
+            case "$(pg log -1 --format=%s "$_pp_ptip")" in
+                XR-Port:*) echo "  Veröffentlicht: public/$_pp_pbr @ $(printf '%s' "$_pp_ptip" | cut -c1-10) – neuer Stand wird ein Folge-Commit (Update)" ;;
+                *) warn "public/$_pp_pbr stammt nicht aus publish-prepare (alte Historie) – frischer Einzel-Commit; zum Ersetzen ist ein Force-Push nötig"; _pp_ptip="" ;;
+            esac
+        fi
+    fi
+
     # Submodule, die auf nur lokal vorhandene Commits zeigen
     _pp_subs=$(pg ls-tree -r HEAD | awk '$1 == "160000" { sub(/^[^\t]*\t/, ""); print }')
     _pp_subwarn=""; _pp_remaps=""
@@ -1196,22 +1217,35 @@ EOF
         rm -f "$_pp_idx" "$_pp_gm"
     fi
 
+    if [ -n "$_pp_ptip" ] && [ "$(pg rev-parse "$_pp_ptip^{tree}")" = "$_pp_tree" ]; then
+        ok "Keine Änderungen seit der letzten Veröffentlichung (public/$_pp_pbr) – nichts zu tun"
+        pg branch -f "$_pp_branch" "$_pp_ptip"
+        return 0
+    fi
+    # Eltern: Folge-Commit auf den veröffentlichten Stand (+ neuer Upstream als zweite Linie) oder Upstream-Basis
+    set --
+    if [ -n "$_pp_ptip" ]; then
+        set -- -p "$_pp_ptip"
+        if [ -n "$_pp_base" ] && ! git -C "$_pp_top" merge-base --is-ancestor "$_pp_base" "$_pp_ptip" 2>/dev/null; then set -- "$@" -p "$_pp_base"; fi
+    elif [ -n "$_pp_base" ]; then
+        set -- -p "$_pp_base"
+    fi
     _pp_msgf=$(mktemp)
     {
-        printf 'XR-Port: öffentlicher Stand von %s\n\n' "$(basename "$_pp_top")"
-        printf 'Alle eigenen Änderungen zusammengefasst in einem Commit (Stand %s).\n' "$(date +%Y-%m-%d)"
+        if [ -n "$_pp_ptip" ]; then
+            printf 'XR-Port: Update von %s (Stand %s)\n\n' "$(basename "$_pp_top")" "$(date +%Y-%m-%d)"
+            printf 'Änderungen seit der letzten Veröffentlichung zusammengefasst.\n'
+        else
+            printf 'XR-Port: öffentlicher Stand von %s\n\n' "$(basename "$_pp_top")"
+            printf 'Alle eigenen Änderungen zusammengefasst in einem Commit (Stand %s).\n' "$(date +%Y-%m-%d)"
+        fi
         if [ -n "$_pp_base" ]; then
-            set -- $_pp_up
-            printf 'Basis: %s @ %s\n' "$(pg remote get-url "$1")" "$(printf '%s' "$_pp_base" | cut -c1-12)"
+            _pp_first=${_pp_up# }; _pp_first=${_pp_first%% *}
+            printf 'Basis: %s @ %s\n' "$(pg remote get-url "$_pp_first")" "$(printf '%s' "$_pp_base" | cut -c1-12)"
         fi
     } > "$_pp_msgf"
-    if [ -n "$_pp_base" ]; then
-        _pp_new=$(GIT_AUTHOR_NAME=$_pp_name GIT_AUTHOR_EMAIL=$_pp_mail GIT_COMMITTER_NAME=$_pp_name GIT_COMMITTER_EMAIL=$_pp_mail \
-            git -C "$_pp_top" commit-tree "$_pp_tree" -p "$_pp_base" -F "$_pp_msgf")
-    else
-        _pp_new=$(GIT_AUTHOR_NAME=$_pp_name GIT_AUTHOR_EMAIL=$_pp_mail GIT_COMMITTER_NAME=$_pp_name GIT_COMMITTER_EMAIL=$_pp_mail \
-            git -C "$_pp_top" commit-tree "$_pp_tree" -F "$_pp_msgf")
-    fi
+    _pp_new=$(GIT_AUTHOR_NAME=$_pp_name GIT_AUTHOR_EMAIL=$_pp_mail GIT_COMMITTER_NAME=$_pp_name GIT_COMMITTER_EMAIL=$_pp_mail \
+        git -C "$_pp_top" commit-tree "$_pp_tree" "$@" -F "$_pp_msgf")
     rm -f "$_pp_msgf"
     [ -n "$_pp_new" ] || die "git commit-tree fehlgeschlagen."
     pg branch -f "$_pp_branch" "$_pp_new"
@@ -1227,6 +1261,67 @@ EOF
     if [ $_pp_code = 0 ] && [ -z "$_pp_subwarn" ]; then printf '%sBereit zum Veröffentlichen: Zweig %s%s\n' "$C_OK" "$_pp_branch" "$C_END"
     elif [ $_pp_code = 0 ]; then printf '%sZweig %s ist sauber, aber Submodule müssen zuerst veröffentlicht werden (siehe oben).%s\n' "$C_WARN" "$_pp_branch" "$C_END"
     else printf '%sZweig %s ist noch NICHT veröffentlichungsfähig – Fehler oben beheben, committen, erneut vorbereiten.%s\n' "$C_BAD" "$_pp_branch" "$C_END"; exit 1; fi
+}
+
+# --- Veröffentlichen (publish) --------------------------------------------
+# publish-prepare + Push. Erstveröffentlichung: neues Repo (gh repo create) oder Fork (--fork owner/repo),
+# Standardzweig setzen, Remote public + kitchen.publicbranch eintragen. Danach: Update per normalem Push.
+
+cmd_publish() {
+    [ -n "$1" ] && [ -e "$1" ] || die "Pfad fehlt: ./kitchen.sh publish <Repo-Ordner> [--name xr.<name>] [--fork owner/repo]"
+    _pu_top=$(git -C "$1" rev-parse --show-toplevel 2>/dev/null) || die "'$1' ist kein Git-Repo."
+    pug() { git -C "$_pu_top" "$@" 2>/dev/null; }
+    _pu_login=$(gh api user -q .login 2>/dev/null)
+    [ -n "$_pu_login" ] || die "gh ist nicht angemeldet (gh auth login)."
+
+    sh "$0" publish-prepare "$_pu_top" || die "publish-prepare ist nicht sauber – nichts veröffentlicht."
+    _pu_pub=$(pug rev-parse --verify -q refs/heads/xr-public)
+    [ -n "$_pu_pub" ] || die "Zweig xr-public fehlt."
+
+    _pu_url=$(pug remote get-url public)
+    if [ -n "$_pu_url" ]; then
+        _pu_target=$(pug config kitchen.publicbranch); [ -n "$_pu_target" ] || _pu_target=main
+        pug fetch -q public "+refs/heads/$_pu_target:refs/remotes/public/$_pu_target"
+        _pu_tip=$(pug rev-parse --verify -q "refs/remotes/public/$_pu_target")
+        [ "$_pu_tip" != "$_pu_pub" ] || { ok "Schon aktuell: $_pu_url ($_pu_target)"; return 0; }
+        if [ -n "$_pu_tip" ] && ! git -C "$_pu_top" merge-base --is-ancestor "$_pu_tip" "$_pu_pub" 2>/dev/null; then
+            die "public/$_pu_target ist kein Vorgänger von xr-public – dafür wäre ein Force-Push nötig (bewusst nicht automatisch)."
+        fi
+        _pu_what="Update von $_pu_url (Zweig $_pu_target)"; _pu_new=0
+    else
+        [ -n "$P_NAME" ] || die "Für die Erstveröffentlichung --name angeben (Schema: xr.<name>, wie die App-ID)."
+        if [ -n "$P_BRANCH" ]; then _pu_target=$P_BRANCH; elif [ -n "$P_FORK" ]; then _pu_target=xr-quest; else _pu_target=main; fi
+        _pu_url="https://github.com/$_pu_login/$P_NAME.git"
+        gh repo view "$_pu_login/$P_NAME" --json name >/dev/null 2>&1 && die "$_pu_login/$P_NAME existiert schon – anderen Namen wählen oder als Remote 'public' eintragen."
+        if [ -n "$P_FORK" ]; then _pu_what="neuer öffentlicher Fork $_pu_login/$P_NAME von $P_FORK (Zweig $_pu_target)"
+        else _pu_what="neues öffentliches Repo $_pu_login/$P_NAME (Zweig $_pu_target)"; fi
+        _pu_new=1
+    fi
+
+    echo; printf '%sVeröffentlichen: %s%s\n' "$C_HEAD" "$_pu_what" "$C_END"
+    if [ "$P_YES" != 1 ]; then
+        [ -t 0 ] || die "Ohne Rückfrage nur mit --yes."
+        ask_yes "Jetzt öffentlich machen?" || { T aborted; echo; return 0; }
+    fi
+
+    if [ $_pu_new = 1 ]; then
+        if [ -n "$P_FORK" ]; then
+            gh repo fork "$P_FORK" --fork-name "$P_NAME" --clone=false >/dev/null 2>&1
+            _pu_i=0; while [ $_pu_i -lt 30 ] && ! gh repo view "$_pu_login/$P_NAME" --json name >/dev/null 2>&1; do sleep 4; _pu_i=$((_pu_i + 1)); done
+        else
+            gh repo create "$_pu_login/$P_NAME" --public --description "${P_DESC:-Teil der XR-Port-Kitchen (Meta Quest).}" >/dev/null 2>&1
+        fi
+        gh repo view "$_pu_login/$P_NAME" --json name >/dev/null 2>&1 || die "Repo $_pu_login/$P_NAME konnte nicht angelegt werden."
+        pug remote add public "$_pu_url"
+        pug config kitchen.publicbranch "$_pu_target"
+    fi
+    git -C "$_pu_top" push public "refs/heads/xr-public:refs/heads/$_pu_target" ||
+        die "Push fehlgeschlagen. (Flacher Klon? Dann nur in einen Fork des Originals pushbar: --fork owner/repo)"
+    _pu_slug=$(printf '%s' "$_pu_url" | sed 's#^https://github.com/##; s#\.git$##')
+    gh repo edit "$_pu_slug" --default-branch "$_pu_target" >/dev/null 2>&1
+    [ -n "$P_DESC" ] && [ -n "$P_FORK" ] && gh repo edit "$_pu_slug" --description "$P_DESC" >/dev/null 2>&1
+    echo; ok "Öffentlich: https://github.com/$_pu_slug (Zweig $_pu_target)"
+    hint "Rezept ergänzen: port.repo = https://github.com/$_pu_slug, port.branch = $_pu_target"
 }
 
 # --- Aufruf ---------------------------------------------------------------
@@ -1261,6 +1356,19 @@ case "$_cmd" in
     menu) cmd_menu ;;
     publish-check) cmd_publish_check "$1" ;;
     publish-prepare) cmd_publish_prepare "$1" "$2" ;;
+    publish)
+        _repo=$1; [ $# -gt 0 ] && shift; P_NAME=""; P_FORK=""; P_BRANCH=""; P_DESC=""; P_YES=0
+        while [ $# -gt 0 ]; do
+            case "$1" in
+                --name) P_NAME=$2; shift ;;
+                --fork) P_FORK=$2; shift ;;
+                --branch) P_BRANCH=$2; shift ;;
+                --description) P_DESC=$2; shift ;;
+                --yes) P_YES=1 ;;
+            esac
+            shift
+        done
+        cmd_publish "$_repo" ;;
     push)
         _id=$1; [ $# -gt 0 ] && shift; _src=""; P_NAME=""; P_APP=""; P_SERIAL=""; P_REPLACE=0; P_DRY=0
         while [ $# -gt 0 ]; do
@@ -1275,5 +1383,5 @@ case "$_cmd" in
             shift
         done
         cmd_push "$_id" "$_src" ;;
-    *) sed -n '2,18p' "$0" ;;
+    *) sed -n '2,20p' "$0" ;;
 esac
