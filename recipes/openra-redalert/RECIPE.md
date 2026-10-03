@@ -18,7 +18,7 @@ Es gibt noch **keine weitergebbare APK** (REL-001). Heute heißt der Weg deshalb
 mit einem Doppelklick.
 
 1. Git installieren (Windows: Git Bash wird gebraucht).
-2. Port-Repo klonen und `Quest-Build.cmd` doppelklicken. Der erste Lauf dauert 15–40 Minuten und
+2. Port-Repo [OpenRA-Quest](https://github.com/friedensbringer-peacemaker/OpenRA-Quest) klonen und `Quest-Build.cmd` doppelklicken. Der erste Lauf dauert 15–40 Minuten und
    lädt ca. 6 GB Werkzeuge nach `.toolchains/` (ohne Admin-Rechte).
 3. Mit angeschlossener Quest installiert das Skript die App und spielt die Daten ein. Einzeln
    geht das auch mit `.\kitchen.ps1 push openra-redalert Artifacts\content\ra-quickinstall.zip`
@@ -41,6 +41,12 @@ Dune 2000 und Tiberian Sun sind nur per YAML-Lint geprüft.
 
 <details>
 <summary><b>Aus dem Quellcode bauen</b></summary>
+
+Quellcode (öffentlich, Fork von OpenRA): [OpenRA-Quest](https://github.com/friedensbringer-peacemaker/OpenRA-Quest), Zweig `xr-openra`
+
+```bash
+git clone -b xr-openra https://github.com/friedensbringer-peacemaker/OpenRA-Quest.git
+```
 
 Küchengeräte: JDK 17, .NET SDK 10 mit Android-Workload, Android Platform 36, Build-Tools 36,
 NDK 27.0.12077973, CMake 3.22.1 + Ninja, adb. `quest/setup-toolchains.sh` holt alles selbst.
@@ -81,4 +87,4 @@ APK: `Artifacts/xr-openra-quest3.apk`. `build.sh` prüft Manifest, `.so`-Liste u
 - Eine gebaute APK mit importierten Daten nicht weitergeben.
 </details>
 
-Port-Repo: `<XR-Ordner>/XR-OpenRA` (Branch `xr-openra`) · Build-Doku: `docs/xr/BUILD-QUEST.md`
+Port-Repo: [OpenRA-Quest](https://github.com/friedensbringer-peacemaker/OpenRA-Quest) (Zweig `xr-openra`) · Build-Doku: `docs/xr/BUILD-QUEST.md`
