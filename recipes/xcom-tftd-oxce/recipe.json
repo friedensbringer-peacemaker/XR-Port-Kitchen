@@ -64,7 +64,7 @@
     }
   ],
   "port": {
-    "repo": "lokal (Zweige nicht veröffentlicht, REL-001)",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.openxcom",
     "branch": "xr-quest",
     "local_path": "<XR-Ordner>/XR-OpenXcom/fanport/OpenXcom-Android"
   },
@@ -76,7 +76,7 @@
   },
   "effort": {
     "with_apk": "15–30 min",
-    "from_source": "1–2 h plus ~12 min erster Build; derzeit nur mit lokalem Zugriff auf die Zweige",
+    "from_source": "1–2 h plus ~12 min erster Build",
     "with_apk_en": "15–30 min"
   },
   "ingredients": {

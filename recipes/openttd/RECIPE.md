@@ -44,6 +44,12 @@ auf der Quest ist das noch nicht geprüft.
 <details>
 <summary><b>Aus dem Quellcode bauen</b></summary>
 
+Quellcode (öffentlich): [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) mit der Engine als Submodul [xr.openttd-engine](https://github.com/friedensbringer-peacemaker/xr.openttd-engine) (Fork von OpenTTD, Zweig `xr-quest`)
+
+```bash
+git clone --recurse-submodules https://github.com/friedensbringer-peacemaker/xr.openttd.git
+```
+
 Küchengeräte: JDK 17, Android Platform 34, NDK 30.0.16248370, CMake 3.31.6 (aus dem SDK),
 Gradle-Wrapper 8.11.1. Unter Windows zusätzlich llvm-mingw für die Host-Werkzeuge.
 
@@ -56,9 +62,11 @@ APK: `android/build/outputs/apk/debug/XR-OpenTTD-<versionName>-debug.apk`. Prüf
 `tools/apk-gate.sh` (Paket, keine Originaldaten), `tools/tests/run.sh`,
 `tools/quest-smoke-test.sh --install <apk>`.
 
-**Hinweis:** Der Engine-Fork (Zweig `xr-quest`) ist noch nicht veröffentlicht (REPO-001), und
-die OpenXR-Loader-`.so` wird aus XR-Settlers2.5 kopiert. Für Dritte ist ein Bau im Moment also
-nicht möglich.
+**Hinweis (offener Punkt):** Die OpenXR-Loader-`libopenxr_loader.so` liegt nicht im Repo, und
+`third_party/openxr/README.md` nennt bisher nur den Weg über den (privaten) Siedler-Port. Für alle
+zugänglich ist der offizielle Loader von Khronos (Apache-2.0): das Maven-Paket
+`org.khronos.openxr:openxr_loader_for_android:1.1.58` – die `.so` für `arm64-v8a` aus dem AAR
+nehmen und nach `third_party/openxr/lib/arm64-v8a/` legen. Ein Skript dafür fehlt noch.
 </details>
 
 <details>
@@ -72,7 +80,7 @@ nicht möglich.
 | S4 Schnellmenü, Passthrough, Bildschärfe | TEST.md 1–12 im Headset | 🟨 preview.10 gebaut |
 | S5 Stabilität, Spielstände | Spielstand übersteht Beenden | 🟨 Fixes gebaut |
 | S6 Tisch / Modellbahn-Diorama | Karte als Tisch im Raum | ⬜ UX-004 |
-| S7 Veröffentlichung | APK und Quellcode öffentlich | ⛔ REPO-001, REL-001 |
+| S7 Quellcode veröffentlichen | Quellcode öffentlich, Selbstbau möglich | ✅ 2026-10-03 (die APK baut jeder selbst) |
 </details>
 
 <details>
@@ -95,4 +103,4 @@ Die freien Pakete dürfen in die APK, Originaldaten nie (`apk-gate.sh` prüft da
 der Engine zum Apache-2.0-Loader von OpenXR passt, muss vor einer Veröffentlichung geklärt werden
 (REL-001).
 
-Port-Ordner: `<XR-Ordner>/XR-OpenTTD` (Engine: `engine/OpenTTD`, Zweig `xr-quest`) · Tests: `TEST.md`
+Port-Repo: [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) · Engine: [xr.openttd-engine](https://github.com/friedensbringer-peacemaker/xr.openttd-engine) (Zweig `xr-quest`) · Tests: `TEST.md`

@@ -41,17 +41,22 @@ Quest-Speicher unterscheidet nicht zwischen Groß- und Kleinschreibung.
 <details>
 <summary><b>Aus dem Quellcode bauen</b></summary>
 
+Quellcode (öffentlich): [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) (Fork von OpenXcom-Android) mit dem Spielcode als Submodul [xr.openxcom-engine](https://github.com/friedensbringer-peacemaker/xr.openxcom-engine) (Fork von OXCE), jeweils Zweig `xr-quest`
+
+```bash
+git clone --recurse-submodules -b xr-quest https://github.com/friedensbringer-peacemaker/xr.openxcom.git
+```
+
 Küchengeräte: JDK 17, Android Platform 35, NDK 30.0.16248370, CMake, Gradle-Wrapper 9.3.1
 (AGP 9.1.1).
 
 ```bash
-cd fanport/OpenXcom-Android
+cd xr.openxcom
 ./gradlew assembleDebug          # in Git Bash OHNE MSYS_NO_PATHCONV
-bash ../../quest/qs-all.sh       # Gate → Unit-Tests auf der Quest → install → Selbsttest
 ```
 
-APK: `app/build/outputs/apk/debug/app-debug.apk`. Die XR-Zweige sind noch nicht veröffentlicht
-(REL-001). Für Dritte ist ein Bau im Moment also nicht möglich.
+APK: `app/build/outputs/apk/debug/app-debug.apk`. Installieren und Spieldaten übertragen erledigt
+die Küchenhilfe (`kitchen push xcom-tftd-oxce <TFTD-Ordner>`).
 </details>
 
 <details>
@@ -79,4 +84,4 @@ APK: `app/build/outputs/apk/debug/app-debug.apk`. Die XR-Zweige sind noch nicht 
 - Testen ohne Brille: `adb shell am broadcast -a com.oculus.vrpowermanager.prox_close`.
 </details>
 
-Port-Ordner: `<XR-Ordner>/XR-OpenXcom` (Fan-Port: `fanport/OpenXcom-Android`, Zweig `xr-quest`)
+Port-Repo: [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) · Spielcode: [xr.openxcom-engine](https://github.com/friedensbringer-peacemaker/xr.openxcom-engine) (jeweils Zweig `xr-quest`)
