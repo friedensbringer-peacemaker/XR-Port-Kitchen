@@ -1,0 +1,208 @@
+{
+  "id": "warcraft1-war1gus",
+  "title": "Warcraft: Orcs & Humans via War1gus + Stratagus",
+  "title_en": "Warcraft: Orcs & Humans via War1gus + Stratagus",
+  "status": "in-progress",
+  "last_verified": "gebaut (0.3.0-xr), weder installiert noch gestartet",
+  "app": {
+    "id": "xr.wargus1",
+    "label": "xr.wargus1",
+    "version": "0.3.0-xr"
+  },
+  "game": {
+    "name": "Warcraft: Orcs & Humans",
+    "name_en": "Warcraft: Orcs & Humans",
+    "platform": "PC/DOS",
+    "year": 1994,
+    "rights_holder": "Blizzard Entertainment",
+    "buy": [
+      "GOG",
+      "Original-CD"
+    ]
+  },
+  "base": [
+    {
+      "name": "Stratagus",
+      "url": "https://github.com/Wargus/stratagus",
+      "license": "GPL-2.0",
+      "role": "Engine",
+      "ref": "master @ 3d87c93f7 (2026-06-22)"
+    },
+    {
+      "name": "War1gus",
+      "url": "https://github.com/Wargus/war1gus",
+      "license": "GPL-2.0",
+      "role": "Spielmodul und Datenkonverter war1tool",
+      "ref": "master @ 8ec75764c (2026-06-22)"
+    },
+    {
+      "name": "SDL2, SDL_image, SDL_mixer",
+      "url": "https://github.com/libsdl-org",
+      "license": "Zlib",
+      "role": "Plattform",
+      "ref": "2.32.10 / 2.8.12 / 2.8.2"
+    },
+    {
+      "name": "TiMidity + Freepats",
+      "url": "https://freepats.zenvoid.org",
+      "license": "GPL-2.0 / siehe Freepats",
+      "role": "MIDI-Musik"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.58"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.wargus",
+    "branch": "main",
+    "local_path": "<XR-Ordner>/XR-Stratagus"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 4,
+    "base_maturity": 3,
+    "note": "Gleiche Engine, XR-Schicht und App-Gerüst wie Warcraft II (zweite App aus demselben Build). War1gus ist etwas weniger ausgereift als Wargus; die Daten werden am PC mit war1tool umgewandelt."
+  },
+  "effort": {
+    "with_apk": "30–60 min (war1tool-Umwandlung am PC)",
+    "with_apk_en": "30–60 min (war1tool conversion on the PC)",
+    "from_source": "wie Warcraft II – ein Build liefert beide Apps"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Ordner deiner Warcraft-I-Installation (GOG oder DOS-CD) – dort liegt DATA/DATA.WAR",
+      "required": [
+        "DATA/DATA.WAR"
+      ],
+      "device_path": "/sdcard/Android/data/xr.wargus1/files/data.War1gus/",
+      "transfer": "Umwandeln: scripts/prepare-data-war1.sh <Spielordner> im Port-Repo → war1gus-quest/; Übertragen: kitchen push warcraft1-war1gus <…>/war1gus-quest",
+      "hint_en": "Folder of your Warcraft I installation (GOG or DOS CD) – contains DATA/DATA.WAR"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/data.War1gus",
+      "exclude": [
+        "*.mpq",
+        "*.MPQ",
+        "*.war",
+        "*.WAR",
+        "*.exe",
+        "*.EXE",
+        "*.dll",
+        "*.DLL"
+      ],
+      "verify": [
+        "scripts/stratagus.lua",
+        "extracted"
+      ],
+      "note": "Quelle ist der umgewandelte Ordner war1gus-quest aus prepare-data-war1.sh, nicht der Spielordner.",
+      "note_en": "The source is the converted war1gus-quest folder from prepare-data-war1.sh, not the game folder.",
+      "prepare": "Daten am PC umwandeln (im Port-Repo xr.wargus, Git Bash): bash scripts/prepare-data-war1.sh \"<Spielordner>\". Das Skript holt die War1gus-Skripte, wandelt Grafik, Töne, Karten und Videos mit war1tool um (ffmpeg nötig) und legt war1gus-quest an (~93 MB).",
+      "prepare_en": "Convert the data on the PC (in the port repo xr.wargus, Git Bash): bash scripts/prepare-data-war1.sh \"<game folder>\". The script fetches the War1gus scripts, converts graphics, sounds, maps and videos with war1tool (needs ffmpeg) and creates war1gus-quest (~93 MB)."
+    },
+    "modules": [
+      "quest-tools",
+      "openxr-videodriver-pattern",
+      "vr-menu-pflicht"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "ffmpeg"
+    },
+    {
+      "id": "cmake"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "Zweite App aus demselben Build",
+      "actions": [
+        "Flavor war1gus (android/build.gradle)",
+        "Spielpaket wird zur Laufzeit nach der App-ID gewählt"
+      ],
+      "done_when": "XR-War1gus-debug.apk gebaut",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "0.3.0-xr"
+    },
+    {
+      "id": "S2",
+      "title": "Daten umwandeln",
+      "actions": [
+        "scripts/prepare-data-war1.sh <Spielordner>"
+      ],
+      "done_when": "war1gus-quest mit Marker extracted",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "93 MB, lokal"
+    },
+    {
+      "id": "S3",
+      "title": "Erster Start auf der Quest",
+      "actions": [
+        "installieren, Daten übertragen, starten"
+      ],
+      "done_when": "Hauptmenü im VR-Fenster (TEST.md, Abschnitt War1gus)",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S4",
+      "title": "Bedienung",
+      "actions": [
+        "Kanten-Scrollen aus (macht das Datenskript)",
+        "VR-taugliche Auflösungen 640×400/800×500/960×600"
+      ],
+      "done_when": "Partie mit Controllern spielbar",
+      "automatable": "manual",
+      "status": "open"
+    }
+  ],
+  "xr_modes": {
+    "screen": "partial",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Bei War1gus ist Kanten-Scrollen fest an – das Datenskript schaltet es ab",
+    "Nur VR-taugliche Auflösungen anbieten (640×400, 800×500, 960×600)",
+    "Alles Weitere wie bei Warcraft II (gleiche Engine und XR-Schicht)"
+  ],
+  "legal": [
+    "war1tool wandelt nur die eigene Kopie um; das Ergebnis bleibt privat",
+    "Keine Blizzard-Marken in App-Name oder Icon (xr.wargus1)"
+  ],
+  "links": {
+    "Port-Repo": "https://github.com/friedensbringer-peacemaker/xr.wargus"
+  }
+}

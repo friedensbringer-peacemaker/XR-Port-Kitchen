@@ -138,7 +138,8 @@ runs, because its own adb conflicts with the kitchen's).
 | [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) | 🟢 im Headset gespielt |
 | [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) | 🟢 im Headset gespielt |
 | [**X-COM: Terror from the Deep**](recipes/xcom-tftd-oxce/RECIPE.md) | OpenXcom Extended | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) | 🟢 im Headset gespielt |
-| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | folgt | 🟡 Menü im Headset, VR-Fassung in Arbeit |
+| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 Menü im Headset, VR-Fassung in Arbeit |
+| [**Warcraft: Orcs & Humans**](recipes/warcraft1-war1gus/RECIPE.md) | War1gus + Stratagus | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 gebaut, noch nicht im Headset |
 | [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | 🟡 in Arbeit |
 
 🟢 im Headset geprüft · 🟡 in Arbeit · Die Sterne bewerten Portierbarkeit und XR-Potenzial
@@ -192,7 +193,7 @@ mit **X**:
      3  [ ]  DOS-Spiele via XRShell + DOSBox Pure (Beispiel: Theme Park)  …
      4  [X]  Theme Hospital via CorsixTH  ✓
      …
-  2 von 7 ausgewählt
+  2 von 8 ausgewählt
 ```
 
 Windows: **↑/↓** bewegen, **Leertaste** oder **X** an-/abwählen, **A** alle, **Enter** los.
@@ -391,7 +392,7 @@ Die Arbeitsregeln für Agenten stehen in [AGENTS.md](AGENTS.md).
 Version 0.4 (2026-10-03):
 - Assistent auf Deutsch und Englisch, der Schritt für Schritt durch ein Rezept führt
 - `publish-check` und `publish-prepare` für Port-Repos vor der Veröffentlichung
-- sieben Rezepte, `lint`
+- acht Rezepte, `lint`
 - [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md) über alle Ports hinweg
 
 Version 0.2 (2026-10-02):

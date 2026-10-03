@@ -5,8 +5,8 @@
   "status": "in-progress",
   "last_verified": "2026-09-27 headset (0.1.0-s1: flache Panel-App bis ins Menü); OpenXR-Versionen ab 0.2.x gebaut, 0.2.0–0.2.2 stürzten ab bzw. hingen, Fixes ungeprüft",
   "app": {
-    "id": "xr.stratagus",
-    "label": "xr.stratagus",
+    "id": "xr.wargus2",
+    "label": "xr.wargus2",
     "version": "0.3.0-xr"
   },
   "game": {
@@ -57,8 +57,8 @@
     }
   ],
   "port": {
-    "repo": "lokal",
-    "branch": "war1gus",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.wargus",
+    "branch": "main",
     "local_path": "<XR-Ordner>/XR-Stratagus"
   },
   "ratings": {
@@ -83,7 +83,7 @@
           "DATA/REZDAT.WAR"
         ]
       ],
-      "device_path": "/sdcard/Android/data/xr.stratagus/files/data.Wargus/ (Spielstände getrennt unter files/user/)",
+      "device_path": "/sdcard/Android/data/xr.wargus2/files/data.Wargus/ (Spielstände getrennt unter files/user/)",
       "transfer": "Umwandeln: bash scripts/prepare-data.sh <Spielordner> im Port-Repo → wargus-quest/; Übertragen: kitchen push warcraft2-wargus <…>/wargus-quest",
       "hint_en": "Folder of your installed Warcraft II Battle.net Edition (GOG) – contains War2Dat.mpq and Install.mpq. DOS CD: folder with DATA/REZDAT.WAR"
     },
@@ -230,13 +230,12 @@
     "stb_vorbis spielt Theora-Videos ohne Ton → vorbisfile",
     "Stratagus reagiert nur auf SDL_QUIT → bei SDL_APP_TERMINATING sofort beenden",
     "Fokus-Events und PauseOnLeave ließen das Spiel hängen (0.2.3, ungeprüft)",
-    "Log-Ordner verliert das Setgid-Bit → Logs für adb unlesbar",
-    "In version.properties steht nicht committet 0.2.6-xr bei gleichem versionCode wie 0.3.0-xr – vor dem nächsten Build klären"
+    "Log-Ordner verliert das Setgid-Bit → Logs für adb unlesbar"
   ],
   "legal": [
     "wartool wandelt nur die eigene Kopie um; das Ergebnis bleibt privat und wird nie weitergegeben",
     "Original-Archive (.mpq/.war), Programme und DLLs werden nicht auf die Quest übertragen",
-    "Keine Blizzard-Marken in App-Name oder Icon (xr.stratagus)"
+    "Keine Blizzard-Marken in App-Name oder Icon (xr.wargus2)"
   ],
   "links": {
     "Build": "<XR-Ordner>/XR-Stratagus/docs/BUILD.md",

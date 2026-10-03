@@ -3,8 +3,8 @@
 **Portierbarkeit ★★★★☆ · XR-Potenzial ★★★★☆ · Reife der Basis ★★★★☆**
 Stand: in Arbeit. Als flache Panel-App lief es am 2026-09-27 im Headset bis ins Hauptmenü
 (0.1.0-s1). Die OpenXR-Versionen ab 0.2 sind gebaut: 0.2.0 bis 0.2.2 stürzten ab bzw. hingen,
-die Fixes sind noch ungeprüft. App `xr.stratagus`; War1gus (Warcraft I) kommt als zweite App
-`xr.war1gus` dazu.
+die Fixes sind noch ungeprüft. App `xr.wargus2`; Warcraft I gibt es als zweite App `xr.wargus1` aus demselben Repo
+(eigenes Rezept: [warcraft1-war1gus](../warcraft1-war1gus/RECIPE.md)).
 
 **Stratagus** ist eine freie RTS-Engine, **Wargus** das Spielmodul für Warcraft II samt dem
 Konverter **wartool**, der die eigene Kopie in ein freies Format umwandelt. Beide pflegt die
@@ -30,7 +30,7 @@ Du brauchst die **Warcraft II Battle.net Edition** (GOG) oder die Original-CD.
    ```powershell
    .\kitchen.ps1 push warcraft2-wargus "<…>\wargus-quest"
    ```
-5. In der Brille `xr.stratagus` starten.
+5. In der Brille `xr.wargus2` starten.
 
 <details>
 <summary><b>Zutaten im Detail</b></summary>
@@ -38,7 +38,7 @@ Du brauchst die **Warcraft II Battle.net Edition** (GOG) oder die Original-CD.
 | Zutat | Herkunft | Ziel auf der Quest |
 |---|---|---|
 | Spielordner mit `War2Dat.mpq`, `Install.mpq` (BNE) oder `DATA/REZDAT.WAR` (DOS-CD) | eigene Kopie | bleibt am PC |
-| `wargus-quest/` (Ordner `graphics`, `sounds`, `music`, `videos`, `scripts`, `maps`, `campaigns`, `timidity`, Marker `extracted`) | Ergebnis von `prepare-data.sh` | `/sdcard/Android/data/xr.stratagus/files/data.Wargus/` |
+| `wargus-quest/` (Ordner `graphics`, `sounds`, `music`, `videos`, `scripts`, `maps`, `campaigns`, `timidity`, Marker `extracted`) | Ergebnis von `prepare-data.sh` | `/sdcard/Android/data/xr.wargus2/files/data.Wargus/` |
 | Spielstände, Einstellungen | entstehen beim Spielen | `files/user/` (bleibt bei `-Replace`) |
 | TiMidity + Freepats | frei, von `prepare-data.sh` beigelegt | im Datenordner |
 
@@ -48,6 +48,12 @@ Daten.
 
 <details>
 <summary><b>Aus dem Quellcode bauen (2–4 h)</b></summary>
+
+Quellcode (öffentlich): [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) – baut beide Apps (`xr.wargus2`, `xr.wargus1`)
+
+```bash
+git clone --recurse-submodules https://github.com/friedensbringer-peacemaker/xr.wargus.git
+```
 
 Küchengeräte: JDK 17, Android Platform 34, NDK 30.0.16248370, CMake 3.31.6 (Stratagus verlangt
 ≥ 3.25), Gradle-Wrapper 8.11.1, ffmpeg, 7z. Windows zusätzlich llvm-mingw (ucrt-x86_64) für
@@ -100,4 +106,4 @@ APK: `android/build/outputs/apk/stratagus/debug/XR-Stratagus-debug.apk`.
 wartool wandelt nur die eigene Kopie um. Das Ergebnis bleibt privat und wird nie weitergegeben.
 Keine Blizzard-Marken in App-Name oder Icon.
 
-Port-Ordner: `<XR-Ordner>/XR-Stratagus` · Build: `docs/BUILD.md` · Roadmap: `docs/ROADMAP.md`
+Port-Repo: [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) · Build: `docs/BUILD.md` · Roadmap: `docs/ROADMAP.md`
