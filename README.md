@@ -131,15 +131,15 @@ runs, because its own adb conflicts with the kitchen's).
 
 ## Rezepte
 
-| Rezept | Aufbauend auf | Portierbarkeit | XR-Potenzial | Originalspiel nötig? | Stand |
-|---|---|:---:|:---:|---|---|
-| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | 🟢 im Headset spielbar |
-| [**Command & Conquer: Alarmstufe Rot**](recipes/openra-redalert/RECIPE.md) | OpenRA | ★★★☆☆ | ★★★★★ | nein – Freeware-Daten | 🟢 läuft, VR-Funktionen in Abnahme |
-| [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | 🟢 im Headset gespielt |
-| [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | 🟢 im Headset gespielt |
-| [**X-COM: Terror from the Deep**](recipes/xcom-tftd-oxce/RECIPE.md) | OpenXcom Extended | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | 🟢 im Headset gespielt |
-| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | 🟡 Menü im Headset, VR-Fassung in Arbeit |
-| [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | 🟡 in Arbeit |
+| Rezept | Aufbauend auf | Portierbarkeit | XR-Potenzial | Originalspiel nötig? | Port-Code | Stand |
+|---|---|:---:|:---:|---|---|---|
+| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | folgt | 🟢 im Headset spielbar |
+| [**Command & Conquer: Alarmstufe Rot**](recipes/openra-redalert/RECIPE.md) | OpenRA | ★★★☆☆ | ★★★★★ | nein – Freeware-Daten | [xr.openra](https://github.com/friedensbringer-peacemaker/xr.openra) | 🟢 läuft, VR-Funktionen in Abnahme |
+| [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) | 🟢 im Headset gespielt |
+| [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) | 🟢 im Headset gespielt |
+| [**X-COM: Terror from the Deep**](recipes/xcom-tftd-oxce/RECIPE.md) | OpenXcom Extended | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) | 🟢 im Headset gespielt |
+| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | folgt | 🟡 Menü im Headset, VR-Fassung in Arbeit |
+| [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | 🟡 in Arbeit |
 
 🟢 im Headset geprüft · 🟡 in Arbeit · Die Sterne bewerten Portierbarkeit und XR-Potenzial
 getrennt (siehe [Bewertung](#bewertung-zwei-achsen-statt-einer-note)). „Im Headset gespielt“
