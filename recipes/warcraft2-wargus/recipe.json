@@ -61,6 +61,19 @@
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Stratagus"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.wargus",
+    "branch": "main",
+    "submodules": true,
+    "steps": [
+      "bash scripts/build-native.sh",
+      "cd android",
+      "./gradlew assembleStratagusDebug"
+    ],
+    "apk": "android/build/outputs/apk/stratagus/debug/*.apk",
+    "note": "Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet. Unter Windows zusätzlich llvm-mingw für die Host-Werkzeuge (siehe Rezept).",
+    "note_en": "Not yet tested from a fresh clone on another computer. On Windows, llvm-mingw is also needed for the host tools (see recipe)."
+  },
   "ratings": {
     "portability": 4,
     "xr_potential": 4,

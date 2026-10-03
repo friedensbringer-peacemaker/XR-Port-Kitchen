@@ -55,6 +55,17 @@
     "branch": "xr-openra",
     "local_path": "<XR-Ordner>/XR-OpenRA"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.openra",
+    "branch": "xr-openra",
+    "submodules": false,
+    "steps": [
+      "bash quest/all.sh --no-install"
+    ],
+    "apk": "Artifacts/xr-openra-quest3.apk",
+    "note": "Lädt beim ersten Lauf ca. 6 GB Werkzeuge nach .toolchains/ (ohne Admin-Rechte). Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "Downloads about 6 GB of tools into .toolchains/ on the first run (no admin rights needed). Not yet tested from a fresh clone on another computer."
+  },
   "ratings": {
     "portability": 3,
     "xr_potential": 5,

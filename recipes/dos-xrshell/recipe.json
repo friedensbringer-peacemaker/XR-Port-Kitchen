@@ -45,6 +45,18 @@
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
+    "branch": "main",
+    "submodules": false,
+    "steps": [
+      "cd android",
+      "./gradlew assembleShellDebug"
+    ],
+    "apk": "android/build/outputs/apk/shell/debug/*.apk",
+    "note": "Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "Not yet tested from a fresh clone on another computer."
+  },
   "ratings": {
     "portability": 5,
     "xr_potential": 2,

@@ -69,6 +69,17 @@
     "branch": "xr-quest",
     "local_path": "<XR-Ordner>/XR-CorsixTH"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.corsixth",
+    "branch": "xr-quest",
+    "submodules": false,
+    "steps": [
+      "bash quest/all.sh --no-install"
+    ],
+    "apk": "Artifacts/xr-corsixth-quest3.apk",
+    "note": "Der erste Lauf lädt Abhängigkeiten (SDL3, Lua, FFmpeg) und dauert lange. Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "The first run downloads dependencies (SDL3, Lua, FFmpeg) and takes a long time. Not yet tested from a fresh clone on another computer."
+  },
   "ratings": {
     "portability": 4,
     "xr_potential": 4,

@@ -39,13 +39,17 @@ Auftrag wie „Führe Rezept `settlers2-rttr` bis Stufe S4 aus“:
 3. Bewertung ehrlich trennen: `portability`, `xr_potential` und `base_maturity` je 1–5,
    mit Begründung in `ratings.note`.
 4. `kitchen.ps1 list` und `show <id>` müssen das Rezept fehlerfrei anzeigen.
+5. Sobald der Port-Code öffentlich ist: `port.repo` setzen und `build` ergänzen (`repo`, `branch`,
+   `submodules`, `steps` als Shell-Befehle im Repo-Ordner, `apk` als Muster relativ zum Repo,
+   `note`/`note_en`). `kitchen build <id>` holt und baut damit; ungetestete Wege in `note` kennzeichnen.
 
 ## Zweisprachig (Deutsch/Englisch)
 
 - Texte der Küchenhilfe nur über `i18n/strings.json` (Schlüssel mit `de` und `en`), nie fest im Skript.
   Beide Küchenhilfen lesen dieselbe Datei; neue Schlüssel immer in beiden Sprachen anlegen.
 - Rezepte: `title_en` ist Pflicht (`lint` prüft das); Hinweise für den Assistenten zusätzlich als
-  `game.name_en`, `effort.with_apk_en`, `original_assets.hint_en`, `push.note_en`, `push.prepare_en`.
+  `game.name_en`, `effort.with_apk_en`, `original_assets.hint_en`, `push.note_en`, `push.prepare_en`,
+  `build.note_en`.
 - `kitchen.ps1` muss als UTF-8 **mit** BOM gespeichert bleiben (sonst zeigt PowerShell 5.1 Umlaute falsch).
 
 ## Port-Code veröffentlichen

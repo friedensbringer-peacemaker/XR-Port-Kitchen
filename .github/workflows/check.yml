@@ -1,0 +1,50 @@
+# Prüft bei jedem Push und Pull-Request: Rezepte (lint), Veröffentlichungsregeln (publish-check)
+# und die Syntax beider Küchenhilfen. Lädt nichts nach und braucht keine Geheimnisse.
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # publish-check prüft auch die Historie
+      - name: Syntax kitchen.sh
+        run: sh -n kitchen.sh
+      - name: JSON gültig
+        run: |
+          for f in $(git ls-files '*.json'); do
+            python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8-sig'))" "$f" || exit 1
+          done
+      - name: lint
+        run: sh kitchen.sh lint --lang de
+      - name: publish-check
+        run: sh kitchen.sh publish-check . --lang de
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: kitchen.ps1 mit BOM
+        shell: powershell
+        run: |
+          $b = [IO.File]::ReadAllBytes("kitchen.ps1")[0..2]
+          if (-not ($b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF)) { throw "kitchen.ps1 braucht UTF-8 mit BOM (PowerShell 5.1)" }
+      - name: Syntax kitchen.ps1
+        shell: powershell
+        run: |
+          $errs = $null
+          [void][System.Management.Automation.Language.Parser]::ParseFile("$PWD\kitchen.ps1", [ref]$null, [ref]$errs)
+          if ($errs) { $errs | ForEach-Object { Write-Host $_ }; exit 1 }
+      - name: lint
+        shell: powershell
+        run: .\kitchen.ps1 lint -Lang de

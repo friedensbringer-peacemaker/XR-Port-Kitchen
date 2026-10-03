@@ -990,7 +990,15 @@ function Invoke-Lint {
                     elseif (($ps.target -replace '\{app\}', 'x' -replace '\{name\}', 'x') -notmatch $SafePath) { $errs.Add("push.target enthält unerlaubte Zeichen") }
                     if ($ps.source -and $ps.source -notin "dir", "archive", "file") { $errs.Add("push.source '$($ps.source)' unbekannt") }
                 }
-                if (-not $r.title_en) { $errs.Add("title_en fehlt (englischer Titel für den Assistenten)") }                $txt = Get-Content $p -Raw
+                if (-not $r.title_en) { $errs.Add("title_en fehlt (englischer Titel für den Assistenten)") }
+                $bd = $r.build
+                if ($bd) {
+                    if ($bd.repo -notmatch '^https://') { $errs.Add("build.repo muss eine https-Adresse sein") }
+                    if (-not @($bd.steps).Count) { $errs.Add("build.steps fehlt") }
+                    if (-not $bd.apk) { $errs.Add("build.apk fehlt") }
+                    elseif ($bd.apk -match '^(/|[A-Za-z]:|\.\.)') { $errs.Add("build.apk muss relativ zum Repo sein") }
+                }
+                $txt = Get-Content $p -Raw
                 if ($txt -match '(?i)[A-Z]:\\\\(Users|Oliver)') { $errs.Add("enthält einen lokalen Rechnerpfad – <XR-Ordner>/… verwenden") }
                 if (-not (Test-Path (Join-Path $dir.FullName "RECIPE.md"))) { $errs.Add("RECIPE.md fehlt") }
             }
@@ -1120,6 +1128,69 @@ function Invoke-SelfUpdate {
     finally { Remove-Item $tmp, $zip -Recurse -Force -ErrorAction SilentlyContinue }
 }
 
+# --- Selbst bauen (build) ---------------------------------------------------
+# Holt den öffentlichen Port-Code (recipe.build), führt die Bauschritte aus und findet die APK.
+# Bauschritte sind Shell-Befehle – unter Windows laufen sie in Git Bash (kommt mit Git).
+
+function Find-Bash {
+    foreach ($c in @("$env:ProgramFiles\Git\bin\bash.exe", "${env:ProgramFiles(x86)}\Git\bin\bash.exe", "$env:LOCALAPPDATA\Programs\Git\bin\bash.exe")) {
+        if ($c -and (Test-Path $c)) { return $c }
+    }
+    $cmd = Get-Command bash -CommandType Application -ErrorAction SilentlyContinue | Where-Object { $_.Source -notmatch 'System32' } | Select-Object -First 1
+    if ($cmd) { $cmd.Source } else { $null }
+}
+
+# Liefert den Pfad der gebauten APK oder $null
+function Invoke-Build($r) {
+    $b = $r.build
+    if (-not $b -or -not $b.repo) { Write-Host (T 'b_none') -ForegroundColor Yellow; return $null }
+    Write-Host ""
+    Write-Host (T 'b_title' (RT $r 'title')) -ForegroundColor Cyan
+    if ($b.note) { Write-Hint (RT $b 'note') }
+
+    # 1. Bauwerkzeuge
+    $script:Problems = 0
+    foreach ($t in $r.tools) { Test-ToolRef $t }
+    $bash = Find-Bash
+    if (-not $bash) { Write-Bad (T 'b_nobash') }
+    if ($script:Problems) { Write-Host (T 'g_tools_missing') -ForegroundColor Yellow; return $null }
+
+    # 2. Port-Code holen bzw. aktualisieren
+    $name = ($b.repo -split '/')[-1] -replace '\.git$', ''
+    $dir = Join-Path (Split-Path $Root -Parent) $name
+    if (Test-Path (Join-Path $dir ".git")) {
+        Write-Host (T 'b_update' $dir)
+        & git -C $dir pull --ff-only 2>&1 | Out-Host
+        if ($b.submodules) { & git -C $dir submodule update --init --recursive 2>&1 | Out-Host }
+    } else {
+        if (-not (Read-YesNo (T 'b_clone' $b.repo $dir))) { Write-Host (T 'aborted'); return $null }
+        $cloneArgs = @("clone")
+        if ($b.branch) { $cloneArgs += @("-b", $b.branch) }
+        if ($b.submodules) { $cloneArgs += "--recurse-submodules" }
+        & git @cloneArgs $b.repo $dir 2>&1 | Out-Host
+        if ($LASTEXITCODE -ne 0) { Write-Host (T 'b_fail' "git clone") -ForegroundColor Red; return $null }
+    }
+
+    # 3. Bauen
+    # Schritte als Skriptdatei übergeben – PowerShell 5.1 verstümmelt Anführungszeichen in Argumenten
+    $steps = @($b.steps) -join " && "
+    Write-Host (T 'b_running') -ForegroundColor DarkGray
+    Write-Host "  $steps" -ForegroundColor DarkGray
+    $sh = Join-Path ([IO.Path]::GetTempPath()) "kitchen-build-$($r.id).sh"
+    [IO.File]::WriteAllText($sh, "set -e`n$steps`n", (New-Object System.Text.UTF8Encoding $false))
+    $env:CHERE_INVOKING = "1"
+    Push-Location $dir
+    try { & $bash -l $sh 2>&1 | Out-Host; $code = $LASTEXITCODE }
+    finally { Pop-Location; Remove-Item $sh -ErrorAction SilentlyContinue }
+    if ($code -ne 0) { Write-Host (T 'b_fail' "Exit $code") -ForegroundColor Red; Write-Hint (T 'b_fail_hint'); return $null }
+
+    # 4. APK finden
+    $apk = Get-ChildItem -Path (Join-Path $dir $b.apk) -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+    if (-not $apk) { Write-Host (T 'b_noapk' $b.apk) -ForegroundColor Red; return $null }
+    Write-Ok (T 'b_done' $apk.FullName)
+    $apk.FullName
+}
+
 # --- Assistent: führt Schritt für Schritt durch ein Rezept ----------------
 
 function Write-Step([int] $n, [int] $total, [string] $title) {
@@ -1233,7 +1304,11 @@ function Invoke-Guide($r) {
     } else { Write-Host (T 'g_app_missing' $appId) }
     if ($wantApk) {
         $apk = Read-Path (T 'g_app_ask')
-        if (-not $apk -and -not $installed) { Write-Host (T 'apk_none') -ForegroundColor DarkGray }   # App baut jeder selbst
+        if (-not $apk -and -not $installed) {
+            # App baut jeder selbst – mit Bauangaben im Rezept kann die Küchenhilfe das übernehmen
+            if ($r.build -and (Read-YesNo (T 'b_offer'))) { $apk = Invoke-Build $r }
+            else { Write-Host (T 'apk_none') -ForegroundColor DarkGray }
+        }
         if ($apk) {
             if (-not (Test-Path -LiteralPath $apk -PathType Leaf)) { Fail (T 'e_srcmissing' $apk) }
             Write-Host (T 'g_app_installing')
@@ -1364,6 +1439,17 @@ switch ($Command) {
     "doctor" { Invoke-Doctor }
     "push"   { $null = Invoke-Push (Get-RecipeById $Recipe) $Source }
     "guide"  { Invoke-Guide (Get-RecipeById $Recipe) }
+    "build"  {
+        $script:Interactive = $true
+        $r = Get-RecipeById $Recipe
+        $apk = Invoke-Build $r
+        if ($apk -and (Find-Adb) -and (Read-YesNo (T 'b_install'))) {
+            $sel = @(Get-DeviceArgs $r)
+            $res = Invoke-AdbRaw (Find-Adb) ($sel + @("install", "-r", $apk))
+            if ($res.Out -match 'Success') { Write-Ok (T 'g_app_ok') } else { Write-Host (T 'g_app_fail' $res.Out.Trim()) -ForegroundColor Red }
+        }
+        if (-not $apk) { exit 1 }
+    }
     "lint"   { Invoke-Lint }
     "publish-check" { Invoke-PublishCheck $Recipe }
     "publish-prepare" { Invoke-PublishPrepare $Recipe $Name $Source }

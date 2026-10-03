@@ -53,6 +53,20 @@
         "local_path": { "type": "string" }
       }
     },
+    "build": {
+      "type": "object",
+      "description": "Selbst bauen mit 'kitchen build': öffentlicher Port-Code, Bauschritte (Shell; unter Windows Git Bash), Fundort der APK",
+      "required": ["repo", "steps", "apk"],
+      "properties": {
+        "repo": { "type": "string", "pattern": "^https://" },
+        "branch": { "type": "string" },
+        "submodules": { "type": "boolean" },
+        "steps": { "type": "array", "items": { "type": "string" }, "description": "werden mit && verkettet und im Repo-Ordner ausgeführt" },
+        "apk": { "type": "string", "description": "Pfad oder Muster relativ zum Repo, z. B. android/build/outputs/apk/debug/*.apk" },
+        "note": { "type": "string" },
+        "note_en": { "type": "string" }
+      }
+    },
     "ratings": {
       "type": "object",
       "required": ["portability", "xr_potential", "base_maturity"],

@@ -11,6 +11,7 @@
 #   ./kitchen.sh push dos-xrshell ~/quest/1-ThemePark --app xr.island --replace
 #   ./kitchen.sh push openra-redalert ra-quickinstall.zip --dry-run    # nur zeigen
 #   (weitere Optionen für push: --name N, --serial S)
+#   ./kitchen.sh build openttd         # App selbst bauen (holt den öffentlichen Port-Code nach Rückfrage)
 #   ./kitchen.sh doctor
 #   ./kitchen.sh lint                  # alle Rezepte auf Regeln prüfen
 #   ./kitchen.sh publish-check ../XR-OpenRA   # Repo vor dem Veröffentlichen prüfen
@@ -636,6 +637,60 @@ self_update() {
     rm -rf "$_su_tmp"
 }
 
+# --- Selbst bauen (build) ---------------------------------------------------
+# Holt den öffentlichen Port-Code (build im Rezept), führt die Bauschritte aus und findet die APK.
+# Ergebnis steht in BUILT_APK (leer bei Fehler oder Abbruch).
+
+cmd_build() {
+    BUILT_APK=""
+    _b_repo=$(jv "$R" build.repo)
+    [ -n "$_b_repo" ] || { printf '%s%s%s\n' "$C_WARN" "$(T b_none)" "$C_END"; return 1; }
+    echo; printf '%s%s%s\n' "$C_HEAD" "$(T b_title "$(RT "$R" title)")" "$C_END"
+    _b_note=$(RT "$R" build.note); [ -n "$_b_note" ] && hint "$_b_note"
+
+    # 1. Bauwerkzeuge
+    _b_before=$PROBLEMS; PROBLEMS=0
+    check_recipe_tools 0
+    if [ "$PROBLEMS" -gt 0 ]; then T g_tools_missing; echo; PROBLEMS=$_b_before; return 1; fi
+    PROBLEMS=$_b_before
+
+    # 2. Port-Code holen bzw. aktualisieren (neben die Kitchen)
+    _b_name=$(basename "$_b_repo" .git)
+    _b_dir=$(dirname "$ROOT")/$_b_name
+    _b_sub=$(jv "$R" build.submodules)
+    if [ -d "$_b_dir/.git" ]; then
+        T b_update "$_b_dir"; echo
+        git -C "$_b_dir" pull --ff-only
+        [ "$_b_sub" = true ] && git -C "$_b_dir" submodule update --init --recursive
+    else
+        ask_yes "$(T b_clone "$_b_repo" "$_b_dir")" || { T aborted; echo; return 1; }
+        _b_branch=$(jv "$R" build.branch)
+        set -- clone
+        [ -n "$_b_branch" ] && set -- "$@" -b "$_b_branch"
+        [ "$_b_sub" = true ] && set -- "$@" --recurse-submodules
+        git "$@" "$_b_repo" "$_b_dir" || { printf '%s%s%s\n' "$C_BAD" "$(T b_fail "git clone")" "$C_END"; return 1; }
+    fi
+
+    # 3. Bauen – Schritte verkettet in einer Sub-Shell im Repo-Ordner
+    _b_steps=""; _b_i=0; _b_n=$(jn "$R" build.steps)
+    while [ $_b_i -lt "$_b_n" ]; do
+        _b_s=$(jv "$R" "build.steps.$_b_i")
+        if [ -z "$_b_steps" ]; then _b_steps=$_b_s; else _b_steps="$_b_steps && $_b_s"; fi
+        _b_i=$((_b_i + 1))
+    done
+    T b_running; echo
+    printf '  %s%s%s\n' "$C_DIM" "$_b_steps" "$C_END"
+    ( cd "$_b_dir" && sh -c "set -e; $_b_steps" ) || { printf '%s%s%s\n' "$C_BAD" "$(T b_fail "Exit $?")" "$C_END"; hint "$(T b_fail_hint)"; return 1; }
+
+    # 4. APK finden (neueste passende Datei)
+    _b_glob=$(jv "$R" build.apk)
+    # shellcheck disable=SC2086
+    BUILT_APK=$(cd "$_b_dir" && ls -t $_b_glob 2>/dev/null | head -n 1)
+    if [ -z "$BUILT_APK" ]; then printf '%s%s%s\n' "$C_BAD" "$(T b_noapk "$_b_glob")" "$C_END"; return 1; fi
+    BUILT_APK="$_b_dir/$BUILT_APK"
+    ok "$(T b_done "$BUILT_APK")"
+}
+
 # --- Assistent: führt Schritt für Schritt durch ein Rezept ----------------
 
 step() { echo; printf '%s%s%s\n' "$C_HEAD" "$(T step "$1" "$2" "$3")" "$C_END"; }
@@ -736,7 +791,11 @@ cmd_guide() {
     fi
     if [ $_g_want = 1 ]; then
         _g_apk=$(ask_path "$(T g_app_ask)")
-        [ -z "$_g_apk" ] && [ -z "$_g_inst" ] && printf '%s%s%s\n' "$C_DIM" "$(T apk_none)" "$C_END"   # App baut jeder selbst
+        if [ -z "$_g_apk" ] && [ -z "$_g_inst" ]; then
+            # App baut jeder selbst – mit Bauangaben im Rezept kann die Küchenhilfe das übernehmen
+            if [ -n "$(jv "$R" build.repo)" ] && ask_yes "$(T b_offer)"; then cmd_build && _g_apk=$BUILT_APK
+            else printf '%s%s%s\n' "$C_DIM" "$(T apk_none)" "$C_END"; fi
+        fi
         if [ -n "$_g_apk" ]; then
             [ -f "$_g_apk" ] || die "$(T e_srcmissing "$_g_apk")"
             T g_app_installing; echo
@@ -872,6 +931,11 @@ cmd_lint() {
             done <<EOF
 $_l_modes
 EOF
+            if [ -n "$(jv "$R" build.repo)$(jv "$R" build.apk)$(jv "$R" build.steps.#)" ]; then
+                case "$(jv "$R" build.repo)" in https://*) ;; *) le "build.repo muss eine https-Adresse sein" ;; esac
+                [ "$(jn "$R" build.steps)" -gt 0 ] || le "build.steps fehlt"
+                case "$(jv "$R" build.apk)" in "") le "build.apk fehlt" ;; /*|[A-Za-z]:*|..*) le "build.apk muss relativ zum Repo sein" ;; esac
+            fi
             grep -Eiq '[A-Z]:\\\\(Users|Oliver)' "$_l_d/recipe.json" && le "enthält einen lokalen Rechnerpfad – <XR-Ordner>/… verwenden"
             [ -f "$_l_d/RECIPE.md" ] || le "RECIPE.md fehlt"
         fi
@@ -1358,6 +1422,15 @@ case "$_cmd" in
     doctor) cmd_doctor ;;
     lint) cmd_lint ;;
     guide) cmd_guide "$1" ;;
+    build)
+        load_recipe "$1"; P_SERIAL=""
+        cmd_build || exit 1
+        if [ -n "$(find_adb)" ] && ask_yes "$(T b_install)"; then
+            select_device "$1"
+            _res=$(adb_run install -r "$(local_path "$BUILT_APK")" 2>&1 | tr -d '\r')
+            if printf '%s' "$_res" | grep -q Success; then printf '%s%s%s\n' "$C_OK" "$(T g_app_ok)" "$C_END"
+            else printf '%s%s%s\n' "$C_BAD" "$(T g_app_fail "$_res")" "$C_END"; exit 1; fi
+        fi ;;
     menu) cmd_menu ;;
     publish-check) cmd_publish_check "$1" ;;
     publish-prepare) cmd_publish_prepare "$1" "$2" ;;

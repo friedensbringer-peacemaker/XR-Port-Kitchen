@@ -61,6 +61,20 @@
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-OpenTTD"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.openttd",
+    "branch": "main",
+    "submodules": true,
+    "steps": [
+      "bash tools/fetch-openxr-loader.sh",
+      "bash tools/build-host-tools.sh",
+      "cd android",
+      "./gradlew assembleDebug"
+    ],
+    "apk": "android/build/outputs/apk/debug/*.apk",
+    "note": "Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet. Unter Windows zusätzlich llvm-mingw für die Host-Werkzeuge (siehe Rezept).",
+    "note_en": "Not yet tested from a fresh clone on another computer. On Windows, llvm-mingw is also needed for the host tools (see recipe)."
+  },
   "ratings": {
     "portability": 4,
     "xr_potential": 5,

@@ -68,6 +68,17 @@
     "branch": "xr-quest",
     "local_path": "<XR-Ordner>/XR-OpenXcom/fanport/OpenXcom-Android"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.openxcom",
+    "branch": "xr-quest",
+    "submodules": true,
+    "steps": [
+      "./gradlew assembleDebug"
+    ],
+    "apk": "app/build/outputs/apk/debug/*.apk",
+    "note": "Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "Not yet tested from a fresh clone on another computer."
+  },
   "ratings": {
     "portability": 4,
     "xr_potential": 5,

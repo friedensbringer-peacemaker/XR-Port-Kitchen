@@ -15,6 +15,12 @@
     { "name": "<Engine>", "url": "https://github.com/…", "license": "GPL-2.0", "role": "Engine-Reimplementierung", "ref": "<commit>" }
   ],
   "port": { "repo": "", "branch": "", "local_path": "<XR-Ordner>/XR-<Name>" },
+  "build": {
+    "repo": "https://github.com/<owner>/xr.<name>", "branch": "main", "submodules": false,
+    "steps": ["cd android", "./gradlew assembleDebug"],
+    "apk": "android/build/outputs/apk/debug/*.apk",
+    "note": "Aus einem frischen Klon noch nicht getestet.", "note_en": "Not yet tested from a fresh clone."
+  },
   "ratings": { "portability": 3, "xr_potential": 3, "base_maturity": 3, "note": "Begründung für alle drei Werte" },
   "effort": { "with_apk": "? min", "from_source": "? h" },
   "ingredients": {

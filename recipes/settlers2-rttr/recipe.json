@@ -47,6 +47,17 @@
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Settlers2.5"
   },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.settlers25",
+    "branch": "main",
+    "submodules": true,
+    "steps": [
+      "PY=python3; command -v python >/dev/null 2>&1 && PY=python; $PY scripts/build-quest.py --sdk \"$ANDROID_HOME\" --java \"$JAVA_HOME\""
+    ],
+    "apk": "android/app/build/outputs/apk/debug/*.apk",
+    "note": "88 Submodule – der Klon ist groß; unter Windows kurzer Ordnerpfad empfohlen. Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "88 submodules – the clone is large; on Windows a short folder path is recommended. Not yet tested from a fresh clone on another computer."
+  },
   "ratings": {
     "portability": 5,
     "xr_potential": 4,

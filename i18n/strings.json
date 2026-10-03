@@ -534,5 +534,53 @@
   "menu_legend": {
     "de": "✓ = im Headset gespielt · … = in Arbeit · – = Entwurf",
     "en": "✓ = played in the headset · … = in progress · – = draft"
+  },
+  "b_none": {
+    "de": "Für dieses Rezept sind noch keine Bauangaben hinterlegt – siehe „Aus dem Quellcode bauen“ im Rezept.",
+    "en": "This recipe has no build settings yet – see “Build from source” in the recipe."
+  },
+  "b_title": {
+    "de": "App selbst bauen: {0}",
+    "en": "Build the app yourself: {0}"
+  },
+  "b_nobash": {
+    "de": "Git Bash fehlt (kommt mit Git für Windows)",
+    "en": "Git Bash is missing (comes with Git for Windows)"
+  },
+  "b_update": {
+    "de": "Port-Code ist schon da, aktualisiere: {0}",
+    "en": "Port code already present, updating: {0}"
+  },
+  "b_clone": {
+    "de": "Den öffentlichen Port-Code holen ({0}) nach {1}? Das kann je nach Projekt einige hundert MB groß sein.",
+    "en": "Download the public port code ({0}) to {1}? Depending on the project this can be several hundred MB."
+  },
+  "b_running": {
+    "de": "Baue … (das dauert beim ersten Mal oft 10–40 Minuten)",
+    "en": "Building … (the first time often takes 10–40 minutes)"
+  },
+  "b_fail": {
+    "de": "Bauen fehlgeschlagen ({0}).",
+    "en": "Build failed ({0})."
+  },
+  "b_fail_hint": {
+    "de": "Ausgabe oben ansehen; häufige Ursachen und Lösungen stehen in docs/HAEUFIGE-FEHLER.md.",
+    "en": "Check the output above; common causes and fixes are listed in docs/HAEUFIGE-FEHLER.md."
+  },
+  "b_noapk": {
+    "de": "Bauen lief durch, aber keine APK gefunden ({0}).",
+    "en": "The build finished, but no APK was found ({0})."
+  },
+  "b_done": {
+    "de": "App gebaut: {0}",
+    "en": "App built: {0}"
+  },
+  "b_offer": {
+    "de": "Keine APK angegeben. Soll die Küchenhilfe die App jetzt aus dem öffentlichen Port-Code selbst bauen?",
+    "en": "No APK given. Should the kitchen helper build the app now from the public port code?"
+  },
+  "b_install": {
+    "de": "Gebaute App jetzt auf die Quest installieren?",
+    "en": "Install the built app on the Quest now?"
   }
 }

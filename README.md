@@ -43,11 +43,12 @@ und bringt am Ende App und Spieldaten auf die Quest.
 3. **Spiele ankreuzen:** Sprache wählen, dann im Menü die gewünschten Spiele mit **X** ankreuzen
    (eins oder mehrere) und **Enter** drücken.
 4. **Dem Assistenten folgen:** Er fragt nach deinem Spielordner, prüft alles, verbindet die Quest,
-   installiert die App und überträgt die Spieldaten. Am Ende steht, wo du das Spiel in der Brille findest.
+   baut auf Wunsch die App aus dem öffentlichen Port-Code, installiert sie und überträgt die Spieldaten. Am Ende steht, wo du das Spiel in der Brille findest.
 
 **Was die Küchenhilfe nachladen kann – immer erst nach deiner Zustimmung:** keine fertigen Spiele,
 sondern alles, was du brauchst, um dein Spiel so schnell wie möglich selbst zu portieren: das
-Android-Werkzeug `adb` (direkt von Google, nur in den Kitchen-Ordner) und neue oder verbesserte
+Android-Werkzeug `adb` (direkt von Google, nur in den Kitchen-Ordner), den öffentlichen Port-Code
+eines Rezepts zum Selbstbauen (von GitHub, neben den Kitchen-Ordner) und neue oder verbesserte
 Rezepte samt Küchenhilfe (Taste `U` im Menü, von GitHub). Deine Spieldaten und deine selbst gebaute
 App verlassen nie deinen Rechner – sie gehen nur per USB auf deine Quest.
 
@@ -121,8 +122,8 @@ You need a Meta Quest with **developer mode** enabled, a USB-C cable, a Windows 
 **your own copy** of the game (GOG, Steam or CD – some recipes need none). Download this repository
 (**Code → Download ZIP**), unzip it and start **`Kitchen.cmd`** (Windows) or **`Kitchen.command`**
 (Mac: right-click → Open). Choose English, tick the games you want with **X**, press **Enter** and
-follow the guide – it checks everything, connects the Quest, installs the app and copies your game
-data. Downloads (adb from Google, kitchen updates) only happen after you agree. There are no
+follow the guide – it checks everything, connects the Quest, builds the app from the public port
+code if you want, installs it and copies your game data. Downloads (adb from Google, kitchen updates) only happen after you agree. There are no
 ready-made game apps to download: because of the different open-source licenses and the need for
 your own game data, everyone builds their own app – the recipes and the kitchen helper guide you
 through it step by step. SideQuest is not required (optional; close it while the kitchen helper
@@ -227,6 +228,7 @@ automatisch).
 .\kitchen.ps1 show settlers2-rttr
 .\kitchen.ps1 check settlers2-rttr -Assets "D:\Spiele\Siedler2"
 .\kitchen.ps1 push settlers2-rttr "D:\Spiele\Siedler2"
+.\kitchen.ps1 build openttd
 .\kitchen.ps1 doctor
 ```
 
@@ -236,6 +238,7 @@ automatisch).
 ./kitchen.sh list
 ./kitchen.sh check settlers2-rttr --assets ~/Spiele/Siedler2
 ./kitchen.sh push settlers2-rttr ~/Spiele/Siedler2
+./kitchen.sh build openttd
 ```
 
 | Befehl | Was er tut |
@@ -244,6 +247,7 @@ automatisch).
 | `show <rezept>` | Kurzbeschreibung, Upstream-Projekte, XR-Modi, Stufen |
 | `check <rezept>` | prüft **Küchengeräte** (Werkzeuge in der richtigen Version), **Zutaten** (liegen die Originaldateien im angegebenen Ordner?) und die **Quest** (per USB verbunden, Debugging erlaubt?). Mit `-Play` / `--play` nur das, was man zum Installieren einer schon gebauten APK braucht. |
 | `push <rezept> <quelle>` | bringt deine Spieldaten auf die Quest – Zielordner, Auswahl und Prüfdateien stehen im Rezept |
+| `build <rezept>` | baut die App selbst: holt nach Rückfrage den öffentlichen Port-Code (Angaben unter `build` im Rezept) neben den Kitchen-Ordner bzw. aktualisiert ihn, führt die Bauschritte aus (unter Windows in Git Bash), zeigt die fertige APK und bietet an, sie zu installieren. Der erste Bau dauert oft 10–40 Minuten und lädt Werkzeuge der Projekte nach. |
 | `doctor` | prüft alle bekannten Küchengeräte |
 | `guide <rezept>` | der Assistent für ein bestimmtes Rezept |
 | `lint` | prüft alle Rezepte auf die Regeln (Pflichtfelder, App-Name `xr.<name>`, Sterne 1–5, bekannte Küchengeräte, keine lokalen Pfade) |
