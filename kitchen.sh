@@ -971,6 +971,7 @@ cmd_publish_check() {
     _pc_login=$(gh api user -q .login 2>/dev/null)
     _pc_up=""
     for _pc_rem in $(rg remote); do
+        [ "$_pc_rem" = public ] && continue   # unser eigenes Veröffentlichungsziel, nie Upstream
         _pc_url=$(rg remote get-url "$_pc_rem")
         if [ "$_pc_rem" = upstream ]; then _pc_up="$_pc_up $_pc_rem"
         elif [ -n "$_pc_login" ] && ! printf '%s' "$_pc_url" | grep -Eq "github\.com[:/]$_pc_login/"; then _pc_up="$_pc_up $_pc_rem"; fi
@@ -1114,6 +1115,7 @@ cmd_publish_prepare() {
     # Upstream-Remotes und Ausschlüsse (wie publish-check)
     _pp_up=""
     for _pp_rem in $(pg remote); do
+        [ "$_pp_rem" = public ] && continue   # unser eigenes Veröffentlichungsziel, nie Upstream
         _pp_url=$(pg remote get-url "$_pp_rem")
         if [ "$_pp_rem" = upstream ]; then _pp_up="$_pp_up $_pp_rem"
         elif [ -n "$_pp_login" ] && ! printf '%s' "$_pp_url" | grep -Eq "github\.com[:/]$_pp_login/"; then _pp_up="$_pp_up $_pp_rem"; fi
@@ -1145,7 +1147,7 @@ cmd_publish_prepare() {
 
     # Submodule, die auf nur lokal vorhandene Commits zeigen
     _pp_subs=$(pg ls-tree -r HEAD | awk '$1 == "160000" { sub(/^[^\t]*\t/, ""); print }')
-    _pp_subwarn=""
+    _pp_subwarn=""; _pp_remaps=""
     while IFS= read -r _pp_s; do
         [ -n "$_pp_s" ] || continue
         _pp_sha=$(pg ls-tree HEAD "$_pp_s" | awk '{ print $3 }')
@@ -1156,11 +1158,43 @@ cmd_publish_prepare() {
              ! { _pp_ssf=$(git -C "$_pp_top/$_pp_s" rev-parse --git-path shallow 2>/dev/null)
                  case "$_pp_ssf" in /*|[A-Za-z]:*) ;; *) _pp_ssf="$_pp_top/$_pp_s/$_pp_ssf" ;; esac
                  [ -f "$_pp_ssf" ] && grep -q "$_pp_sha" "$_pp_ssf"; }; then   # Grenz-Commit eines flachen Klons = vom Upstream
-            _pp_subwarn="$_pp_subwarn$NL$_pp_s @ $(printf '%s' "$_pp_sha" | cut -c1-10) – Commit nur lokal, Submodul muss selbst veröffentlicht werden"
+            # Schon vorbereitet (gleicher Inhalt in xr-public) und veröffentlicht (Remote public)? → Verweis umstellen
+            _pp_sd="$_pp_top/$_pp_s"
+            _pp_psha=$(git -C "$_pp_sd" rev-parse --verify -q "refs/heads/$_pp_branch" 2>/dev/null)
+            _pp_purl=$(git -C "$_pp_sd" remote get-url public 2>/dev/null)
+            _pp_same=0
+            [ -n "$_pp_psha" ] && [ "$(git -C "$_pp_sd" rev-parse "$_pp_sha^{tree}" 2>/dev/null)" = "$(git -C "$_pp_sd" rev-parse "$_pp_psha^{tree}" 2>/dev/null)" ] && _pp_same=1
+            if [ $_pp_same = 1 ] && [ -n "$_pp_purl" ] && git -C "$_pp_sd" ls-remote public 2>/dev/null | grep -q "^$_pp_psha"; then
+                _pp_remaps="$_pp_remaps$NL$_pp_s$TAB$_pp_psha$TAB${_pp_purl%.git}.git"
+            elif [ $_pp_same = 1 ]; then
+                _pp_subwarn="$_pp_subwarn$NL$_pp_s – Zweig $_pp_branch ist vorbereitet, aber noch nicht als Remote 'public' veröffentlicht"
+            else
+                _pp_subwarn="$_pp_subwarn$NL$_pp_s @ $(printf '%s' "$_pp_sha" | cut -c1-10) – Commit nur lokal: dort zuerst publish-prepare, dann veröffentlichen (Remote 'public')"
+            fi
         fi
     done <<EOF
 $_pp_subs
 EOF
+
+    # Verweise umstellen: neuer Baum über einen temporären Index (Arbeitsstand bleibt unberührt)
+    if [ -n "$_pp_remaps" ]; then
+        _pp_idx=$(mktemp); _pp_gm=$(mktemp)
+        GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" read-tree HEAD
+        pg show HEAD:.gitmodules > "$_pp_gm"
+        while IFS="$TAB" read -r _pp_mp _pp_ms _pp_mu; do
+            [ -n "$_pp_mp" ] || continue
+            GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" update-index --cacheinfo "160000,$_pp_ms,$_pp_mp"
+            _pp_key=$(git config -f "$_pp_gm" --get-regexp '^submodule\..*\.path$' | awk -v p="$_pp_mp" '$2 == p { sub(/\.path$/, ".url", $1); print $1; exit }')
+            [ -n "$_pp_key" ] && git config -f "$_pp_gm" "$_pp_key" "$_pp_mu"
+            ok "Submodul $_pp_mp → $_pp_mu @ $(printf '%s' "$_pp_ms" | cut -c1-10)"
+        done <<EOF
+$_pp_remaps
+EOF
+        _pp_blob=$(git -C "$_pp_top" hash-object -w "$_pp_gm")
+        GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" update-index --cacheinfo "100644,$_pp_blob,.gitmodules"
+        _pp_tree=$(GIT_INDEX_FILE=$_pp_idx git -C "$_pp_top" write-tree)
+        rm -f "$_pp_idx" "$_pp_gm"
+    fi
 
     _pp_msgf=$(mktemp)
     {

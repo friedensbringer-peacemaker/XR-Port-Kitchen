@@ -56,6 +56,8 @@ Windows war das bei fast jedem Port die erste Hürde.
 | Jeder Commit löst 18-min-Vollbuild aus | Git-Revision als CMake-Argument | Revision nicht in Compile-Definitionen | XCOM |
 | Build ist kaputt, obwohl der Code stimmt | Quellen wurden während des Builds geändert | Build nur auf ruhendem Stand; Version verwerfen | TTD (preview.7) |
 | „Ausführung von Skripts ist deaktiviert“ | Windows-Ausführungsrichtlinie blockiert `.ps1` | `Kitchen.cmd` doppelklicken oder `powershell -ExecutionPolicy Bypass -File kitchen.ps1 …` | Kitchen |
+| PowerShell-Skript bricht mit „Unerwartetes Token“ ab | typografische Anführungszeichen („ “ ”) in einem Text mit doppelten Anführungszeichen – PowerShell wertet sie als Anführungszeichen | in Code-Texten nur ' oder " verwenden; deutsche Anführungszeichen nur in einfachen Anführungszeichen oder in Textdateien | Kitchen |
+| Umlaute in PowerShell-Ausgaben kaputt | Skript ohne BOM gespeichert, PowerShell 5.1 liest es als ANSI | `.ps1` als UTF-8 **mit** BOM speichern | Kitchen |
 | Dateien „geändert“ ohne Inhaltsänderung | `autocrlf` nach `sed -i` | `git update-index --refresh`; `.gitattributes` | alle |
 | GitHub-ZIP baut nicht | Submodule fehlen im ZIP | `git clone --recurse-submodules` | Siedler |
 

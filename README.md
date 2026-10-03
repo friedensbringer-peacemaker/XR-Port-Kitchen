@@ -295,8 +295,11 @@ Regeln selbst stehen in [`rules/publish-rules.json`](rules/publish-rules.json).
 neueste enthaltene Upstream-Stand plus **ein** Commit mit dem aktuellen eigenen Stand, sonst ein
 einzelner Commit ohne Vorgeschichte – Autor ist die GitHub-noreply-Adresse. Die private Historie,
 HEAD und der Arbeitsstand bleiben unverändert. Anschließend läuft `publish-check` automatisch auf
-dem neuen Zweig; Submodule, deren Commit nur lokal existiert, werden gemeldet (sie müssen zuerst
-selbst veröffentlicht werden).
+dem neuen Zweig. Submodule, deren Commit nur lokal existiert, veröffentlicht man zuerst selbst:
+dort `publish-prepare`, den Zweig `xr-public` in ein öffentliches Repo pushen und es als Remote
+`public` eintragen. Danach stellt `publish-prepare` im Hauptrepo den Submodul-Verweis und die
+Adresse in `.gitmodules` automatisch auf den öffentlichen Stand um. (Flache Klone lassen sich nur
+in einen GitHub-Fork des Originals pushen, nicht in ein leeres neues Repo.)
 
 ## Bewertung: zwei Achsen statt einer Note
 

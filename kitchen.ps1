@@ -567,6 +567,7 @@ function Test-PublishName([string] $path, $rules, $assetNames) {
 function Get-UpstreamInfo([string] $top) {
     $login = (& gh api user -q .login 2>$null)
     $remotes = @(foreach ($rem in @(& git -C $top remote 2>$null)) {
+        if ($rem -eq "public") { continue }   # unser eigenes Veröffentlichungsziel, nie Upstream
         $url = (& git -C $top remote get-url $rem 2>$null)
         if ($rem -eq "upstream" -or ($login -and $url -and $url -notmatch "github\.com[:/]$([regex]::Escape($login))/")) { $rem }
     })
@@ -748,8 +749,11 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
         Write-Host "  Kein Upstream – ein einzelner Commit ohne Vorgeschichte"
     }
 
-    # Submodule, die auf nur lokal vorhandene Commits zeigen
+    # Submodule, die auf nur lokal vorhandene Commits zeigen. Wurde ein solches Submodul selbst schon
+    # vorbereitet (Zweig xr-public mit gleichem Inhalt) und veröffentlicht (Remote „public“, Zweig
+    # dort vorhanden), wird der Verweis auf den öffentlichen Commit und die öffentliche Adresse umgestellt.
     $localSubs = @()
+    $remaps = @()   # @{ Path; Sha; Url }
     foreach ($line in @(RepoGit ls-tree -r HEAD | Where-Object { $_ -match '^160000 commit ([0-9a-f]{40})\t(.+)$' })) {
         $null = $line -match '^160000 commit ([0-9a-f]{40})\t(.+)$'
         $sha = $Matches[1]; $sub = $Matches[2]
@@ -761,7 +765,40 @@ function Invoke-PublishPrepare([string] $path, [string] $branch) {
         $subShallow = (& git -C $subDir rev-parse --git-path shallow 2>$null)
         if ($subShallow -and -not [IO.Path]::IsPathRooted($subShallow)) { $subShallow = Join-Path $subDir $subShallow }
         if (-not $onRemote.Count -and $subShallow -and (Test-Path $subShallow) -and (Select-String -Path $subShallow -SimpleMatch $sha -Quiet)) { $onRemote = @("shallow") }
-        if (-not $onRemote.Count) { $localSubs += "$sub @ $($sha.Substring(0, 10)) – Commit nur lokal, Submodul muss selbst veröffentlicht werden" }
+        if ($onRemote.Count) { continue }
+        $pubSha = (& git -C $subDir rev-parse --verify -q "refs/heads/$branch" 2>$null)
+        $pubUrl = (& git -C $subDir remote get-url public 2>$null)
+        $sameTree = $pubSha -and ((& git -C $subDir rev-parse "$sha^{tree}" 2>$null) -eq (& git -C $subDir rev-parse "$pubSha^{tree}" 2>$null))
+        $isPushed = $pubUrl -and $pubSha -and (@(& git -C $subDir ls-remote public 2>$null | Where-Object { $_ -match "^$pubSha\s" }).Count -gt 0)
+        if ($sameTree -and $isPushed) { $remaps += @{ Path = $sub; Sha = $pubSha; Url = ($pubUrl -replace '\.git$', '') + ".git" } }
+        elseif ($sameTree -and $pubSha) { $localSubs += "$sub – Zweig $branch ist vorbereitet, aber noch nicht als Remote 'public' veröffentlicht" }
+        else { $localSubs += "$sub @ $($sha.Substring(0, 10)) – Commit nur lokal: dort zuerst publish-prepare, dann veröffentlichen (Remote 'public')" }
+    }
+
+    # Verweise umstellen: neuer Baum über einen temporären Index (Arbeitsstand bleibt unberührt)
+    if ($remaps.Count) {
+        $idx = [IO.Path]::GetTempFileName()
+        $gmFile = [IO.Path]::GetTempFileName()
+        $env:GIT_INDEX_FILE = $idx
+        try {
+            $null = RepoGit read-tree HEAD
+            [IO.File]::WriteAllText($gmFile, ((RepoGit show "HEAD:.gitmodules") -join "`n") + "`n", (New-Object System.Text.UTF8Encoding $false))
+            foreach ($m in $remaps) {
+                $null = RepoGit update-index --cacheinfo "160000,$($m.Sha),$($m.Path)"
+                $names = @(& git config -f $gmFile --get-regexp '^submodule\..*\.path$' 2>$null | Where-Object { ($_ -split ' ', 2)[1] -eq $m.Path })
+                if ($names.Count) {
+                    $key = ($names[0] -split ' ', 2)[0] -replace '\.path$', '.url'
+                    & git config -f $gmFile $key $m.Url
+                }
+                Write-Ok "Submodul $($m.Path) → $($m.Url) @ $($m.Sha.Substring(0, 10))"
+            }
+            $blob = (RepoGit hash-object -w $gmFile)
+            $null = RepoGit update-index --cacheinfo "100644,$blob,.gitmodules"
+            $tree = (RepoGit write-tree)
+        } finally {
+            Remove-Item Env:GIT_INDEX_FILE -ErrorAction SilentlyContinue
+            Remove-Item $idx, $gmFile -ErrorAction SilentlyContinue
+        }
     }
 
     $repoName = Split-Path $top -Leaf
