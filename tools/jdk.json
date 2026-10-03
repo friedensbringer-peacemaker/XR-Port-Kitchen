@@ -1,0 +1,16 @@
+{
+  "id": "jdk",
+  "name": "Java Development Kit",
+  "purpose": "Gradle und Android-Build (AGP 8.x verlangt JDK 17)",
+  "url": "https://adoptium.net",
+  "license": "GPL-2.0 mit Classpath-Ausnahme",
+  "version": "17",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["%JAVA_HOME%\\bin\\java.exe", "java"], "args": "-version", "version_regex": "version \"([0-9][0-9._]*)" },
+    "macos":   { "kind": "exe", "candidates": ["$JAVA_HOME/bin/java", "/opt/homebrew/opt/openjdk@17/bin/java", "java"], "args": "-version", "version_regex": "version \"([0-9][0-9._]*)" }
+  },
+  "install": {
+    "windows": "winget install EclipseAdoptium.Temurin.17.JDK, danach Benutzervariable JAVA_HOME auf den JDK-Ordner setzen (ein älteres Java im PATH stört sonst Gradle)",
+    "macos": "brew install openjdk@17; export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"
+  }
+}

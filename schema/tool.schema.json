@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "xr-port-kitchen/tool.schema.json",
+  "title": "XR-Port-Kitchen Küchengerät",
+  "type": "object",
+  "required": ["id", "name", "purpose", "check"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string" },
+    "purpose": { "type": "string" },
+    "url": { "type": "string" },
+    "license": { "type": "string" },
+    "min_version": { "type": "string", "description": "Voreinstellung; ein Rezept kann sie überschreiben" },
+    "version": { "type": "string", "description": "Präfix-Bindung, z. B. '17' = jede 17.x; ein Rezept kann sie überschreiben" },
+    "check": {
+      "type": "object",
+      "description": "Je Betriebssystem: windows, macos",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["kind", "candidates"],
+        "properties": {
+          "kind": { "enum": ["exe", "dir"] },
+          "candidates": { "type": "array", "items": { "type": "string" }, "description": "Pfade oder Befehlsnamen in Reihenfolge; Umgebungsvariablen als %VAR% (Windows) bzw. $VAR (macOS); bei dir ist * im letzten Pfadteil erlaubt (mehrere installierte Versionen)" },
+          "args": { "type": "string", "description": "exe: Argumente für die Versionsabfrage" },
+          "version_file": { "type": "string", "description": "dir: Datei relativ zum Ordner, aus der die Version gelesen wird" },
+          "version_regex": { "type": "string", "description": "Erste Gruppe = Version" }
+        }
+      }
+    },
+    "install": { "type": "object", "additionalProperties": { "type": "string" } }
+  }
+}

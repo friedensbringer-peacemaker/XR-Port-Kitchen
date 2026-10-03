@@ -1,0 +1,243 @@
+{
+  "id": "openttd",
+  "title": "Transport Tycoon Deluxe via OpenTTD",
+  "title_en": "Transport Tycoon Deluxe via OpenTTD",
+  "status": "playable",
+  "last_verified": "2026-09-28 headset (0.1.0-preview.3: Start, gewölbter Bildschirm, Strahl, Menüs, neues Spiel); preview.10 gebaut und installiert, Headset-Test offen",
+  "app": {
+    "id": "xr.openttd",
+    "label": "xr.openttd",
+    "version": "0.1.0-preview.10"
+  },
+  "game": {
+    "name": "Transport Tycoon Deluxe (optional – freie Grafik/Ton/Musik reichen)",
+    "platform": "PC/DOS",
+    "year": 1995,
+    "rights_holder": "Chris Sawyer / Atari",
+    "buy": [
+      "kein Kauf nötig: OpenGFX, OpenSFX und OpenMSX sind frei und in der APK",
+      "optional: Transport Tycoon Deluxe bei GOG oder Original-CD"
+    ],
+    "name_en": "Transport Tycoon Deluxe (optional – free graphics/sound/music are enough)"
+  },
+  "base": [
+    {
+      "name": "OpenTTD",
+      "url": "https://github.com/OpenTTD/OpenTTD",
+      "license": "GPL-2.0",
+      "role": "Engine-Reimplementierung",
+      "ref": "15.3 (14ec60f); Fork xr-quest @ 337934d"
+    },
+    {
+      "name": "OpenGFX / OpenSFX / OpenMSX",
+      "url": "https://www.openttd.org/downloads",
+      "license": "GPL-2.0 / CC-Sampling-Plus / GPL-2.0",
+      "role": "freie Grafik, Töne und Musik",
+      "ref": "8.0 / 1.0.3 / 0.4.2"
+    },
+    {
+      "name": "SDL2",
+      "url": "https://github.com/libsdl-org/SDL",
+      "license": "Zlib",
+      "role": "Plattform",
+      "ref": "2.32.10"
+    },
+    {
+      "name": "FluidSynth",
+      "url": "https://github.com/FluidSynth/fluidsynth",
+      "license": "LGPL-2.1",
+      "role": "MIDI-Musik",
+      "ref": "2.6.1"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader"
+    }
+  ],
+  "port": {
+    "repo": "lokal (Engine-Fork noch nicht veröffentlicht, REPO-001)",
+    "branch": "xr-quest",
+    "local_path": "<XR-Ordner>/XR-OpenTTD"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 5,
+    "base_maturity": 5,
+    "note": "Eigener Android-Unterbau nach dem Siedler-Muster (der alte pelya-Port diente nur als Referenz). Freie Spieldaten machen eine weitergebbare APK möglich. Das Gleisnetz ist wie geschaffen für einen Modellbahn-Tisch."
+  },
+  "effort": {
+    "with_apk": "~5 min (freie Daten sind in der APK)",
+    "from_source": "mehrere Stunden; derzeit nur mit lokalem Zugriff auf den Engine-Fork",
+    "with_apk_en": "~5 min (free data is inside the APK)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Optional: Ordner deiner Transport-Tycoon-Deluxe-Installation, in dem TRG1R.GRF und SAMPLE.CAT liegen. Ohne Originaldaten spielt OpenTTD mit OpenGFX/OpenSFX/OpenMSX.",
+      "required": [],
+      "device_path": "/sdcard/Android/data/xr.openttd/files/baseset/ttd-original/ (Spielstände getrennt unter files/openttd/save/)",
+      "transfer": "kitchen push openttd <TTD-Ordner> (optional)",
+      "hint_en": "Optional: folder of your Transport Tycoon Deluxe installation containing TRG1R.GRF and SAMPLE.CAT. Without original data OpenTTD plays with OpenGFX/OpenSFX/OpenMSX."
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/baseset/ttd-original",
+      "include": [
+        "TRG1R.GRF",
+        "TRGIR.GRF",
+        "TRGCR.GRF",
+        "TRGHR.GRF",
+        "TRGTR.GRF",
+        "SAMPLE.CAT"
+      ],
+      "verify": [
+        "TRG1R.GRF",
+        "SAMPLE.CAT"
+      ],
+      "note": "Danach im Spiel unter Einstellungen → Grafik/Sound das Basis-Set „Original“ wählen. Ein eigener Unterordner, damit die freien Sets in baseset/ unangetastet bleiben (auf der Quest noch ungeprüft).",
+      "note_en": "Then choose the base set “Original” under Settings → Graphics/Sound. A separate subfolder keeps the free sets in baseset/ untouched (not yet verified on the Quest)."
+    },
+    "modules": [
+      "quest-tools",
+      "openxr-videodriver-pattern",
+      "vr-menu-pflicht"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "Android-Unterbau und Build",
+      "actions": [
+        "tools/build-host-tools.sh (strgen/settingsgen)",
+        "cd android && ./gradlew assembleDebug"
+      ],
+      "done_when": "APK startet auf der Quest",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Videotreiber, gewölbter Bildschirm",
+      "actions": [
+        "src/video/xr/ (xr_v.cpp, xr_panel.h)",
+        "Zylinder-Layer"
+      ],
+      "done_when": "Spielbild als gewölbte VR-Leinwand",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "headset-ok-2026-09-28 (preview.3)"
+    },
+    {
+      "id": "S3",
+      "title": "Strahl, Menüs, neues Spiel",
+      "actions": [
+        "Controller als Maus",
+        "Reiter „VR“ in den Einstellungen"
+      ],
+      "done_when": "neues Spiel per Controller begonnen",
+      "automatable": "manual",
+      "status": "done",
+      "evidence": "headset-ok-2026-09-28"
+    },
+    {
+      "id": "S4",
+      "title": "VR-Schnellmenü, Passthrough, Bildschärfe",
+      "actions": [
+        "Schnellmenü im Spiel-Look (preview.10)",
+        "Passthrough 25–100 % (VR-005)",
+        "Supersampling/Schärfen"
+      ],
+      "done_when": "TEST.md Punkte 1–12 im Headset",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S5",
+      "title": "Stabilität und Spielstände",
+      "actions": [
+        "Beenden über das Quest-Menü speichert (STAB-002)",
+        "Assets unkomprimiert lesen (STAB-001)"
+      ],
+      "done_when": "Spielstand übersteht Beenden und Brille ab/auf",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S6",
+      "title": "Tischansicht / Modellbahn-Diorama",
+      "actions": [
+        "UX-004"
+      ],
+      "done_when": "Karte als Tisch im Raum",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S7",
+      "title": "Veröffentlichung",
+      "actions": [
+        "Engine-Fork veröffentlichen (REPO-001)",
+        "Lizenzfrage GPLv2 ↔ Apache-2.0-Loader klären (REL-001)"
+      ],
+      "done_when": "APK und Quellcode öffentlich",
+      "automatable": "manual",
+      "status": "blocked"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Komprimierte APK-Assets wurden nur teilweise gelesen → alle Daten fehlten, App beendete sich sofort (STAB-001)",
+    "String-ID 0xFFFF ließ die Einstellungen abstürzen (STAB-003)",
+    "Beenden über das Quest-Menü verwarf den Spielstand (STAB-002)",
+    "Mit MSYS_NO_PATHCONV war die Signaturprüfung im APK-Gate immer grün – Belege prüfen, nicht nur Exit-Codes",
+    "Selbsttest überschrieb die cfg dauerhaft",
+    "Quellen während des Builds geändert → preview.7 verworfen",
+    "Systemdialoge und Guardian blockieren Tests bei abgelegter Brille",
+    "Jukebox zeigt „NoMusic“ (AUDIO-002, offen)",
+    "OpenXR-Loader-.so liegt nicht im Repo und wird aus XR-Settlers2.5 kopiert"
+  ],
+  "legal": [
+    "Freie Basis-Sets dürfen in die APK; Originaldaten nie – apk-gate.sh prüft das",
+    "GPL-2.0-Engine mit Apache-2.0-OpenXR-Loader: Verträglichkeit vor Veröffentlichung klären (REL-001)",
+    "Kein Markenname im App-Namen (xr.openttd)"
+  ],
+  "links": {
+    "Test": "<XR-Ordner>/XR-OpenTTD/TEST.md",
+    "Backlog": "<XR-Ordner>/XR-OpenTTD/BACKLOG.md"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "ffmpeg",
+  "name": "FFmpeg",
+  "purpose": "Videos und Musik aus Originaldaten umwandeln (z. B. wartool), Kontaktbögen aus Quest-Videos",
+  "url": "https://ffmpeg.org",
+  "license": "LGPL-2.1 / GPL-2.0",
+  "min_version": "4.0",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["ffmpeg", "%XR_TOOLS%\\ffmpeg\\bin\\ffmpeg.exe"], "args": "-version", "version_regex": "ffmpeg version n?([0-9]+\\.[0-9]+(\\.[0-9]+)?)" },
+    "macos":   { "kind": "exe", "candidates": ["ffmpeg", "/opt/homebrew/bin/ffmpeg"], "args": "-version", "version_regex": "ffmpeg version n?([0-9]+\\.[0-9]+(\\.[0-9]+)?)" }
+  },
+  "install": {
+    "windows": "winget install Gyan.FFmpeg (oder choco install ffmpeg)",
+    "macos": "brew install ffmpeg"
+  }
+}

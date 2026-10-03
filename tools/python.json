@@ -1,0 +1,16 @@
+{
+  "id": "python",
+  "name": "Python 3",
+  "purpose": "Build- und Übertragungsskripte einzelner Ports (z. B. Siedler-Builder, OpenXR-Loader-Codegen)",
+  "url": "https://www.python.org",
+  "license": "PSF-2.0",
+  "min_version": "3.9",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["python", "py"], "args": "--version", "version_regex": "Python ([0-9.]+)" },
+    "macos":   { "kind": "exe", "candidates": ["python3"], "args": "--version", "version_regex": "Python ([0-9.]+)" }
+  },
+  "install": {
+    "windows": "winget install Python.Python.3.13 (echtes python im PATH, nicht nur der Store-Platzhalter)",
+    "macos": "xcode-select --install oder brew install python"
+  }
+}

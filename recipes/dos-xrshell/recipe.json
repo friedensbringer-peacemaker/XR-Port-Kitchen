@@ -1,0 +1,223 @@
+{
+  "id": "dos-xrshell",
+  "title": "DOS-Spiele via XRShell + DOSBox Pure (Beispiel: Theme Park)",
+  "title_en": "DOS games via XRShell + DOSBox Pure (example: Theme Park)",
+  "status": "in-progress",
+  "last_verified": "2026-09-27 headset (XRShell mit snes9x: Bild, Ton, Menü v1); DOS-Pfad seit Menü v2 nicht erneut im Headset",
+  "app": {
+    "id": "xr.shell",
+    "label": "xr.shell",
+    "version": "M1.2"
+  },
+  "game": {
+    "name": "Theme Park (stellvertretend für DOS-Spiele ohne eigene Engine-Reimplementierung)",
+    "platform": "PC/DOS",
+    "year": 1994,
+    "rights_holder": "Electronic Arts (Bullfrog)",
+    "buy": [
+      "GOG",
+      "Original-CD"
+    ],
+    "name_en": "Theme Park (as an example for DOS games)"
+  },
+  "base": [
+    {
+      "name": "DOSBox Pure (libretro-Core)",
+      "url": "https://github.com/schellingb/dosbox-pure",
+      "license": "GPL-2.0",
+      "role": "DOS-Emulation; wird beim Build vom libretro-Buildbot (nightly, arm64-v8a) geladen"
+    },
+    {
+      "name": "XRShell",
+      "url": "https://github.com/friedensbringer-peacemaker/XR-Ports-Platform",
+      "license": "eigen (MIT/Apache geplant)",
+      "role": "OpenXR-Host: Leinwand, Laser-Maus, VR-Menü, libretro-Frontend"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader (FetchContent)"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/XR-Ports-Platform",
+    "branch": "main",
+    "local_path": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform"
+  },
+  "ratings": {
+    "portability": 5,
+    "xr_potential": 2,
+    "base_maturity": 4,
+    "note": "Jedes DOS-Spiel läuft ohne Code-Änderung – nur Spielordner + Tastenprofil. XR bleibt Leinwand/Passthrough; Tisch oder Diorama nur mit eigener Engine."
+  },
+  "effort": {
+    "with_apk": "15–30 min (DOS); mehrere Stunden für Win-3.x-Spiele",
+    "from_source": "+1–2 h Toolchain, danach wenige Minuten je Build",
+    "with_apk_en": "15–30 min (DOS); several hours for Windows 3.x games"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Mit innoextract entpackter GOG-Installer von Theme Park (Ordner mit GAME, THEME.CD, CONFIG). Andere DOS-Spiele: Spielordner = Laufwerk C:",
+      "required": [
+        "GAME/MAIN.EXE",
+        "GAME/DATA/MPALETTE.DAT",
+        "THEME.CD"
+      ],
+      "device_path": "/sdcard/Android/data/xr.shell/files/game/<Name>/ (Spielstände getrennt unter files/saves/)",
+      "transfer": "Vorbereiten: tools/prepare-theme-park.ps1 -Source <GOG-Ordner> im XRShell-Repo; Übertragen: kitchen push dos-xrshell <Zielordner>/1-ThemePark",
+      "hint_en": "GOG installer of Theme Park unpacked with innoextract (folder with GAME, THEME.CD, CONFIG). Other DOS games: game folder = drive C:"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/game/{name}",
+      "note": "XRShell startet den alphabetisch ersten Ordner in game/. Andere App: -App xr.island bzw. --app xr.island.",
+      "note_en": "XRShell starts the alphabetically first folder in game/. Other app: -App xr.island or --app xr.island.",
+      "prepare": "Spielordner vorbereiten (im XRShell-Repo): powershell -File tools\\prepare-theme-park.ps1 -Source <entpackter GOG-Ordner> -Language 1. Das Ergebnis ist ein Ordner „1-ThemePark“ mit Startdatei, Sound-Einstellungen, Tastenprofil und Menü in Spieloptik. Andere DOS-Spiele: Spielordner direkt verwenden (Ordnername = Name in der App).",
+      "prepare_en": "Prepare the game folder (in the XRShell repo): powershell -File tools\\prepare-theme-park.ps1 -Source <unpacked GOG folder> -Language 0. The result is a folder “1-ThemePark” with start file, sound settings, key profile and a menu in game style. Other DOS games: use the game folder directly (folder name = name in the app)."
+    },
+    "modules": [
+      "quest-tools",
+      "xrshell-libretro",
+      "xrshell-profiles"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "innoextract"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "XRShell-APK bauen",
+      "actions": [
+        "cd android && ./gradlew assembleShellDebug (Windows: .\\gradlew.bat)",
+        "nie systemweites gradle"
+      ],
+      "done_when": "android/build/outputs/apk/shell/debug/XRShell-shell-debug.apk existiert",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "Installieren",
+      "actions": [
+        "adb install -r <apk>"
+      ],
+      "done_when": "App xr.shell unter Bibliothek → Unbekannte Quellen",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "headset-ok-2026-09-27 (Flavor racer3k)"
+    },
+    {
+      "id": "S3",
+      "title": "Spielordner vorbereiten und übertragen",
+      "actions": [
+        "GOG-Installer mit innoextract entpacken",
+        "prepare-theme-park.ps1 (Startdatei, Sound, Profile, Menü-Skin)",
+        "push-game.sh (tar statt Ordner-Push)"
+      ],
+      "done_when": "push-game.sh listet den Ordner unter game/",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S4",
+      "title": "Erster Start",
+      "actions": [
+        "App starten; alphabetisch erster Ordner in game/ wird Laufwerk C:"
+      ],
+      "done_when": "DOSBox-Pure-Bild statt Schachbrett-Testmuster",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "seit Menü v2 nicht erneut im Headset"
+    },
+    {
+      "id": "S5",
+      "title": "Tastenprofil und Maus",
+      "actions": [
+        "xrshell.keys (X/Y frei lassen)",
+        "xrshell.opt (dosbox_pure_mouse_input)"
+      ],
+      "done_when": "Spiel ohne Tastatur bedienbar",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S6",
+      "title": "Ton",
+      "actions": [
+        "SB16 220/7/1 H5",
+        "General MIDI nur mit C:\\DOSBOX.SF2"
+      ],
+      "done_when": "Effekte und Musik hörbar",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S7",
+      "title": "Bildqualität",
+      "actions": [
+        "Sharp-Bilinear, 1,4× Supersampling, 4×MSAA",
+        "Compositor-Ebene"
+      ],
+      "done_when": "Text gestochen scharf, kein Flimmern",
+      "automatable": "manual",
+      "status": "done",
+      "evidence": "2026-09-27 headset (snes9x)"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "done",
+    "tabletop": "unsuitable",
+    "diorama": "unsuitable",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "adb push eines Ordners bricht unter Windows (adb 37) ab → push-game.sh packt als tar und entpackt auf dem Gerät",
+    "Git Bash: MSYS_NO_PATHCONV=1 für adb-Pfade, lokale Pfade mit cygpath -m",
+    "Von adb angelegte Ordner gehören dem Nutzer shell → chmod (macht push-game.sh)",
+    "Es startet nur der alphabetisch erste Ordner in game/; eine Datei direkt in game/ gewinnt",
+    "CD-Images nur über Startmenü oder AUTOBOOT.DBP einhängen, nicht über DOSBOX.BAT",
+    "Win 3.1: AdLib-MIDI-Treiber entfernen, dosbox_pure_cycles = max; Maus genau unter dem Laser mit mouse_input=direct + vmwmouse.drv",
+    "GPLv2-only-Cores passen nicht zum Apache-2.0-OpenXR-Loader – Core-Wahl nach Lizenz"
+  ],
+  "legal": [
+    "Spieldaten nur aus eigener Kopie; nichts davon ins Repo oder in die APK, keine Installer aufs Gerät",
+    "DOSBox Pure ist GPL-2.0 und wird als getrennte .so zur Laufzeit geladen – Lizenzhinweis mitliefern",
+    "Für Win-3.x-Spiele ist zusätzlich eine eigene Windows-3.1-Lizenz nötig"
+  ],
+  "links": {
+    "Skill": "~/.claude/skills/xr-emulator-profiles/SKILL.md",
+    "Profile": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform/profiles",
+    "Win-3.x-Beispiel": "<XR-Ordner>/XR-HolidayIsland/docs/QUEST.md"
+  }
+}

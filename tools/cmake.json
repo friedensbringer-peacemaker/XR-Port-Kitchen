@@ -1,0 +1,16 @@
+{
+  "id": "cmake",
+  "name": "CMake (SDK-Paket)",
+  "purpose": "Native Builds; Gradle nutzt die CMake-Version aus dem SDK",
+  "url": "https://cmake.org",
+  "license": "BSD-3-Clause",
+  "min_version": "3.22",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["%ANDROID_HOME%\\cmake\\3.22.1\\bin\\cmake.exe", "cmake"], "args": "--version", "version_regex": "version ([0-9.]+)" },
+    "macos":   { "kind": "exe", "candidates": ["$ANDROID_HOME/cmake/3.22.1/bin/cmake", "cmake"], "args": "--version", "version_regex": "version ([0-9.]+)" }
+  },
+  "install": {
+    "windows": "%ANDROID_HOME%\\cmdline-tools\\latest\\bin\\android.exe sdk install \"cmake;3.22.1\"",
+    "macos": "sdkmanager \"cmake;3.22.1\""
+  }
+}

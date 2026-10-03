@@ -1,0 +1,249 @@
+{
+  "id": "themehospital-corsixth",
+  "title": "Theme Hospital via CorsixTH",
+  "title_en": "Theme Hospital via CorsixTH",
+  "status": "playable",
+  "last_verified": "2026-09-28 headset (0.4.0-xr: Hauptmenü, erstes Level, 72 Hz; VR-Tastatur in 0.5.0-xr gesehen); 0.8.0-xr gebaut, ungeprüft",
+  "app": {
+    "id": "xr.corsixth",
+    "label": "xr.corsixth",
+    "version": "0.8.0-xr"
+  },
+  "game": {
+    "name": "Theme Hospital",
+    "platform": "PC/DOS",
+    "year": 1997,
+    "rights_holder": "Electronic Arts (Bullfrog)",
+    "buy": [
+      "GOG",
+      "Original-CD (auch als ISO)"
+    ],
+    "name_en": "Theme Hospital"
+  },
+  "base": [
+    {
+      "name": "CorsixTH",
+      "url": "https://github.com/CorsixTH/CorsixTH",
+      "license": "MIT",
+      "role": "Engine-Reimplementierung (C++/Lua)",
+      "ref": "master @ 171587f6 (v0.70.1-144, 2026-09-24)"
+    },
+    {
+      "name": "SDL3, SDL3_mixer",
+      "url": "https://github.com/libsdl-org",
+      "license": "Zlib",
+      "role": "Plattform und Android-Activity",
+      "ref": "3.4.16 / 3.2.4"
+    },
+    {
+      "name": "Lua, LuaFileSystem, LPeg",
+      "url": "https://www.lua.org",
+      "license": "MIT",
+      "role": "Spiellogik",
+      "ref": "5.4.8 / 1.9.0 / 1.1.0"
+    },
+    {
+      "name": "FFmpeg (nur Smacker)",
+      "url": "https://ffmpeg.org",
+      "license": "LGPL-2.1",
+      "role": "Videos",
+      "ref": "n8.0.3"
+    },
+    {
+      "name": "FluidSynth",
+      "url": "https://github.com/FluidSynth/fluidsynth",
+      "license": "LGPL-2.1",
+      "role": "MIDI-Musik",
+      "ref": "2.6.1"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader (AAR)",
+      "ref": "1.1.58"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/XR-CorsixTH (privat)",
+    "branch": "xr-corsixth",
+    "local_path": "<XR-Ordner>/XR-CorsixTH"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 4,
+    "base_maturity": 5,
+    "note": "Aktive MIT-Engine auf SDL3; OpenXR über einen abgefangenen SDL_RenderPresent. Der Android-Fanport diente nur als Referenz. Krankenhaus in isometrischer Ansicht – ein schöner Kandidat für ein Diorama."
+  },
+  "effort": {
+    "with_apk": "30–60 min",
+    "from_source": "2–4 h (erster Build mit FFmpeg dauert lange)",
+    "with_apk_en": "30–60 min"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Ordner deiner Theme-Hospital-Installation (GOG: mit innoextract entpackter Installer) – dort liegen ANIMS, DATA, LEVELS, QDATA, SOUND",
+      "required": [
+        "ANIMS",
+        "DATA",
+        "LEVELS",
+        "QDATA",
+        "SOUND",
+        "DATA/VBLK-0.TAB"
+      ],
+      "device_path": "App-intern: /data/data/xr.corsixth/files/hospital (per run-as; Spielstände ebenfalls app-intern)",
+      "transfer": "bash quest/install.sh im Port-Repo oder kitchen push themehospital-corsixth <Spielordner>",
+      "hint_en": "Folder of your Theme Hospital installation (GOG: installer unpacked with innoextract) – contains ANIMS, DATA, LEVELS, QDATA, SOUND"
+    },
+    "push": {
+      "source": "dir",
+      "run_as": true,
+      "target": "files/hospital",
+      "include": [
+        "ANIMS",
+        "DATA",
+        "LEVELS",
+        "QDATA",
+        "SOUND"
+      ],
+      "verify": [
+        "DATA/VBLK-0.TAB",
+        "LEVELS/EASY00.SAM"
+      ],
+      "note": "Nur mit der Debug-APK möglich (run-as). Nie deinstallieren – das löscht die Spielstände.",
+      "note_en": "Only works with the debug APK (run-as). Never uninstall – that deletes your save games."
+    },
+    "modules": [
+      "quest-tools",
+      "xr-common",
+      "vr-menu-pflicht"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "innoextract"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "36",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "27.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "Panel-App",
+      "actions": [
+        "SDL3-Activity",
+        "chdir vor dem Engine-Start (xr_startup.cpp)"
+      ],
+      "done_when": "Hauptmenü als flaches Fenster",
+      "automatable": "partial",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Quad und Controller",
+      "actions": [
+        "SDL_RenderPresent per Linker-Wrap abfangen",
+        "Quad-Layer 1600×1200"
+      ],
+      "done_when": "erstes Level im VR-Fenster spielbar",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "headset-ok-2026-09-28 (0.4.0-xr)"
+    },
+    {
+      "id": "S3",
+      "title": "VR-Menü, VR-Tastatur, Ladeanzeige",
+      "actions": [
+        "Menü als Karte am linken Controller",
+        "Lua-Brücke xrvr"
+      ],
+      "done_when": "Menü-Pflichtumfang im Headset",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "VR-Tastatur in 0.5.0-xr gesehen"
+    },
+    {
+      "id": "S4",
+      "title": "Tor G1: 10 Minuten stabil",
+      "actions": [
+        "BUG-006 Wegfindungs-Absturz nach 16 min"
+      ],
+      "done_when": "10 Minuten Spiel ohne Absturz",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S5",
+      "title": "Einrichtungsassistent und Spielstände",
+      "actions": [
+        "GOG-Import in der App",
+        "Spielstände sichern"
+      ],
+      "done_when": "Einrichtung ohne adb, Spielstände übertragbar",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S6",
+      "title": "Zylinder, Tisch, Diorama",
+      "actions": [
+        "Phase 4 (Forschung)"
+      ],
+      "done_when": "–",
+      "automatable": "manual",
+      "status": "open"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Horizon OS lässt adb nicht zuverlässig nach Android/data schreiben → Daten per run-as in den App-Speicher",
+    "Engine hing beim Start, weil das Arbeitsverzeichnis / war (lfs.dir(\"\")) → chdir in xr_startup.cpp",
+    "App:fixConfig stürzt ab, wenn die Umgebungsvariable USER fehlt",
+    "Menü in Spielgrafik erschien nie: eventHandlers.frame wurde vor dem Laden von xr_menu.lua gecacht (BUG-004)",
+    "Ohne Intro blieb die Ladeanzeige 45 s stehen (BUG-005)",
+    "Absturz in der Wegfindung nach 16 Minuten (BUG-006, th_pathfind.cpp:567, offen)",
+    "Debug-Signatur ist rechnerspezifisch; Deinstallieren löscht die Spielstände",
+    "Spiel rendert bis 108 fps bei 72 Hz (PERF-001)",
+    "Deutsche Texte fehlen teilweise (BUG-001)"
+  ],
+  "legal": [
+    "APK enthält keine Spieldaten; der Spieler bringt ANIMS/DATA/LEVELS/QDATA/SOUND aus der eigenen Kopie",
+    "CorsixTH ist MIT – verträglich mit dem Apache-2.0-OpenXR-Loader",
+    "Kein Markenname im App-Namen (xr.corsixth)"
+  ],
+  "links": {
+    "Build": "<XR-Ordner>/XR-CorsixTH/docs/xr/BUILD-QUEST.md",
+    "Bedienung": "<XR-Ordner>/XR-CorsixTH/docs/xr/BEDIENUNG.md",
+    "Roadmap": "<XR-Ordner>/XR-CorsixTH/docs/xr/ROADMAP.md"
+  }
+}

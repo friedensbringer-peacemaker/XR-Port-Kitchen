@@ -1,0 +1,15 @@
+{
+  "id": "android-platform",
+  "name": "Android SDK Platform",
+  "purpose": "APK bauen (compileSdk); das Rezept nennt das nötige API-Level",
+  "url": "https://developer.android.com/tools",
+  "license": "Android SDK License",
+  "check": {
+    "windows": { "kind": "dir", "candidates": ["%ANDROID_HOME%\\platforms\\android-*", "%ANDROID_SDK_ROOT%\\platforms\\android-*", "%LOCALAPPDATA%\\Android\\Sdk\\platforms\\android-*"], "version_file": "source.properties", "version_regex": "AndroidVersion\\.ApiLevel\\s*=\\s*([0-9]+)" },
+    "macos":   { "kind": "dir", "candidates": ["$ANDROID_HOME/platforms/android-*", "$ANDROID_SDK_ROOT/platforms/android-*", "$HOME/Library/Android/sdk/platforms/android-*", "/opt/homebrew/share/android-commandlinetools/platforms/android-*"], "version_file": "source.properties", "version_regex": "AndroidVersion\\.ApiLevel\\s*=\\s*([0-9]+)" }
+  },
+  "install": {
+    "windows": "SDK in einen festen Ordner legen (nicht %LOCALAPPDATA%, wenn Claude Desktop als MSIX läuft), ANDROID_HOME setzen, dann: %ANDROID_HOME%\\cmdline-tools\\latest\\bin\\android.exe sdk install \"platforms;android-<API>\" (sdkmanager.bat zerlegt Namen mit ; teils falsch)",
+    "macos": "brew install --cask android-commandlinetools; sdkmanager \"platforms;android-<API>\" \"platform-tools\""
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "id": "openra-redalert",
+  "title": "Command & Conquer: Alarmstufe Rot via OpenRA",
+  "title_en": "Command & Conquer: Red Alert via OpenRA",
+  "status": "playable",
+  "last_verified": "2026-09-28 Log (0.3.1, Partie nach 15 s); 0.4.4 installiert 2026-10-02, Start nicht beobachtet",
+  "app": {
+    "id": "xr.openra",
+    "label": "xr.openra",
+    "version": "0.4.4 (0.4.5-preview in Arbeit)"
+  },
+  "game": {
+    "name": "Command & Conquer: Alarmstufe Rot",
+    "platform": "PC/DOS",
+    "year": 1996,
+    "rights_holder": "Electronic Arts",
+    "buy": [
+      "kein Kauf nötig: EA hat die Daten als Freeware freigegeben (Quick-Install-Paket über OpenRA)",
+      "Musik optional aus eigener Kopie (Steam/EA App: C&C Remastered Collection oder Original-CD)"
+    ],
+    "name_en": "Command & Conquer: Red Alert"
+  },
+  "base": [
+    {
+      "name": "OpenRA",
+      "url": "https://github.com/OpenRA/OpenRA",
+      "license": "GPL-3.0",
+      "role": "Engine-Reimplementierung (C#/.NET)",
+      "ref": "bleed @ f3ec7f8e15"
+    },
+    {
+      "name": "OpenAL Soft",
+      "url": "https://github.com/kcat/openal-soft",
+      "license": "LGPL-2.0",
+      "role": "Audio, nativ gebaut",
+      "ref": "1.24.3"
+    },
+    {
+      "name": "Lua",
+      "url": "https://www.lua.org",
+      "license": "MIT",
+      "role": "Skripting (liblua51.so)",
+      "ref": "5.1.5"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.58"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/XR-OpenRA",
+    "branch": "xr-openra",
+    "local_path": "<XR-Ordner>/XR-OpenRA"
+  },
+  "ratings": {
+    "portability": 3,
+    "xr_potential": 5,
+    "base_maturity": 5,
+    "note": "Kein Android-Port vorhanden; .NET-Android-Host plus nativer OpenXR-Host mit GPU-Readback nötig. Dafür ideal für Tisch/Brett-Ansicht."
+  },
+  "effort": {
+    "with_apk": "~10 min (es gibt noch keine weitergebbare APK)",
+    "from_source": "15–40 min erster Lauf per Doppelklick, ~7 GB Platz",
+    "with_apk_en": "~10 min (no shareable APK yet)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Nicht nötig: das Build-Skript lädt das freie ra-quickinstall.zip (13 MB, SHA-1-geprüft). Optional für Musik: Ordner mit scores.mix aus eigener Kopie",
+      "required": [],
+      "device_path": "App-intern: files/Content/ra/v2/ (per run-as xr.openra)",
+      "transfer": "quest/install.sh im Port-Repo oder kitchen push openra-redalert ra-quickinstall.zip; Musik: quest/import-music.sh <pfad>",
+      "hint_en": "Not needed: the build script downloads the free ra-quickinstall.zip (13 MB, SHA-1 checked). Optional for music: folder with scores.mix from your own copy"
+    },
+    "push": {
+      "source": "archive",
+      "run_as": true,
+      "target": "files/Content/ra/v2",
+      "source_sha1": "44241f68e69db9511db82cf83c174737ccda300b",
+      "verify": [
+        "conquer.mix",
+        "snow.mix"
+      ],
+      "note": "Die App muss vorher installiert sein (Debug-Build, wegen run-as).",
+      "note_en": "The app must be installed first (debug build, because of run-as)."
+    },
+    "modules": [
+      "quest-tools",
+      "readback-bridge-pattern"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb",
+      "only_for": "play"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "dotnet",
+      "version": "10",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "36",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "27.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "Android-Probe ohne XR",
+      "actions": [
+        ".NET-Android-App (net10.0-android, android-arm64)",
+        "RA-Regeln, GLES-Renderer, WorldRenderer"
+      ],
+      "done_when": "Spiel tickt auf der Quest (Tick 244 im Log)",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "QUEST-TEST-2026-09-26"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Quad",
+      "actions": [
+        "nativer Host OpenRA.Quest.XrProbe",
+        "Spielbild per Readback als Quad 1280×800"
+      ],
+      "done_when": "Fläche im Headset sichtbar, Autostart",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-09-26 Gerät"
+    },
+    {
+      "id": "S3",
+      "title": "Ein-Befehl-Build und Datenimport",
+      "actions": [
+        "Quest-Build.cmd / quest/all.sh",
+        "setup-toolchains → fetch-ra-content → build → install"
+      ],
+      "done_when": "frischer Rechner baut und installiert mit einem Doppelklick",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "0.2.6"
+    },
+    {
+      "id": "S4",
+      "title": "Stabilität (ANR, Lebenszyklus)",
+      "actions": [
+        "PreserveEGLContextOnPause",
+        "Laden in Etappen < 5 s",
+        "liblua51.so mitliefern"
+      ],
+      "done_when": "Brille ab/auf und Laden ohne ANR",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "0.2.7, 0.4.4"
+    },
+    {
+      "id": "S5",
+      "title": "VR-Menü, Kontrollgruppen, VR-Tastatur",
+      "actions": [
+        "VR-Reiter in den Einstellungen",
+        "Schnellmenü"
+      ],
+      "done_when": "im Headset bedienbar (TEST-001)",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S6",
+      "title": "Leistung ≥ 30 Bilder/s",
+      "actions": [
+        "asynchrone PBOs (PERF-001)"
+      ],
+      "done_when": "Leistungszeile zeigt ≥ 30/s in einer Partie",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S7",
+      "title": "Passthrough und Tischansicht",
+      "actions": [
+        "Passthrough-Modi (PASS-001/002)",
+        "Tisch/Zylinder (UX-005)"
+      ],
+      "done_when": "im Headset abgenommen",
+      "automatable": "manual",
+      "status": "open"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Synchroner GPU-Readback schaffte nur 12–13 Bilder/s → asynchrone PBOs, Upload nur bei neuem Bild",
+    "Laden auf dem GL-Thread > 5 s löst ANR aus → in Etappen laden (Kartenliste 10 Karten pro Frame)",
+    "Ohne liblua51.so hängt das Hauptmenü (DllNotFoundException)",
+    "Horizon OS fängt den Start ab, wenn die Quest schläft oder Controller ein Update brauchen",
+    "Doppelklick-Handler nicht jeden Frame neu anlegen (verliert Zustand)",
+    "Gebaute APK mit importierten Daten nicht weitergeben"
+  ],
+  "legal": [
+    "Spieldaten sind von EA als Freeware freigegeben und werden über OpenRAs Mirror geladen, nicht im Repo",
+    "Musik (scores.mix) ist nicht frei – nur aus eigener Kopie",
+    "GPL-3.0: Quellcode des Forks veröffentlichen"
+  ],
+  "links": {
+    "Build": "<XR-Ordner>/XR-OpenRA/docs/xr/BUILD-QUEST.md",
+    "Roadmap": "<XR-Ordner>/XR-OpenRA/docs/xr/ROADMAP-QUEST-TABLETOP.md"
+  }
+}

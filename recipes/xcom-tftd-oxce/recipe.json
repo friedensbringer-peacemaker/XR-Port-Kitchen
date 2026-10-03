@@ -1,0 +1,255 @@
+{
+  "id": "xcom-tftd-oxce",
+  "title": "X-COM: Terror from the Deep via OpenXcom Extended",
+  "title_en": "X-COM: Terror from the Deep via OpenXcom Extended",
+  "status": "playable",
+  "last_verified": "2026-09-30 headset (8.7.1-xr.3: Spielbild da und bedienbar; Einzelpunkte aus TEST.md offen); 8.7.1-xr.5 gebaut, nicht installiert",
+  "app": {
+    "id": "xr.openxcom",
+    "label": "xr.openxcom",
+    "version": "8.7.1-xr.5"
+  },
+  "game": {
+    "name": "X-COM: Terror from the Deep (UFO Defense optional)",
+    "platform": "PC/DOS",
+    "year": 1995,
+    "rights_holder": "2K / Take-Two (MicroProse)",
+    "buy": [
+      "GOG",
+      "Steam",
+      "Original-CD"
+    ],
+    "name_en": "X-COM: Terror from the Deep"
+  },
+  "base": [
+    {
+      "name": "OpenXcom Extended (OXCE)",
+      "url": "https://github.com/MeridianOXC/OpenXcom",
+      "license": "GPL-3.0",
+      "role": "Engine-Reimplementierung",
+      "ref": "oxce-plus 441cae1 (8.7.1), Zweig android 1ab7e7c"
+    },
+    {
+      "name": "OpenXcom-Android (OXCE)",
+      "url": "https://github.com/MeridianOXC/OpenXcom-Android",
+      "license": "GPL-3.0",
+      "role": "Android-Port",
+      "ref": "oxce-plus-proto 71fb95a (2026-09-19)"
+    },
+    {
+      "name": "OpenXcom",
+      "url": "https://github.com/OpenXcom/OpenXcom",
+      "license": "GPL-3.0",
+      "role": "ursprüngliche Engine (Referenz)",
+      "ref": "630130c"
+    },
+    {
+      "name": "OpenXcom-Android (Legacy)",
+      "url": "https://github.com/sfalexrog/OpenXcom-Android",
+      "license": "GPL-3.0",
+      "role": "Grundlage des Android-Ports",
+      "ref": "6f3476d (v0.2)"
+    },
+    {
+      "name": "SDL2, SDL_gfx, yaml-cpp",
+      "url": "https://github.com/libsdl-org",
+      "license": "Zlib / MIT",
+      "role": "Plattform"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader"
+    }
+  ],
+  "port": {
+    "repo": "lokal (Zweige nicht veröffentlicht, REL-001)",
+    "branch": "xr-quest",
+    "local_path": "<XR-Ordner>/XR-OpenXcom/fanport/OpenXcom-Android"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 5,
+    "base_maturity": 5,
+    "note": "Fertiger Android-Port der aktiven OXCE-Engine; OpenXR kam als eigener Renderer dazu. Geoscape als Globus und die Kampfkarte als Tisch – eines der stärksten XR-Potenziale im Katalog."
+  },
+  "effort": {
+    "with_apk": "15–30 min",
+    "from_source": "1–2 h plus ~12 min erster Build; derzeit nur mit lokalem Zugriff auf die Zweige",
+    "with_apk_en": "15–30 min"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "TFTD-Ordner deiner GOG-/Steam-Installation (mit innoextract entpackt) – dort liegen GEODATA, GEOGRAPH, MAPS, SOUND usw.",
+      "required": [
+        "ANIMS",
+        "FLOP_INT",
+        "GEODATA",
+        "GEOGRAPH",
+        "MAPS",
+        "ROUTES",
+        "SOUND",
+        "TERRAIN",
+        "UFOGRAPH",
+        "UNITS",
+        "GEODATA/PALETTES.DAT"
+      ],
+      "device_path": "/sdcard/openxcom/TFTD (braucht die Berechtigung „Alle Dateien“; Log und Einstellungen in /sdcard/openxcom/)",
+      "transfer": "kitchen push xcom-tftd-oxce <TFTD-Ordner>; danach Berechtigung „Alle Dateien“ erteilen",
+      "hint_en": "TFTD folder of your GOG/Steam installation (unpacked with innoextract) – contains GEODATA, GEOGRAPH, MAPS, SOUND etc."
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/openxcom/TFTD",
+      "include": [
+        "ANIMS",
+        "FLOP_INT",
+        "GEODATA",
+        "GEOGRAPH",
+        "MAPS",
+        "ROUTES",
+        "SOUND",
+        "TERRAIN",
+        "UFOGRAPH",
+        "UNITS"
+      ],
+      "verify": [
+        "GEODATA/PALETTES.DAT",
+        "SOUND/GM.CAT"
+      ],
+      "note": "Danach die Berechtigung erteilen: beim ersten Start „Zugriff auf alle Dateien“ erlauben oder adb shell appops set --uid xr.openxcom MANAGE_EXTERNAL_STORAGE allow",
+      "note_en": "Then grant the permission: allow “access to all files” on first start, or run adb shell appops set --uid xr.openxcom MANAGE_EXTERNAL_STORAGE allow"
+    },
+    "modules": [
+      "quest-tools",
+      "openxr-videodriver-pattern",
+      "vr-menu-pflicht"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "innoextract"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "35",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "2D-Fan-Port auf der Quest",
+      "actions": [
+        "OXCE-Android unverändert bauen",
+        "TFTD-Daten nach /sdcard/openxcom/TFTD"
+      ],
+      "done_when": "Intro läuft als flaches Fenster",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-09-27 Screenshot"
+    },
+    {
+      "id": "S1",
+      "title": "Immersiver Modus (OpenXR-Quad)",
+      "actions": [
+        "src/Engine/Xr/ (XrRenderer, XrRuntime)",
+        "Fokusverlust ignorieren (SDL 2.0.9)"
+      ],
+      "done_when": "Spielbild als VR-Leinwand, bedienbar",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-09-30 headset (8.7.1-xr.3)"
+    },
+    {
+      "id": "S2",
+      "title": "VR-Menü, VR-Optionen, VR-Tastatur, Upscaler",
+      "actions": [
+        "VR-Menü als OXCE-Dialog",
+        "xBRZ/HQx"
+      ],
+      "done_when": "TEST-001 und VR-MENU-001 abgehakt",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S3",
+      "title": "Tisch-Ansicht und Passthrough",
+      "actions": [
+        "Tisch-Ansicht",
+        "Passthrough 0–100 %"
+      ],
+      "done_when": "im Headset abgenommen",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S4",
+      "title": "Einrichtung ohne „Alle Dateien“",
+      "actions": [
+        "app-eigener Ordner plus Import (SETUP-001)"
+      ],
+      "done_when": "keine Sonderberechtigung nötig",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S5",
+      "title": "Geoscape als 3D-Globus",
+      "actions": [
+        "VR-010 (Recherche)"
+      ],
+      "done_when": "Globus im Raum",
+      "automatable": "manual",
+      "status": "open"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "partial",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "SDL 2.0.9 fror den Spiel-Thread bei Fokusverlust ein (Horizon OS) → Fokusverlust ab Android 7 ignorieren",
+    "Preloader mit noHistory verschwand nach dem Berechtigungsdialog",
+    "GL-Zeilen zählen von unten → Bild stand auf dem Kopf",
+    "Git-Revision als CMake-Argument → 18-min-Vollbuild bei jedem Commit",
+    "Preloader kannte nur UFO-Daten → Patch für TFTD",
+    "GOG-TFTD ist die DOS-Fassung ohne MIDI-Dateien – Musik kommt aus GM.CAT",
+    "Gradle im Fan-Port in Git Bash ohne MSYS_NO_PATHCONV aufrufen, adb aber mit",
+    "Testen ohne Brille: adb shell am broadcast -a com.oculus.vrpowermanager.prox_close"
+  ],
+  "legal": [
+    "APK enthält keine Spieldaten",
+    "GPL-3.0 gilt für die ganze APK; mit dem Apache-2.0-OpenXR-Loader verträglich",
+    "Keine Markennamen im App-Namen (xr.openxcom)"
+  ],
+  "links": {
+    "Test": "<XR-Ordner>/XR-OpenXcom/TEST.md",
+    "Status": "<XR-Ordner>/XR-OpenXcom/STATUS.md"
+  }
+}

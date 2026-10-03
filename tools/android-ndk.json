@@ -1,0 +1,15 @@
+{
+  "id": "android-ndk",
+  "name": "Android NDK",
+  "purpose": "Native Engines (C/C++) für arm64-v8a übersetzen; das Rezept nennt die Version",
+  "url": "https://developer.android.com/ndk",
+  "license": "Android SDK License",
+  "check": {
+    "windows": { "kind": "dir", "candidates": ["%ANDROID_NDK%", "%ANDROID_HOME%\\ndk\\*"], "version_file": "source.properties", "version_regex": "Pkg\\.Revision\\s*=\\s*([0-9.]+)" },
+    "macos":   { "kind": "dir", "candidates": ["$ANDROID_NDK", "$ANDROID_HOME/ndk/*", "/opt/homebrew/share/android-ndk"], "version_file": "source.properties", "version_regex": "Pkg\\.Revision\\s*=\\s*([0-9.]+)" }
+  },
+  "install": {
+    "windows": "%ANDROID_HOME%\\cmdline-tools\\latest\\bin\\android.exe sdk install \"ndk;<Version>\"",
+    "macos": "sdkmanager \"ndk;<Version>\" (oder brew install --cask android-ndk und ANDROID_NDK setzen)"
+  }
+}

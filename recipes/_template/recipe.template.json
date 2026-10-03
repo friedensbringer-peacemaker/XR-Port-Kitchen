@@ -1,0 +1,50 @@
+{
+  "id": "spiel-engine",
+  "title": "<Spiel> via <Engine>",
+  "status": "draft",
+  "last_verified": "",
+  "app": { "id": "xr.name", "label": "xr.name", "version": "0.1.0" },
+  "game": {
+    "name": "<Originalspiel>",
+    "platform": "PC/DOS",
+    "year": 1995,
+    "rights_holder": "<Rechteinhaber>",
+    "buy": ["GOG", "Steam", "Original-CD"]
+  },
+  "base": [
+    { "name": "<Engine>", "url": "https://github.com/…", "license": "GPL-2.0", "role": "Engine-Reimplementierung", "ref": "<commit>" }
+  ],
+  "port": { "repo": "", "branch": "", "local_path": "<XR-Ordner>/XR-<Name>" },
+  "ratings": { "portability": 3, "xr_potential": 3, "base_maturity": 3, "note": "Begründung für alle drei Werte" },
+  "effort": { "with_apk": "? min", "from_source": "? h" },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Wo der Spieler den Ordner findet",
+      "required": ["DATA"],
+      "device_path": "/sdcard/…",
+      "transfer": "Skript/Weg"
+    },
+    "modules": ["quest-tools", "vr-menu-pflicht"]
+  },
+  "tools": [
+    { "id": "adb" },
+    { "id": "git", "only_for": "build" },
+    { "id": "jdk", "version": "17", "only_for": "build" },
+    { "id": "android-platform", "version": "34", "only_for": "build" },
+    { "id": "android-ndk", "version": "30.0", "only_for": "build" },
+    { "id": "cmake", "only_for": "build" }
+  ],
+  "stages": [
+    { "id": "S0", "title": "Machbarkeit und Rechtelage", "actions": ["Skill xr-port-new-project"], "done_when": "Bewertung in ratings, Rechte und Lizenzen geklärt", "automatable": "partial", "status": "open" },
+    { "id": "S1", "title": "Android-Build ohne XR", "actions": [], "done_when": "APK startet auf der Quest als flaches Fenster", "automatable": "full", "status": "open" },
+    { "id": "S2", "title": "OpenXR-Bild", "actions": ["Skill xr-openxr-integration"], "done_when": "Spielbild als VR-Leinwand (Quest-Screenshot)", "automatable": "partial", "status": "open" },
+    { "id": "S3", "title": "Controller als Maus/Gamepad", "actions": ["Skill xr-quest-port"], "done_when": "Partie ohne Tastatur spielbar", "automatable": "manual", "status": "open" },
+    { "id": "S4", "title": "VR-Menü (Pflichtumfang)", "actions": ["Skill xr-vr-menu"], "done_when": "Beenden mit Bestätigung, Zeiger ausblendbar", "automatable": "manual", "status": "open" },
+    { "id": "S5", "title": "Lebenszyklus", "actions": ["Brille ab/auf, Laden < 5 s je Frame"], "done_when": "kein ANR, Beenden < 10 s", "automatable": "partial", "status": "open" },
+    { "id": "S6", "title": "Bildqualität und Leistung", "actions": ["Skill xr-image-quality"], "done_when": "Text lesbar, Bildrate stabil", "automatable": "partial", "status": "open" }
+  ],
+  "xr_modes": { "screen": "planned", "passthrough": "planned", "tabletop": "planned", "diorama": "unsuitable", "full-vr": "unsuitable" },
+  "known_issues": [],
+  "legal": ["APK enthält keine Spieldaten", "Upstream-Lizenz einhalten, Quellcode veröffentlichen"],
+  "links": {}
+}

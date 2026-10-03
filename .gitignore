@@ -1,0 +1,35 @@
+# Keine Spieldaten – niemals committen
+*.iso
+*.cue
+*.bin
+*.img
+*.gog
+*.rom
+*.chd
+*.mpq
+*.MPQ
+*.mix
+*.z64
+*.n64
+*.v64
+*.sfc
+*.smc
+*.zip
+*.7z
+*.exe
+setup_*
+original-data/
+
+# Logs und Aufnahmen von der Quest (können private Inhalte enthalten)
+*.log
+Screenshots/
+Videos/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Downloads der Küchenhilfe (Platform-Tools) – nur lokal
+.kitchen-tools/

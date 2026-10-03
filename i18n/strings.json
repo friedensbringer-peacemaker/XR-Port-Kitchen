@@ -1,0 +1,538 @@
+{
+  "lang_prompt": {
+    "de": "Sprache / Language: 1 = Deutsch, 2 = English",
+    "en": "Sprache / Language: 1 = Deutsch, 2 = English"
+  },
+  "menu_title": {
+    "de": "XR-Port-Kitchen",
+    "en": "XR-Port-Kitchen"
+  },
+  "menu_question": {
+    "de": "Welche Spiele möchtest du auf die Quest bringen? Ankreuzen mit X:",
+    "en": "Which games would you like to bring to your Quest? Tick them with X:"
+  },
+  "menu_doctor": {
+    "de": "Alle Küchengeräte prüfen",
+    "en": "Check all kitchen tools"
+  },
+  "menu_lang": {
+    "de": "Sprache wechseln (English)",
+    "en": "Change language (Deutsch)"
+  },
+  "menu_quit": {
+    "de": "Beenden",
+    "en": "Quit"
+  },
+  "menu_choice": {
+    "de": "Auswahl",
+    "en": "Choice"
+  },
+  "menu_invalid": {
+    "de": "Ungültige Auswahl.",
+    "en": "Invalid choice."
+  },
+  "yes_chars": {
+    "de": "jJyY",
+    "en": "yYjJ"
+  },
+  "yn": {
+    "de": "(j/n)",
+    "en": "(y/n)"
+  },
+  "press_enter": {
+    "de": "Weiter mit Enter …",
+    "en": "Press Enter to continue …"
+  },
+  "step": {
+    "de": "Schritt {0}/{1}: {2}",
+    "en": "Step {0}/{1}: {2}"
+  },
+  "aborted": {
+    "de": "Abgebrochen. Du kannst jederzeit neu starten.",
+    "en": "Stopped. You can start again at any time."
+  },
+  "g_intro": {
+    "de": "Das Rezept",
+    "en": "The recipe"
+  },
+  "g_based_on": {
+    "de": "Aufbauend auf (Danke an die Mitwirkenden!):",
+    "en": "Built on (thanks to all contributors!):"
+  },
+  "g_effort": {
+    "de": "Aufwand, wenn die App schon gebaut ist: {0}",
+    "en": "Effort once the app is built: {0}"
+  },
+  "g_status": {
+    "de": "Stand: {0}",
+    "en": "Status: {0}"
+  },
+  "g_start": {
+    "de": "Los geht's?",
+    "en": "Ready to start?"
+  },
+  "g_game": {
+    "de": "Originalspiel",
+    "en": "Original game"
+  },
+  "g_game_none": {
+    "de": "Für dieses Rezept brauchst du kein Originalspiel.",
+    "en": "This recipe does not need the original game."
+  },
+  "g_game_have": {
+    "de": "Hast du {0}?",
+    "en": "Do you own {0}?"
+  },
+  "g_game_buy": {
+    "de": "Erhältlich bei: {0}. Kaufe das Spiel, installiere es (bei GOG geht auch: Installer mit innoextract entpacken) und starte dann neu.",
+    "en": "Available from: {0}. Buy the game, install it (for GOG you can also unpack the installer with innoextract) and start again."
+  },
+  "g_folder": {
+    "de": "Wo liegen deine Spieldaten?",
+    "en": "Where is your game data?"
+  },
+  "g_folder_ask": {
+    "de": "Ordner (ins Fenster ziehen geht auch; leer = abbrechen)",
+    "en": "Folder (drag and drop works; empty = cancel)"
+  },
+  "g_folder_retry": {
+    "de": "Da fehlt noch etwas. Anderen Ordner versuchen?",
+    "en": "Something is missing. Try another folder?"
+  },
+  "g_folder_ok": {
+    "de": "Spieldaten gefunden.",
+    "en": "Game data found."
+  },
+  "g_prepare": {
+    "de": "Spieldaten vorbereiten",
+    "en": "Prepare the game data"
+  },
+  "g_prepare_done": {
+    "de": "Ist die Vorbereitung erledigt?",
+    "en": "Is the preparation done?"
+  },
+  "g_prepared_ask": {
+    "de": "Ordner mit den vorbereiteten Daten (leer = abbrechen)",
+    "en": "Folder with the prepared data (empty = cancel)"
+  },
+  "g_tools": {
+    "de": "Werkzeuge auf diesem Rechner",
+    "en": "Tools on this computer"
+  },
+  "g_tools_missing": {
+    "de": "Einige Werkzeuge fehlen. Installiere sie wie angegeben und starte dann neu.",
+    "en": "Some tools are missing. Install them as shown and start again."
+  },
+  "g_quest": {
+    "de": "Quest verbinden",
+    "en": "Connect your Quest"
+  },
+  "g_quest_help": {
+    "de": "So geht's (einmalig): 1. In der Meta-Horizon-App am Handy unter Menü → Geräte → Headset-Einstellungen → Entwicklermodus einschalten (braucht ein Entwicklerkonto). 2. Quest per USB-C anstecken. 3. In der Brille „USB-Debugging zulassen“ bestätigen und „Immer zulassen“ anhaken.",
+    "en": "How to (once): 1. In the Meta Horizon app on your phone: Menu → Devices → Headset settings → turn on Developer Mode (needs a developer account). 2. Connect the Quest via USB-C. 3. In the headset, confirm “Allow USB debugging” and tick “Always allow”."
+  },
+  "g_quest_retry": {
+    "de": "Nochmal prüfen?",
+    "en": "Check again?"
+  },
+  "g_app": {
+    "de": "App installieren",
+    "en": "Install the app"
+  },
+  "g_app_installed": {
+    "de": "{0} ist schon installiert (Version {1}).",
+    "en": "{0} is already installed (version {1})."
+  },
+  "g_app_update": {
+    "de": "Mit einer neueren APK aktualisieren?",
+    "en": "Update with a newer APK?"
+  },
+  "g_app_missing": {
+    "de": "{0} ist noch nicht installiert.",
+    "en": "{0} is not installed yet."
+  },
+  "g_app_ask": {
+    "de": "Pfad zu deiner selbst gebauten APK-Datei (leer = überspringen)",
+    "en": "Path to your self-built APK file (empty = skip)"
+  },
+  "g_app_installing": {
+    "de": "Installiere … (Spielstände bleiben erhalten)",
+    "en": "Installing … (save games are kept)"
+  },
+  "g_app_ok": {
+    "de": "Installiert.",
+    "en": "Installed."
+  },
+  "g_app_fail": {
+    "de": "Installation fehlgeschlagen: {0}",
+    "en": "Installation failed: {0}"
+  },
+  "g_app_sig": {
+    "de": "Tipp: Die APK wurde mit einem anderen Schlüssel signiert als die installierte. NICHT einfach deinstallieren – das löscht die Spielstände. Erst die Spielstände sichern.",
+    "en": "Tip: this APK was signed with a different key than the installed one. Do NOT just uninstall – that deletes your save games. Back them up first."
+  },
+  "g_push": {
+    "de": "Spieldaten auf die Quest übertragen",
+    "en": "Copy game data to the Quest"
+  },
+  "g_push_confirm": {
+    "de": "Jetzt übertragen?",
+    "en": "Copy now?"
+  },
+  "g_push_replace": {
+    "de": "Auf der Quest liegen schon Daten ({0}). Ersetzen? Spielstände liegen getrennt und bleiben.",
+    "en": "There is already data on the Quest ({0}). Replace it? Save games are stored separately and are kept."
+  },
+  "g_push_none": {
+    "de": "Für dieses Rezept müssen keine Daten übertragen werden.",
+    "en": "This recipe does not need any data to be copied."
+  },
+  "g_done": {
+    "de": "Fertig!",
+    "en": "Done!"
+  },
+  "g_done_start": {
+    "de": "Setz die Brille auf: Bibliothek → oben rechts auf „Alle“ → „Unbekannte Quellen“ → {0}. Viel Spaß!",
+    "en": "Put on your headset: Library → “All” (top right) → “Unknown sources” → {0}. Have fun!"
+  },
+  "g_details": {
+    "de": "Mehr Details: {0}",
+    "en": "More details: {0}"
+  },
+  "t_ok": {
+    "de": "ok",
+    "en": "ok"
+  },
+  "t_missing": {
+    "de": "fehlt",
+    "en": "missing"
+  },
+  "need_version": {
+    "de": "Version {0}",
+    "en": "version {0}"
+  },
+  "need_min": {
+    "de": "ab {0}",
+    "en": "at least {0}"
+  },
+  "tool_nodef": {
+    "de": "{0} – keine Definition in tools/{0}.json",
+    "en": "{0} – no definition in tools/{0}.json"
+  },
+  "tool_unfit": {
+    "de": "{0}{1} – gefunden, aber unpassend: {2}",
+    "en": "{0}{1} – found, but wrong version: {2}"
+  },
+  "tool_missing": {
+    "de": "{0}{1} – nicht gefunden",
+    "en": "{0}{1} – not found"
+  },
+  "quest_no_adb": {
+    "de": "Quest – kein adb, Verbindung nicht prüfbar",
+    "en": "Quest – no adb, cannot check the connection"
+  },
+  "quest_ok": {
+    "de": "Quest verbunden: {0} ({1})",
+    "en": "Quest connected: {0} ({1})"
+  },
+  "quest_unauth": {
+    "de": "Quest gefunden, aber USB-Debugging noch nicht erlaubt",
+    "en": "Quest found, but USB debugging is not allowed yet"
+  },
+  "quest_unauth_hint": {
+    "de": "Brille aufsetzen und den Dialog „USB-Debugging zulassen“ bestätigen (Haken bei „immer“).",
+    "en": "Put on the headset and confirm “Allow USB debugging” (tick “always”)."
+  },
+  "quest_none": {
+    "de": "Keine Quest verbunden",
+    "en": "No Quest connected"
+  },
+  "quest_none_hint": {
+    "de": "USB-C-Kabel einstecken; Entwicklermodus in der Meta-Horizon-App aktivieren (einmalig).",
+    "en": "Plug in the USB-C cable; enable Developer Mode in the Meta Horizon app (once)."
+  },
+  "assets_none": {
+    "de": "Keine Originaldaten nötig",
+    "en": "No original game data needed"
+  },
+  "assets_skip": {
+    "de": "Originaldaten nicht geprüft – Ordner mit -Assets <Pfad> angeben",
+    "en": "Game data not checked – pass -Assets <path>"
+  },
+  "assets_nodir": {
+    "de": "Ordner '{0}' existiert nicht",
+    "en": "Folder '{0}' does not exist"
+  },
+  "assets_item": {
+    "de": "Originaldaten: {0}",
+    "en": "Game data: {0}"
+  },
+  "assets_oneof": {
+    "de": "Originaldaten: eines von {0}",
+    "en": "Game data: one of {0}"
+  },
+  "check_title": {
+    "de": "Prüfe: {0}",
+    "en": "Checking: {0}"
+  },
+  "check_tools": {
+    "de": "Küchengeräte:",
+    "en": "Kitchen tools:"
+  },
+  "check_tools_play": {
+    "de": "Küchengeräte (nur Spielen):",
+    "en": "Kitchen tools (play only):"
+  },
+  "check_assets": {
+    "de": "Zutaten:",
+    "en": "Ingredients:"
+  },
+  "check_quest": {
+    "de": "Brille:",
+    "en": "Headset:"
+  },
+  "check_ok": {
+    "de": "Alles bereit. Weiter mit {0}",
+    "en": "All set. Continue with {0}"
+  },
+  "check_open": {
+    "de": "{0} Punkt(e) offen – Hinweise oben.",
+    "en": "{0} item(s) open – see hints above."
+  },
+  "p_title": {
+    "de": "Übertragen: {0}",
+    "en": "Copying: {0}"
+  },
+  "p_source": {
+    "de": "  Quelle: {0} ({1})",
+    "en": "  Source: {0} ({1})"
+  },
+  "p_target": {
+    "de": "  Ziel:   {0}",
+    "en": "  Target: {0}"
+  },
+  "p_appstore": {
+    "de": "{0} (App-Speicher) → ",
+    "en": "{0} (app storage) → "
+  },
+  "p_selection": {
+    "de": "  Auswahl: {0}",
+    "en": "  Selection: {0}"
+  },
+  "p_dry": {
+    "de": "Probelauf – nichts wird übertragen. Gerätescript:",
+    "en": "Dry run – nothing is copied. Device script:"
+  },
+  "p_sha_ok": {
+    "de": "Prüfsumme stimmt",
+    "en": "Checksum matches"
+  },
+  "p_packing": {
+    "de": "  Packe …",
+    "en": "  Packing …"
+  },
+  "p_size": {
+    "de": "  Paket: {0:N1} MB",
+    "en": "  Package: {0:N1} MB"
+  },
+  "p_copying": {
+    "de": "  Übertrage …",
+    "en": "  Copying …"
+  },
+  "p_extracting": {
+    "de": "  Entpacke auf der Quest …",
+    "en": "  Unpacking on the Quest …"
+  },
+  "p_on_quest": {
+    "de": "auf der Quest: {0}",
+    "en": "on the Quest: {0}"
+  },
+  "p_listing": {
+    "de": "Inhalt von {0}:",
+    "en": "Contents of {0}:"
+  },
+  "p_done": {
+    "de": "Fertig.",
+    "en": "Done."
+  },
+  "e_prefix": {
+    "de": "Fehler: ",
+    "en": "Error: "
+  },
+  "e_nospec": {
+    "de": "Rezept '{0}' hat keine Übertragungsangaben (ingredients.push).",
+    "en": "Recipe '{0}' has no transfer settings (ingredients.push)."
+  },
+  "e_nosrc": {
+    "de": "Quelle fehlt: kitchen push {0} <Ordner oder Datei>",
+    "en": "Source missing: kitchen push {0} <folder or file>"
+  },
+  "e_srcmissing": {
+    "de": "Quelle '{0}' existiert nicht.",
+    "en": "Source '{0}' does not exist."
+  },
+  "e_kind": {
+    "de": "Dieses Rezept erwartet {0} als Quelle.",
+    "en": "This recipe expects {0} as the source."
+  },
+  "kind_dir": {
+    "de": "einen Ordner",
+    "en": "a folder"
+  },
+  "kind_archive": {
+    "de": "ein .zip/.tar-Archiv",
+    "en": "a .zip/.tar archive"
+  },
+  "kind_file": {
+    "de": "eine einzelne Datei",
+    "en": "a single file"
+  },
+  "e_name": {
+    "de": "Name '{0}' – nur Buchstaben, Ziffern und . _ + - erlaubt (-Name angeben).",
+    "en": "Name '{0}' – only letters, digits and . _ + - allowed (use -Name)."
+  },
+  "e_appid": {
+    "de": "App-ID '{0}' ist ungültig.",
+    "en": "App ID '{0}' is invalid."
+  },
+  "e_target_chars": {
+    "de": "Zielpfad '{0}' enthält unerlaubte Zeichen.",
+    "en": "Target path '{0}' contains invalid characters."
+  },
+  "e_runas_noapp": {
+    "de": "Für run_as fehlt die App-ID.",
+    "en": "run_as needs an app ID."
+  },
+  "e_filename": {
+    "de": "Dateiname '{0}' – bitte ohne Leer- und Sonderzeichen.",
+    "en": "File name '{0}' – please without spaces or special characters."
+  },
+  "e_shallow": {
+    "de": "Ziel '{0}' ist zu allgemein – Rezept prüfen.",
+    "en": "Target '{0}' is too general – check the recipe."
+  },
+  "e_sha": {
+    "de": "Prüfsumme passt nicht (SHA-1 {0}, erwartet {1}). Falsche Version der Datei?",
+    "en": "Checksum mismatch (SHA-1 {0}, expected {1}). Wrong version of the file?"
+  },
+  "e_include": {
+    "de": "In '{0}' fehlt '{1}'.",
+    "en": "'{1}' is missing in '{0}'."
+  },
+  "e_verify_chars": {
+    "de": "Prüfdatei '{0}' enthält unerlaubte Zeichen.",
+    "en": "Check file '{0}' contains invalid characters."
+  },
+  "e_noadb": {
+    "de": "adb nicht gefunden – kitchen doctor",
+    "en": "adb not found – kitchen doctor"
+  },
+  "e_nodevice": {
+    "de": "Keine Quest verbunden (oder USB-Debugging nicht erlaubt) – kitchen check {0}",
+    "en": "No Quest connected (or USB debugging not allowed) – kitchen check {0}"
+  },
+  "e_multidevice": {
+    "de": "Mehrere Geräte verbunden ({0}) – mit -Serial eines wählen.",
+    "en": "Several devices connected ({0}) – choose one with -Serial."
+  },
+  "e_exists": {
+    "de": "Auf der Quest liegt schon '{0}'. Mit -Replace ersetzen (Spielstände liegen getrennt und bleiben).",
+    "en": "'{0}' already exists on the Quest. Use -Replace to replace it (save games are stored separately and are kept)."
+  },
+  "e_runas": {
+    "de": "run-as {0} geht nicht: App nicht installiert oder kein Debug-Build.",
+    "en": "run-as {0} failed: app not installed or not a debug build."
+  },
+  "e_tar": {
+    "de": "tar fehlgeschlagen: {0}",
+    "en": "tar failed: {0}"
+  },
+  "e_adbpush": {
+    "de": "adb push fehlgeschlagen: {0}",
+    "en": "adb push failed: {0}"
+  },
+  "e_mkdir": {
+    "de": "Zielordner ließ sich nicht anlegen (Rechte?).",
+    "en": "Could not create the target folder (permissions?)."
+  },
+  "e_unpack": {
+    "de": "Entpacken auf der Quest fehlgeschlagen.",
+    "en": "Unpacking on the Quest failed."
+  },
+  "e_verify": {
+    "de": "Übertragen, aber Prüfdateien fehlen – stimmt der Quellordner?",
+    "en": "Copied, but check files are missing – is the source folder right?"
+  },
+  "e_code": {
+    "de": "Gerätescript endete mit Code {0}.",
+    "en": "Device script ended with code {0}."
+  },
+  "menu_hint": {
+    "de": "↑/↓ bewegen · Leertaste oder X = an-/abwählen · A = alle · Enter = los · D = Geräte prüfen · L = Language · U = Kitchen aktualisieren · Q = Ende",
+    "en": "↑/↓ move · Space or X = select/deselect · A = all · Enter = go · D = check tools · L = Sprache · U = update kitchen · Q = quit"
+  },
+  "menu_hint_plain": {
+    "de": "Nummer(n) zum An-/Abwählen eingeben (z. B. 1 3), a = alle, Enter = los, d = Geräte prüfen, l = Language, u = aktualisieren, q = Ende",
+    "en": "Type number(s) to select/deselect (e.g. 1 3), a = all, Enter = go, d = check tools, l = Sprache, u = update, q = quit"
+  },
+  "menu_selected": {
+    "de": "{0} von {1} ausgewählt",
+    "en": "{0} of {1} selected"
+  },
+  "menu_none": {
+    "de": "Noch nichts ausgewählt – kreuze mindestens ein Spiel mit X an.",
+    "en": "Nothing selected yet – tick at least one game with X."
+  },
+  "menu_next_game": {
+    "de": "Weiter mit dem nächsten Spiel: {0}",
+    "en": "Next game: {0}"
+  },
+  "menu_update": {
+    "de": "Kitchen aktualisieren",
+    "en": "Update the kitchen"
+  },
+  "dl_adb_offer": {
+    "de": "adb fehlt. Soll die Küchenhilfe die Android Platform-Tools von Google herunterladen (ca. 15 MB, nur in den Kitchen-Ordner)? Es gelten Googles Nutzungsbedingungen: {0}",
+    "en": "adb is missing. Download the Android Platform-Tools from Google (about 15 MB, into the kitchen folder only)? Google's terms apply: {0}"
+  },
+  "dl_downloading": {
+    "de": "Lade herunter: {0}",
+    "en": "Downloading: {0}"
+  },
+  "dl_done": {
+    "de": "Fertig: {0}",
+    "en": "Done: {0}"
+  },
+  "dl_fail": {
+    "de": "Download fehlgeschlagen: {0}",
+    "en": "Download failed: {0}"
+  },
+  "apk_none": {
+    "de": "Die App baust du dir selbst – wegen der Lizenzen gibt es sie nicht fertig zum Herunterladen. Wie das geht, steht im Rezept unter „Aus dem Quellcode bauen“.",
+    "en": "You build the app yourself – because of the licenses it is not available as a ready-made download. The recipe explains how under “Build from source”."
+  },
+  "upd_offer": {
+    "de": "Kitchen von GitHub aktualisieren ({0})? Deine Einstellungen und Downloads bleiben erhalten.",
+    "en": "Update the kitchen from GitHub ({0})? Your settings and downloads are kept."
+  },
+  "upd_git": {
+    "de": "Aktualisiere per git …",
+    "en": "Updating via git …"
+  },
+  "upd_zip": {
+    "de": "Lade die neueste Fassung als ZIP …",
+    "en": "Downloading the latest version as ZIP …"
+  },
+  "upd_done": {
+    "de": "Kitchen ist aktuell. Bitte die Küchenhilfe neu starten.",
+    "en": "The kitchen is up to date. Please restart the kitchen helper."
+  },
+  "upd_fail": {
+    "de": "Aktualisierung fehlgeschlagen: {0}",
+    "en": "Update failed: {0}"
+  },
+  "menu_legend": {
+    "de": "✓ = im Headset gespielt · … = in Arbeit · – = Entwurf",
+    "en": "✓ = played in the headset · … = in progress · – = draft"
+  }
+}

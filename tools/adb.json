@@ -1,0 +1,16 @@
+{
+  "id": "adb",
+  "name": "Android Debug Bridge",
+  "purpose": "APK installieren, Spieldaten übertragen, Logs und Screenshots holen",
+  "url": "https://developer.android.com/tools/releases/platform-tools",
+  "license": "Apache-2.0",
+  "min_version": "1.0.41",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["%ADB%", "%ANDROID_HOME%\\platform-tools\\adb.exe", "%XR_TOOLS%\\android-sdk\\platform-tools\\adb.exe", "%KITCHEN_TOOLS%\\platform-tools\\adb.exe", "adb"], "args": "version", "version_regex": "Bridge version ([0-9.]+)" },
+    "macos":   { "kind": "exe", "candidates": ["$ADB", "$ANDROID_HOME/platform-tools/adb", "$KITCHEN_TOOLS/platform-tools/adb", "adb"], "args": "version", "version_regex": "Bridge version ([0-9.]+)" }
+  },
+  "install": {
+    "windows": "Platform-Tools-ZIP von developer.android.com entpacken (oder über das SDK). Nur EIN adb verwenden – zwei Versionen beenden sich gegenseitig den Server.",
+    "macos": "brew install --cask android-platform-tools"
+  }
+}

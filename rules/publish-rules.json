@@ -1,0 +1,116 @@
+{
+  "description": "Regeln für 'kitchen publish-check': was in einem öffentlichen Port-Repo nichts zu suchen hat. Persönliche Muster (Home-Ordner, XR-Ordner, Git-E-Mail, Benutzername) ermittelt die Küchenhilfe zur Laufzeit – sie stehen bewusst NICHT in dieser Datei.",
+  "max_file_mb": 5,
+  "errors": {
+    "game_data_ext": [
+      ".iso",
+      ".cue",
+      ".chd",
+      ".gog",
+      ".mpq",
+      ".war",
+      ".z64",
+      ".n64",
+      ".v64",
+      ".sfc",
+      ".smc",
+      ".fig",
+      ".swc",
+      ".gba",
+      ".nds",
+      ".srm",
+      ".mix",
+      ".smk",
+      ".pck",
+      ".cat",
+      ".dbp"
+    ],
+    "game_data_names": [
+      "setup_*.exe",
+      "setup_*.bin",
+      "*.pure.zip"
+    ],
+    "derived_paths": [
+      "data.Wargus/",
+      "data.War1gus/",
+      "wargus-quest/",
+      "war1gus-quest/",
+      "original-data/",
+      "quest-staging/",
+      "XRTHEME/"
+    ],
+    "secret_names": [
+      "*.keystore",
+      "*.jks",
+      "*.p12",
+      "*.pem",
+      "*.key",
+      "local.properties",
+      ".env",
+      "id_rsa",
+      "id_ed25519",
+      "google-services.json",
+      "keystore.properties",
+      "signing.properties"
+    ],
+    "log_names": [
+      "logcat*.txt",
+      "*.logcat",
+      "bugreport*.zip",
+      "bugreport*.txt"
+    ]
+  },
+  "warnings": {
+    "media_ext": [
+      ".mp4",
+      ".mov",
+      ".mkv",
+      ".webm"
+    ],
+    "binary_ext": [
+      ".so",
+      ".apk",
+      ".aab",
+      ".dll",
+      ".exe",
+      ".bin",
+      ".zip",
+      ".7z",
+      ".tar"
+    ],
+    "screenshot_paths": [
+      "Screenshots/",
+      "Videos/",
+      "Logs/"
+    ]
+  },
+  "allow": [
+    "gradle/wrapper/gradle-wrapper.jar",
+    "*/gradle/wrapper/gradle-wrapper.jar"
+  ],
+  "license_files": [
+    "LICENSE",
+    "LICENSE.md",
+    "LICENSE.txt",
+    "COPYING",
+    "COPYING.md",
+    "COPYING.txt",
+    "LICENSE-MIT",
+    "LICENCE"
+  ],
+  "generic_path_patterns": [
+    "[A-Za-z]:[\\\\/]+Users[\\\\/]+[^\\\\/\\s\"'<>]+",
+    "/Users/[a-z][a-z0-9._-]+/",
+    "/home/[a-z][a-z0-9._-]+/",
+    "/[a-z]/Users/[^/\\s]+/"
+  ],
+  "generic_path_ignore": [
+    "/Users/runner/",
+    "/home/runner/",
+    "/home/user/",
+    "/Users/user/",
+    "/home/ubuntu/",
+    "C:\\Users\\Public",
+    "/home/builder/"
+  ]
+}

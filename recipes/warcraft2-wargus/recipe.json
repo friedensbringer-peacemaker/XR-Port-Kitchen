@@ -1,0 +1,245 @@
+{
+  "id": "warcraft2-wargus",
+  "title": "Warcraft II via Wargus + Stratagus",
+  "title_en": "Warcraft II via Wargus + Stratagus",
+  "status": "in-progress",
+  "last_verified": "2026-09-27 headset (0.1.0-s1: flache Panel-App bis ins Menü); OpenXR-Versionen ab 0.2.x gebaut, 0.2.0–0.2.2 stürzten ab bzw. hingen, Fixes ungeprüft",
+  "app": {
+    "id": "xr.stratagus",
+    "label": "xr.stratagus",
+    "version": "0.3.0-xr"
+  },
+  "game": {
+    "name": "Warcraft II: Battle.net Edition (auch DOS-CD)",
+    "platform": "PC/Windows, PC/DOS",
+    "year": 1995,
+    "rights_holder": "Blizzard Entertainment",
+    "buy": [
+      "GOG (Battle.net Edition)",
+      "Original-CD"
+    ],
+    "name_en": "Warcraft II: Battle.net Edition (or the DOS CD)"
+  },
+  "base": [
+    {
+      "name": "Stratagus",
+      "url": "https://github.com/Wargus/stratagus",
+      "license": "GPL-2.0",
+      "role": "Engine",
+      "ref": "master @ 3d87c93f7 (2026-06-22)"
+    },
+    {
+      "name": "Wargus",
+      "url": "https://github.com/Wargus/wargus",
+      "license": "GPL-2.0",
+      "role": "Spielmodul und Datenkonverter wartool",
+      "ref": "master @ cde1a071 (2026-06-29)"
+    },
+    {
+      "name": "SDL2, SDL_image, SDL_mixer",
+      "url": "https://github.com/libsdl-org",
+      "license": "Zlib",
+      "role": "Plattform",
+      "ref": "2.32.10 / 2.8.12 / 2.8.2"
+    },
+    {
+      "name": "TiMidity + Freepats",
+      "url": "https://freepats.zenvoid.org",
+      "license": "GPL-2.0 / siehe Freepats",
+      "role": "MIDI-Musik"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.58"
+    }
+  ],
+  "port": {
+    "repo": "lokal",
+    "branch": "war1gus",
+    "local_path": "<XR-Ordner>/XR-Stratagus"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 4,
+    "base_maturity": 4,
+    "note": "C++/SDL2/Lua mit eigenem Android-Unterbau nach dem Siedler-Muster. Die Daten müssen erst am PC mit wartool umgewandelt werden. Echtzeit-Strategie mit Draufsicht eignet sich gut für einen Tisch."
+  },
+  "effort": {
+    "with_apk": "30–60 min (wartool-Umwandlung am PC ist der größte Schritt)",
+    "from_source": "2–4 h beim ersten Mal",
+    "with_apk_en": "30–60 min (the wartool conversion on the PC is the biggest step)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Ordner deiner installierten Warcraft-II-Battle.net-Edition (GOG) – dort liegen War2Dat.mpq und Install.mpq. DOS-CD: Ordner mit DATA/REZDAT.WAR",
+      "required": [],
+      "any_of": [
+        [
+          "War2Dat.mpq",
+          "Install.mpq",
+          "DATA/REZDAT.WAR"
+        ]
+      ],
+      "device_path": "/sdcard/Android/data/xr.stratagus/files/data.Wargus/ (Spielstände getrennt unter files/user/)",
+      "transfer": "Umwandeln: bash scripts/prepare-data.sh <Spielordner> im Port-Repo → wargus-quest/; Übertragen: kitchen push warcraft2-wargus <…>/wargus-quest",
+      "hint_en": "Folder of your installed Warcraft II Battle.net Edition (GOG) – contains War2Dat.mpq and Install.mpq. DOS CD: folder with DATA/REZDAT.WAR"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/data.Wargus",
+      "exclude": [
+        "*.mpq",
+        "*.MPQ",
+        "*.war",
+        "*.WAR",
+        "*.exe",
+        "*.EXE",
+        "*.dll",
+        "*.DLL"
+      ],
+      "verify": [
+        "scripts/stratagus.lua",
+        "extracted"
+      ],
+      "note": "Quelle ist der umgewandelte Ordner wargus-quest aus prepare-data.sh, nicht der GOG-Ordner. Original-Archive (.mpq/.war) und Programme werden nicht übertragen.",
+      "note_en": "The source is the converted wargus-quest folder from prepare-data.sh, not the GOG folder. Original archives (.mpq/.war) and programs are not copied.",
+      "prepare": "Daten am PC umwandeln (im Port-Repo XR-Stratagus, Git Bash): bash scripts/prepare-data.sh \"<Spielordner>\". Das Skript baut wartool, wandelt Grafik, Töne, Musik und Videos um und legt den Ordner wargus-quest an (~288 MB). Braucht CMake und ffmpeg, unter Windows zusätzlich llvm-mingw.",
+      "prepare_en": "Convert the data on the PC (in the port repo XR-Stratagus, Git Bash): bash scripts/prepare-data.sh \"<game folder>\". The script builds wartool, converts graphics, sounds, music and videos and creates the folder wargus-quest (~288 MB). Needs CMake and ffmpeg, on Windows also llvm-mingw."
+    },
+    "modules": [
+      "quest-tools",
+      "openxr-videodriver-pattern",
+      "vr-menu-pflicht"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "ffmpeg"
+    },
+    {
+      "id": "cmake"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Grundlage",
+      "actions": [
+        "git submodule update --init --recursive",
+        "Desktop-Build läuft"
+      ],
+      "done_when": "Wargus startet am PC mit umgewandelten Daten",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S1",
+      "title": "Flache Panel-App",
+      "actions": [
+        "bash scripts/build-native.sh",
+        "cd android && ./gradlew assembleStratagusDebug"
+      ],
+      "done_when": "Hauptmenü auf der Quest sichtbar",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "headset-ok-2026-09-27 (0.1.0-s1)"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Quad und Controller",
+      "actions": [
+        "native/xr/ Present-Hook",
+        "Strahl als Maus"
+      ],
+      "done_when": "Partie im VR-Fenster spielbar (TEST-001, 19 Punkte)",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "GL-Symbol-Absturz in 0.2.2 behoben, Hänger-Fix 0.2.3 ungeprüft"
+    },
+    {
+      "id": "S3",
+      "title": "VR-Menü und VR-Tastatur",
+      "actions": [
+        "Schnellmenü + 4 Reiter im Spielstil",
+        "Filme überspringen"
+      ],
+      "done_when": "Menü-Pflichtumfang im Headset",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S4",
+      "title": "Komfort und Paket",
+      "actions": [
+        "höhere Auflösung (VR-004)",
+        "Release (REL-001)"
+      ],
+      "done_when": "weitergebbare APK",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S5",
+      "title": "Tisch / Diorama",
+      "actions": [
+        "VR-010 (Recherche)"
+      ],
+      "done_when": "Karte als Tisch",
+      "automatable": "manual",
+      "status": "open"
+    }
+  ],
+  "xr_modes": {
+    "screen": "partial",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Globale GL-Funktionszeiger mit echten GL-Namen (shaders.cpp) überdeckten libGLESv3 → SIGSEGV im ersten Frame; per Präprozessor umbenannt, der Build prüft jetzt auf solche Symbole",
+    "Host-Tests linkten Stratagus nicht mit und fanden den GL-Absturz deshalb nicht",
+    "Mitgeliefertes SDL 2.0.22 läuft nicht mit NDK ≥ 27 → eigene SDL-Submodule",
+    "ExternalProjects brauchen den Toolchain-Wrapper (sonst armv7/API 21); in Ninja zuerst stratagus_lib bauen",
+    "wartool trägt bei der Battle.net Edition .wav statt .mid als Musik ein – prepare-data.sh korrigiert das",
+    "stb_vorbis spielt Theora-Videos ohne Ton → vorbisfile",
+    "Stratagus reagiert nur auf SDL_QUIT → bei SDL_APP_TERMINATING sofort beenden",
+    "Fokus-Events und PauseOnLeave ließen das Spiel hängen (0.2.3, ungeprüft)",
+    "Log-Ordner verliert das Setgid-Bit → Logs für adb unlesbar",
+    "In version.properties steht nicht committet 0.2.6-xr bei gleichem versionCode wie 0.3.0-xr – vor dem nächsten Build klären"
+  ],
+  "legal": [
+    "wartool wandelt nur die eigene Kopie um; das Ergebnis bleibt privat und wird nie weitergegeben",
+    "Original-Archive (.mpq/.war), Programme und DLLs werden nicht auf die Quest übertragen",
+    "Keine Blizzard-Marken in App-Name oder Icon (xr.stratagus)"
+  ],
+  "links": {
+    "Build": "<XR-Ordner>/XR-Stratagus/docs/BUILD.md",
+    "Roadmap": "<XR-Ordner>/XR-Stratagus/docs/ROADMAP.md"
+  }
+}

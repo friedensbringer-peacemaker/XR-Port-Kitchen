@@ -1,0 +1,9 @@
+{
+  "repo": "https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen",
+  "branch": "main",
+  "platform_tools": {
+    "windows": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip",
+    "macos": "https://dl.google.com/android/repository/platform-tools-latest-darwin.zip",
+    "terms": "https://developer.android.com/studio/releases/platform-tools"
+  }
+}

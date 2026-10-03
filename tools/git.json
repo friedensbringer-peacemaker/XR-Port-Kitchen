@@ -1,0 +1,16 @@
+{
+  "id": "git",
+  "name": "Git",
+  "purpose": "Upstream-Projekte und Port-Code holen",
+  "url": "https://git-scm.com",
+  "license": "GPL-2.0",
+  "min_version": "2.30",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["git"], "args": "--version", "version_regex": "version ([0-9]+\\.[0-9]+\\.[0-9]+)" },
+    "macos":   { "kind": "exe", "candidates": ["git"], "args": "--version", "version_regex": "version ([0-9]+\\.[0-9]+\\.[0-9]+)" }
+  },
+  "install": {
+    "windows": "winget install Git.Git",
+    "macos": "xcode-select --install (bringt git mit) oder brew install git"
+  }
+}

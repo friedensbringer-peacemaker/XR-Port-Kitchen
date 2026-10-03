@@ -1,0 +1,16 @@
+{
+  "id": "innoextract",
+  "name": "innoextract",
+  "purpose": "Originaldaten aus eigenen GOG-Offline-Installern entpacken, ohne sie auszuführen",
+  "url": "https://constexpr.org/innoextract/",
+  "license": "Zlib",
+  "min_version": "1.9",
+  "check": {
+    "windows": { "kind": "exe", "candidates": ["innoextract", "%XR_TOOLS%\\innoextract\\innoextract.exe"], "args": "--version", "version_regex": "innoextract ([0-9.]+)" },
+    "macos":   { "kind": "exe", "candidates": ["innoextract", "$XR_TOOLS/innoextract/innoextract"], "args": "--version", "version_regex": "innoextract ([0-9.]+)" }
+  },
+  "install": {
+    "windows": "Release-ZIP von constexpr.org entpacken und in den PATH legen",
+    "macos": "brew install innoextract"
+  }
+}

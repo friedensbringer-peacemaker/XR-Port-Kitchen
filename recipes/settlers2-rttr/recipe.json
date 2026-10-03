@@ -1,0 +1,237 @@
+{
+  "id": "settlers2-rttr",
+  "title": "Die Siedler II via Return to the Roots",
+  "title_en": "The Settlers II via Return to the Roots",
+  "status": "playable",
+  "last_verified": "2026-09-27 headset (v2.1.0-preview.8); preview.13 nur Start-Smoke-Test 2026-09-28",
+  "app": {
+    "id": "xr.settlers25",
+    "label": "xr.settlers25",
+    "version": "2.1.0-preview.13"
+  },
+  "game": {
+    "name": "Die Siedler II (Gold Edition)",
+    "platform": "PC/DOS",
+    "year": 1996,
+    "rights_holder": "Blue Byte / Ubisoft",
+    "buy": [
+      "GOG (Gold Edition)",
+      "Original-CD"
+    ],
+    "name_en": "The Settlers II (Gold Edition)"
+  },
+  "base": [
+    {
+      "name": "Return to the Roots (s25client)",
+      "url": "https://github.com/Return-To-The-Roots/s25client",
+      "license": "GPL-2.0-or-later",
+      "role": "Engine-Reimplementierung",
+      "ref": "a0b85fbf"
+    },
+    {
+      "name": "s25rttr-android",
+      "url": "https://github.com/Farmer-Markus/s25rttr-android",
+      "license": "GPL-2.0",
+      "role": "Android-Port (SDL2, gl4es)",
+      "ref": "35ef6302"
+    },
+    {
+      "name": "OpenXR-SDK-Source",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK-Source",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/XR-Settlers2.5 (privat)",
+    "branch": "main",
+    "local_path": "<XR-Ordner>/XR-Settlers2.5"
+  },
+  "ratings": {
+    "portability": 5,
+    "xr_potential": 4,
+    "base_maturity": 5,
+    "note": "Android-Port existierte schon; OpenXR kam als eigener Videotreiber dazu. Tisch und Diorama sind das große XR-Potenzial, aber die Grafik ist fest gezeichnet (2D-Sprites)."
+  },
+  "effort": {
+    "with_apk": "30–60 min",
+    "from_source": "2–4 h Ersteinrichtung, danach ~9 min je Build",
+    "with_apk_en": "30–60 min"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Ordner einer installierten bzw. mit innoextract entpackten GOG-Gold-Edition (dort liegen DATA, GFX, S2.EXE)",
+      "required": [
+        "DATA",
+        "GFX"
+      ],
+      "device_path": "/sdcard/RTTR/S2/ (DATA und GFX); Spielstände getrennt unter /sdcard/RTTR/.s25rttr",
+      "transfer": "kitchen push settlers2-rttr <Gold-Ordner> (nur DATA und GFX; Ersetzen nur mit Replace)",
+      "hint_en": "Folder of an installed or innoextract-unpacked GOG Gold Edition (contains DATA, GFX, S2.EXE)"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/RTTR/S2",
+      "include": [
+        "DATA",
+        "GFX"
+      ],
+      "verify": [
+        "DATA",
+        "GFX"
+      ],
+      "note": "In der App beim ersten Start /sdcard/RTTR/S2 wählen und „Zugriff auf alle Dateien“ erlauben.",
+      "note_en": "On first start, pick /sdcard/RTTR/S2 in the app and allow “access to all files”."
+    },
+    "modules": [
+      "quest-tools",
+      "openxr-videodriver-pattern"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb",
+      "only_for": "play"
+    },
+    {
+      "id": "python",
+      "min_version": "3.9"
+    },
+    {
+      "id": "innoextract",
+      "only_for": "build"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "36",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "27.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "Android-Basis übernehmen",
+      "actions": [
+        "s25rttr-android mit Submodulen klonen (git clone --recurse-submodules)",
+        "unverändert für arm64-v8a bauen"
+      ],
+      "done_when": "APK startet auf der Quest als flaches Android-Fenster",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Videotreiber",
+      "actions": [
+        "eigener Videotreiber extras/videoDrivers/OpenXR/",
+        "Spielbild als Quad-Layer"
+      ],
+      "done_when": "Spielbild erscheint als VR-Fenster (Quest-Screenshot)",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "docs/VALIDATION.md"
+    },
+    {
+      "id": "S3",
+      "title": "Controller als Maus, VR-Tastatur, Schnellmenü",
+      "actions": [
+        "Strahl + Cursor",
+        "Tastenbelegung",
+        "iwVrTools"
+      ],
+      "done_when": "Partie mit Controllern spielbar, Abnahmen VR-001…024",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "im Headset gespielt; Einzelabnahmen offen"
+    },
+    {
+      "id": "S4",
+      "title": "Bildqualität",
+      "actions": [
+        "Auflösungsprofile bis 3840×1080",
+        "Schärfe, Helligkeit, Kontrast"
+      ],
+      "done_when": "Text lesbar, kein Flimmern (VR-013)",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "S5",
+      "title": "Zylinder, Passthrough, Tisch",
+      "actions": [
+        "gewölbte Leinwand",
+        "Passthrough-Regler (VR-011)",
+        "Tisch-Simulator (VR-021), Tisch aus Raumscan (VR-022)"
+      ],
+      "done_when": "Modi im Headset abgenommen",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S6",
+      "title": "Diorama mit Höhenrelief",
+      "actions": [
+        "Plan: docs/PLAN-Tisch-und-Diorama.md"
+      ],
+      "done_when": "Gelände mit Höhen im Headset",
+      "automatable": "manual",
+      "status": "open"
+    },
+    {
+      "id": "S7",
+      "title": "Ein-Klick-Build für Dritte",
+      "actions": [
+        "scripts/build-quest.py --check",
+        "Quest-Builder.cmd/.command"
+      ],
+      "done_when": "Fremder Rechner baut ohne Hilfe (SETUP-001)",
+      "automatable": "full",
+      "status": "open",
+      "evidence": "Windows-CLI ok 2026-09-27, GUI/Linux ungetestet"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "partial",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "SDLActivity nie direkt kalt starten – immer xr.settlers25/org.s25rttr.sdl.GameStartActivity",
+    "Vor jedem Test versionName prüfen; ein versehentlich installierter main-Build zeigte riesige Menüebenen",
+    "Debug-Schlüssel unterscheiden sich je Rechner → install -r scheitert; vor Deinstallation Spielstände sichern",
+    "GitHub-ZIP ohne Submodule ist kein vollständiger Checkout (88 Submodule)",
+    "Windows: sdkmanager.bat zerlegt Paketnamen mit ; – android.exe sdk install nutzen; kurze Checkout-Pfade; PYTHONIOENCODING=utf-8; echtes python im PATH; gettext nötig",
+    "Nach Auflösungswechsel Offscreen-FBO und Swapchain gemeinsam neu anlegen",
+    "Systemdialog „App-Name nicht verfügbar“ lässt sich von der App aus nicht unterdrücken"
+  ],
+  "legal": [
+    "APK enthält keine Spieldaten; DATA/GFX bringt der Spieler aus der eigenen Kopie",
+    "GPL-2.0: Quellcode des Ports muss mit jeder weitergegebenen APK verfügbar sein",
+    "Kein Markenname im App-Namen (xr.settlers25)"
+  ],
+  "links": {
+    "Ersteinrichtung": "<XR-Ordner>/XR-Settlers2.5/docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md",
+    "Build": "<XR-Ordner>/XR-Settlers2.5/docs/BUILD.md",
+    "Releases": "https://github.com/friedensbringer-peacemaker/XR-Settlers2.5/releases"
+  }
+}
