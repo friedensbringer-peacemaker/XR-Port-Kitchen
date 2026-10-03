@@ -965,15 +965,18 @@ path_forms() {
 
 personal_patterns() {
     {
-        path_forms "$HOME"
-        # Oberster Ordner über dem XR-Ordner (z. B. /d/<Name> oder /Users/<Name>)
-        _pp_top=$(dirname "$ROOT")
-        while :; do
-            _pp_parent=$(dirname "$_pp_top")
-            case "$_pp_parent" in /|/[a-zA-Z]|.) break ;; esac
-            _pp_top=$_pp_parent
-        done
-        path_forms "$_pp_top"
+        # Auf CI-Runnern (GitHub Actions) sind Heim- und Arbeitsordner nicht persönlich
+        if [ "$GITHUB_ACTIONS" != true ]; then
+            path_forms "$HOME"
+            # Oberster Ordner über dem XR-Ordner (z. B. /d/<Name>); allgemeine Systemordner nie
+            _pp_top=$(dirname "$ROOT")
+            while :; do
+                _pp_parent=$(dirname "$_pp_top")
+                case "$_pp_parent" in /|/[a-zA-Z]|.) break ;; esac
+                _pp_top=$_pp_parent
+            done
+            case "$_pp_top" in /home|/Users|/root|/mnt|/tmp|/opt|/var|/[a-zA-Z]/Users) ;; *) path_forms "$_pp_top" ;; esac
+        fi
         _pp_mail=$(git config --global user.email 2>/dev/null)
         case "$_pp_mail" in *noreply*|"") ;; *) printf '%s\n' "$_pp_mail" ;; esac
         [ -f "$HOME/.xr-kitchen/personal-patterns.txt" ] && grep -v '^#' "$HOME/.xr-kitchen/personal-patterns.txt"

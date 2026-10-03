@@ -526,12 +526,16 @@ function Get-PersonalPatterns {
         $set.Add($p); $set.Add(($p -replace '\\', '/'))
         if ($p -match '^([A-Za-z]):[\\/](.*)$') { $set.Add("/" + $Matches[1].ToLower() + "/" + ($Matches[2] -replace '\\', '/')) }
     }
-    Add-PathForms $env:USERPROFILE
-    # Oberster Ordner über dem XR-Ordner (z. B. D:\<Name>) – alles darunter ist rechnerspezifisch
-    $xr = Split-Path $Root -Parent
-    $top = $xr
-    while ((Split-Path $top -Parent) -and (Split-Path $top -Parent) -ne [IO.Path]::GetPathRoot($top)) { $top = Split-Path $top -Parent }
-    Add-PathForms $top
+    # Auf CI-Runnern (GitHub Actions) sind Heim- und Arbeitsordner nicht persönlich
+    if ($env:GITHUB_ACTIONS -ne "true") {
+        Add-PathForms $env:USERPROFILE
+        # Oberster Ordner über dem XR-Ordner (z. B. D:\<Name>) – alles darunter ist rechnerspezifisch;
+        # allgemeine Systemordner (C:\Users, C:\Program Files …) nie
+        $xr = Split-Path $Root -Parent
+        $top = $xr
+        while ((Split-Path $top -Parent) -and (Split-Path $top -Parent) -ne [IO.Path]::GetPathRoot($top)) { $top = Split-Path $top -Parent }
+        if ((Split-Path $top -Leaf) -notin "Users", "Program Files", "Program Files (x86)", "ProgramData", "Windows", "a") { Add-PathForms $top }
+    }
     $mail = (& git config --global user.email 2>$null)
     if ($mail -and $mail -notmatch 'noreply') { $set.Add($mail) }
     $extra = Join-Path $HOME ".xr-kitchen\personal-patterns.txt"
