@@ -66,8 +66,9 @@ ein Klassiker so auf der Brille funktioniert, war die Inspiration für diese Kit
 
 Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
 Möglichkeiten ausreizt – auch wenn das mittelfristig natürlich ebenfalls sehr spannend wäre. Erste
-Rezepte probieren schon aus, die Karte als Tisch in den Raum zu stellen. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
-ausdrücklich empfehlen – wer ein Spiel voll räumlich erleben will, ist dort besser aufgehoben:
+Rezepte probieren schon aus, die Karte als Tisch in den Raum zu stellen. Für das volle VR-Erlebnis
+gibt es aber längst großartige Fan- und Community-Projekte, die wir ausdrücklich empfehlen – wer ein
+Spiel voll räumlich erleben will, ist dort besser aufgehoben:
 
 - **[Team Beef](https://www.teambeefvr.com)** ([GitHub](https://github.com/Team-Beef-Studios)) – native, kabellose Quest-VR-Umsetzungen von Klassikern
   wie Doom, Quake, Half-Life oder Return to Castle Wolfenstein, kostenlos über SideQuest (mit den
