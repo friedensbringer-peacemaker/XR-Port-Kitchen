@@ -6,7 +6,7 @@ Was es für die Quest (und PC-VR) schon gibt – vor einem neuen Port hier nachs
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16) · Standalone Quest (APK) / Weitere native Quest-Ports (Community) (10) · Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10) · Standalone Quest (APK) / Emulatoren / Kino-Bildschirm / Kompatibilitätsschichten (Quest) (8) · Nur PC-VR (Mods/Ports) (24) · Offizielle VR-Remaster (zur Abgrenzung) (9)
+**Abschnitte:** Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16) · Standalone Quest (APK) / Weitere native Quest-Ports (Community) (10) · Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10) · Standalone Quest (APK) / Emulatoren / Kino-Bildschirm / Kompatibilitätsschichten (Quest) (8) · Nur PC-VR (Mods/Ports) (24) · Offizielle VR-Remaster (zur Abgrenzung) (10)
 
 ## Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16)
 
@@ -18,7 +18,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | JK: Dark Forces II (OpenJKDF2) | Jedi Knight: Dark Forces II | OpenJKDF2 | immersiv 6DoF · Team Beef · Patreon/später SideQuest | in Entwicklung (Repo Sep 2026) | <https://github.com/Team-Beef-Studios/OpenJKDF2> |
 | JKXR | Jedi Outcast + Jedi Academy | OpenJK (id Tech 3) | immersiv 6DoF (Lichtschwert) · Team Beef · SideQuest, GitHub | Repo aktiv Sep 2026; auch PCVR | <https://github.com/Team-Beef-Studios/JKXR> |
 | Lambda1VR | Half-Life 1 (+ Addons/Mods) | Xash3D-FWGS | immersiv 6DoF · Team Beef · SideQuest, GitHub | Repo aktiv Sep 2026 | <https://github.com/Team-Beef-Studios/Lambda1VR> |
-| OpenMW XR | Morrowind | OpenMW | immersiv 6DoF · Team Beef · SideQuest/Patreon | released 2026 (Quest, Pico, Steam Frame) | <https://www.teambeefvr.com/> |
+| OpenMW XR | Morrowind | OpenMW | immersiv 6DoF · Team Beef · SideQuest/Patreon | in Entwicklung (laut teambeefvr.com, Stand 2026-10-04) | <https://www.teambeefvr.com/> |
 | PreyVR | Prey (2006) | id Tech 4 (Open-Source-Prey-Port) | immersiv 6DoF · Team Beef · SideQuest, GitHub | released | <https://github.com/Team-Beef-Studios/PreyVR> |
 | Quake2Quest | Quake II | Yquake2-basiert | immersiv 6DoF · Team Beef · SideQuest, GitHub | Update Aug 2026 (Waffenrad) | <https://github.com/Team-Beef-Studios/Quake2Quest> |
 | Quake3Quest (ioq3quest) | Quake III Arena / Team Arena | ioquake3 | immersiv 6DoF, MP · Team Beef · SideQuest, GitHub | Update Sep 2026 (OpenXR, Body-Lock-Waffenrad) | <https://github.com/Team-Beef-Studios/ioq3quest> |
@@ -101,13 +101,14 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Vice City VR (PC) | GTA Vice City | reVC | Mod 6DoF · Hostile VR · ? | 2026 | <https://compoundvr.com/games/grand-theft-auto-vice-city/> |
 | Vivecraft | Minecraft Java | – | Mod · Vivecraft-Team · Web | aktiv | <https://vivecraft.org> |
 
-## Offizielle VR-Remaster (zur Abgrenzung) (9)
+## Offizielle VR-Remaster (zur Abgrenzung) (10)
 
 | Projekt | Spiel | Engine-Basis | Art · Entwickler · Vertrieb | Stand | URL |
 |---|---|---|---|---|---|
 | Doom VFR / Doom 3 VR Edition (V) | Doom / Doom 3 | id Tech 6 / 4 | immersiv · id / Archiact · Steam / PSVR | released | – |
 | Myst / Riven (V) | Myst, Riven | UE | immersiv · Cyan · Quest Store | released | – |
 | Postal 2 VR | Postal 2 | UE2 | immersiv · Team Beef Studios · Quest, Steam, PSVR2 | in Entwicklung | <https://www.teambeefvr.com/> |
+| POSTAL 2 VR | Postal 2 | Unreal Engine 2 | offizielles VR-Remaster · Team Beef · Steam, PSVR2, Meta Quest | in Entwicklung | <https://store.steampowered.com/app/3534150/> |
 | Roboquest VR, Trombone Champ: Unflattened, FlatOut VR(?), High On Life VR, Evil Inside VR | diverse | – | immersiv · Flat2VR Studios · Quest Store, Steam, PSVR2 | 2025–2026 | <https://store.steampowered.com/franchise/Flat2VRStudios> |
 | Serious Sam VR: The First/Second Encounter | Serious Sam | Serious Engine | immersiv · Croteam · Steam | released (2017) | <https://store.steampowered.com/app/552450/> |
 | System Shock VR | System Shock (Remake) | UE | immersiv · Flat2VR Studios · Quest, PSVR2 | angekündigt 2026 | <https://vr.org/articles/vr-games-showcase-august-2026-system-shock-high-on-life-flat2vr> |

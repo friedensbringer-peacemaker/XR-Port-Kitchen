@@ -371,7 +371,7 @@ engine	Rollenspiel	Openglad	Gladiator		C++ / SDL	GPL2	?	playable · eingestellt	
 engine	Rollenspiel	OpenGothic	Gothic		C++ / DirectX, Vulkan	MIT	ja	playable · letzter Push 2026-10	?	https://github.com/Try/OpenGothic		
 engine	Rollenspiel	OpenMB	Mount & Blade		C# / OGRE	GPL3	ja	early · letzter Push 2026-07	?	https://github.com/cookgreen/OpenMB		
 engine	Rollenspiel	OpenMoonstone	Moonstone: A Hard Days Knight		Rust, Python / SDL2	AGPL3	ja	early · letzter Push 2023-05	?	https://github.com/joetsoi/OpenMoonstone		
-engine	Rollenspiel	OpenMW	The Elder Scrolls III: Morrowind		C++ / OpenSceneGraph, SDL2	GPL3	?	playable · sehr aktiv	?	https://gitlab.com/OpenMW/openmw		OpenMW XR / openmw-vr-quest
+engine	Rollenspiel	OpenMW	The Elder Scrolls III: Morrowind		C++ / OpenSceneGraph, SDL2	GPL3	?	playable · sehr aktiv	?	https://gitlab.com/OpenMW/openmw		OpenMW XR (Team Beef, in Entwicklung) / openmw-vr-quest
 engine	Rollenspiel	OpenMW for Android	The Elder Scrolls III: Morrowind		Kotlin / SDL	GPL3	ja	playable · archiviert, dead (2021)	ja	https://github.com/xyzz/openmw-android		
 engine	Rollenspiel	OpenNefia	Elona		C#, Lua / LÖVE, .NET	MIT	ja	early · letzter Push 2024-06	?	https://github.com/OpenNefia/OpenNefia		
 engine	Rollenspiel	OpenNox	Nox		Go	GPL3	ja	playable · archiviert, dead (2024)	?	https://github.com/noxworld-dev/opennox		
@@ -649,7 +649,7 @@ engine	Shooter/FPS	open-cube	Cube 2: Sauerbraten		C++ / OpenGL, SDL2	Zlib	?	WIP 
 engine	Shooter/FPS	OpenArena	Quake 3		C	GPL2	?	playable · letzter Push 2026-04	?	https://github.com/OpenArena/engine		
 engine	Shooter/FPS	OpenChasm ᴬ	Chasm: The Rift		C++ (GitHub)	?	?	? · archiviert, dead (2014)	?	https://github.com/alexey-lysiuk/OpenChasm		
 engine	Shooter/FPS	OpenJK	Star Wars Jedi Knight: Jedi Academy, Star Wars Jedi Knight II: Jedi Outcast		C++	GPL2	?	playable · letzter Push 2026-09	?	https://github.com/JACoders/OpenJK		JKXR
-engine	Shooter/FPS	OpenJKDF2	Star Wars Jedi Knight: Dark Forces II		C / SDL2	As-is	ja	playable · letzter Push 2026-09	ja	https://github.com/shinyquagsire23/OpenJKDF2		
+engine	Shooter/FPS	OpenJKDF2	Star Wars Jedi Knight: Dark Forces II		C / SDL2	As-is	ja	playable · letzter Push 2026-09	ja	https://github.com/shinyquagsire23/OpenJKDF2		JK: Dark Forces II (Team Beef, in Entwicklung)
 engine	Shooter/FPS	OpenMoHAA	Medal of Honor: Allied Assault		C, C++ / SDL2	GPL2	ja	playable · letzter Push 2026-04	?	https://github.com/openmoh/openmohaa		
 engine	Shooter/FPS	OpenNitemare3D	Nitemare 3D		C#, C / SDL2	GPL3	ja	WIP (teilw. spielbar) · letzter Push 2022-08	?	https://github.com/BBQGiraffe/OpenNitemare3D		
 engine	Shooter/FPS	openQ4 ᴬ	Quake 4		C++ (GitHub)	GPL-3.0	?	? · letzter Push 2026-10	?	https://github.com/themuffinator/openQ4		
@@ -1783,7 +1783,7 @@ vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle 
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	RazeXR	Duke 3D, Blood, Shadow Warrior, Redneck Rampage, Exhumed/Powerslave, NAM, WWII GI		Raze (Build)			released (Quest + Pico)	immersiv 6DoF · Team Beef · SideQuest, GitHub	https://sidequestvr.com/app/24502		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	PreyVR	Prey (2006)		id Tech 4 (Open-Source-Prey-Port)			released	immersiv 6DoF · Team Beef · SideQuest, GitHub	https://github.com/Team-Beef-Studios/PreyVR		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	Beef Raider XR	Tomb Raider 1 (+ Gold)		OpenLara			released; auch PCVR	immersiv 6DoF · Team Beef · SideQuest, GitHub	https://github.com/Team-Beef-Studios/BeefRaiderXR		
-vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	OpenMW XR	Morrowind		OpenMW			released 2026 (Quest, Pico, Steam Frame)	immersiv 6DoF · Team Beef · SideQuest/Patreon	https://www.teambeefvr.com/		
+vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	OpenMW XR	Morrowind		OpenMW			in Entwicklung (laut teambeefvr.com, Stand 2026-10-04)	immersiv 6DoF · Team Beef · SideQuest/Patreon	https://www.teambeefvr.com/		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	JK: Dark Forces II (OpenJKDF2)	Jedi Knight: Dark Forces II		OpenJKDF2			in Entwicklung (Repo Sep 2026)	immersiv 6DoF · Team Beef · Patreon/später SideQuest	https://github.com/Team-Beef-Studios/OpenJKDF2		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	ST:EF-XR (ioef-sp)	Star Trek Voyager: Elite Force SP		ioEF (id Tech 3)			in Entwicklung	immersiv 6DoF · Team Beef · Patreon	https://github.com/Team-Beef-Studios/ioef-sp		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	Quake4XR	Quake 4		id Tech 4			in Entwicklung	immersiv 6DoF · Team Beef · Patreon	https://www.teambeefvr.com/		
@@ -1848,3 +1848,4 @@ vr-port	Offizielle VR-Remaster (zur Abgrenzung)	Thief VR: Legacy of Shadow (V)	T
 vr-port	Offizielle VR-Remaster (zur Abgrenzung)	Myst / Riven (V)	Myst, Riven		UE			released	immersiv · Cyan · Quest Store	–		
 vr-port	Offizielle VR-Remaster (zur Abgrenzung)	The 7th Guest VR (V)	The 7th Guest		–			2023	immersiv · Vertigo Games · Quest Store	–		
 vr-port	Offizielle VR-Remaster (zur Abgrenzung)	Doom VFR / Doom 3 VR Edition (V)	Doom / Doom 3		id Tech 6 / 4			released	immersiv · id / Archiact · Steam / PSVR	–		
+vr-port	Offizielle VR-Remaster (zur Abgrenzung)	POSTAL 2 VR	Postal 2		Unreal Engine 2			in Entwicklung	offizielles VR-Remaster · Team Beef · Steam, PSVR2, Meta Quest	https://store.steampowered.com/app/3534150/		

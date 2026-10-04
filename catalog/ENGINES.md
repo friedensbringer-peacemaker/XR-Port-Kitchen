@@ -399,7 +399,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenGothic | Gothic | ja | C++ / DirectX, Vulkan | MIT | playable · letzter Push 2026-10 | ? | <https://github.com/Try/OpenGothic> |
 | OpenMB | Mount & Blade | ja | C# / OGRE | GPL3 | early · letzter Push 2026-07 | ? | <https://github.com/cookgreen/OpenMB> |
 | OpenMoonstone | Moonstone: A Hard Days Knight | ja | Rust, Python / SDL2 | AGPL3 | early · letzter Push 2023-05 | ? | <https://github.com/joetsoi/OpenMoonstone> |
-| OpenMW 🥽 OpenMW XR / openmw-vr-quest | The Elder Scrolls III: Morrowind | ? | C++ / OpenSceneGraph, SDL2 | GPL3 | playable · sehr aktiv | ? | <https://gitlab.com/OpenMW/openmw> |
+| OpenMW 🥽 OpenMW XR (Team Beef, in Entwicklung) / openmw-vr-quest | The Elder Scrolls III: Morrowind | ? | C++ / OpenSceneGraph, SDL2 | GPL3 | playable · sehr aktiv | ? | <https://gitlab.com/OpenMW/openmw> |
 | OpenMW for Android 💤 | The Elder Scrolls III: Morrowind | ja | Kotlin / SDL | GPL3 | playable · archiviert, dead (2021) | ja | <https://github.com/xyzz/openmw-android> |
 | OpenNefia | Elona | ja | C#, Lua / LÖVE, .NET | MIT | early · letzter Push 2024-06 | ? | <https://github.com/OpenNefia/OpenNefia> |
 | OpenNox 💤 | Nox | ja | Go | GPL3 | playable · archiviert, dead (2024) | ? | <https://github.com/noxworld-dev/opennox> |
@@ -687,7 +687,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenArena | Quake 3 | ? | C | GPL2 | playable · letzter Push 2026-04 | ? | <https://github.com/OpenArena/engine> |
 | OpenChasm ᴬ 💤 | Chasm: The Rift | ? | C++ (GitHub) | ? | ? · archiviert, dead (2014) | ? | <https://github.com/alexey-lysiuk/OpenChasm> |
 | OpenJK 🥽 JKXR | Star Wars Jedi Knight: Jedi Academy, Star Wars Jedi Knight II: Jedi Outcast | ? | C++ | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/JACoders/OpenJK> |
-| OpenJKDF2 | Star Wars Jedi Knight: Dark Forces II | ja | C / SDL2 | As-is | playable · letzter Push 2026-09 | ja | <https://github.com/shinyquagsire23/OpenJKDF2> |
+| OpenJKDF2 🥽 JK: Dark Forces II (Team Beef, in Entwicklung) | Star Wars Jedi Knight: Dark Forces II | ja | C / SDL2 | As-is | playable · letzter Push 2026-09 | ja | <https://github.com/shinyquagsire23/OpenJKDF2> |
 | OpenMoHAA | Medal of Honor: Allied Assault | ja | C, C++ / SDL2 | GPL2 | playable · letzter Push 2026-04 | ? | <https://github.com/openmoh/openmohaa> |
 | OpenNitemare3D | Nitemare 3D | ja | C#, C / SDL2 | GPL3 | WIP (teilw. spielbar) · letzter Push 2022-08 | ? | <https://github.com/BBQGiraffe/OpenNitemare3D> |
 | openQ4 ᴬ | Quake 4 | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-10 | ? | <https://github.com/themuffinator/openQ4> |
