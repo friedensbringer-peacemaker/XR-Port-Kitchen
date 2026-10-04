@@ -108,4 +108,9 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 - Core-Wahl nach Lizenz: Cores mit reiner GPLv2-Lizenz passen nicht zum OpenXR-Loader (Apache-2.0).
 </details>
 
+## Selbst portieren
+
+Weitere DOS-Spiele ohne Code einrichten, Aufbau von XRShell mit Eingriffspunkten und
+Code-Ausschnitten, weitere libretro-Cores einbauen: [PORTING.md](PORTING.md).
+
 Port-Repo: [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) · Skill: `xr-emulator-profiles`
