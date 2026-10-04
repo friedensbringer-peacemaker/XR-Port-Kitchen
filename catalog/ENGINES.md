@@ -1397,7 +1397,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenMC2 | Midnight Club II | ja | C++ | GPL3 | playable · letzter Push 2023-06 | ? | <https://github.com/OpenMC2/OpenMC2> |
 | OpenNFS | Need For Speed III: Hot Pursuit | ja | C++ / OpenGL, Bullet3 | MIT | early · letzter Push 2026-06 | ? | <https://github.com/OpenNFS/OpenNFS> |
 | OpenNFS1 💤 | The Need for Speed | ja | C# / MonoGame | As-is | WIP (teilw. spielbar) · dead (letzter Push 2017-10) | ? | <https://github.com/jeff-1amstudios/OpenNFS1> |
-| OpenRW "Open ReWrite" | Grand Theft Auto III | ja | C++ / SDL2, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-06 | ? | <https://github.com/rwengine/openrw> |
+| OpenRW „Open ReWrite“ | Grand Theft Auto III | ja | C++ / SDL2, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-06 | ? | <https://github.com/rwengine/openrw> |
 | OpenSWE1R 💤 | Star Wars Episode I: Racer | ja | C / OpenGL, SDL2 | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2020-01) | ? | <https://github.com/OpenSWE1R/openswe1r> |
 | OpenVice | Grand Theft Auto: Vice City | ja | C# / OpenTK | GPL3 | early · letzter Push 2024-09 | ? | <https://github.com/clashbyte/openvice> |
 | OutRun CPC 💤 | Out Run | ? | BASIC / QB64 | As-is | WIP (teilw. spielbar) · eingestellt | ? | <http://outruncpc.free.fr/> |
@@ -1485,7 +1485,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Frets on Fire | Guitar Hero | ? | Python | GPL2 | playable · letzter Push 2023-02 | ? | <https://github.com/skyostil/fretsonfire> |
 | Frets on Fire X | Guitar Hero | ? | Python / SDL, OpenGL, pygame | GPL2 | playable · letzter Push 2026-05 | ? | <https://github.com/fofix/fofix> |
 | Fyne Mines | Minesweeper | frei (Freeware) | Go / Fyne | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/mevdschee/fyne-mines> |
-| Game Creator ᵂ | GameMaker "Classic" (≤8.1) games | ? | C# (GitHub) | GPL-3.0 | ? · letzter Push 2024-03 | ? | <https://github.com/joshwyant/game-creator> |
+| Game Creator ᵂ | GameMaker „Classic“ (≤8.1) games | ? | C# (GitHub) | GPL-3.0 | ? · letzter Push 2024-03 | ? | <https://github.com/joshwyant/game-creator> |
 | Gift Grabber 💤 | Flag Catcher | ? | JavaScript / BackBone.js | Apache | playable · dead (letzter Push 2021-07) | ? | <https://github.com/ceva24/gift-grabber> |
 | Gikopoi.com | Gikopoi | ? | TypeScript | Custom | playable · letzter Push 2026-10 | ? | <https://github.com/153/gikopoi3> |
 | Gikopoipoi | Gikopoi | ? | TypeScript | Unlicense | playable · letzter Push 2026-09 | ? | <https://github.com/iccanobif/gikopoi2/> |
@@ -1528,7 +1528,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenDarkEngine (i.e., not ''The Dark Mod''), NewDark ᵂ | System Shock 2 | ? | ? | GPL | playable · inaktiv | ? | ? |
 | OpenDW ᵂ | Dragon Wars | ? | C (GitHub) | ISC license | ? · letzter Push 2026-04 | ? | <https://github.com/devinsmith/opendw> |
 | OpenGG ᴬ | Gearhead Garage | ? | C# (GitHub) | GPL-3.0 | ? · letzter Push 2026-09 | ? | <https://github.com/tymsky/OpenGG> |
-| OpenGMK ᵂ | GameMaker "Classic" (≤8.1) games | ? | Rust (GitHub) | GPL-2.0 | ? · letzter Push 2026-09 | ? | <https://github.com/OpenGMK/OpenGMK> |
+| OpenGMK ᵂ | GameMaker „Classic“ (≤8.1) games | ? | Rust (GitHub) | GPL-2.0 | ? · letzter Push 2026-09 | ? | <https://github.com/OpenGMK/OpenGMK> |
 | OpenGML ᵂ | GameMaker Studio 1 games | ? | C++ (GitHub) | MIT | ? · letzter Push 2023-04 | ? | <https://github.com/maiple/opengml> |
 | OpenGoo 💤 | World of Goo | ? | C / Qt | GPL3 | WIP (teilw. spielbar) · dead (letzter Push 2020-07) | ? | <https://github.com/Mandarancio/OpenGOO> |
 | OpenKKND ᵂ | KKnD: Krush, Kill 'n Destroy | ? | ? | ? | ? · inaktiv | ? | <https://github.com/gp-alex/OpenKKND> |

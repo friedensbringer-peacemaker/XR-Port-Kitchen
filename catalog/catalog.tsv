@@ -1349,7 +1349,7 @@ engine	Renn-/Flugsim/Weltraum	OpenLiberty	Grand Theft Auto III		GDScript / Redot
 engine	Renn-/Flugsim/Weltraum	OpenMC2	Midnight Club II		C++	GPL3	ja	playable · letzter Push 2023-06	?	https://github.com/OpenMC2/OpenMC2		
 engine	Renn-/Flugsim/Weltraum	OpenNFS	Need For Speed III: Hot Pursuit		C++ / OpenGL, Bullet3	MIT	ja	early · letzter Push 2026-06	?	https://github.com/OpenNFS/OpenNFS		
 engine	Renn-/Flugsim/Weltraum	OpenNFS1	The Need for Speed		C# / MonoGame	As-is	ja	WIP (teilw. spielbar) · dead (letzter Push 2017-10)	?	https://github.com/jeff-1amstudios/OpenNFS1		
-engine	Renn-/Flugsim/Weltraum	OpenRW \"Open ReWrite\"	Grand Theft Auto III		C++ / SDL2, OpenGL	GPL3	ja	WIP (teilw. spielbar) · letzter Push 2025-06	?	https://github.com/rwengine/openrw		
+engine	Renn-/Flugsim/Weltraum	OpenRW „Open ReWrite“	Grand Theft Auto III		C++ / SDL2, OpenGL	GPL3	ja	WIP (teilw. spielbar) · letzter Push 2025-06	?	https://github.com/rwengine/openrw		
 engine	Renn-/Flugsim/Weltraum	OpenSWE1R	Star Wars Episode I: Racer		C / OpenGL, SDL2	GPL2	ja	WIP (teilw. spielbar) · dead (letzter Push 2020-01)	?	https://github.com/OpenSWE1R/openswe1r		
 engine	Renn-/Flugsim/Weltraum	OpenVice	Grand Theft Auto: Vice City		C# / OpenTK	GPL3	ja	early · letzter Push 2024-09	?	https://github.com/clashbyte/openvice		
 engine	Renn-/Flugsim/Weltraum	OutRun ᴬ	Out Run		C++ (GitHub)	GPL-3.0	?	? · letzter Push 2023-06	?	https://github.com/ZgzInfinity/OutRun		
@@ -1432,7 +1432,7 @@ engine	Sonstiges	Freekick 3	Sensible World of Soccer		C++ / SDL	GPL3	frei (Freew
 engine	Sonstiges	Frets on Fire	Guitar Hero		Python	GPL2	?	playable · letzter Push 2023-02	?	https://github.com/skyostil/fretsonfire		
 engine	Sonstiges	Frets on Fire X	Guitar Hero		Python / SDL, OpenGL, pygame	GPL2	?	playable · letzter Push 2026-05	?	https://github.com/fofix/fofix		
 engine	Sonstiges	Fyne Mines	Minesweeper		Go / Fyne	MIT	frei (Freeware)	playable · letzter Push 2026-09	?	https://github.com/mevdschee/fyne-mines		
-engine	Sonstiges	Game Creator ᵂ	GameMaker \"Classic\" (≤8.1) games		C# (GitHub)	GPL-3.0	?	? · letzter Push 2024-03	?	https://github.com/joshwyant/game-creator		
+engine	Sonstiges	Game Creator ᵂ	GameMaker „Classic“ (≤8.1) games		C# (GitHub)	GPL-3.0	?	? · letzter Push 2024-03	?	https://github.com/joshwyant/game-creator		
 engine	Sonstiges	Gift Grabber	Flag Catcher		JavaScript / BackBone.js	Apache	?	playable · dead (letzter Push 2021-07)	?	https://github.com/ceva24/gift-grabber		
 engine	Sonstiges	Gikopoi.com	Gikopoi		TypeScript	Custom	?	playable · letzter Push 2026-10	?	https://github.com/153/gikopoi3		
 engine	Sonstiges	Gikopoipoi	Gikopoi		TypeScript	Unlicense	?	playable · letzter Push 2026-09	?	https://github.com/iccanobif/gikopoi2/		
@@ -1475,7 +1475,7 @@ engine	Sonstiges	OpenDaed	The Daedalus Encounter		C++ / SDL2	GPL3	ja	early · de
 engine	Sonstiges	OpenDarkEngine (i.e., not ''The Dark Mod''), NewDark ᵂ	System Shock 2		?	GPL	?	playable · inaktiv	?	?		
 engine	Sonstiges	OpenDW ᵂ	Dragon Wars		C (GitHub)	ISC license	?	? · letzter Push 2026-04	?	https://github.com/devinsmith/opendw		
 engine	Sonstiges	OpenGG ᴬ	Gearhead Garage		C# (GitHub)	GPL-3.0	?	? · letzter Push 2026-09	?	https://github.com/tymsky/OpenGG		
-engine	Sonstiges	OpenGMK ᵂ	GameMaker \"Classic\" (≤8.1) games		Rust (GitHub)	GPL-2.0	?	? · letzter Push 2026-09	?	https://github.com/OpenGMK/OpenGMK		
+engine	Sonstiges	OpenGMK ᵂ	GameMaker „Classic“ (≤8.1) games		Rust (GitHub)	GPL-2.0	?	? · letzter Push 2026-09	?	https://github.com/OpenGMK/OpenGMK		
 engine	Sonstiges	OpenGML ᵂ	GameMaker Studio 1 games		C++ (GitHub)	MIT	?	? · letzter Push 2023-04	?	https://github.com/maiple/opengml		
 engine	Sonstiges	OpenGoo	World of Goo		C / Qt	GPL3	?	WIP (teilw. spielbar) · dead (letzter Push 2020-07)	?	https://github.com/Mandarancio/OpenGOO		
 engine	Sonstiges	OpenKKND ᵂ	KKnD: Krush, Kill 'n Destroy		?	?	?	? · inaktiv	?	https://github.com/gp-alex/OpenKKND		

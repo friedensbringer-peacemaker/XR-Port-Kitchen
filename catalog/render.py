@@ -5,6 +5,7 @@ catalog.tsv ist die einzige Quelle: neue Einträge dort ergänzen, dann `python 
 Renders the catalog pages from catalog.tsv (the single source of truth).
 """
 import csv
+import sys
 import os
 from collections import OrderedDict
 
@@ -13,8 +14,15 @@ csv.field_size_limit(10_000_000)
 
 
 def load():
-    with open(os.path.join(HERE, "catalog.tsv"), encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE, escapechar="\\"))
+    path = os.path.join(HERE, "catalog.tsv")
+    # GitHub zeigt die TSV nur als durchsuchbare Tabelle, wenn kein Feld " oder \ enthält
+    # (sonst „Illegal quoting“). Anführungszeichen im Text daher typografisch: „…“.
+    with open(path, encoding="utf-8") as f:
+        for no, line in enumerate(f, 1):
+            if '"' in line or "\\" in line:
+                sys.exit(f'catalog.tsv Zeile {no}: " oder \\ im Text – bitte „…“ verwenden')
+    with open(path, encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f, delimiter="\t", quoting=csv.QUOTE_NONE))
 
 
 def cell(s):
