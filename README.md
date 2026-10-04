@@ -73,6 +73,12 @@ Spiel voll räumlich erleben will, ist dort besser aufgehoben:
 - **[Team Beef](https://www.teambeefvr.com)** ([GitHub](https://github.com/Team-Beef-Studios)) – native, kabellose Quest-VR-Umsetzungen von Klassikern
   wie Doom, Quake, Half-Life oder Return to Castle Wolfenstein, kostenlos über SideQuest (mit den
   eigenen Spieldaten, Quellcode auf GitHub). Alle bekannten VR-Ports: [Katalog VR-Ports](catalog/VR-PORTS.md).
+- **[Port Royale](https://portroyale.online)** ([GitHub](https://github.com/SgtBilko76)) – rund
+  30 kostenlose Open-Source-VR-Ports, die direkt auf der Quest (teils auch Pico) laufen: Unreal
+  Tournament, Descent 3, SuperTuxKart, Visual Pinball, Spiele als stereoskopisches 3D-Diorama,
+  Emulatoren in echtem Stereo-3D und PC-Spiele mit VR-Mod über
+  [WinlatorXR](https://github.com/WinlatorXR). Am nächsten an unserer Idee – nur mit dem Schwerpunkt
+  auf echter Räumlichkeit statt auf Maus-Klassikern auf der Leinwand.
 - **[UEVR](https://github.com/praydog/UEVR)** – macht viele Unreal-Engine-Spiele am PC VR-fähig.
 - **[Nexus Mods](https://www.nexusmods.com)** und GitHub – VR-Mods für zahlreiche PC-Spiele, etwa für
   Cyberpunk 2077 oder Red Dead Redemption 2 (am PC, per Kabel oder Streaming auf die Quest).
@@ -94,7 +100,9 @@ C&C Generals and Zero Hour natively to the Quest as a tabletop battlefield. It d
 **not** aim to turn every game into a full room-scale VR experience (although that is an exciting
 goal for later, and first recipes are already experimenting with a tabletop view) – great fan projects already do
 that and we recommend them: [Team Beef](https://www.teambeefvr.com) (native Quest VR versions of Doom,
-Quake, Half-Life and more via SideQuest), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
+Quake, Half-Life and more via SideQuest), [Port Royale](https://portroyale.online) (about 30 free
+open-source standalone VR ports – shooters, racers, stereoscopic dioramas, stereo-3D emulators and
+WinlatorXR VR mods; closest to our idea, but focused on true 3D rather than mouse-driven classics), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
 games on PC, and VR mods on [Nexus Mods](https://www.nexusmods.com) and GitHub for games such as
 Cyberpunk 2077 or Red Dead Redemption 2; some games now ship VR natively.
 Instead it focuses on the **small niches**: beloved classics from the 80s, 90s and 2000s that run
