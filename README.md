@@ -16,6 +16,7 @@ nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle
 | Projekt | Für | Website | Quellcode |
 |---|---|---|---|
 | Return to the Roots | Die Siedler II | [rttr.info](https://www.rttr.info) | [GitHub](https://github.com/Return-To-The-Roots/s25client) |
+| Generals: Zero Hour XR (Cesarus85) – **Inspiration für die Kitchen** | C&C Generals, Zero Hour | – | [GitHub](https://github.com/Cesarus85/Generals-Zero-Hour-XR), Engine: [TheSuperHackers](https://github.com/TheSuperHackers/GeneralsGameCode) |
 | OpenRA | Command & Conquer, Alarmstufe Rot | [openra.net](https://www.openra.net) | [GitHub](https://github.com/OpenRA/OpenRA) |
 | OpenTTD | Transport Tycoon Deluxe | [openttd.org](https://www.openttd.org) | [GitHub](https://github.com/OpenTTD/OpenTTD) |
 | CorsixTH | Theme Hospital | [corsixth.com](https://corsixth.com) | [GitHub](https://github.com/CorsixTH/CorsixTH) |
@@ -55,6 +56,12 @@ Die Kitchen ist ein **Community- und Hobbyprojekt**: in der Freizeit entstanden,
 *Vibe Coding* gemeinsam mit KI-Assistenten entwickelt, aus Begeisterung für klassische Spiele und
 für das, was die Quest heute kann.
 
+**Den Anstoß gab [Generals: Zero Hour XR](https://github.com/Cesarus85/Generals-Zero-Hour-XR)** von
+Cesarus85: Command & Conquer Generals samt Zero Hour als Miniatur-Schlachtfeld auf dem Tisch,
+nativ auf der Quest, aufgebaut auf dem offenen Engine-Code der
+[TheSuperHackers](https://github.com/TheSuperHackers/GeneralsGameCode)-Community. Zu sehen, wie gut
+ein Klassiker so auf der Brille funktioniert, war die Inspiration für diese Kitchen.
+
 Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
 Möglichkeiten ausreizt. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
 ausdrücklich empfehlen – wer ein Spiel voll räumlich erleben will, ist dort besser aufgehoben:
@@ -77,7 +84,9 @@ separaten PC, ohne High-End-Grafikkarte. Brille auf, Spiel starten, fertig.
 <summary><b>About this project (English)</b></summary>
 
 The kitchen is a **community hobby project**, built in spare time with *vibe coding* alongside AI
-assistants, out of enthusiasm for classic games and for what the Quest can do today. It does
+assistants, out of enthusiasm for classic games and for what the Quest can do today. It was inspired by
+[Generals: Zero Hour XR](https://github.com/Cesarus85/Generals-Zero-Hour-XR) by Cesarus85, which brings
+C&C Generals and Zero Hour natively to the Quest as a tabletop battlefield. It does
 **not** aim to turn every game into a full room-scale VR experience – great fan projects already do
 that and we recommend them: [Team Beef](https://www.teambeefvr.com) (native Quest VR versions of Doom,
 Quake, Half-Life and more via SideQuest), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
