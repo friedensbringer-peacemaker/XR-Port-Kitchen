@@ -7,9 +7,47 @@ können darin nachschlagen, Agenten können die Rezepte Schritt für Schritt aba
 > Open-Source-Reimplementierungen und Standalone-XR – und geben den Projekten, auf denen wir
 > aufbauen, sichtbar die Ehre.
 
-Die Kitchen tritt nicht gegen Fanprojekte wie Return to the Roots, OpenRA, OpenTTD, CorsixTH
-oder ScummVM an. Jedes Rezept nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden
-an erster Stelle.
+Die Kitchen tritt nicht gegen Fanprojekte an – ohne sie gäbe es keinen einzigen Port. Jedes Rezept
+nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle.
+
+<details>
+<summary><b>Auf wessen Schultern wir kochen</b> – die Fanprojekte hinter den Rezepten und Ports</summary>
+
+| Projekt | Für | Website | Quellcode |
+|---|---|---|---|
+| Return to the Roots | Die Siedler II | [rttr.info](https://www.rttr.info) | [GitHub](https://github.com/Return-To-The-Roots/s25client) |
+| OpenRA | Command & Conquer, Alarmstufe Rot | [openra.net](https://www.openra.net) | [GitHub](https://github.com/OpenRA/OpenRA) |
+| OpenTTD | Transport Tycoon Deluxe | [openttd.org](https://www.openttd.org) | [GitHub](https://github.com/OpenTTD/OpenTTD) |
+| CorsixTH | Theme Hospital | [corsixth.com](https://corsixth.com) | [GitHub](https://github.com/CorsixTH/CorsixTH) |
+| OpenXcom / OpenXcom Extended | X-COM UFO Defense, Terror from the Deep | [openxcom.org](https://openxcom.org) | [GitHub](https://github.com/OpenXcom/OpenXcom), [OXCE](https://github.com/MeridianOXC/OpenXcom), [Android](https://github.com/MeridianOXC/openxcom-android) |
+| Stratagus mit Wargus/War1gus | Warcraft I und II | [stratagus.com](http://stratagus.com) | [Stratagus](https://github.com/Wargus/stratagus), [Wargus](https://github.com/Wargus/wargus), [War1gus](https://github.com/wargus/war1gus) |
+| ScummVM | Point-&-Click-Adventures | [scummvm.org](https://www.scummvm.org) | [GitHub](https://github.com/scummvm/scummvm) |
+| DOSBox Pure / libretro | DOS-Spiele, Emulator-Cores | [libretro.com](https://www.libretro.com) | [DOSBox Pure](https://github.com/schellingb/dosbox-pure), [libretro](https://github.com/libretro) |
+| openage | Age of Empires II | [openage.sft.mx](https://openage.sft.mx) | [GitHub](https://github.com/SFTtech/openage) |
+| 0 A.D. | eigenständiges Echtzeit-Strategiespiel | [play0ad.com](https://play0ad.com) | [GitHub-Spiegel](https://github.com/0ad/0ad) |
+| KeeperFX | Dungeon Keeper | – | [GitHub](https://github.com/dkfans/keeperfx) |
+| DevilutionX | Diablo, Hellfire | [devilutionx.com](https://devilutionx.com) | [GitHub](https://github.com/diasurgical/DevilutionX) |
+| JA2 Stracciatella | Jagged Alliance 2 | [Website](https://ja2-stracciatella.github.io) | [GitHub](https://github.com/ja2-stracciatella/ja2-stracciatella) |
+| Akhenaten | Pharao, Kleopatra | – | [GitHub](https://github.com/dalerank/Akhenaten) |
+| fheroes2 | Heroes of Might & Magic II | – | [GitHub](https://github.com/ihhub/fheroes2) |
+| FNA | XNA-Spiele (.NET) | [fna-xna.github.io](https://fna-xna.github.io) | [GitHub](https://github.com/FNA-XNA/FNA) |
+| SDL | Grundlage fast aller Ports | [libsdl.org](https://www.libsdl.org) | [GitHub](https://github.com/libsdl-org/SDL) |
+| OpenXR (Khronos) | VR-Schnittstelle aller Ports | [khronos.org/openxr](https://www.khronos.org/openxr/) | [GitHub](https://github.com/KhronosGroup/OpenXR-SDK-Source) |
+
+**Weitere Kandidaten** aus dem Engine-Inventar: [OpenRCT2](https://openrct2.io)
+([GitHub](https://github.com/OpenRCT2/OpenRCT2)) für RollerCoaster Tycoon 1/2,
+[OpenLoco](https://openloco.io) ([GitHub](https://github.com/OpenLoco/OpenLoco)) für Locomotion,
+[Widelands](https://www.widelands.org) ([GitHub](https://github.com/widelands/widelands)),
+[Julius](https://github.com/bvschaik/julius) und [Augustus](https://github.com/Keriew/augustus) für
+Caesar III, [openblack](https://github.com/openblack/openblack) für Black & White,
+[OpenKeeper](https://github.com/tonihele/OpenKeeper) für Dungeon Keeper 2.
+
+**Die ausführliche Liste:** Der [Katalog](catalog/README.md) führt rund 1.850 Open-Source-Engines,
+Source-Ports, Dekompilierungen und schon vorhandene VR-Ports mit Lizenz, Stand und Link –
+aufgeteilt in [Engines](catalog/ENGINES.md), [Source-Ports](catalog/SOURCE-PORTS.md) und
+[VR-Ports](catalog/VR-PORTS.md). Eine weitere große Sammlung ist
+[osgameclones.com](https://osgameclones.com) ([GitHub](https://github.com/opengaming/osgameclones)).
+</details>
 
 ### Worum es hier geht – und worum nicht
 
@@ -21,9 +59,9 @@ Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das al
 Möglichkeiten ausreizt. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
 ausdrücklich empfehlen – wer ein Spiel voll räumlich erleben will, ist dort besser aufgehoben:
 
-- **[Team Beef](https://github.com/DrBeef)** – native, kabellose Quest-VR-Umsetzungen von Klassikern
+- **[Team Beef](https://www.teambeefvr.com)** ([GitHub](https://github.com/Team-Beef-Studios)) – native, kabellose Quest-VR-Umsetzungen von Klassikern
   wie Doom, Quake, Half-Life oder Return to Castle Wolfenstein, kostenlos über SideQuest (mit den
-  eigenen Spieldaten, Quellcode auf GitHub).
+  eigenen Spieldaten, Quellcode auf GitHub). Alle bekannten VR-Ports: [Katalog VR-Ports](catalog/VR-PORTS.md).
 - **[UEVR](https://github.com/praydog/UEVR)** – macht viele Unreal-Engine-Spiele am PC VR-fähig.
 - **[Nexus Mods](https://www.nexusmods.com)** und GitHub – VR-Mods für zahlreiche PC-Spiele, etwa für
   Cyberpunk 2077 oder Red Dead Redemption 2 (am PC, per Kabel oder Streaming auf die Quest).
@@ -41,7 +79,7 @@ separaten PC, ohne High-End-Grafikkarte. Brille auf, Spiel starten, fertig.
 The kitchen is a **community hobby project**, built in spare time with *vibe coding* alongside AI
 assistants, out of enthusiasm for classic games and for what the Quest can do today. It does
 **not** aim to turn every game into a full room-scale VR experience – great fan projects already do
-that and we recommend them: [Team Beef](https://github.com/DrBeef) (native Quest VR versions of Doom,
+that and we recommend them: [Team Beef](https://www.teambeefvr.com) (native Quest VR versions of Doom,
 Quake, Half-Life and more via SideQuest), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
 games on PC, and VR mods on [Nexus Mods](https://www.nexusmods.com) and GitHub for games such as
 Cyberpunk 2077 or Red Dead Redemption 2; some games now ship VR natively.
