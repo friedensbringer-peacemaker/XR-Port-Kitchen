@@ -3,9 +3,11 @@
 Ein Kochbuch, mit dem man klassische PC- und Konsolenspiele auf die Meta Quest bringt: Menschen
 können darin nachschlagen, Agenten können die Rezepte Schritt für Schritt abarbeiten.
 
-> Wir portieren nicht die Spiele. Wir bauen die letzte Meile zwischen bestehenden
-> Open-Source-Reimplementierungen und Standalone-XR – und geben den Projekten, auf denen wir
-> aufbauen, sichtbar die Ehre.
+> Wir kochen nicht für euch – wir schreiben die Rezepte auf, damit ihr selbst kochen könnt.
+> Die Grundzutaten kommen von den Meisterköchen der Open-Source-Reimplementierungen; wir liefern
+> den letzten Handgriff vom fertigen Topf bis auf den Teller: das Spiel, das kabellos auf der Quest
+> läuft. Und auf jeder Speisekarte steht, aus wessen Küche die Zutaten stammen – mit der
+> Sichtbarkeit und dem Respekt, den diese Projekte verdienen.
 
 Die Kitchen tritt nicht gegen Fanprojekte an – ohne sie gäbe es keinen einzigen Port. Jedes Rezept
 nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle.
