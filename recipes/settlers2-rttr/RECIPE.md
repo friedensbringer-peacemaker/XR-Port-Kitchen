@@ -91,6 +91,7 @@ APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ
   Außerdem `PYTHONIOENCODING=utf-8` setzen und auf Pfadlängen achten.
 - Nach einem Auflösungswechsel Offscreen-FBO und Swapchain gemeinsam neu anlegen.
 - Getrennte Menü-Ebenen und ein drehbarer Fenstergriff brachten Regressionen und sind zurückgestellt (VR-010).
+- Doppelt vergebene Steuerelement-IDs in einem RTTR-Fenster beendeten das Spiel beim Öffnen (Tisch-Simulator) ◐.
 </details>
 
 Port-Repo: [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25) · Schritt-für-Schritt-Anleitung:

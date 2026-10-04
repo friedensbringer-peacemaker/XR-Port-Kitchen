@@ -55,6 +55,7 @@ einzeln mit `cd android && ./gradlew assembleWar1gusDebug`. APK:
 - Bei War1gus ist Kanten-Scrollen fest an – das Datenskript schaltet es ab.
 - Nur VR-taugliche Auflösungen anbieten (640×400, 800×500, 960×600).
 - Alles Weitere wie bei Warcraft II (gleiche Engine und XR-Schicht).
+- Gebäude außer dem Rathaus brauchen eine angrenzende Straße – das Spiel sagt nicht warum. Hinweis auf dem Ladebild.
 </details>
 
 ## Rechtliches

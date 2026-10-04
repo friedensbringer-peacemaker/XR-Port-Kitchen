@@ -44,7 +44,7 @@ Y = Bildschirmtastatur, X = Bildzoom.
 | `xrshell.keys` | Tastenprofil `eingabe = TASTE[+TASTE]`, Vorlagen in `profiles/` | im Spielordner |
 | `xrshell.opt` | libretro-Kernoptionen (Standard `dosbox_pure_mouse_input = virtual`) | im Spielordner |
 | `xrshell.theme` + BMPs | Menü in Spieloptik, aus den eigenen Spieldaten erzeugt | im Spielordner |
-| Spielstände | entstehen beim Spielen | `files/saves/<Name>.pure.zip`, bleiben beim Neu-Pushen erhalten |
+| Spielstände | entstehen beim Spielen | **im Spielordner** (DOSBox Pure schreibt direkt dorthin) – vor dem Neu-Pushen sichern |
 | DOSBox-Pure-Core | libretro-Buildbot, nightly arm64-v8a, beim Build geladen | in der APK, beim Start nach `filesDir/cores/` |
 
 Theme-Park-Prüfung: `GAME/MAIN.EXE`, `GAME/DATA/MPALETTE.DAT`, `THEME.CD/`.
@@ -106,6 +106,16 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 - CD-Images nur über das Startmenü oder `AUTOBOOT.DBP` einhängen. `DOSBOX.BAT` hängt keine CD ein.
 - General MIDI braucht `C:\DOSBOX.SF2`. Ohne die Datei SB16-FM verwenden.
 - Core-Wahl nach Lizenz: Cores mit reiner GPLv2-Lizenz passen nicht zum OpenXR-Loader (Apache-2.0).
+- DOSBox Pure hängt einen Spielordner **direkt beschreibbar** als C: ein (kein Overlay): Spielstände und
+  Konfiguration landen im Spielordner. Ordner beim Übertragen `a+rwX` setzen, vor dem Neu-Übertragen sichern;
+  Windows 3.x: `Paging=No` in der SYSTEM.INI, sonst wächst bei jedem Start eine Auslagerungsdatei.
+- `mouse_input = direct` ist nicht universell: VESA-Spiele (640×480) ignorieren die INT-33-Position. Dann
+  `virtual` mit Faktor, „Zeiger fangen“ und Abgleich im VR-Menü. Spiele, die nur Mickeys lesen und den
+  Pfeil selbst setzen, koppelt „Zeiger lernen“ über den Spielspeicher an den Laser.
+- Windows 3.1 im Emulator: MIDI über MPU-401 statt AdLib-Treiber (sonst ~15× langsamer), S3-Grafiktreiber
+  statt Standard-VGA (sonst 16 Farben).
+- DOS-Shooter im Pad-Modus: eigene `C:\DOS.YML` je Spiel; im Pad-Modus `xrshell.keys` nicht zusätzlich
+  auswerten (Tasten doppelt).
 </details>
 
 ## Selbst portieren

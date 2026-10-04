@@ -85,6 +85,9 @@ die Küchenhilfe (`kitchen push xcom-tftd-oxce <TFTD-Ordner>`).
 - Die Git-Revision als CMake-Argument löste bei jedem Commit einen Vollbuild von 18 Minuten aus.
 - Der Preloader kannte nur UFO-Daten. Für TFTD war ein Patch nötig.
 - Testen ohne Brille: `adb shell am broadcast -a com.oculus.vrpowermanager.prox_close`.
+- Höhere OXCE-Basisauflösung macht die Oberfläche nur kleiner; schärfer wird es mit ganzzahligem
+  Pixel-Art-Upscaler (xBRZ/HQx) vor der Übergabe an die Leinwand ◐.
+- Der Preloader entpackt die Datenarchive nur bei neuem `versionCode` – nach jeder Datenänderung erhöhen.
 </details>
 
 Port-Repo: [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) · Spielcode: [xr.openxcom-engine](https://github.com/friedensbringer-peacemaker/xr.openxcom-engine) (jeweils Zweig `xr-quest`)

@@ -99,6 +99,9 @@ APK: `android/build/outputs/apk/stratagus/debug/XR-Stratagus-debug.apk`.
 - Der Log-Ordner verliert das Setgid-Bit, dann kann adb die Logs nicht lesen.
 - Andere Ports berichten, dass adb nicht zuverlässig nach `Android/data` schreibt (siehe
   [CANDIDATES K8](../../ingredients/CANDIDATES.md)). Schlägt `push` dort fehl, ist `run-as` der Ausweg.
+- Hänger vor dem ersten Filmbild: `CFile::to_SDL_RWops` meldet beim Spulen 0 statt der Position. Lösung:
+  Datenquelle mit selbst geführter Position an `Mix_LoadMUS_RW` übergeben (per Wrap). Gefunden mit dem Hänger-Wächter.
+- `SDL_mixer` findet relative Pfade auf Android nicht → immer absolute Pfade (siehe Fehlerseite F).
 </details>
 
 ## Rechtliches

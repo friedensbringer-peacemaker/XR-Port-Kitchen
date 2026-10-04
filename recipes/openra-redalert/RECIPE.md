@@ -85,6 +85,7 @@ APK: `Artifacts/xr-openra-quest3.apk`. `build.sh` prüft Manifest, `.so`-Liste u
 - Horizon OS fängt den Start ab, wenn die Quest schläft oder die Controller ein Update brauchen.
 - Doppelklick-Handler nicht in jedem Frame neu anlegen, sonst geht der Zustand verloren.
 - Eine gebaute APK mit importierten Daten nicht weitergeben.
+- `GCSettings.LargeObjectHeapCompactionMode` wirft unter Mono/Android `PlatformNotSupportedException` – Aufruf absichern ◐.
 </details>
 
 Port-Repo: [xr.openra](https://github.com/friedensbringer-peacemaker/xr.openra) (Zweig `xr-openra`) · Build-Doku: `docs/xr/BUILD-QUEST.md`

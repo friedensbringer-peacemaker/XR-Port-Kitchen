@@ -200,8 +200,8 @@ TyrQuake dazu – jeweils ohne Änderung am Core:
 
 - Cores nicht direkt aus dem APK laden: ab Android-31-Target verbietet W^X das. Erst nach
   `filesDir/cores/` entpacken, dann `dlopen`.
-- DOSBox Pure braucht ein **Save-Verzeichnis**, sonst schreibt es nach `/` und alles ist nach dem
-  Beenden weg (Kommentar in `core_select.h` L52).
+- DOSBox Pure hängt Spielordner direkt beschreibbar als `C:` ein – Spielstände landen im Spielordner.
+  Ordner beim Übertragen `a+rwX` setzen (macht `push-game.sh`), vor dem Neu-Übertragen sichern.
 - Kernoptionen müssen **vor** `retro_set_environment` geladen sein – der Core fragt sehr früh.
 - Tastenkombinationen (z. B. `LALT+R`) im Abstand von ~50 ms drücken: der Core liest die Tastatur
   einmal pro Bild und würde den Modifikator sonst verpassen.
