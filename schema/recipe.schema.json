@@ -81,7 +81,7 @@
       "type": "object",
       "properties": {
         "with_apk": { "type": "string", "description": "Einsteiger mit fertiger APK, z. B. '20–40 min'" },
-        "from_source": { "type": "string", "description": "Bastler, kompletter Build, z. B. '1–2 Tage'" }
+        "from_source": { "type": "string", "description": "Profis, kompletter Build, z. B. '1–2 Tage'" }
       }
     },
     "ingredients": {

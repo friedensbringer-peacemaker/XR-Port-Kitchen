@@ -141,7 +141,7 @@ und bringt am Ende App und Spieldaten auf die Quest.
 ### In vier Schritten
 
 1. **Kitchen herunterladen:** [**Download ZIP**](https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen/archive/refs/heads/main.zip) (oder oben auf
-   dieser Seite **Code → Download ZIP**) und den ZIP-Ordner entpacken. Für Bastler:
+   dieser Seite **Code → Download ZIP**) und den ZIP-Ordner entpacken. Für Profis mit Git:
    `git clone https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen.git`
 2. **Starten:**
    - **Windows:** im entpackten Ordner **[`Kitchen.cmd`](Kitchen.cmd)** doppelklicken.
@@ -339,7 +339,7 @@ Am Ende steht, wo man das Spiel in der Brille findet. Die Sprache lässt sich im
 `~/.xr-kitchen/lang` auf dem eigenen Rechner. Alle Texte stehen in [`i18n/strings.json`](i18n/strings.json);
 Rezepte bringen ihre Hinweise zusätzlich als `…_en`-Felder mit.
 
-### Einzelbefehle (für Bastler und Agenten)
+### Einzelbefehle (für Profis und Agenten)
 
 **Windows** in PowerShell. Meldet Windows „Ausführung von Skripts ist deaktiviert“, den Aufruf
 so voranstellen: `powershell -ExecutionPolicy Bypass -File kitchen.ps1 …` (`Kitchen.cmd` macht das
