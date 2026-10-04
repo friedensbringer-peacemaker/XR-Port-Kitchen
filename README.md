@@ -65,7 +65,8 @@ nativ auf der Quest, aufgebaut auf dem offenen Engine-Code der
 ein Klassiker so auf der Brille funktioniert, war die Inspiration für diese Kitchen.
 
 Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
-Möglichkeiten ausreizt. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
+Möglichkeiten ausreizt – auch wenn das mittelfristig natürlich ebenfalls sehr spannend wäre. Erste
+Rezepte probieren schon aus, die Karte als Tisch in den Raum zu stellen. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
 ausdrücklich empfehlen – wer ein Spiel voll räumlich erleben will, ist dort besser aufgehoben:
 
 - **[Team Beef](https://www.teambeefvr.com)** ([GitHub](https://github.com/Team-Beef-Studios)) – native, kabellose Quest-VR-Umsetzungen von Klassikern
@@ -89,7 +90,8 @@ The kitchen is a **community hobby project**, built in spare time with *vibe cod
 assistants, out of enthusiasm for classic games and for what the Quest can do today. It was inspired by
 [Generals: Zero Hour XR](https://github.com/Cesarus85/Generals-Zero-Hour-XR) by Cesarus85, which brings
 C&C Generals and Zero Hour natively to the Quest as a tabletop battlefield. It does
-**not** aim to turn every game into a full room-scale VR experience – great fan projects already do
+**not** aim to turn every game into a full room-scale VR experience (although that is an exciting
+goal for later, and first recipes are already experimenting with a tabletop view) – great fan projects already do
 that and we recommend them: [Team Beef](https://www.teambeefvr.com) (native Quest VR versions of Doom,
 Quake, Half-Life and more via SideQuest), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
 games on PC, and VR mods on [Nexus Mods](https://www.nexusmods.com) and GitHub for games such as
