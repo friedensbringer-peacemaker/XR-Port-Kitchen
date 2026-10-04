@@ -19,6 +19,7 @@ nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle
 |---|---|---|---|
 | Return to the Roots | Die Siedler II | [rttr.info](https://www.rttr.info) | [GitHub](https://github.com/Return-To-The-Roots/s25client) |
 | Generals: Zero Hour XR (Cesarus85) – **Inspiration für die Kitchen** | C&C Generals, Zero Hour | – | [GitHub](https://github.com/Cesarus85/Generals-Zero-Hour-XR), Engine: [TheSuperHackers](https://github.com/TheSuperHackers/GeneralsGameCode) |
+| Port Royale (SgtBilko76) – **Inspiration für die Kitchen** | rund 30 Klassiker als Quest-VR-Ports | [portroyale.online](https://portroyale.online) | [GitHub](https://github.com/SgtBilko76?tab=repositories) |
 | OpenRA | Command & Conquer, Alarmstufe Rot | [openra.net](https://www.openra.net) | [GitHub](https://github.com/OpenRA/OpenRA) |
 | OpenTTD | Transport Tycoon Deluxe | [openttd.org](https://www.openttd.org) | [GitHub](https://github.com/OpenTTD/OpenTTD) |
 | CorsixTH | Theme Hospital | [corsixth.com](https://corsixth.com) | [GitHub](https://github.com/CorsixTH/CorsixTH) |
@@ -62,7 +63,10 @@ für das, was die Quest heute kann.
 Cesarus85: Command & Conquer Generals samt Zero Hour als Miniatur-Schlachtfeld auf dem Tisch,
 nativ auf der Quest, aufgebaut auf dem offenen Engine-Code der
 [TheSuperHackers](https://github.com/TheSuperHackers/GeneralsGameCode)-Community. Zu sehen, wie gut
-ein Klassiker so auf der Brille funktioniert, war die Inspiration für diese Kitchen.
+ein Klassiker so auf der Brille funktioniert, war die Inspiration für diese Kitchen. Genauso
+inspiriert hat uns **[Port Royale](https://portroyale.online)** von SgtBilko76
+([Repositories](https://github.com/SgtBilko76?tab=repositories)): eine ganze Sammlung kostenloser
+Open-Source-VR-Ports, die zeigt, wie viele Klassiker standalone auf der Quest Platz haben.
 
 Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
 Möglichkeiten ausreizt – auch wenn das mittelfristig natürlich ebenfalls sehr spannend wäre. Erste
@@ -96,7 +100,9 @@ separaten PC, ohne High-End-Grafikkarte. Brille auf, Spiel starten, fertig.
 The kitchen is a **community hobby project**, built in spare time with *vibe coding* alongside AI
 assistants, out of enthusiasm for classic games and for what the Quest can do today. It was inspired by
 [Generals: Zero Hour XR](https://github.com/Cesarus85/Generals-Zero-Hour-XR) by Cesarus85, which brings
-C&C Generals and Zero Hour natively to the Quest as a tabletop battlefield. It does
+C&C Generals and Zero Hour natively to the Quest as a tabletop battlefield. Equally inspiring was
+[Port Royale](https://portroyale.online) by SgtBilko76 ([repositories](https://github.com/SgtBilko76?tab=repositories)),
+a whole collection of free open-source standalone VR ports. It does
 **not** aim to turn every game into a full room-scale VR experience (although that is an exciting
 goal for later, and first recipes are already experimenting with a tabletop view) – great fan projects already do
 that and we recommend them: [Team Beef](https://www.teambeefvr.com) (native Quest VR versions of Doom,
