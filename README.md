@@ -18,8 +18,18 @@ Die Kitchen ist ein **Community- und Hobbyprojekt**: in der Freizeit entstanden,
 für das, was die Quest heute kann.
 
 Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
-Möglichkeiten ausreizt. Dafür gibt es für moderne Spiele sehr gute VR-Mods (etwa für Cyberpunk 2077
-oder Red Dead Redemption 2), und manche Spiele bringen VR inzwischen selbst mit.
+Möglichkeiten ausreizt. Dafür gibt es längst großartige Fan- und Community-Projekte, die wir
+ausdrücklich empfehlen – wer ein Spiel voll räumlich erleben will, ist dort besser aufgehoben:
+
+- **[Team Beef](https://github.com/DrBeef)** – native, kabellose Quest-VR-Umsetzungen von Klassikern
+  wie Doom, Quake, Half-Life oder Return to Castle Wolfenstein, kostenlos über SideQuest (mit den
+  eigenen Spieldaten, Quellcode auf GitHub).
+- **[UEVR](https://github.com/praydog/UEVR)** – macht viele Unreal-Engine-Spiele am PC VR-fähig.
+- **[Nexus Mods](https://www.nexusmods.com)** und GitHub – VR-Mods für zahlreiche PC-Spiele, etwa für
+  Cyberpunk 2077 oder Red Dead Redemption 2 (am PC, per Kabel oder Streaming auf die Quest).
+- Manche Spiele bringen VR inzwischen selbst mit.
+
+Die Kitchen ergänzt diese Projekte, statt mit ihnen zu konkurrieren.
 
 Hier geht es um die **kleinen Nischen**: liebgewonnene Klassiker der 80er, 90er und 2000er, die die
 Quest-Hardware **nativ und kabellos** stemmt – ohne Streaming per Kabel oder Steam Link, ohne
@@ -30,8 +40,11 @@ separaten PC, ohne High-End-Grafikkarte. Brille auf, Spiel starten, fertig.
 
 The kitchen is a **community hobby project**, built in spare time with *vibe coding* alongside AI
 assistants, out of enthusiasm for classic games and for what the Quest can do today. It does
-**not** aim to turn every game into a full room-scale VR experience – excellent VR mods exist for
-modern games such as Cyberpunk 2077 or Red Dead Redemption 2, and some games now ship VR natively.
+**not** aim to turn every game into a full room-scale VR experience – great fan projects already do
+that and we recommend them: [Team Beef](https://github.com/DrBeef) (native Quest VR versions of Doom,
+Quake, Half-Life and more via SideQuest), [UEVR](https://github.com/praydog/UEVR) for Unreal Engine
+games on PC, and VR mods on [Nexus Mods](https://www.nexusmods.com) and GitHub for games such as
+Cyberpunk 2077 or Red Dead Redemption 2; some games now ship VR natively.
 Instead it focuses on the **small niches**: beloved classics from the 80s, 90s and 2000s that run
 **natively and wirelessly** on the Quest hardware – no link cable or Steam Link, no separate PC,
 no high-end graphics card.
@@ -179,6 +192,12 @@ nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
 Heroes of Might & Magic II (fheroes2), Dungeon Keeper (KeeperFX), Diablo (DevilutionX).
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
+**Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.850 Open-Source-Engines,
+Source-Ports, Dekompilierungen und schon vorhandene VR-Ports klassischer Spiele – mit Lizenz,
+Aktivität, Android-Hinweis und Link, dazu eine Schnellprüfung „geht ein Port?“ und der passende Weg
+je Technik. Durchsuchen mit `kitchen catalog <Spiel>`. *(English: [catalog](catalog/README.md) of
+~1,850 engines, source ports, decomps and existing VR ports; search with `kitchen catalog <game>`.)*
+
 **Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 178
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,
 Eingabe, Daten, Leistung, Godot, .NET), jeweils mit Ursache, Lösung und betroffenem Port – plus eine Checkliste
@@ -252,6 +271,7 @@ automatisch).
 
 ```powershell
 .\kitchen.ps1 list
+.\kitchen.ps1 catalog heroes
 .\kitchen.ps1 show settlers2-rttr
 .\kitchen.ps1 check settlers2-rttr -Assets "D:\Spiele\Siedler2"
 .\kitchen.ps1 push settlers2-rttr "D:\Spiele\Siedler2"
@@ -263,6 +283,7 @@ automatisch).
 
 ```bash
 ./kitchen.sh list
+./kitchen.sh catalog heroes
 ./kitchen.sh check settlers2-rttr --assets ~/Spiele/Siedler2
 ./kitchen.sh push settlers2-rttr ~/Spiele/Siedler2
 ./kitchen.sh build openttd

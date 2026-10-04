@@ -582,5 +582,25 @@
   "b_install": {
     "de": "Gebaute App jetzt auf die Quest installieren?",
     "en": "Install the built app on the Quest now?"
+  },
+  "cat_summary": {
+    "de": "Katalog: {0} Einträge (Engine-Nachbauten, Source-Ports, Decomps, bestehende VR-Ports). Suche: kitchen catalog <Spiel oder Engine>",
+    "en": "Catalog: {0} entries (engine re-implementations, source ports, decomps, existing VR ports). Search: kitchen catalog <game or engine>"
+  },
+  "cat_hits": {
+    "de": "{0} Treffer für „{1}“:",
+    "en": "{0} matches for \"{1}\":"
+  },
+  "cat_none": {
+    "de": "Nichts gefunden für „{0}“. Tipp: kürzeres Stichwort oder englischer Spielname.",
+    "en": "Nothing found for \"{0}\". Tip: use a shorter keyword or the English game title."
+  },
+  "cat_more": {
+    "de": "… und {0} weitere. Genauer suchen oder catalog/catalog.tsv öffnen.",
+    "en": "… and {0} more. Narrow the search or open catalog/catalog.tsv."
+  },
+  "cat_legend": {
+    "de": "📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port vorhanden · 💤 = eingestellt. Ob und wie ein Port geht: catalog/README.md",
+    "en": "📖 = recipe in the Kitchen · 🥽 = Quest VR port already exists · 💤 = inactive. Whether and how to port: catalog/README.md"
   }
 }

@@ -33,6 +33,10 @@ Auftrag wie „Führe Rezept `settlers2-rttr` bis Stufe S4 aus“:
 
 ## Ein neues Rezept anlegen
 
+0. Zuerst `kitchen catalog <Spiel>` bzw. `catalog/README.md`: Gibt es schon einen Quest-Port (🥽)?
+   Welche Basis ist aktiv, welche Lizenz, welcher Weg passt zur Technik? Neue Funde als Zeile in
+   `catalog/catalog.tsv` ergänzen und `python catalog/render.py` ausführen (die .md-Seiten nie von Hand ändern).
+   Nintendo-Titel, Leak-Projekte und DMCA-gesperrte Projekte gehören nicht in Katalog oder Rezepte.
 1. Ordner `recipes/<id>/` (Kleinbuchstaben, Bindestriche), Vorlage: `recipes/_template/`.
 2. Machbarkeit zuerst (Skill `xr-port-new-project`): Rechtelage, Open-Source-Basis, Android-/ARM64-Nähe,
    Renderer (GLES/Vulkan/.NET), benötigte Originaldateien. Ergebnis als `status: draft`.

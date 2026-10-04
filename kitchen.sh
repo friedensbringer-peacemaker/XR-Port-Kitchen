@@ -6,6 +6,7 @@
 #   ./kitchen.sh guide settlers2-rttr  # direkt ein Rezept / one recipe directly
 #   ./kitchen.sh list
 #   ./kitchen.sh show settlers2-rttr
+#   ./kitchen.sh catalog heroes        # Katalog: Engines, Source-Ports, VR-Ports durchsuchen
 #   ./kitchen.sh check settlers2-rttr --assets ~/Spiele/Siedler2 [--play]
 #   ./kitchen.sh push settlers2-rttr ~/Spiele/Siedler2                 # Spieldaten auf die Quest
 #   ./kitchen.sh push dos-xrshell ~/quest/1-ThemePark --app xr.island --replace
@@ -341,6 +342,29 @@ cmd_list() {
             "$(stars "$(jv "$R" ratings.portability)")" "$(stars "$(jv "$R" ratings.xr_potential)")" "$(RT "$R" title)"
     done
     echo
+}
+
+cmd_catalog() {
+    _cc_f="$ROOT/catalog/catalog.tsv"
+    [ -f "$_cc_f" ] || die "catalog/catalog.tsv fehlt / missing"
+    echo
+    if [ -z "$1" ]; then
+        printf '%s\n' "$(T cat_summary "$(($(wc -l < "$_cc_f") - 1))")"
+        awk -F'\t' 'NR > 1 { n[$1]++ } END { for (k in n) printf "  %-12s %d\n", k, n[k] }' "$_cc_f" | sort
+        printf '\n%s\n\n' "$(T cat_legend)"
+        return
+    fi
+    _cc_hits=$(awk -F'\t' -v q="$*" 'NR > 1 && index(tolower($3 " " $4 " " $6), tolower(q)) {
+        m = ""; if ($12 != "") m = m " 📖 " $12; if ($13 != "") m = m " 🥽 " $13
+        if ($9 ~ /dead|eingestellt|archiv/) m = m " 💤"
+        u = $11; sub(/ · .*/, "", u)
+        printf "[%s] %s%s\n      %s\n      %s | Android: %s | %s\n", $1, $3, m, substr($4, 1, 90), $9, $10, u }' "$_cc_f")
+    _cc_n=$(printf '%s' "$_cc_hits" | grep -c '^\[')
+    if [ "$_cc_n" = 0 ]; then printf '%s\n\n' "$(T cat_none "$*")"; return; fi
+    printf '%s\n\n' "$(T cat_hits "$_cc_n" "$*")"
+    printf '%s\n' "$_cc_hits" | awk '/^\[/ { c++ } c <= 25'
+    [ "$_cc_n" -gt 25 ] && printf '\n%s\n' "$(T cat_more "$((_cc_n - 25))")"
+    printf '\n%s\n\n' "$(T cat_legend)"
 }
 
 cmd_show() {
@@ -1421,6 +1445,7 @@ set +f; IFS=$_IFS
 
 case "$_cmd" in
     list) cmd_list ;;
+    catalog) cmd_catalog "$@" ;;
     show) cmd_show "$1" ;;
     check)
         _id=$1; [ $# -gt 0 ] && shift; _assets=""; _play=0

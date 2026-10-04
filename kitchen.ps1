@@ -7,6 +7,7 @@
   .\kitchen.ps1 guide settlers2-rttr            # direkt ein Rezept / one recipe directly
   .\kitchen.ps1 list
   .\kitchen.ps1 show settlers2-rttr
+  .\kitchen.ps1 catalog heroes                 # Katalog durchsuchen / search engines, source ports, VR ports
   .\kitchen.ps1 check settlers2-rttr -Assets "D:\Spiele\Siedler2"
   .\kitchen.ps1 check settlers2-rttr -Play      # nur, was zum Spielen mit fertiger APK nötig ist
   .\kitchen.ps1 push settlers2-rttr "D:\Spiele\Siedler2"        # Spieldaten auf die Quest
@@ -1029,6 +1030,36 @@ function Show-List {
     Write-Host ""
 }
 
+function Show-Catalog([string] $query) {
+    $file = Join-Path $Root "catalog\catalog.tsv"
+    if (-not (Test-Path $file)) { Write-Host "catalog/catalog.tsv fehlt / missing" -ForegroundColor Red; return }
+    $rows = @(Get-Content -LiteralPath $file -Encoding UTF8 | Select-Object -Skip 1 | ForEach-Object { , ($_ -split "`t") })
+    Write-Host ""
+    if (-not $query) {
+        Write-Host (T 'cat_summary' $rows.Count)
+        $rows | Group-Object { $_[0] } | Sort-Object Name | ForEach-Object { Write-Host ("  {0,-12} {1}" -f $_.Name, $_.Count) }
+        Write-Host ""; Write-Host (T 'cat_legend'); Write-Host ""
+        return
+    }
+    $q = $query.ToLowerInvariant()
+    $hits = @($rows | Where-Object { ("{0} {1} {2}" -f $_[2], $_[3], $_[5]).ToLowerInvariant().Contains($q) })
+    if (-not $hits.Count) { Write-Host (T 'cat_none' $query); Write-Host ""; return }
+    Write-Host (T 'cat_hits' $hits.Count $query); Write-Host ""
+    foreach ($h in ($hits | Select-Object -First 25)) {
+        $m = ""
+        if ($h.Count -gt 11 -and $h[11]) { $m += " [Kitchen: $($h[11])]" }
+        if ($h.Count -gt 12 -and $h[12]) { $m += " [Quest-VR: $($h[12])]" }
+        if ($h[8] -match 'dead|eingestellt|archiv') { $m += " [inaktiv]" }
+        $orig = $h[3]; if ($orig.Length -gt 90) { $orig = $orig.Substring(0, 90) }
+        $url = ($h[10] -split ' · ')[0]
+        Write-Host ("[{0}] {1}{2}" -f $h[0], $h[2], $m) -ForegroundColor Cyan
+        Write-Host ("      {0}" -f $orig)
+        Write-Host ("      {0} | Android: {1} | {2}" -f $h[8], $h[9], $url)
+    }
+    if ($hits.Count -gt 25) { Write-Host ""; Write-Host (T 'cat_more' ($hits.Count - 25)) }
+    Write-Host ""; Write-Host (T 'cat_legend'); Write-Host ""
+}
+
 function Show-Recipe($r) {
     Write-Host ""
     Write-Host (RT $r 'title') -ForegroundColor Cyan
@@ -1443,6 +1474,7 @@ function Invoke-Menu {
 
 switch ($Command) {
     "list"   { Show-List }
+    "catalog" { Show-Catalog ((@($Recipe, $Source) | Where-Object { $_ }) -join " ") }
     "show"   { Show-Recipe (Get-RecipeById $Recipe) }
     "check"  { Invoke-Check (Get-RecipeById $Recipe) $Assets $Play.IsPresent; if ($script:Problems) { exit 1 } }
     "doctor" { Invoke-Doctor }
