@@ -1158,6 +1158,9 @@ EOF
 # mit dem aktuellen Stand (HEAD), sonst ein einzelner Commit ohne Vorgeschichte. Autor ist die
 # GitHub-noreply-Adresse. Arbeitsstand, HEAD und andere Zweige bleiben unberührt (commit-tree).
 
+KITCHEN_CLAUDE_NAME=${KITCHEN_CLAUDE_NAME:-Claude}
+KITCHEN_CLAUDE_MAIL=${KITCHEN_CLAUDE_MAIL:-noreply@anthropic.com}
+
 cmd_publish_prepare() {
     [ -n "$1" ] && [ -e "$1" ] || die "Pfad fehlt/existiert nicht: ./kitchen.sh publish-prepare <Repo-Ordner>"
     _pp_branch=xr-public
@@ -1315,13 +1318,18 @@ EOF
             _pp_first=${_pp_up# }; _pp_first=${_pp_first%% *}
             printf 'Basis: %s @ %s\n' "$(pg remote get-url "$_pp_first")" "$(printf '%s' "$_pp_base" | cut -c1-12)"
         fi
+        # Claude als Mitwirkender: GitHub zählt nur Commit-Autoren. Erstveröffentlichung = Autor Nutzer,
+        # jedes Update = Autor Claude (Committer bleibt der Nutzer); der jeweils andere als Co-Autor.
+        if [ -n "$_pp_ptip" ]; then printf '\nCo-Authored-By: %s <%s>\n' "$_pp_name" "$_pp_mail"
+        else printf '\nCo-Authored-By: %s <%s>\n' "$KITCHEN_CLAUDE_NAME" "$KITCHEN_CLAUDE_MAIL"; fi
     } > "$_pp_msgf"
-    _pp_new=$(GIT_AUTHOR_NAME=$_pp_name GIT_AUTHOR_EMAIL=$_pp_mail GIT_COMMITTER_NAME=$_pp_name GIT_COMMITTER_EMAIL=$_pp_mail \
+    if [ -n "$_pp_ptip" ]; then _pp_aname=$KITCHEN_CLAUDE_NAME; _pp_amail=$KITCHEN_CLAUDE_MAIL; else _pp_aname=$_pp_name; _pp_amail=$_pp_mail; fi
+    _pp_new=$(GIT_AUTHOR_NAME=$_pp_aname GIT_AUTHOR_EMAIL=$_pp_amail GIT_COMMITTER_NAME=$_pp_name GIT_COMMITTER_EMAIL=$_pp_mail \
         git -C "$_pp_top" commit-tree "$_pp_tree" "$@" -F "$_pp_msgf")
     rm -f "$_pp_msgf"
     [ -n "$_pp_new" ] || die "git commit-tree fehlgeschlagen."
     pg branch -f "$_pp_branch" "$_pp_new"
-    ok "Zweig $_pp_branch @ $(printf '%s' "$_pp_new" | cut -c1-10) (Autor $_pp_name <$_pp_mail>)"
+    ok "Zweig $_pp_branch @ $(printf '%s' "$_pp_new" | cut -c1-10) (Autor $_pp_aname <$_pp_amail>)"
     printf '%s\n' "$_pp_subwarn" | while IFS= read -r _pp_w; do [ -n "$_pp_w" ] && warn "Submodul: $_pp_w"; done
 
     # publish-check auf dem neuen Zweig in einem temporären Arbeitsordner

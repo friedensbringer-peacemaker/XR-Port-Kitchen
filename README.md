@@ -11,6 +11,32 @@ Die Kitchen tritt nicht gegen Fanprojekte wie Return to the Roots, OpenRA, OpenT
 oder ScummVM an. Jedes Rezept nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden
 an erster Stelle.
 
+### Worum es hier geht – und worum nicht
+
+Die Kitchen ist ein **Community- und Hobbyprojekt**: in der Freizeit entstanden, per
+*Vibe Coding* gemeinsam mit KI-Assistenten entwickelt, aus Begeisterung für klassische Spiele und
+für das, was die Quest heute kann.
+
+Ziel ist **nicht**, jedes Spiel zu einem vollwertigen VR-Spiel umzubauen, das alle räumlichen
+Möglichkeiten ausreizt. Dafür gibt es für moderne Spiele sehr gute VR-Mods (etwa für Cyberpunk 2077
+oder Red Dead Redemption 2), und manche Spiele bringen VR inzwischen selbst mit.
+
+Hier geht es um die **kleinen Nischen**: liebgewonnene Klassiker der 80er, 90er und 2000er, die die
+Quest-Hardware **nativ und kabellos** stemmt – ohne Streaming per Kabel oder Steam Link, ohne
+separaten PC, ohne High-End-Grafikkarte. Brille auf, Spiel starten, fertig.
+
+<details>
+<summary><b>About this project (English)</b></summary>
+
+The kitchen is a **community hobby project**, built in spare time with *vibe coding* alongside AI
+assistants, out of enthusiasm for classic games and for what the Quest can do today. It does
+**not** aim to turn every game into a full room-scale VR experience – excellent VR mods exist for
+modern games such as Cyberpunk 2077 or Red Dead Redemption 2, and some games now ship VR natively.
+Instead it focuses on the **small niches**: beloved classics from the 80s, 90s and 2000s that run
+**natively and wirelessly** on the Quest hardware – no link cable or Steam Link, no separate PC,
+no high-end graphics card.
+</details>
+
 ## Schnellstart
 
 ### Das brauchst du
@@ -22,6 +48,7 @@ an erster Stelle.
 | 💻 | **Windows-PC oder Mac** | nichts installieren nötig – die Küchenhilfe prüft alles und hilft beim Rest |
 | 💾 | **Dein Originalspiel** | eigene Kopie von GOG, Steam oder CD (bei manchen Spielen nicht nötig, siehe Tabelle unten) |
 | 📦 | **Die Spiel-App (APK)** | baust du dir selbst – das Rezept und die Küchenhilfe führen dich durch (siehe unten) |
+| 🔧 | **adb** (Android Debug Bridge) | kleines Hilfsprogramm von Google für die USB-Verbindung zur Quest – **nicht selbst installieren nötig**: Fehlt es, lädt die Küchenhilfe es nach Rückfrage direkt von Google in den Kitchen-Ordner (siehe „Was ist adb?“ unten) |
 | 🧰 | *SideQuest (optional)* | **nicht nötig** – die Küchenhilfe erledigt Installieren und Kopieren selbst; wer SideQuest mag, kann es zusätzlich nutzen (siehe unten) |
 
 **Warum es keine fertigen Spiel-Apps zum Herunterladen gibt:** Die Ports bauen auf

@@ -855,7 +855,12 @@ function Invoke-PublishPrepare([string] $path, [string] $branch, [string] $from)
         $msg = "XR-Port: öffentlicher Stand von $repoName`n`nAlle eigenen Änderungen zusammengefasst in einem Commit (Stand $(Get-Date -Format yyyy-MM-dd))."
     }
     if ($base) { $msg += "`nBasis: $((RepoGit remote get-url $up.Remotes[0])) @ $($base.Substring(0, 12))" }
-    $env:GIT_AUTHOR_NAME = $who.Name; $env:GIT_AUTHOR_EMAIL = $who.Mail
+    # Claude als Mitwirkender: GitHub zählt nur Commit-Autoren. Erstveröffentlichung = Autor Nutzer,
+    # jedes Update = Autor Claude (Committer bleibt der Nutzer); der jeweils andere als Co-Autor.
+    $claude = [pscustomobject]@{ Name = "Claude"; Mail = "noreply@anthropic.com" }
+    if ($pubTip) { $author = $claude; $co = $who } else { $author = $who; $co = $claude }
+    $msg += "`n`nCo-Authored-By: $($co.Name) <$($co.Mail)>"
+    $env:GIT_AUTHOR_NAME = $author.Name; $env:GIT_AUTHOR_EMAIL = $author.Mail
     $env:GIT_COMMITTER_NAME = $who.Name; $env:GIT_COMMITTER_EMAIL = $who.Mail
     try {
         $msgFile = [IO.Path]::GetTempFileName()
@@ -869,7 +874,7 @@ function Invoke-PublishPrepare([string] $path, [string] $branch, [string] $from)
     }
     if (-not $new) { Fail "git commit-tree fehlgeschlagen." }
     $null = RepoGit branch -f $branch $new
-    Write-Ok "Zweig $branch @ $($new.Substring(0, 10)) (Autor $($who.Name) <$($who.Mail)>)"
+    Write-Ok "Zweig $branch @ $($new.Substring(0, 10)) (Autor $($author.Name) <$($author.Mail)>)"
     foreach ($s in $localSubs) { Write-Warn "Submodul: $s" }
 
     # publish-check auf dem neuen Zweig in einem temporären Arbeitsordner
