@@ -11,7 +11,7 @@ Die Kitchen tritt nicht gegen Fanprojekte an – ohne sie gäbe es keinen einzig
 nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle.
 
 <details>
-<summary><b>Auf wessen Schultern wir kochen</b> – die Fanprojekte hinter den Rezepten und Ports</summary>
+<summary><b>Die Meisterköche, die uns inspirieren</b> – die Fanprojekte hinter den Rezepten und Ports</summary>
 
 | Projekt | Für | Website | Quellcode |
 |---|---|---|---|
@@ -94,13 +94,13 @@ no high-end graphics card.
 
 | | Was | Hinweis |
 |---|---|---|
-| 🥽 | **Meta Quest** (2, 3, 3S oder Pro) | mit eingeschaltetem **Entwicklermodus** (einmalig, siehe unten) |
+| 🥽 | **Meta Quest** (2, 3, 3S oder Pro) | mit eingeschaltetem **Entwicklermodus** (einmalig, [Anleitung](#entwicklermodus)) |
 | 🔌 | **USB-C-Kabel** | das Ladekabel der Quest reicht, wenn es Daten überträgt |
 | 💻 | **Windows-PC oder Mac** | nichts installieren nötig – die Küchenhilfe prüft alles und hilft beim Rest |
-| 💾 | **Dein Originalspiel** | eigene Kopie von GOG, Steam oder CD (bei manchen Spielen nicht nötig, siehe Tabelle unten) |
-| 📦 | **Die Spiel-App (APK)** | baust du dir selbst – das Rezept und die Küchenhilfe führen dich durch (siehe unten) |
-| 🔧 | **adb** (Android Debug Bridge) | kleines Hilfsprogramm von Google für die USB-Verbindung zur Quest – **nicht selbst installieren nötig**: Fehlt es, lädt die Küchenhilfe es nach Rückfrage direkt von Google in den Kitchen-Ordner (siehe „Was ist adb?“ unten) |
-| 🧰 | *SideQuest (optional)* | **nicht nötig** – die Küchenhilfe erledigt Installieren und Kopieren selbst; wer SideQuest mag, kann es zusätzlich nutzen (siehe unten) |
+| 💾 | **Dein Originalspiel** | eigene Kopie von GOG, Steam oder CD (bei manchen Spielen nicht nötig, siehe [Rezepte](#rezepte)) |
+| 📦 | **Die Spiel-App (APK)** | baust du dir selbst – das Rezept und die Küchenhilfe führen dich durch ([In vier Schritten](#in-vier-schritten)) |
+| 🔧 | **adb** (Android Debug Bridge) | kleines Hilfsprogramm von Google für die USB-Verbindung zur Quest – **nicht selbst installieren nötig**: Fehlt es, lädt die Küchenhilfe es nach Rückfrage direkt von Google in den Kitchen-Ordner (siehe [Was ist adb?](#was-ist-adb)) |
+| 🧰 | *SideQuest (optional)* | **nicht nötig** – die Küchenhilfe erledigt Installieren und Kopieren selbst; wer SideQuest mag, kann es zusätzlich nutzen ([Brauche ich SideQuest?](#brauche-ich-sidequest)) |
 
 **Warum es keine fertigen Spiel-Apps zum Herunterladen gibt:** Die Ports bauen auf
 Open-Source-Projekten mit unterschiedlichen Lizenzen auf, und manche Spiele brauchen bei der
@@ -112,16 +112,22 @@ und bringt am Ende App und Spieldaten auf die Quest.
 
 ### In vier Schritten
 
-1. **Kitchen herunterladen:** oben auf dieser Seite **Code → Download ZIP** und den ZIP-Ordner
-   entpacken (oder `git clone` für Bastler).
+1. **Kitchen herunterladen:** [**Download ZIP**](https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen/archive/refs/heads/main.zip) (oder oben auf
+   dieser Seite **Code → Download ZIP**) und den ZIP-Ordner entpacken. Für Bastler:
+   `git clone https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen.git`
 2. **Starten:**
-   - **Windows:** im entpackten Ordner **`Kitchen.cmd`** doppelklicken.
-   - **Mac:** **`Kitchen.command`** mit Rechtsklick → *Öffnen* starten (beim ersten Mal fragt macOS
+   - **Windows:** im entpackten Ordner **[`Kitchen.cmd`](Kitchen.cmd)** doppelklicken.
+   - **Mac:** **[`Kitchen.command`](Kitchen.command)** mit Rechtsklick → *Öffnen* starten (beim ersten Mal fragt macOS
      nach). Klappt das nicht: Terminal öffnen, `sh ` tippen, die Datei ins Fenster ziehen, Enter.
 3. **Spiele ankreuzen:** Sprache wählen, dann im Menü die gewünschten Spiele mit **X** ankreuzen
-   (eins oder mehrere) und **Enter** drücken.
+   (eins oder mehrere, Übersicht unter [Rezepte](#rezepte)) und **Enter** drücken.
 4. **Dem Assistenten folgen:** Er fragt nach deinem Spielordner, prüft alles, verbindet die Quest,
    baut auf Wunsch die App aus dem öffentlichen Port-Code, installiert sie und überträgt die Spieldaten. Am Ende steht, wo du das Spiel in der Brille findest.
+   Klemmt etwas: [Suppe versalzen?](docs/HAEUFIGE-FEHLER.md)
+
+**Lieber mit deinem KI-Agenten?** Claude Code, Codex, Gemini CLI & Co. können die Schritte für dich
+erledigen: In [AGENT-START.md](AGENT-START.md) steht ein fertiger Startprompt (Deutsch/Englisch) zum
+Kopieren – Spiel und Ordner eintragen, an den Agenten geben, Schritte freigeben.
 
 **Was die Küchenhilfe nachladen kann – immer erst nach deiner Zustimmung:** keine fertigen Spiele,
 sondern alles, was du brauchst, um dein Spiel so schnell wie möglich selbst zu portieren: das
@@ -130,6 +136,7 @@ eines Rezepts zum Selbstbauen (von GitHub, neben den Kitchen-Ordner) und neue od
 Rezepte samt Küchenhilfe (Taste `U` im Menü, von GitHub). Deine Spieldaten und deine selbst gebaute
 App verlassen nie deinen Rechner – sie gehen nur per USB auf deine Quest.
 
+<a id="brauche-ich-sidequest"></a>
 **Brauche ich SideQuest?** Nein. [SideQuest](https://sidequestvr.com) ist ein beliebtes Programm mit
 Knöpfen, um Apps auf die Quest zu spielen – es benutzt dafür im Hintergrund ebenfalls adb. Die
 Küchenhilfe macht dasselbe direkt: App installieren, Spieldaten kopieren, Verbindung prüfen. Wer
@@ -148,6 +155,7 @@ der Endung `.apk` verpackt. Normalerweise holt man Apps aus dem Meta-Store; eine
 auch selbst auf die Brille legen – das nennt man **„Sideloading“**. Genau das machen wir hier: Du
 baust dir die App für dein Spiel und spielst sie selbst auf deine Quest.
 
+<a id="was-ist-adb"></a>
 **Was ist adb?**
 adb (*Android Debug Bridge*) ist ein **kleines Hilfsprogramm von Google, das deinen Computer per
 USB-Kabel mit der Quest sprechen lässt**. Damit kann der Computer eine App auf die Brille
@@ -180,6 +188,7 @@ ist für dich nicht nötig.)
 | **USB-Debugging** | Die Erlaubnis in der Brille, dass dein Computer über das Kabel mit ihr arbeiten darf. Wird beim ersten Anstecken einmal bestätigt. |
 </details>
 
+<a id="entwicklermodus"></a>
 <details>
 <summary><b>Entwicklermodus der Quest einschalten (einmalig, ca. 5 Minuten)</b></summary>
 
@@ -197,14 +206,15 @@ Die Küchenhilfe erkennt, wenn einer dieser Schritte fehlt, und sagt dir, was zu
 <summary><b>Quick start (English)</b></summary>
 
 You need a Meta Quest with **developer mode** enabled, a USB-C cable, a Windows PC or Mac and
-**your own copy** of the game (GOG, Steam or CD – some recipes need none). Download this repository
-(**Code → Download ZIP**), unzip it and start **`Kitchen.cmd`** (Windows) or **`Kitchen.command`**
+**your own copy** of the game (GOG, Steam or CD – some recipes need none). [Download this repository](https://github.com/friedensbringer-peacemaker/XR-Port-Kitchen/archive/refs/heads/main.zip)
+(or **Code → Download ZIP**), unzip it and start **`Kitchen.cmd`** (Windows) or **`Kitchen.command`**
 (Mac: right-click → Open). Choose English, tick the games you want with **X**, press **Enter** and
 follow the guide – it checks everything, connects the Quest, builds the app from the public port
 code if you want, installs it and copies your game data. Downloads (adb from Google, kitchen updates) only happen after you agree. There are no
 ready-made game apps to download: because of the different open-source licenses and the need for
 your own game data, everyone builds their own app – the recipes and the kitchen helper guide you
-through it step by step. SideQuest is not required (optional; close it while the kitchen helper
+through it step by step – or hand it to your AI agent with the ready-made start prompt in
+[AGENT-START.md](AGENT-START.md). SideQuest is not required (optional; close it while the kitchen helper
 runs, because its own adb conflicts with the kitchen's).
 </details>
 
