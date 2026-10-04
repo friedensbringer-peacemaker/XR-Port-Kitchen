@@ -1,17 +1,16 @@
 # Suppe versalzen? – Häufige Fehler und ihre Lösung
 
-Jeder Koch hat schon mal eine Suppe versalzen, den Herd nicht angekriegt oder den Braten zu früh
-aus dem Ofen geholt. Beim Portieren ist das nicht anders: Die meisten Pannen passieren nicht
-einmal, sondern in fast jedem Port wieder – und meistens gibt es einen bewährten Handgriff, der die
-Suppe rettet.
+Die meisten Hobby-Köche haben schon mal eine Suppe versalzen, den fremden Herd nicht angekriegt
+oder den Braten zu früh aus dem Ofen geholt. Beim Portieren ist das nicht anders: Die meisten Pannen
+passieren nicht einmal, sondern in fast jedem Port wieder – und meistens gibt es einen bewährten
+Handgriff, der die Suppe rettet.
 
-Diese Seite ist die Sammlung dieser Handgriffe aus allen bisherigen Quest-Ports – von Siedler II/RttR,
-OpenRA, OpenTTD, CorsixTH, OpenXcom, Stratagus und XRShell/DOSBox Pure bis zu .NET-, SDL3-, Godot-
-und Winlator-Projekten. Jede Zeile
-ist ein Fehler, der wirklich aufgetreten ist – mit Ursache und der Lösung, die am Ende zu einer
-lauffähigen Version geführt hat. Lesart wie beim Kochen: **Symptom** = was komisch schmeckt,
-**Ursache** = was beim Kochen schiefging, **Lösung** = wie man es rettet (oder beim nächsten Mal
-gleich richtig macht).
+Hier steht, was in unserer Hobbyküche bisher angebrannt ist – quer durch alle Quest-Ports, von
+Siedler II/RttR, OpenRA, OpenTTD, CorsixTH, OpenXcom, Stratagus und XRShell/DOSBox Pure bis zu
+.NET-, SDL3-, Godot- und Winlator-Projekten. Jede Zeile ist eine Panne, die wirklich passiert ist,
+samt dem Handgriff, mit dem das Gericht am Ende doch noch auf den Tisch kam. Gelesen wird wie in
+der Küche: **Symptom** = was komisch schmeckt, **Ursache** = was beim Kochen schiefging,
+**Lösung** = wie man es rettet (oder beim nächsten Mal gleich richtig macht).
 
 Spalte **Gesehen in**: Siedler = settlers2-rttr, RA = openra-redalert, TTD = openttd,
 TH = themehospital-corsixth, XCOM = xcom-tftd-oxce, WC2/WC1 = warcraft2-wargus/warcraft1-war1gus,
