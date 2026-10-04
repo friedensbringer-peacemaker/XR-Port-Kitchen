@@ -33,7 +33,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 
 | Projekt | Spiel | Engine-Basis | Art · Entwickler · Vertrieb | Stand | URL |
 |---|---|---|---|---|---|
-| Generals: Zero Hour XR | C&C Generals + Zero Hour | GPL-Engine (GeneralsZH-Android / GeneralsX / TheSuperHackers) | MR-Tisch (Miniatur), + Ground View · Cesarus85 · GitHub | 1.2.33-xr-preview (Repo 2026-10-03; lokal 1.2.35 installiert) | <https://github.com/Cesarus85/Generals-Zero-Hour-XR> |
+| Generals: Zero Hour XR | C&C Generals + Zero Hour | GPL-Engine (GeneralsZH-Android / GeneralsX / TheSuperHackers) | MR-Tisch (Miniatur), + Ground View · Cesarus85 · GitHub | 1.2.33-xr-preview (Repo 2026-10-03) | <https://github.com/Cesarus85/Generals-Zero-Hour-XR> |
 | HaloCE-Quest-VR | Halo CE (Xbox-Daten) | Halo-CE-Dekompilierung + OpenXR (astromaddie) | immersiv 6DoF, Full-Body-IK, MP · moistman42069 · GitHub | 1.0.1 (code 20), Okt 2026 | <https://github.com/moistman42069/HaloCE-Quest-VR> |
 | OpenGothic-VR / Gothic-UnZENity | Gothic 2 DNdR (UnZENity: G1+G2) | OpenGothic / eigene Unity-Engine | immersiv 6DoF · JaXt0r (+ Team) · GitHub | v0.2.0 (Quest 3 + PCVR) | <https://github.com/JaXt0r/OpenGothic-VR> |
 | openmw-vr-quest | Morrowind | OpenMW-VR (Sandvei) + gl4es | immersiv 6DoF · tomups (Forks u. a. mmry2940) · GitHub | v1.0 / 0.48.0-45 experimental | <https://github.com/tomups/openmw-vr-quest> |
