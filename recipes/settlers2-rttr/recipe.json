@@ -45,7 +45,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.rttr",
     "branch": "main",
-    "local_path": "<XR-Ordner>/XR-Settlers2.5"
+    "local_path": "<XR-Ordner>/xr.rttr"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.rttr",
@@ -265,7 +265,7 @@
     "Kein Markenname im App-Namen (xr.rttr)"
   ],
   "links": {
-    "Ersteinrichtung": "<XR-Ordner>/XR-Settlers2.5/docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md",
-    "Build": "<XR-Ordner>/XR-Settlers2.5/docs/BUILD.md"
+    "Ersteinrichtung": "https://github.com/friedensbringer-peacemaker/xr.rttr/blob/main/docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md",
+    "Build": "https://github.com/friedensbringer-peacemaker/xr.rttr/blob/main/docs/BUILD.md"
   }
 }

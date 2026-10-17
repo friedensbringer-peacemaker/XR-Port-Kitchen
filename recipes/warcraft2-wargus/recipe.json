@@ -7,7 +7,7 @@
   "app": {
     "id": "xr.wargus2",
     "label": "xr.wargus2",
-    "version": "0.3.0-xr"
+    "version": "0.5.0-xr"
   },
   "game": {
     "name": "Warcraft II: Battle.net Edition (auch DOS-CD)",
@@ -59,7 +59,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.wargus",
     "branch": "main",
-    "local_path": "<XR-Ordner>/XR-Stratagus"
+    "local_path": "<XR-Ordner>/xr.wargus"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.wargus",
@@ -119,8 +119,8 @@
       ],
       "note": "Quelle ist der umgewandelte Ordner wargus-quest aus prepare-data.sh, nicht der GOG-Ordner. Original-Archive (.mpq/.war) und Programme werden nicht übertragen.",
       "note_en": "The source is the converted wargus-quest folder from prepare-data.sh, not the GOG folder. Original archives (.mpq/.war) and programs are not copied.",
-      "prepare": "Daten am PC umwandeln (im Port-Repo XR-Stratagus, Git Bash): bash scripts/prepare-data.sh \"<Spielordner>\". Das Skript baut wartool, wandelt Grafik, Töne, Musik und Videos um und legt den Ordner wargus-quest an (~288 MB). Braucht CMake und ffmpeg, unter Windows zusätzlich llvm-mingw.",
-      "prepare_en": "Convert the data on the PC (in the port repo XR-Stratagus, Git Bash): bash scripts/prepare-data.sh \"<game folder>\". The script builds wartool, converts graphics, sounds, music and videos and creates the folder wargus-quest (~288 MB). Needs CMake and ffmpeg, on Windows also llvm-mingw."
+      "prepare": "Daten am PC umwandeln (im Port-Repo xr.wargus, Git Bash): bash scripts/prepare-data.sh \"<Spielordner>\". Das Skript baut wartool, wandelt Grafik, Töne, Musik und Videos um und legt den Ordner wargus-quest an (~288 MB). Braucht CMake und ffmpeg, unter Windows zusätzlich llvm-mingw.",
+      "prepare_en": "Convert the data on the PC (in the port repo xr.wargus, Git Bash): bash scripts/prepare-data.sh \"<game folder>\". The script builds wartool, converts graphics, sounds, music and videos and creates the folder wargus-quest (~288 MB). Needs CMake and ffmpeg, on Windows also llvm-mingw."
     },
     "modules": [
       "quest-tools",
@@ -275,7 +275,7 @@
     "Keine Blizzard-Marken in App-Name oder Icon (xr.wargus2)"
   ],
   "links": {
-    "Build": "<XR-Ordner>/XR-Stratagus/docs/BUILD.md",
-    "Roadmap": "<XR-Ordner>/XR-Stratagus/docs/ROADMAP.md"
+    "Build": "https://github.com/friedensbringer-peacemaker/xr.wargus/blob/main/docs/BUILD.md",
+    "Roadmap": "https://github.com/friedensbringer-peacemaker/xr.wargus/blob/main/docs/ROADMAP.md"
   }
 }

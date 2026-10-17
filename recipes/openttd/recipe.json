@@ -7,7 +7,7 @@
   "app": {
     "id": "xr.openttd",
     "label": "xr.openttd",
-    "version": "0.1.0-preview.10"
+    "version": "0.1.0-preview.11"
   },
   "game": {
     "name": "Transport Tycoon Deluxe (optional – freie Grafik/Ton/Musik reichen)",
@@ -59,7 +59,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openttd",
     "branch": "main",
-    "local_path": "<XR-Ordner>/XR-OpenTTD"
+    "local_path": "<XR-Ordner>/xr.openttd"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openttd",
@@ -276,7 +276,7 @@
     "Kein Markenname im App-Namen (xr.openttd)"
   ],
   "links": {
-    "Test": "<XR-Ordner>/XR-OpenTTD/TEST.md",
-    "Backlog": "<XR-Ordner>/XR-OpenTTD/BACKLOG.md"
+    "Test": "https://github.com/friedensbringer-peacemaker/xr.openttd/blob/main/TEST.md",
+    "Backlog": "https://github.com/friedensbringer-peacemaker/xr.openttd/blob/main/BACKLOG.md"
   }
 }

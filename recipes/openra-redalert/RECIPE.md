@@ -1,7 +1,7 @@
 # Command & Conquer: Alarmstufe Rot via OpenRA
 
 **Portierbarkeit ★★★☆☆ · XR-Potenzial ★★★★★ · Reife der Basis ★★★★★**
-Stand: läuft auf der Quest (Partie per Log bestätigt, 0.3.1 am 2026-09-28). App `xr.openra`.
+Stand: läuft auf der Quest (Partie per Log bestätigt, 0.3.1 am 2026-09-28); öffentlicher Stand 0.4.4-preview. App `xr.openra`.
 Funktionen seit 0.3.0 sind größtenteils gebaut, aber nicht im Headset bestätigt.
 
 **OpenRA** ist eine GPL-3.0-Reimplementierung der Westwood-RTS-Engine in C#. Hinter ihr steht eine

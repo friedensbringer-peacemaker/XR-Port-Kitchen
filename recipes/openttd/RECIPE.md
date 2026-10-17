@@ -3,7 +3,7 @@
 **Portierbarkeit ★★★★☆ · XR-Potenzial ★★★★★ · Reife der Basis ★★★★★**
 Stand: im Headset gespielt (2026-09-28, preview.3: Start, gewölbter Bildschirm, Strahl, Menüs,
 neues Spiel). preview.10 mit VR-Schnellmenü ist gebaut und installiert, der Headset-Test steht aus.
-App `xr.openttd`.
+Öffentlicher Stand 0.1.0-preview.11. App `xr.openttd`.
 
 **OpenTTD** ist eine seit über 20 Jahren gepflegte GPL-Reimplementierung von Transport Tycoon
 Deluxe. Die freien Pakete **OpenGFX, OpenSFX und OpenMSX** ersetzen Grafik, Töne und Musik.

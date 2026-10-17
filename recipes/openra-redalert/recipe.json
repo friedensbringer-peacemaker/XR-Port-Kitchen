@@ -7,7 +7,7 @@
   "app": {
     "id": "xr.openra",
     "label": "xr.openra",
-    "version": "0.4.4 (0.4.5-preview in Arbeit)"
+    "version": "0.4.4-preview"
   },
   "game": {
     "name": "Command & Conquer: Alarmstufe Rot",
@@ -53,7 +53,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openra",
     "branch": "xr-openra",
-    "local_path": "<XR-Ordner>/XR-OpenRA"
+    "local_path": "<XR-Ordner>/xr.openra"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openra",
@@ -264,7 +264,7 @@
     "GPL-3.0: Quellcode des Forks veröffentlichen"
   ],
   "links": {
-    "Build": "<XR-Ordner>/XR-OpenRA/docs/xr/BUILD-QUEST.md",
-    "Roadmap": "<XR-Ordner>/XR-OpenRA/docs/xr/ROADMAP-QUEST-TABLETOP.md"
+    "Build": "https://github.com/friedensbringer-peacemaker/xr.openra/blob/xr-openra/docs/xr/BUILD-QUEST.md",
+    "Roadmap": "https://github.com/friedensbringer-peacemaker/xr.openra/blob/xr-openra/docs/xr/ROADMAP-QUEST-TABLETOP.md"
   }
 }

@@ -281,7 +281,7 @@ Heroes of Might & Magic II (fheroes2).
 
 **In der Werkstatt** → [weitere Spiele ohne eigenes Rezept](docs/WERKSTATT.md): Emulation, freie Engines,
 Fan-Ports, Eigenentwicklungen und Windows-Kompatibilitätsschicht – je mit Weg, Stand und Rechtsstatus.
-Grauzonen und Nachbauten kommerzieller Spiele stehen dort nur als „Weg denkbar“, ohne Link und ohne Code.
+Grauzonen und Nachbauten kommerzieller Spiele stehen dort nur mit Stand („privat, Weg nicht öffentlich“), ohne Link und ohne Code.
 *(English: [workshop overview](docs/WERKSTATT.md) of further games without a recipe – approach, stage and legal status.)*
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
@@ -482,7 +482,7 @@ Die Rezepte verweisen auf die Port-Projekte mit Platzhaltern:
 
 | Platzhalter | Bedeutung | Beispiel |
 |---|---|---|
-| `<XR-Ordner>` | der gemeinsame Ordner, in dem die Kitchen, alle Port-Projekte (`XR-Settlers2.5`, `XR-OpenRA` …), `_tools/` und `_shared/` nebeneinander liegen | `C:\XR` oder `~/XR` |
+| `<XR-Ordner>` | der gemeinsame Ordner, in dem die Kitchen, alle Port-Projekte (`xr.rttr`, `xr.openra` …), `_tools/` und `_shared/` nebeneinander liegen | `C:\XR` oder `~/XR` |
 | `<XR-Ordner>/_tools/` | gemeinsame Werkzeuge (Android-SDK, Quest-Logger, innoextract); die Küchenhilfe findet sie automatisch | `C:\XR\_tools\android-sdk` |
 | `~/.claude/skills/` | die XR-Skills für Claude Code (das ausführliche Kochwissen) | – |
 
@@ -491,9 +491,9 @@ Empfohlener Aufbau:
 ```
 <XR-Ordner>/
 ├── XR-Port-Kitchen/      ← dieses Repo
-├── XR-Settlers2.5/       ← Port-Projekte, je ein eigenes Repo
-├── XR-OpenRA/
-├── XR-Logger/            ← xr.logger (Werkzeug-App für die Quest, siehe unten)
+├── xr.rttr/              ← Port-Projekte, je ein eigenes Repo (Ordner = App-ID)
+├── xr.openra/
+├── xr.logger/            ← Werkzeug-App für die Quest, siehe unten
 ├── _tools/               ← android-sdk, quest, innoextract …
 └── _shared/              ← xr-common
 ```
@@ -503,7 +503,7 @@ Empfohlener Aufbau:
 Die App `xr.logger` (noch nicht veröffentlicht) ist eine kleine 2D-App für die
 Quest. Sie zeigt für jeden eigenen Port die letzten Programm-Enden mit Grund (Absturz, ANR,
 Speichermangel), lesbar aufbereitete Absturzberichte (Tombstone, ANR-Trace) und das Log, ohne PC.
-Einmal einrichten mit `bash tools/install.sh` im XR-Logger-Ordner (installiert und vergibt per adb
+Einmal einrichten mit `bash tools/install.sh` im Ordner `xr.logger` (installiert und vergibt per adb
 `READ_LOGS` und `DUMP`). Bei Headset-Tests (Stufen mit `automatable: manual`) ist das der schnellste
 Weg, nach einem Absturz den Grund zu sehen. Dauerhaft mitschreiben weiterhin am PC mit dem Quest-Logger
 unter `_tools/quest`.

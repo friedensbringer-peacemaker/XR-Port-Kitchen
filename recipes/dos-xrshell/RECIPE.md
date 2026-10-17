@@ -2,7 +2,7 @@
 
 **Portierbarkeit ★★★★★ · XR-Potenzial ★★☆☆☆ · Reife der Basis ★★★★☆**
 Stand: XRShell lief am 2026-09-27 im Headset (Bild, Ton, Menü v1, mit einem libretro-Core). Der
-DOS-Pfad ist seit Menü v2 nicht erneut im Headset geprüft. App `xr.shell`.
+DOS-Pfad ist seit Menü v2 nicht erneut im Headset geprüft. Öffentlicher Stand: `xr.shell` 0.1.1, `xr.dosgames` 0.3.7. App `xr.shell`.
 
 Dieses Rezept ist der **Generalschlüssel** für DOS-Spiele ohne eigene Engine-Reimplementierung.
 Jedes Spiel läuft ohne Code-Änderung. Pro Spiel braucht es nur einen Spielordner, ein Tastenprofil
@@ -78,7 +78,7 @@ APK: `android/build/outputs/apk/shell/debug/XRShell-shell-debug.apk`. Weitere Fl
 Für Win-3.x-Spiele braucht es zusätzlich eine eigene Windows-3.1-Lizenz. Der Aufwand beträgt
 mehrere Stunden: Windows 3.1 erst am PC in DOSBox-X einrichten, dann mit
 `dosbox_pure_mouse_input = direct` und `vmwmouse.drv` packen, damit der Cursor genau unter dem
-Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-emulator-profiles` §5.
+Laser liegt. Vorbild: App `xr.island` (noch nicht veröffentlicht; Mausmodus in `docs/DOS-SPIELE.md` von xr.shell), Skill `xr-emulator-profiles` §5.
 </details>
 
 <details>

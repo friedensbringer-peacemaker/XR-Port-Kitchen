@@ -67,7 +67,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.corsixth",
     "branch": "xr-quest",
-    "local_path": "<XR-Ordner>/XR-CorsixTH"
+    "local_path": "<XR-Ordner>/xr.corsixth"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.corsixth",
@@ -277,8 +277,8 @@
     "Kein Markenname im App-Namen (xr.corsixth)"
   ],
   "links": {
-    "Build": "<XR-Ordner>/XR-CorsixTH/docs/xr/BUILD-QUEST.md",
-    "Bedienung": "<XR-Ordner>/XR-CorsixTH/docs/xr/BEDIENUNG.md",
-    "Roadmap": "<XR-Ordner>/XR-CorsixTH/docs/xr/ROADMAP.md"
+    "Build": "https://github.com/friedensbringer-peacemaker/xr.corsixth/blob/xr-quest/docs/xr/BUILD-QUEST.md",
+    "Bedienung": "https://github.com/friedensbringer-peacemaker/xr.corsixth/blob/xr-quest/docs/xr/BEDIENUNG.md",
+    "Roadmap": "https://github.com/friedensbringer-peacemaker/xr.corsixth/blob/xr-quest/docs/xr/ROADMAP.md"
   }
 }

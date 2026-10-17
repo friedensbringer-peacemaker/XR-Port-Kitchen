@@ -3,7 +3,7 @@
 **Portierbarkeit ★★★★☆ · XR-Potenzial ★★★★☆ · Reife der Basis ★★★★☆**
 Stand: in Arbeit. Als flache Panel-App lief es am 2026-09-27 im Headset bis ins Hauptmenü
 (0.1.0-s1). Die OpenXR-Versionen ab 0.2 sind gebaut: 0.2.0 bis 0.2.2 stürzten ab bzw. hingen,
-die Fixes sind noch ungeprüft. App `xr.wargus2`; Warcraft I gibt es als zweite App `xr.wargus1` aus demselben Repo
+die Fixes sind noch ungeprüft. Öffentlicher Stand 0.5.0-xr. App `xr.wargus2`; Warcraft I gibt es als zweite App `xr.wargus1` aus demselben Repo
 (eigenes Rezept: [warcraft1-war1gus](../warcraft1-war1gus/RECIPE.md)).
 
 **Stratagus** ist eine freie RTS-Engine, **Wargus** das Spielmodul für Warcraft II samt dem

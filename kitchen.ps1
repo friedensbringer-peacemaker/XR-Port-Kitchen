@@ -15,11 +15,11 @@
   .\kitchen.ps1 push openra-redalert ra-quickinstall.zip -DryRun # nur zeigen, was passieren würde
   .\kitchen.ps1 doctor
   .\kitchen.ps1 lint                            # alle Rezepte auf Regeln prüfen
-  .\kitchen.ps1 publish-check ..\XR-OpenRA      # Repo vor dem Veröffentlichen prüfen
-  .\kitchen.ps1 publish-prepare ..\XR-OpenRA    # bereinigten Zweig xr-public erzeugen + prüfen
+  .\kitchen.ps1 publish-check ..\XR-Foo      # Repo vor dem Veröffentlichen prüfen
+  .\kitchen.ps1 publish-prepare ..\XR-Foo    # bereinigten Zweig xr-public erzeugen + prüfen
   .\kitchen.ps1 publish-prepare ..\XR-Foo main  # dasselbe aus einem anderen Zweig (ohne Umschalten)
   .\kitchen.ps1 publish ..\XR-Foo -Name xr.foo [-Fork owner/repo]   # erstmals veröffentlichen (fragt nach)
-  .\kitchen.ps1 publish ..\XR-CorsixTH          # Update eines veröffentlichten Repos (normaler Push)
+  .\kitchen.ps1 publish ..\XR-Foo          # Update eines veröffentlichten Repos (normaler Push)
   -Lang en | de                                 # Sprache / language
 #>
 param(

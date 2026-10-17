@@ -15,10 +15,10 @@
 #   ./kitchen.sh build openttd         # App selbst bauen (holt den öffentlichen Port-Code nach Rückfrage)
 #   ./kitchen.sh doctor
 #   ./kitchen.sh lint                  # alle Rezepte auf Regeln prüfen
-#   ./kitchen.sh publish-check ../XR-OpenRA   # Repo vor dem Veröffentlichen prüfen
-#   ./kitchen.sh publish-prepare ../XR-OpenRA [<zweig>] # bereinigten Zweig xr-public erzeugen + prüfen
+#   ./kitchen.sh publish-check ../XR-Foo   # Repo vor dem Veröffentlichen prüfen
+#   ./kitchen.sh publish-prepare ../XR-Foo [<zweig>] # bereinigten Zweig xr-public erzeugen + prüfen
 #   ./kitchen.sh publish ../XR-Foo --name xr.foo [--fork owner/repo]  # erstmals veröffentlichen
-#   ./kitchen.sh publish ../XR-CorsixTH       # Update eines veröffentlichten Repos
+#   ./kitchen.sh publish ../XR-Foo       # Update eines veröffentlichten Repos
 #   --lang de | en                     # Sprache / language
 
 ROOT=$(cd "$(dirname "$0")" && pwd)

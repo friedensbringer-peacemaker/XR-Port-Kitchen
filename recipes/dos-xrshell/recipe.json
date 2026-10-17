@@ -7,7 +7,7 @@
   "app": {
     "id": "xr.shell",
     "label": "xr.shell",
-    "version": "M1.2"
+    "version": "0.1.1"
   },
   "game": {
     "name": "Theme Park (stellvertretend für DOS-Spiele ohne eigene Engine-Reimplementierung)",
@@ -43,7 +43,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
     "branch": "main",
-    "local_path": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform"
+    "local_path": "<XR-Ordner>/xr.shell"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
@@ -253,7 +253,7 @@
   ],
   "links": {
     "Skill": "~/.claude/skills/xr-emulator-profiles/SKILL.md",
-    "Profile": "<XR-Ordner>/XR-Ports-Platform/XR-Ports-Platform/profiles",
-    "Win-3.x-Beispiel": "<XR-Ordner>/XR-HolidayIsland/docs/QUEST.md"
+    "Profile": "https://github.com/friedensbringer-peacemaker/xr.shell/tree/main/profiles",
+    "Win-3.x-Beispiel": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/main/docs/DOS-SPIELE.md"
   }
 }

@@ -66,7 +66,7 @@
   "port": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openxcom",
     "branch": "xr-quest",
-    "local_path": "<XR-Ordner>/XR-OpenXcom/fanport/OpenXcom-Android"
+    "local_path": "<XR-Ordner>/xr.openxcom"
   },
   "build": {
     "repo": "https://github.com/friedensbringer-peacemaker/xr.openxcom",
@@ -284,7 +284,6 @@
     "Keine Markennamen im App-Namen (xr.openxcom)"
   ],
   "links": {
-    "Test": "<XR-Ordner>/XR-OpenXcom/TEST.md",
-    "Status": "<XR-Ordner>/XR-OpenXcom/STATUS.md"
+    "Port-Repo": "https://github.com/friedensbringer-peacemaker/xr.openxcom/tree/xr-quest"
   }
 }

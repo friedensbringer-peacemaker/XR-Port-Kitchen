@@ -5,7 +5,7 @@ eigenes Rezept. Was ein Rezept hat, steht in der [Rezepttabelle](../README.md#re
 
 *(English: overview of further games being worked on or evaluated, without their own recipe yet –
 kind of approach, current stage and legal status. Grey-zone projects and own re-creations of
-commercial games are only described as a possible way, without links or code.)*
+commercial games are listed only with their stage, without approach, links or code.)*
 
 Spielnamen sind sachliche Kompatibilitätsangaben; sie gehören ihren Rechteinhabern. Jeder Weg setzt
 eine **eigene, legal erworbene Kopie** voraus, wo das Spiel nicht frei ist.
@@ -16,7 +16,7 @@ eine **eigene, legal erworbene Kopie** voraus, wo das Spiel nicht frei ist.
 |---|---|
 | **Art** | freie Engine · Fan-Port · Eigenentwicklung · Emulation · Windows-Kompatibilitätsschicht |
 | **Stand** | Recherche · gebaut · auf der Quest (installiert, nicht abgenommen) · im Headset (vom Nutzer beobachtet) · geparkt |
-| **Rechtsstatus** | **Rezept** = öffentlich beschrieben, Weg und Code sauber · **nur Hinweis** = Weg sauber, aber noch kein Rezept · **privat** = wird nicht veröffentlicht; hier steht höchstens „Weg denkbar“ ohne Link und ohne Code |
+| **Rechtsstatus** | **Rezept** = öffentlich beschrieben, Weg und Code sauber · **nur Hinweis** = Weg sauber, aber noch kein Rezept · **privat** = wird nicht veröffentlicht; der Weg bleibt offen („privat, Weg nicht öffentlich“), ohne Link und ohne Code |
 
 ## Emulation und freie Engines
 
@@ -34,35 +34,34 @@ eine **eigene, legal erworbene Kopie** voraus, wo das Spiel nicht frei ist.
 
 ## Grauzonen (nur privat)
 
-Hier gibt es einen technischen Weg, aber keine saubere Rechtekette für eine Veröffentlichung
-(Rekonstruktion aus dem Originalprogramm, nicht-kommerzielle oder fehlende Quellcode-Lizenz, Umbau
-eines proprietären Spiels). Die Kitchen nennt nur, was denkbar wäre.
+Hier fehlt eine saubere Rechtekette für eine Veröffentlichung. Die Kitchen nennt nur Spiel und
+Stand; der Weg bleibt privat.
 
 | Spiel | Art | Weg | Stand | Rechtsstatus |
 |---|---|---|---|---|
-| Diablo | Fan-Port | Weg denkbar: WinlatorXR mit eigener GOG-Kopie | auf der Quest | privat |
-| Plants vs. Zombies | Fan-Port | Weg denkbar: eigener Nachbau der Spiellogik, Grafik und Ton aus eigener Kopie | auf der Quest | privat |
-| Jagged Alliance 2 | Fan-Port | Weg denkbar: Engine mit nicht-kommerzieller Quellcode-Lizenz, Daten aus eigener Kopie, nur für sich selbst | auf der Quest | privat |
-| Uplink | Fan-Port | Weg denkbar: WinlatorXR mit eigener Kopie | auf der Quest | privat |
-| Terraria | Fan-Port | Weg denkbar: eigene Kopie mit einer quelloffenen .NET-Spielelaufzeit auf der Quest, nur für sich selbst | auf der Quest | privat |
-| Stardew Valley | Fan-Port | Weg denkbar: wie Terraria | auf der Quest | privat |
+| Diablo | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Plants vs. Zombies | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Jagged Alliance 2 | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Uplink | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Terraria | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Stardew Valley | Fan-Port | privat, Weg nicht öffentlich | auf der Quest | privat |
 
 ## Eigenentwicklungen nach kommerziellen Spielen (nur privat)
 
-Eigener Code, der die Spielidee nachbaut und Grafik und Ton aus der eigenen Kopie liest. Solange
-das nicht rechtlich geklärt ist, bleibt alles privat.
+Eigener Code nach der Spielidee eines kommerziellen Spiels. Solange das nicht rechtlich geklärt ist,
+bleibt alles privat, auch der Weg.
 
 | Spiel | Art | Weg | Stand | Rechtsstatus |
 |---|---|---|---|---|
-| Bejeweled 3 | Eigenentwicklung | Weg denkbar: eigene Spiellogik, Grafik und Ton aus eigener Kopie | gebaut | privat |
-| Zuma Deluxe | Eigenentwicklung | Weg denkbar: eigene Spiellogik, Grafik und Ton aus eigener Kopie | auf der Quest | privat |
-| Anstoss 3 | Eigenentwicklung | Weg denkbar: eigener Nachbau, der die Originaldaten liest; sonst WinlatorXR | im Headset (Büro, Zeiger, Klick) | privat |
-| Clanfolk | Eigenentwicklung | Weg denkbar: eigene Engine (Tisch-Diorama), die die Daten der eigenen Kopie liest; sonst WinlatorXR-Leinwand | auf der Quest | privat |
-| Holiday Island (Neuauflage als Tischmodell) | Eigenentwicklung | Weg denkbar: Godot-Tischmodell aus der eigenen Originalgrafik | im Headset (Prototyp) | privat |
-| Infinitode 2 | Eigenentwicklung | Weg denkbar: Nachbau ohne Originalcode; sonst offizielle Android-App als 2D-Fenster | Recherche | privat |
-| Summer Islands | Eigenentwicklung | Weg denkbar: eigener Nachbau, der die Daten der eigenen Kopie liest | Recherche | privat |
-| Timberborn | Eigenentwicklung | Weg denkbar: PC-VR-Mod über die offizielle Mod-Schnittstelle; sonst WinlatorXR-Test | Recherche | privat |
-| PixelJunk Monsters | Eigenentwicklung | Weg denkbar: Anfrage beim Entwickler; sonst WinlatorXR-Test | Recherche | privat |
+| Bejeweled 3 | Eigenentwicklung | privat, Weg nicht öffentlich | gebaut | privat |
+| Zuma Deluxe | Eigenentwicklung | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Anstoss 3 | Eigenentwicklung | privat, Weg nicht öffentlich | im Headset (Büro, Zeiger, Klick) | privat |
+| Clanfolk | Eigenentwicklung | privat, Weg nicht öffentlich | auf der Quest | privat |
+| Holiday Island (Neuauflage als Tischmodell) | Eigenentwicklung | privat, Weg nicht öffentlich | im Headset (Prototyp) | privat |
+| Infinitode 2 | Eigenentwicklung | privat, Weg nicht öffentlich | Recherche | privat |
+| Summer Islands | Eigenentwicklung | privat, Weg nicht öffentlich | Recherche | privat |
+| Timberborn | Eigenentwicklung | privat, Weg nicht öffentlich | Recherche | privat |
+| PixelJunk Monsters | Eigenentwicklung | privat, Weg nicht öffentlich | Recherche | privat |
 | eigenes Weltraum-Strategiespiel am Tisch | Eigenentwicklung (eigenes Spiel) | Godot + OpenXR, Mixed Reality, eigene Inhalte | gebaut | privat |
 
 ## Windows-Kompatibilitätsschicht (nur privat)

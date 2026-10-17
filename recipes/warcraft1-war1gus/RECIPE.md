@@ -1,7 +1,7 @@
 # Warcraft: Orcs & Humans via War1gus + Stratagus
 
 **Portierbarkeit ★★★★☆ · XR-Potenzial ★★★★☆ · Reife der Basis ★★★☆☆**
-Stand: gebaut (0.3.0-xr), noch nicht installiert oder gestartet. App `xr.wargus1` – die zweite App
+Stand: öffentlicher Stand 0.5.0-xr, auf der Quest installiert, im Headset noch nicht geprüft. App `xr.wargus1` – die zweite App
 aus demselben Repo wie [Warcraft II](../warcraft2-wargus/RECIPE.md).
 
 **War1gus** ist das Stratagus-Spielmodul für Warcraft I, mit dem Konverter **war1tool**, der die
