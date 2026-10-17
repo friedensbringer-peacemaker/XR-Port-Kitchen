@@ -1,0 +1,213 @@
+{
+  "id": "hedgewars",
+  "title": "Hedgewars (freies Artillerie-Spiel)",
+  "title_en": "Hedgewars (free artillery game)",
+  "status": "draft",
+  "last_verified": "2026-10-17 headset (0.2.0-preview.4: immersiv, 72 fps, Steuerung vom Nutzer als gut bewertet); preview.5 gebaut, ungeprüft",
+  "app": {
+    "id": "xr.hedgehogs",
+    "label": "xr.hedgehogs",
+    "version": "0.2.0-preview.5"
+  },
+  "game": {
+    "name": "Hedgewars",
+    "name_en": "Hedgewars",
+    "platform": "PC (frei)",
+    "year": 2007,
+    "rights_holder": "Hedgewars-Projekt (freie Software, freie Inhalte)",
+    "buy": [
+      "frei (hedgewars.org)"
+    ]
+  },
+  "base": [
+    {
+      "name": "Hedgewars",
+      "url": "https://github.com/hedgewars/hw",
+      "license": "GPL-2.0-only",
+      "role": "Engine (Free Pascal + Rust-Bibliothek hwengine_future), Inhalte; offizieller Spiegel"
+    },
+    {
+      "name": "Hedgewars-Website",
+      "url": "https://www.hedgewars.org/",
+      "license": "GPL-2.0-only",
+      "role": "Upstream-Projekt"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader (der Grund, warum keine APK verteilt wird)"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "",
+    "note": "nicht veröffentlicht: GPL-2.0-only verträgt sich nicht mit dem Apache-2.0-OpenXR-Loader"
+  },
+  "ratings": {
+    "portability": 2,
+    "xr_potential": 3,
+    "base_maturity": 4,
+    "note": "Portierbarkeit niedrig: Free-Pascal-Cross-Compiler für aarch64-android, Pflicht-Rust-Bibliothek und ein GL2-Renderweg statt GLES 1.1 sind nötig; der Android-Build im Upstream ist veraltet. XR: Leinwand mit Strahl-Zielen trägt gut, Tisch denkbar. Basis aktiv und vollständig, Inhalte frei."
+  },
+  "effort": {
+    "with_apk": "–",
+    "with_apk_en": "– (no APK is distributed)",
+    "from_source": "1–3 Tage (Toolchains Free Pascal + Rust + NDK, Engine-Anpassungen)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Keine eigene Kopie nötig: Grafik, Ton und Karten sind frei und kommen mit dem Spiel (Ordner share/hedgewars/Data, ~215 MB).",
+      "hint_en": "No own copy needed: graphics, sound and maps are free and ship with the game (folder share/hedgewars/Data, ~215 MB).",
+      "required": [],
+      "device_path": "in der APK, beim ersten Start nach files/Data entpackt",
+      "transfer": "–"
+    },
+    "modules": [
+      "quest-tools",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Rechtelage",
+      "actions": [
+        "Skill xr-port-new-project",
+        "Quellköpfe: „version 2 of the License“ ohne „or later“"
+      ],
+      "done_when": "Weg: privat selbst bauen, keine APK-Verteilung",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-10"
+    },
+    {
+      "id": "S1",
+      "title": "Android-Build als 2D-Fenster",
+      "actions": [
+        "Free Pascal 3.2.2: ppcrossa64 für aarch64-android selbst bauen",
+        "Rust: rustup target add aarch64-linux-android",
+        "Engine als libhwengine.so mit GL2-Pfad, Schnellstart ohne Qt-Frontend"
+      ],
+      "done_when": "APK startet als flaches Fenster mit Spielbild",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-17 headset (0.1.2)"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Bild",
+      "actions": [
+        "Skill xr-openxr-integration",
+        "Present-Hook, OpenXR auf dem EGL-Kontext von SDL, Spielbild als Quad-Leinwand"
+      ],
+      "done_when": "Spielbild als VR-Leinwand",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-17 headset (0.2.0-preview.4)"
+    },
+    {
+      "id": "S3",
+      "title": "Controller",
+      "actions": [
+        "Skill xr-quest-port",
+        "Laser nur im Waffenmenü und beim Zielen; sonst Stick = Kamera"
+      ],
+      "done_when": "Partie ohne Tastatur spielbar",
+      "automatable": "manual",
+      "status": "done",
+      "evidence": "2026-10-17 headset (0.2.0-preview.4, Rückmeldung Nutzer)"
+    },
+    {
+      "id": "S4",
+      "title": "VR-Menü (Pflichtumfang)",
+      "actions": [
+        "Skill xr-vr-menu"
+      ],
+      "done_when": "Beenden mit Bestätigung, Zeiger ausblendbar",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "gebaut (0.2.0-preview.5), Headset offen"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "erster Start entpackt ~215 MB – mit Fortschritt"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut; Ladeanzeige nach 1,5 s, Spiel nach 3,7 s (Log 0.2.0-preview.4)"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (Griff verschiebt, Position gemerkt; keine Anfasser)"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "planned",
+    "diorama": "unsuitable",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "GPL-2.0-only (ohne „or later“) ist mit dem Apache-2.0-OpenXR-Loader nicht verträglich – selbst bauen und privat nutzen, keine APK weitergeben",
+    "Upstream-Android-Build (Ant, armv7, NDK-gcc) ist unbrauchbar – eigenes Gradle-Projekt für arm64",
+    "Rust-Bibliothek hwengine_future ist Pflicht (Landschaft, Kartengenerator, KI) – zweite Cross-Toolchain",
+    "Mobiler GLES-1.1-Pfad passt nicht zur Quest – GL2-Pfad mit ES-2/3-Kontext",
+    "Free Pascal braucht PPC_CONFIG_PATH und Suchpfade auf Sysroot/crt; mitgeliefertes PhysFS 2.1 zu alt (3.2 nehmen), CMake 4 braucht -DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+    "PHYSFS_init auf Android ohne PHYSFS_AndroidInit → Absturz beim Start",
+    "Engine als Bibliothek liest argv ab Index 0 – sonst „Error opening file hwengine“",
+    "Hedgewars liest die Maus relativ und schiebt ohne sichtbaren Zeiger die Kamera – Laser nur im Waffenmenü und beim Zielen absolut setzen",
+    "Erster Start entpackt ~215 MB Daten – ohne Ladeanzeige wirkt das wie ein Hänger",
+    "Neuinitialisierung nach Fensterwiederherstellung ohne GL-Kontext → „Shader compilation failed“ beim Schließen"
+  ],
+  "legal": [
+    "Keine APK verteilen (GPL-2.0-only ↔ Apache-2.0-OpenXR-Loader); Weg = selbst bauen",
+    "Daten frei; Upstream-Lizenzen und Credits beachten"
+  ],
+  "links": {
+    "Hedgewars": "https://www.hedgewars.org/",
+    "Quellcode (Spiegel)": "https://github.com/hedgewars/hw"
+  }
+}

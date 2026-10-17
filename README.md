@@ -249,27 +249,40 @@ runs, because its own adb conflicts with the kitchen's).
 
 | Rezept | Aufbauend auf | Portierbarkeit | XR-Potenzial | Originalspiel nötig? | Port-Code | Stand |
 |---|---|:---:|:---:|---|---|---|
-| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25) | 🟢 im Headset spielbar |
-| [**Command & Conquer: Alarmstufe Rot**](recipes/openra-redalert/RECIPE.md) | OpenRA | ★★★☆☆ | ★★★★★ | nein – Freeware-Daten | [xr.openra](https://github.com/friedensbringer-peacemaker/xr.openra) | 🟢 läuft, VR-Funktionen in Abnahme |
-| [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) | 🟢 im Headset gespielt |
-| [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) | 🟢 im Headset gespielt |
-| [**X-COM: Terror from the Deep**](recipes/xcom-tftd-oxce/RECIPE.md) | OpenXcom Extended | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) | 🟢 im Headset gespielt |
-| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 Menü im Headset, VR-Fassung in Arbeit |
-| [**Warcraft: Orcs & Humans**](recipes/warcraft1-war1gus/RECIPE.md) | War1gus + Stratagus | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 gebaut, noch nicht im Headset |
-| [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | 🟡 in Arbeit |
-| [**Dungeon Keeper**](recipes/dungeonkeeper-keeperfx/RECIPE.md) | KeeperFX | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | noch nicht veröffentlicht | ⚪ Entwurf (im Headset gespielt, Rezept neu) |
-| [**Pharao + Kleopatra**](recipes/pharaoh-akhenaten/RECIPE.md) | Akhenaten | ★★★★☆ | ★★★★☆ | ja – Steam/GOG/CD | noch nicht veröffentlicht | ⚪ Entwurf |
-| [**0 A.D.**](recipes/zeroad-pyrogenesis/RECIPE.md) | Pyrogenesis | ★★☆☆☆ | ★★★★★ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ Entwurf (Hauptmenü im Headset) |
-| [**Age of Empires II**](recipes/aoe2-openage/RECIPE.md) | openage (eigener Fork) | ★★☆☆☆ | ★★★★☆ | ja – Steam/CD | noch nicht veröffentlicht | ⚪ Entwurf |
-| [**Domination**](recipes/domination/RECIPE.md) | Domination (Java) | ★★★★☆ | ★★★☆☆ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ Entwurf |
+| [**Die Siedler II**](recipes/settlers2-rttr/RECIPE.md) | Return to the Roots, s25rttr-android | ★★★★★ | ★★★★☆ | ja – Gold Edition (GOG/CD) | [xr.rttr](https://github.com/friedensbringer-peacemaker/xr.rttr) | 🟢 Headset 2.1.0-preview.8 · Code 2.1.0-preview.14 · L ◐ F ◐ |
+| [**Command & Conquer: Alarmstufe Rot**](recipes/openra-redalert/RECIPE.md) | OpenRA | ★★★☆☆ | ★★★★★ | nein – Freeware-Daten | [xr.openra](https://github.com/friedensbringer-peacemaker/xr.openra) | 🟢 Headset 0.4.11-preview · gebaut 0.4.12-preview · L ◐ F – |
+| [**Transport Tycoon Deluxe**](recipes/openttd/RECIPE.md) | OpenTTD | ★★★★☆ | ★★★★★ | nein – freie Grafik/Ton/Musik | [xr.openttd](https://github.com/friedensbringer-peacemaker/xr.openttd) | 🟢 Headset 0.1.0-preview.3 · Quest preview.12 · L ✓ F – |
+| [**Theme Hospital**](recipes/themehospital-corsixth/RECIPE.md) | CorsixTH | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.corsixth](https://github.com/friedensbringer-peacemaker/xr.corsixth) | 🟢 Headset 0.4.0-xr · Quest 0.9.1-xr · L ✓ F ✓ |
+| [**X-COM: Terror from the Deep**](recipes/xcom-tftd-oxce/RECIPE.md) | OpenXcom Extended | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | [xr.openxcom](https://github.com/friedensbringer-peacemaker/xr.openxcom) | 🟢 Headset 8.7.1-xr.3 · Quest 8.7.1-xr.7 · L ✓ F – |
+| [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 Headset nur 2D-Menü (0.1.0) · Quest 0.5.2-xr · L ✓ F – |
+| [**Warcraft: Orcs & Humans**](recipes/warcraft1-war1gus/RECIPE.md) | War1gus + Stratagus | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 Quest 0.5.2-xr · Headset offen · L ✓ F – |
+| [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | 🟡 Headset DOS-Sammlung (2026-10-03) · Code 0.3.7 · L ✓ F ◐ |
+| [**Doom, Wolfenstein 3D, Quake**](recipes/shooter-xrshell/RECIPE.md) | PrBoom, ECWolf, TyrQuake + XRShell | ★★★★★ | ★★☆☆☆ | ja – GOG/Steam; frei: Freedoom, Shareware | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | ⚪ Headset 0.3.5 · Code 0.3.6 · L ✓ F ◐ |
+| [**Point-&-Click-Adventures**](recipes/adventure-scummvm/RECIPE.md) | ScummVM + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie; frei: z. B. Beneath a Steel Sky | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | ⚪ Headset 0.3.1 · Quest 0.3.4 · L ✓ F ◐ |
+| [**Dungeon Keeper**](recipes/dungeonkeeper-keeperfx/RECIPE.md) | KeeperFX | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | noch nicht veröffentlicht | ⚪ Headset 0.4.0-preview.1 · Quest 0.6.0-preview.1 · L ✓ F ◐ |
+| [**Pharao + Kleopatra**](recipes/pharaoh-akhenaten/RECIPE.md) | Akhenaten | ★★★★☆ | ★★★★☆ | ja – Steam/GOG/CD | noch nicht veröffentlicht | ⚪ Headset 0.1.1 (nur Log) · Quest 0.3.0 · L ✓ F ◐ |
+| [**0 A.D.**](recipes/zeroad-pyrogenesis/RECIPE.md) | Pyrogenesis | ★★☆☆☆ | ★★★★★ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ Headset Hauptmenü 0.28.0-xr.0.1 · Quest 0.28.0-xr.0.5.1 · L ✓ F – |
+| [**Age of Empires II**](recipes/aoe2-openage/RECIPE.md) | openage (eigener Fork) | ★★☆☆☆ | ★★★★☆ | ja – Steam/CD | noch nicht veröffentlicht | ⚪ Headset 0.4 (frühe Fassung) · Quest 0.6.0-xr.0.12 · L ◐ F ◐ |
+| [**Domination**](recipes/domination/RECIPE.md) | Domination (Java) | ★★★★☆ | ★★★☆☆ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ gebaut 0.1.0 · L ◐ F – |
+| [**Half-Life**](recipes/halflife-lambda1vr/RECIPE.md) | Lambda1VR (Team Beef), Xash3D-FWGS | ★★★★★ | ★★★★★ | ja – Steam | [Lambda1VR](https://github.com/Team-Beef-Studios/Lambda1VR) (fertiger Port) | ⚪ Quest 1.7.4 (fremder Port) · Headset offen |
+| [**Hedgewars**](recipes/hedgewars/RECIPE.md) | Hedgewars | ★★☆☆☆ | ★★★☆☆ | nein – freies Spiel | nicht verteilbar (GPL-2.0-only) – selbst bauen | ⚪ Headset 0.2.0-preview.4 · gebaut preview.5 · L ✓ F ◐ |
 
 🟢 im Headset geprüft · 🟡 in Arbeit · ⚪ Entwurf (Weg, Bausteine und Fallen; Port-Code folgt) · Die Sterne bewerten Portierbarkeit und XR-Potenzial
-getrennt (siehe [Bewertung](#bewertung-zwei-achsen-statt-einer-note)). „Im Headset gespielt“
-bezieht sich auf eine ältere Version; neuere Versionen mit VR-Menüs sind gebaut, aber oft noch
-nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
+getrennt (siehe [Bewertung](#bewertung-zwei-achsen-statt-einer-note)).
+
+**Spalte „Stand“:** „Headset“ = zuletzt im Headset geprüfte Version (vom Nutzer beobachtet), „Quest“ =
+neueste installierte, noch nicht abgenommene Version, „gebaut“ = gebaut, nicht installiert, „Code“ = Stand
+im öffentlichen Port-Repo. **L** = [Ladebild L1–L8](ingredients/README.md), **F** = [Fenster F1–F10](ingredients/README.md):
+✓ vollständig gebaut · ◐ teilweise · – fehlt. Die Headset-Abnahme von Ladebild und Fenster steht bei
+allen Ports noch aus. Stand 2026-10-17; die genauen Belege stehen im jeweiligen Rezept.
 
 **Als Nächstes denkbar:** RollerCoaster Tycoon 2 (OpenRCT2), Caesar III (Julius/Augustus),
 Heroes of Might & Magic II (fheroes2).
+
+**In der Werkstatt** → [weitere Spiele ohne eigenes Rezept](docs/WERKSTATT.md): Emulation, freie Engines,
+Fan-Ports, Eigenentwicklungen und Windows-Kompatibilitätsschicht – je mit Weg, Stand und Rechtsstatus.
+Grauzonen und Nachbauten kommerzieller Spiele stehen dort nur als „Weg denkbar“, ohne Link und ohne Code.
+*(English: [workshop overview](docs/WERKSTATT.md) of further games without a recipe – approach, stage and legal status.)*
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
 **Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.770 Open-Source-Engines,
@@ -487,7 +500,7 @@ Empfohlener Aufbau:
 
 ### Logs und Abstürze in der Brille: xr.logger
 
-[XR-Logger](https://github.com/friedensbringer-peacemaker/XR-Logger) ist eine kleine 2D-App für die
+Die App `xr.logger` (noch nicht veröffentlicht) ist eine kleine 2D-App für die
 Quest. Sie zeigt für jeden eigenen Port die letzten Programm-Enden mit Grund (Absturz, ANR,
 Speichermangel), lesbar aufbereitete Absturzberichte (Tombstone, ANR-Trace) und das Log, ohne PC.
 Einmal einrichten mit `bash tools/install.sh` im XR-Logger-Ordner (installiert und vergibt per adb
@@ -520,6 +533,12 @@ Arbeitsschritt wird sortiert:
 Die Arbeitsregeln für Agenten stehen in [AGENTS.md](AGENTS.md).
 
 ## Stand
+
+2026-10-17:
+- Rezepttabelle mit Spalte „Stand“ (geprüfte und installierte Version, Ladebild L, Fenster F)
+- vier neue Rezept-Entwürfe: Shooter (PrBoom, ECWolf, TyrQuake), Adventures (ScummVM), Half-Life (Lambda1VR), Hedgewars
+- [In der Werkstatt](docs/WERKSTATT.md): Übersicht der übrigen Spiele mit Weg, Stand und Rechtsstatus
+- Siedler-II-Port heißt jetzt `xr.rttr`
 
 Version 0.4 (2026-10-03):
 - Assistent auf Deutsch und Englisch, der Schritt für Schritt durch ein Rezept führt

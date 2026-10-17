@@ -1,0 +1,162 @@
+{
+  "id": "halflife-lambda1vr",
+  "title": "Half-Life via Lambda1VR (Team Beef, Xash3D-FWGS)",
+  "title_en": "Half-Life via Lambda1VR (Team Beef, Xash3D-FWGS)",
+  "status": "draft",
+  "last_verified": "2026-10-17 Log (Lambda1VR 1.7.4: OpenXR-Sitzung und Rendern laufen, Absturz erst beim Beenden); Spielen im Headset ungeprüft",
+  "game": {
+    "name": "Half-Life",
+    "name_en": "Half-Life",
+    "platform": "PC/Windows",
+    "year": 1998,
+    "rights_holder": "Valve",
+    "buy": [
+      "Steam"
+    ]
+  },
+  "base": [
+    {
+      "name": "Lambda1VR",
+      "url": "https://github.com/Team-Beef-Studios/Lambda1VR",
+      "license": "GPL-3.0",
+      "role": "fertiger Quest-VR-Port (6DoF, Bewegungssteuerung); Release-APK oder selbst bauen",
+      "ref": "v1.7.4"
+    },
+    {
+      "name": "Xash3D-FWGS",
+      "url": "https://github.com/FWGS/xash3d-fwgs",
+      "license": "GPL-3.0",
+      "role": "Engine (GoldSrc-kompatibel)"
+    },
+    {
+      "name": "hlsdk-portable",
+      "url": "https://github.com/FWGS/hlsdk-portable",
+      "license": "Half-Life-1-SDK-Lizenz (nicht-kommerziell)",
+      "role": "Spiellogik; nur nicht-kommerziell weitergeben"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "",
+    "note": "kein eigener Port-Code – fertiger Port von Team Beef"
+  },
+  "ratings": {
+    "portability": 5,
+    "xr_potential": 5,
+    "base_maturity": 4,
+    "note": "Der Port existiert schon: Lambda1VR läuft immersiv mit Kopf- und Handbewegung. Kein eigener Code nötig, nur eigene Spieldaten. Reife: Release 1.7.4 (2026-09), Engine aktiv gepflegt."
+  },
+  "effort": {
+    "with_apk": "20–40 min",
+    "with_apk_en": "20–40 min",
+    "from_source": "nicht nötig (Release-APK von Team Beef); selbst bauen nach Anleitung im Lambda1VR-Repo"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Der Ordner valve/ aus der eigenen Steam-Installation von Half-Life (Steam → Bibliothek → Half-Life → Verwalten → Lokale Dateien). Optional valve_hd/ (HD-Modelle) und Sprachordner (z. B. valve_german/) als Überlagerung.",
+      "hint_en": "Folder valve/ from your own Steam installation of Half-Life (Steam → Library → Half-Life → Manage → Browse local files). Optionally valve_hd/ (HD models) and language folders (e.g. valve_german/) as overlay.",
+      "required": [
+        "liblist.gam",
+        "halflife.wad"
+      ],
+      "device_path": "/sdcard/xash/valve (Spielstände in valve/save, bleiben bei Deinstallation)",
+      "transfer": "Lambda1VR einmal starten (legt /sdcard/xash an), dann kitchen push halflife-lambda1vr <Half-Life-Ordner>/valve"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/xash/{name}",
+      "verify": [
+        "liblist.gam",
+        "halflife.wad"
+      ],
+      "note": "Quelle ist der Ordner valve (Name bleibt valve). Überlagerungen wie valve_hd danach von Hand per tar über valve entpacken, nicht als eigenen Ordner übertragen.",
+      "note_en": "Source is the folder valve (name stays valve). Overlays like valve_hd are unpacked over valve by hand via tar afterwards, not pushed as a separate folder."
+    },
+    "modules": [
+      "quest-tools",
+      "kitchen-push"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Rechtelage",
+      "actions": [
+        "Katalog: Lambda1VR = fertiger Quest-Port",
+        "hlsdk-Lizenz prüfen (nicht-kommerziell)"
+      ],
+      "done_when": "Weg entschieden: fertigen Port installieren statt neu bauen",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-10"
+    },
+    {
+      "id": "S1",
+      "title": "Lambda1VR installieren",
+      "actions": [
+        "Release-APK aus dem Lambda1VR-Repo, SHA-256 mit dem GitHub-Wert vergleichen",
+        "adb install -r <apk>",
+        "„Zugriff auf alle Dateien“ erlauben"
+      ],
+      "done_when": "App startet, /sdcard/xash existiert",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-17 (1.7.4)"
+    },
+    {
+      "id": "S2",
+      "title": "Spieldaten übertragen",
+      "actions": [
+        "kitchen push halflife-lambda1vr <Half-Life>/valve"
+      ],
+      "done_when": "liblist.gam und halflife.wad unter /sdcard/xash/valve",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "2026-10-17 (539 MB inkl. HD- und Sprach-Überlagerung)"
+    },
+    {
+      "id": "S3",
+      "title": "Erster Start",
+      "actions": [
+        "App in der Bibliothek starten"
+      ],
+      "done_when": "Menü und erstes Level im Headset",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Log 2026-10-17: Start, OpenXR-Sitzung und Rendern ok; Spielen im Headset noch nicht beobachtet"
+    }
+  ],
+  "xr_modes": {
+    "screen": "unsuitable",
+    "passthrough": "unsuitable",
+    "tabletop": "unsuitable",
+    "diorama": "unsuitable",
+    "full-vr": "done"
+  },
+  "known_issues": [
+    "Ohne „Zugriff auf alle Dateien“ (MANAGE_EXTERNAL_STORAGE) findet die App die Spieldaten nicht",
+    "/sdcard/xash entsteht erst beim ersten Start der App",
+    "Ordner einzeln per adb push bricht unter Windows ab – tar übertragen und auf dem Gerät entpacken (macht kitchen push)",
+    "Lambda1VR 1.7.4 stürzte beim Beenden nach dem OpenXR-Shutdown ab (Nullzeiger in vsnprintf); Einstellungen waren da schon gespeichert",
+    "engine.log entsteht nur mit -log in /sdcard/xash/commandline.txt",
+    "config.cfg aus der Steam-Kopie überschreibt eine vorhandene Konfiguration – vorher sichern",
+    "Reste früherer Installationen unter /sdcard/xash vor dem Übertragen sichern",
+    "APK nur aus dem offiziellen Release oder selbst gebaut, nie von Spiegelseiten"
+  ],
+  "legal": [
+    "Kein eigener Code und keine eigene APK – die Kitchen beschreibt nur Installation und Daten",
+    "Spieldaten nur aus der eigenen Steam-Kopie, nie weitergeben",
+    "Spiellogik (hlsdk) steht unter der nicht-kommerziellen Half-Life-1-SDK-Lizenz – keine kommerzielle Verbreitung"
+  ],
+  "links": {
+    "Lambda1VR": "https://github.com/Team-Beef-Studios/Lambda1VR",
+    "Xash3D-FWGS": "https://github.com/FWGS/xash3d-fwgs",
+    "hlsdk-portable": "https://github.com/FWGS/hlsdk-portable"
+  }
+}

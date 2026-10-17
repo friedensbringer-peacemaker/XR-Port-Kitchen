@@ -1,0 +1,247 @@
+{
+  "id": "adventure-scummvm",
+  "title": "Point-&-Click-Adventures via XRShell + ScummVM",
+  "title_en": "Point-and-click adventures via XRShell + ScummVM",
+  "status": "draft",
+  "last_verified": "2026-10-10 headset (0.3.1: Spiel lief mit 60 fps, Befunde Spielmenü/Griff → 0.3.2–0.3.4); 0.3.4 installiert, ungeprüft",
+  "app": {
+    "id": "xr.adventure",
+    "label": "xr.adventure",
+    "version": "0.3.4"
+  },
+  "game": {
+    "name": "Adventures, die ScummVM unterstützt (Beispiel: Beneath a Steel Sky, offiziell Freeware)",
+    "name_en": "Adventures supported by ScummVM (example: Beneath a Steel Sky, official freeware)",
+    "platform": "PC/DOS",
+    "year": 1994,
+    "rights_holder": "je Spiel verschieden (Beneath a Steel Sky: Revolution Software, als Freeware freigegeben)",
+    "buy": [
+      "GOG",
+      "Steam",
+      "Original-CD",
+      "Freeware (ScummVM-Website)"
+    ]
+  },
+  "base": [
+    {
+      "name": "ScummVM (libretro-Core)",
+      "url": "https://github.com/libretro/scummvm",
+      "license": "GPL-3.0-or-later",
+      "role": "Adventure-Engines; Core und Systemdateien (ScummVM.zip) kommen beim Build vom libretro-Buildbot"
+    },
+    {
+      "name": "ScummVM",
+      "url": "https://www.scummvm.org/",
+      "license": "GPL-3.0-or-later",
+      "role": "Upstream der Engines, Spieleliste und Freeware-Downloads"
+    },
+    {
+      "name": "XRShell",
+      "url": "https://github.com/friedensbringer-peacemaker/xr.shell",
+      "license": "eigen (siehe LICENSE im Repo)",
+      "role": "OpenXR-Host: Leinwand, Laser-Maus (relativ), VR-Menü, Spielauswahl; Flavor adventure",
+      "ref": "70241bdd067c0b9546ce6d45b35662e57a333f36"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
+    "branch": "main",
+    "local_path": "<XR-Ordner>/xr.shell"
+  },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
+    "branch": "main",
+    "submodules": false,
+    "steps": [
+      "cd android",
+      "./gradlew assembleAdventureDebug"
+    ],
+    "apk": "android/build/outputs/apk/adventure/debug/*.apk",
+    "note": "Gleiche Codebasis wie dos-xrshell, Flavor adventure. Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "Same code base as dos-xrshell, flavor adventure. Not yet tested from a fresh clone on another computer."
+  },
+  "ratings": {
+    "portability": 5,
+    "xr_potential": 2,
+    "base_maturity": 5,
+    "note": "Kein Engine-Code nötig: ScummVM läuft als libretro-Core in XRShell, je Spiel ein Ordner mit einer *.scummvm-Datei. XR bleibt Leinwand/Passthrough mit Laser-Maus. ScummVM ist eines der reifsten Open-Source-Projekte mit Hunderten Spielen."
+  },
+  "effort": {
+    "with_apk": "10–20 min je Spiel",
+    "with_apk_en": "10–20 min per game",
+    "from_source": "+1–2 h Toolchain, danach wenige Minuten je Build"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Spielordner mit den Originaldateien (eigene CD/GOG/Steam oder offizielle Freeware) und einer Datei <id>.scummvm, deren Inhalt die ScummVM-Spiel-ID ist (z. B. sky). Vorlagen im XRShell-Repo unter profiles/.",
+      "hint_en": "Game folder with the original files (own CD/GOG/Steam or official freeware) and a file <id>.scummvm containing the ScummVM game ID (e.g. sky). Templates in the XRShell repo under profiles/.",
+      "required": [],
+      "device_path": "/sdcard/Android/data/xr.adventure/files/games/adventure/<Ordner>/ (Spielstände unter files/saves/)",
+      "transfer": "kitchen push adventure-scummvm <Spielordner> oder im XRShell-Repo APP_ID=xr.adventure tools/push-game.sh <Ordner> <Name>"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/games/adventure/{name}",
+      "note": "Je Spiel ein Ordner; der Ordnername erscheint in der Spielauswahl (oder xrshell.title im Ordner).",
+      "note_en": "One folder per game; the folder name appears in the game list (or xrshell.title inside the folder).",
+      "prepare": "<id>.scummvm in den Spielordner legen (Inhalt z. B. sky, queen, lure). Für Baphomets Fluch 1/2 aus eigener Original-CD: tools/prepare-adventure.sh im XRShell-Repo.",
+      "prepare_en": "Put <id>.scummvm into the game folder (content e.g. sky, queen, lure). For Broken Sword 1/2 from your own original CD: tools/prepare-adventure.sh in the XRShell repo."
+    },
+    "modules": [
+      "quest-tools",
+      "xrshell-libretro",
+      "xrshell-profiles",
+      "vr-menu-pflicht",
+      "ladebild-standard",
+      "fenster-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "APK bauen (Flavor adventure)",
+      "actions": [
+        "cd android && ./gradlew assembleAdventureDebug (Windows: .\\gradlew.bat)",
+        "lädt ScummVM-Core und ScummVM.zip beim Build"
+      ],
+      "done_when": "android/build/outputs/apk/adventure/debug/*.apk existiert",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "Spielordner übertragen",
+      "actions": [
+        "<id>.scummvm anlegen",
+        "kitchen push adventure-scummvm <Ordner>"
+      ],
+      "done_when": "Spiel erscheint in der Spielauswahl",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S3",
+      "title": "Erster Start",
+      "actions": [
+        "App xr.adventure starten, Spiel wählen"
+      ],
+      "done_when": "Spielbild mit Ton, Sprache und Untertitel nach Gerätesprache",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-10 headset (0.3.1, 60 fps)"
+    },
+    {
+      "id": "S4",
+      "title": "Maus unter dem Laser",
+      "actions": [
+        "Skill xr-cursor-mapping",
+        "relativ mit Nachkomma-Rest, Zeiger beim Start und nach jedem Größenwechsel fangen"
+      ],
+      "done_when": "Zeiger bleibt unter dem Laser, auch nach dem ScummVM-Menü",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Host-Test grün, Headset offen"
+    },
+    {
+      "id": "S5",
+      "title": "Speichern/Laden",
+      "actions": [
+        "Knopf „Spielmenü öffnen“ im VR-Menü (Strg+F5), Tastenprofil A = Spielmenü"
+      ],
+      "done_when": "Spielstand speichern und nach Neustart laden",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "0.3.2 gebaut nach Headset-Befund (Menü nicht gefunden)"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "XRShell-Basis wie dos-xrshell"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "linker oder rechter Griff = Fenster greifen, beide = größer/kleiner"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (F5/F6; rechter Griff ab 0.3.2)"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "unsuitable",
+    "diorama": "unsuitable",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "ScummVM liest die Maus relativ: Zeiger beim Spielstart einmal fangen, sonst bleibt ein fester Abstand zum Laser",
+    "Wechsel ins ScummVM-Menü ändert die Bildgröße (320×200 → 640×480) – letzten Laserpunkt umrechnen und neu fangen",
+    "Bei Spielen, deren Menü dieselbe Größe hat wie das Spiel, ist ein Versatz von außen nicht erkennbar – im Headset prüfen",
+    "Kein Laserfangen am Bildrand: das Fangen schiebt den Zeiger kurz in die linke obere Ecke (dort liegt bei manchen Spielen eine Leiste)",
+    "Keine Schnellspeicherstände (retro_serialize_size = 0) – speichern nur im ScummVM-Menü (Strg+F5)",
+    "Menüsprache braucht gui_language in scummvm.ini; translations.dat steckt schon in ScummVM.zip (theme/), nicht doppelt laden",
+    "Spielsprache: ScummVM-Codes weichen von Android ab (ja → jp, ko → kr, sv → se, cs → cz, pt-BR → br)",
+    "Baphomets Fluch: nur die Originalfassungen 1996/97; Director's Cut und Remastered sind andere Engines",
+    "CD-Images mit 2336 Byte je Sektor (Mode 2 ohne Header) sind keine ISO – je Sektor Byte 8–2055 übernehmen",
+    "Filter HD (xBR) passt zu 320×200; 640×480-Spiele besser mit scharf",
+    "Am PC gemessene Bildraten des Cores sagen nichts über die Quest (Core taktet sich selbst)"
+  ],
+  "legal": [
+    "APK enthält keine Spieldaten; Spiele nur aus eigener Kopie oder als offizielle Freeware",
+    "ScummVM ist GPL-3.0-oder-später, als getrennte .so mitgeliefert – Lizenzhinweis mitgeben",
+    "Remastered-/Director's-Cut-Fassungen werden nicht unterstützt; kein Umgehen von Kopierschutz"
+  ],
+  "links": {
+    "Adventure-Doku": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/docs/ADVENTURE.md",
+    "Vorlage *.scummvm": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/profiles/beneath-a-steel-sky.scummvm",
+    "Maus relativ": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/src/mouse_relative.h",
+    "Sprache": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/src/scumm_setup.h",
+    "ScummVM-Spiele": "https://www.scummvm.org/games/"
+  }
+}

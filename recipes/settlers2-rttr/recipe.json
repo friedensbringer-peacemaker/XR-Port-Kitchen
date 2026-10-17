@@ -5,9 +5,9 @@
   "status": "playable",
   "last_verified": "2026-09-27 headset (v2.1.0-preview.8); preview.13 nur Start-Smoke-Test 2026-09-28",
   "app": {
-    "id": "xr.settlers25",
-    "label": "xr.settlers25",
-    "version": "2.1.0-preview.13"
+    "id": "xr.rttr",
+    "label": "xr.rttr",
+    "version": "2.1.0-preview.14"
   },
   "game": {
     "name": "Die Siedler II (Gold Edition)",
@@ -43,12 +43,12 @@
     }
   ],
   "port": {
-    "repo": "https://github.com/friedensbringer-peacemaker/xr.settlers25",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.rttr",
     "branch": "main",
     "local_path": "<XR-Ordner>/XR-Settlers2.5"
   },
   "build": {
-    "repo": "https://github.com/friedensbringer-peacemaker/xr.settlers25",
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.rttr",
     "branch": "main",
     "submodules": true,
     "steps": [
@@ -251,7 +251,7 @@
     "full-vr": "unsuitable"
   },
   "known_issues": [
-    "SDLActivity nie direkt kalt starten – immer xr.settlers25/org.s25rttr.sdl.GameStartActivity",
+    "SDLActivity nie direkt kalt starten – immer xr.rttr/org.s25rttr.sdl.GameStartActivity",
     "Vor jedem Test versionName prüfen; ein versehentlich installierter main-Build zeigte riesige Menüebenen",
     "Debug-Schlüssel unterscheiden sich je Rechner → install -r scheitert; vor Deinstallation Spielstände sichern",
     "GitHub-ZIP ohne Submodule ist kein vollständiger Checkout (88 Submodule)",
@@ -262,7 +262,7 @@
   "legal": [
     "APK enthält keine Spieldaten; DATA/GFX bringt der Spieler aus der eigenen Kopie",
     "GPL-2.0: Quellcode des Ports muss mit jeder weitergegebenen APK verfügbar sein",
-    "Kein Markenname im App-Namen (xr.settlers25)"
+    "Kein Markenname im App-Namen (xr.rttr)"
   ],
   "links": {
     "Ersteinrichtung": "<XR-Ordner>/XR-Settlers2.5/docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md",

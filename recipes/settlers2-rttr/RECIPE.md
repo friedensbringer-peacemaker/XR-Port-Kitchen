@@ -1,7 +1,7 @@
 # Die Siedler II via Return to the Roots
 
 **Portierbarkeit ★★★★★ · XR-Potenzial ★★★★☆ · Reife der Basis ★★★★★**
-Stand: im Headset spielbar (2026-09-27, v2.1.0-preview.8). App `xr.settlers25`.
+Stand: im Headset spielbar (2026-09-27, v2.1.0-preview.8); öffentlicher Stand 2.1.0-preview.14. App `xr.rttr`.
 
 Die Engine stammt von **Return to the Roots** (s25client) und der Android-Port von
 **s25rttr-android**. Beide sind GPL-Projekte von Fans, die seit vielen Jahren daran arbeiten. Die
@@ -25,7 +25,7 @@ Du brauchst eine Meta Quest mit Entwicklermodus, einen PC oder Mac, ein USB-C-Ka
 4. Spieldaten übertragen: `.\kitchen.ps1 push settlers2-rttr "<Gold-Ordner>"` (Mac:
    `./kitchen.sh push …`). Übertragen werden nur `DATA` und `GFX`; vorhandene Daten ersetzt der
    Befehl nur mit `-Replace`.
-5. In der Brille: Bibliothek → Unbekannte Quellen → `xr.settlers25`. Beim ersten Start
+5. In der Brille: Bibliothek → Unbekannte Quellen → `xr.rttr`. Beim ersten Start
    `/sdcard/RTTR/S2` wählen und „Zugriff auf alle Dateien“ erlauben.
 
 <details>
@@ -44,10 +44,10 @@ Andere Ausgaben (10th Anniversary, Remakes) gelten nicht automatisch als kompati
 <details>
 <summary><b>Aus dem Quellcode bauen (2–4 h beim ersten Mal)</b></summary>
 
-Quellcode (öffentlich): [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25)
+Quellcode (öffentlich): [xr.rttr](https://github.com/friedensbringer-peacemaker/xr.rttr)
 
 ```bash
-git clone --recurse-submodules https://github.com/friedensbringer-peacemaker/xr.settlers25.git
+git clone --recurse-submodules https://github.com/friedensbringer-peacemaker/xr.rttr.git
 ```
 
 Küchengeräte: JDK 17, Android Platform 36, Build-Tools 35, NDK 27.0.12077973, CMake 3.22.1,
@@ -60,7 +60,7 @@ python3 scripts/build-quest.py --sdk <SDK> --java <JDK17>
 python3 scripts/quest.py install
 ```
 
-APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ mit GUI:
+APK: `android/app/build/outputs/apk/debug/xr.rttr-Quest.apk`. Alternativ mit GUI:
 `Quest-Builder.cmd` / `.command`. Ein Folge-Build dauert etwa 9 Minuten.
 </details>
 
@@ -83,7 +83,9 @@ APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ
 <details>
 <summary><b>Bekannte Fallen</b></summary>
 
-- Start immer über `xr.settlers25/org.s25rttr.sdl.GameStartActivity`, nie die SDLActivity direkt.
+- Start immer über `xr.rttr/org.s25rttr.sdl.GameStartActivity`, nie die SDLActivity direkt.
+- Die App-ID ist seit 2026-10-17 `xr.rttr`. Ein älterer Build mit anderer App-ID bleibt als eigene App
+  daneben installiert; die Spieldaten und Spielstände unter `/sdcard/RTTR/` nutzen beide.
 - Vor jedem Test die installierte `versionName` prüfen. Ein versehentlich installierter
   main-Build zeigte riesige Menüs.
 - Jeder Rechner hat einen anderen Debug-Schlüssel, dann scheitert `install -r`. Vor dem
@@ -96,5 +98,5 @@ APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ
 - Doppelt vergebene Steuerelement-IDs in einem RTTR-Fenster beendeten das Spiel beim Öffnen (Tisch-Simulator) ◐.
 </details>
 
-Port-Repo: [xr.settlers25](https://github.com/friedensbringer-peacemaker/xr.settlers25) · Schritt-für-Schritt-Anleitung:
+Port-Repo: [xr.rttr](https://github.com/friedensbringer-peacemaker/xr.rttr) · Schritt-für-Schritt-Anleitung:
 `docs/wiki/Ersteinrichtung-Schritt-fuer-Schritt.md`

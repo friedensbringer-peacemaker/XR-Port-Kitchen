@@ -1,0 +1,262 @@
+{
+  "id": "shooter-xrshell",
+  "title": "Doom, Wolfenstein 3D und Quake via XRShell (PrBoom, ECWolf, TyrQuake)",
+  "title_en": "Doom, Wolfenstein 3D and Quake via XRShell (PrBoom, ECWolf, TyrQuake)",
+  "status": "draft",
+  "last_verified": "2026-10-09 headset (0.3.5: Doom 72 fps bei 72 Hz, Wechsel Doom/Doom II, Spielstand, Beenden); 0.3.6 mit Ladeanzeige gebaut, ungeprüft",
+  "app": {
+    "id": "xr.shooter",
+    "label": "xr.shooter",
+    "version": "0.3.6"
+  },
+  "game": {
+    "name": "Doom, Doom II, Final Doom, Wolfenstein 3D, Spear of Destiny, Quake",
+    "name_en": "Doom, Doom II, Final Doom, Wolfenstein 3D, Spear of Destiny, Quake",
+    "platform": "PC/DOS",
+    "year": 1993,
+    "rights_holder": "id Software",
+    "buy": [
+      "GOG",
+      "Steam"
+    ]
+  },
+  "base": [
+    {
+      "name": "PrBoom (libretro-Core)",
+      "url": "https://github.com/libretro/libretro-prboom",
+      "license": "GPL-2.0-or-later",
+      "role": "Doom-Engine; Core kommt beim Build vom libretro-Buildbot (nightly, arm64-v8a)"
+    },
+    {
+      "name": "ECWolf (libretro-Fassung)",
+      "url": "https://github.com/libretro/ecwolf",
+      "license": "GPL-2.0-or-later",
+      "role": "Wolfenstein-3D-Engine (libretro-Fassung mit dbopl)"
+    },
+    {
+      "name": "TyrQuake (libretro-Core)",
+      "url": "https://github.com/libretro/tyrquake",
+      "license": "GPL-2.0-or-later",
+      "role": "Quake-Engine"
+    },
+    {
+      "name": "XRShell",
+      "url": "https://github.com/friedensbringer-peacemaker/xr.shell",
+      "license": "eigen (siehe LICENSE im Repo)",
+      "role": "OpenXR-Host: Leinwand, Gamepad mit Analogsticks, VR-Menü, libretro-Frontend; Flavor fps",
+      "ref": "70241bdd067c0b9546ce6d45b35662e57a333f36"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader"
+    }
+  ],
+  "port": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
+    "branch": "main",
+    "local_path": "<XR-Ordner>/xr.shell"
+  },
+  "build": {
+    "repo": "https://github.com/friedensbringer-peacemaker/xr.shell",
+    "branch": "main",
+    "submodules": false,
+    "steps": [
+      "cd android",
+      "./gradlew assembleFpsDebug"
+    ],
+    "apk": "android/build/outputs/apk/fps/debug/*.apk",
+    "note": "Gleiche Codebasis wie dos-xrshell, Flavor fps. Aus einem frischen Klon auf einem anderen Rechner noch nicht getestet.",
+    "note_en": "Same code base as dos-xrshell, flavor fps. Not yet tested from a fresh clone on another computer."
+  },
+  "ratings": {
+    "portability": 5,
+    "xr_potential": 2,
+    "base_maturity": 4,
+    "note": "Kein Engine-Code nötig: die drei Cores laufen unverändert in XRShell, je Spiel nur ein Ordner. XR bleibt eine Leinwand mit Gamepad; echtes 6DoF-VR liefern eigene Quest-Ports anderer Projekte (siehe Katalog). Reife: Cores stabil, PrBoom-libretro wird gepflegt."
+  },
+  "effort": {
+    "with_apk": "15–30 min je Spiel",
+    "with_apk_en": "15–30 min per game",
+    "from_source": "+1–2 h Toolchain, danach wenige Minuten je Build"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Nur die Datendateien aus der eigenen Kopie (GOG/Steam): Doom *.WAD, Wolfenstein *.WL6/*.SOD, Quake id1/PAK0.PAK + PAK1.PAK. Frei nutzbar: Freedoom (freedoom1/2.wad) und die Shareware-Fassungen (DOOM1.WAD, *.WL1, Quake-Shareware id1/pak0.pak). tools/prepare-shooter.ps1 im XRShell-Repo baut daraus je Spiel einen Ordner.",
+      "hint_en": "Only the data files from your own copy (GOG/Steam): Doom *.WAD, Wolfenstein *.WL6/*.SOD, Quake id1/PAK0.PAK + PAK1.PAK. Free to use: Freedoom (freedoom1/2.wad) and the shareware versions. tools/prepare-shooter.ps1 in the XRShell repo builds one folder per game.",
+      "required": [],
+      "device_path": "/sdcard/Android/data/xr.shooter/files/games/<doom|wolf3d|quake>/<Ordner>/ (Spielstände getrennt unter files/saves/)",
+      "transfer": "prepare-shooter.ps1 → kitchen push shooter-xrshell <Ausgabe>/doom (ganzer System-Ordner) oder im XRShell-Repo APP_ID=xr.shooter SYSTEM=doom tools/push-game.sh <Ordner> <Name>"
+    },
+    "push": {
+      "source": "dir",
+      "target": "/sdcard/Android/data/{app}/files/games/{name}",
+      "note": "Quelle ist ein System-Ordner aus prepare-shooter.ps1 (doom, wolf3d oder quake) mit allen Spielen darin; er ersetzt den Ordner gleichen Namens auf der Quest (nur mit -Replace). Spielstände liegen getrennt unter files/saves/.",
+      "note_en": "Source is a system folder from prepare-shooter.ps1 (doom, wolf3d or quake) with all games inside; it replaces the folder of the same name on the Quest (only with -Replace). Saves are kept separately under files/saves/.",
+      "prepare": "Im XRShell-Repo: powershell -File tools\\prepare-shooter.ps1 -Source <entpackter GOG-/Steam-Ordner oder GOG-Installer>. Ergebnis: je System ein Ordner (doom, wolf3d, quake) mit einem Unterordner pro Spiel und xrshell.title.",
+      "prepare_en": "In the XRShell repo: powershell -File tools\\prepare-shooter.ps1 -Source <unpacked GOG/Steam folder or GOG installer>. Result: one folder per system (doom, wolf3d, quake) with one subfolder per game and xrshell.title."
+    },
+    "modules": [
+      "quest-tools",
+      "xrshell-libretro",
+      "vr-menu-pflicht",
+      "ladebild-standard",
+      "fenster-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S1",
+      "title": "APK bauen (Flavor fps)",
+      "actions": [
+        "cd android && ./gradlew assembleFpsDebug (Windows: .\\gradlew.bat)",
+        "nie systemweites gradle"
+      ],
+      "done_when": "android/build/outputs/apk/fps/debug/*.apk existiert",
+      "automatable": "full",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "Spielordner bauen und übertragen",
+      "actions": [
+        "tools/prepare-shooter.ps1 -Source <eigene Kopie>",
+        "kitchen push shooter-xrshell <Ausgabe>/doom"
+      ],
+      "done_when": "Spiel erscheint im VR-Menü unter „Spiele“",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "2026-10-03 Steam-Kopien (Doom, Doom II, Final Doom, Quake mit Missionspaketen)"
+    },
+    {
+      "id": "S3",
+      "title": "Erster Start",
+      "actions": [
+        "App xr.shooter starten, Spiel im VR-Menü wählen"
+      ],
+      "done_when": "Titelbild mit Ton",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-04 headset (0.3.0 Doom II, 0.3.1 Quake)"
+    },
+    {
+      "id": "S4",
+      "title": "Gamepad mit Analogsticks",
+      "actions": [
+        "Belegung pad_analog.h; Steuerkreuz aus dem Stick erst ab 0,9 Ausschlag"
+      ],
+      "done_when": "Laufen, Drehen, Menüs und Ja/Nein-Abfragen ohne Tastatur",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Doom im Headset gespielt (0.3.5, 2026-10-09); Wolfenstein ungeprüft"
+    },
+    {
+      "id": "S5",
+      "title": "Bildrate",
+      "actions": [
+        "Quest-Rate passend zur Core-Rate (72 Hz)",
+        "PrBoom: uncapped_framerate = 5 in <IWAD>.prboom.cfg",
+        "feste Fristen im Core-Takt"
+      ],
+      "done_when": "Leistungszeile 72,0 fps bei 72 Hz",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-09 headset (0.3.5, Doom)"
+    },
+    {
+      "id": "S6",
+      "title": "Spielstände",
+      "actions": [
+        "Savestates im VR-Menü, Core-Spielstände unter files/saves/"
+      ],
+      "done_when": "Spielstand nach Neustart ladbar",
+      "automatable": "manual",
+      "status": "done",
+      "evidence": "2026-10-09 headset (0.3.5, Savestate)"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "XRShell-Basis: Startbild beim Build erzeugt, Core lädt im eigenen Thread, Restzeit aus files/xr-load-times.json"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut (0.3.6), Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "linker Griff = Fenster folgt der Hand, + linker Stick = Breite/Abstand; Anfasser und Griff am Rahmen fehlen"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (F5/F6)"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "partial",
+    "tabletop": "unsuitable",
+    "diorama": "unsuitable",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "PrBoom liest ohne retro_set_controller_port_device(0, Analog-Unterklasse 2) nach retro_load_game keine einzige Eingabe",
+    "PrBoom-Standard 60 fps ruckelt auf 72 Hz – uncapped_framerate = 5 über <IWAD>.prboom.cfg als Grundeinstellung",
+    "Quest-Anzeige stand auf 90 Hz bei 72-fps-Core (jedes vierte Bild doppelt) – Rate per XR_FB_display_refresh_rate passend anfordern, auch nach Brille ab/auf",
+    "Core-Takt mit Schlafen summierte Verzögerung (71,6 statt 72 fps) – feste Fristen",
+    "Menüs aller drei Cores nur per Steuerkreuz; Stick setzt das Steuerkreuz erst ab 0,9 Ausschlag, sonst springt in Quake/ECWolf das Lauftempo",
+    "Doom-Ja/Nein-Abfragen nehmen nur y/n – key_menu_enter = y",
+    "Breitbild in PrBoom überschreitet bei 960×600 die 1024×768-Textur – Bild steht; 640×400 verwenden",
+    "Quake-Neuauflage (rerelease/id1) wird nicht als Startdatei erkannt; Original-Id1 nehmen",
+    "Spielordner dürfen nicht id1, hipnotic, rogue oder quoth heißen",
+    "Quake II (vitaquake2) braucht SET_HW_RENDER, das XRShell nicht anbietet"
+  ],
+  "legal": [
+    "APK enthält keine Spieldaten; WAD/PAK/WL6 nur aus eigener Kopie bzw. Freedoom/Shareware",
+    "Cores GPL-2.0-oder-später, beim Build geladen und als getrennte .so mitgeliefert – Lizenzhinweise mitgeben",
+    "GPL-2.0-oder-später ist über GPL-3.0 mit dem Apache-2.0-OpenXR-Loader verträglich"
+  ],
+  "links": {
+    "Shooter-Doku": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/docs/SHOOTER.md",
+    "Spielordner bauen": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/tools/prepare-shooter.ps1",
+    "Belegung": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/src/pad_analog.h",
+    "Startdatei-Regel": "https://github.com/friedensbringer-peacemaker/xr.shell/blob/70241bdd067c0b9546ce6d45b35662e57a333f36/src/game_folders.cpp",
+    "Freedoom": "https://freedoom.github.io/"
+  }
+}
