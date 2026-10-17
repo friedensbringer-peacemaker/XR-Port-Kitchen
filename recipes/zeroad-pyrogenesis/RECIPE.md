@@ -22,7 +22,7 @@ Du brauchst **kein Originalspiel**: Code und Daten von 0 A.D. sind frei. Die Dat
 1. App bauen (unten), Entwicklermodus einschalten, Quest anstecken, USB-Debugging bestätigen.
 2. APK installieren (`adb install -r`, nie deinstallieren).
 3. Freie Spieldaten 0.28.0 von Wildfire Games holen und übertragen (tar-Weg wie `kitchen push`).
-4. In der Brille `xr.0ad` starten.
+4. In der Brille `xr.antiquity` starten (App-ID `xr.zeroad`; neutrales Label ohne Spielnamen).
 
 <details>
 <summary><b>Zutaten im Detail</b></summary>
