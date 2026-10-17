@@ -6,9 +6,9 @@ Open-Source-Nachbauten von Spiel-Engines, die mit den Originaldaten des Spiels l
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). „Grauzone – nicht verlinkt“ = es gibt eine Rekonstruktion aus dem Originalprogramm (Dekompilierung, Disassemblierung, Recompilierung) ohne geklärte Rechte; die Kitchen nennt nur einen möglichen sauberen Weg. Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Strategie/RTS (111) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (64) · Rollenspiel (212) · Adventure (42) · Shooter/FPS (232) · Action/Jump'n'Run (504) · Renn-/Flugsim/Weltraum (99) · Sonstiges (156)
+**Abschnitte:** Strategie/RTS (110) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (64) · Rollenspiel (212) · Adventure (42) · Shooter/FPS (232) · Action/Jump'n'Run (504) · Renn-/Flugsim/Weltraum (99) · Sonstiges (156)
 
-## Strategie/RTS (111)
+## Strategie/RTS (110)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -86,7 +86,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Populous The Beginning ᴬ | Populous: The Beginning | ? | C++ (GitHub) | ? | ? · letzter Push 2026-08 | ? | <https://github.com/TylerTheFox/Populous-The-Beginning-Public> |
 | Populous: Reincarnated ᴬ | Populous: The Beginning | ? | ? | ? | ? | ? | <https://www.popre.net/> |
 | Project Alice | Victoria II | ? | C++ | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/schombert/Project-Alice> |
-| PythonPlantsVsZombies | Plants vs. Zombies | ja | Python | As-is | WIP (teilw. spielbar) · letzter Push 2024-05 | ? | <https://github.com/marblexu/PythonPlantsVsZombies> |
 | RA2 | Command & Conquer: Red Alert 2 | ja | C# / OpenRA | GPL3 | playable · letzter Push 2026-07 | ? | <https://github.com/OpenRA/ra2/> |
 | RA2Web React | Command & Conquer: Red Alert 2 | ja | TypeScript / React, three.js, WebGL | As-is | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/huangkaoya/redalert2> |
 | Return to the Roots 📖 [settlers2-rttr](../recipes/settlers2-rttr/RECIPE.md) | The Settlers II | ? | C++ | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/Return-To-The-Roots/s25client> |
@@ -691,7 +690,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | QuakeJS | Quake 3 | ? | JavaScript | MIT | playable · letzter Push 2025-11 | ? | <https://github.com/inolen/quakejs> |
 | QuakeSpasm | Quake | teils | C / SDL, SDL2 | GPL2 | playable · aktiv | ? | <https://sourceforge.net/projects/quakespasm/> |
 | RAD | Radix: Beyond the Void | ja | Delphi | GPL2 | playable · letzter Push 2025-08 | ? | <https://github.com/jval1972/Rad-X> |
-| Raze 🥽 RazeXR | Duke Nukem 3D, Blood, Redneck Rampage, Shadow Warrior, Powerslave, NAM, WWII GI | ja | C++ | GPL2 | playable · letzter Push 2025-11 | ? | <https://github.com/coelckers/Raze> |
+| Raze – Weg denkbar | Duke Nukem 3D, Blood, Redneck Rampage, Shadow Warrior, Powerslave, NAM, WWII GI | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm bzw. ein Projekt mit ungeklärten Rechten; die Kitchen verlinkt es nicht. Möglicher Weg: Duke Nukem 3D und Shadow Warrior über die offiziell freigegebenen Quellen (z. B. EDuke32, VoidSW) mit eigener Kopie; Blood und die übrigen Build-Spiele nur als offizielle Fassung (z. B. Blood: Fresh Supply) am Flachbild. |
 | RBDOOM-3-BFG | Doom 3 | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2026-08 | ? | <https://github.com/RobertBeckebans/RBDOOM-3-BFG> |
 | REBLIVION ᴬ | Quake II (Oblivion mission pack) | ? | C (GitHub) | GPL-3.0 | ? · letzter Push 2026-10 | ? | <https://github.com/themuffinator/REBLIVION> |
 | RedneckGDX | Redneck Rampage | ja | Java / libGDX | Custom | playable · sporadisch | ? | <https://gitlab.com/m210/RedneckGDX> |
@@ -1221,7 +1220,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Thrust – Weg denkbar | Thrust | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Thunder Force IV Rebirth 💤 | Thunder Force IV | ja | C#, JavaScript / OpenGL, Unity | As-is | WIP (teilw. spielbar) · dead (letzter Push 2015-12) | ? | <https://github.com/Fissuras/tf4r> |
 | TimeCo | Time Commando | ja | C / SDL3 | GPL2 | early · letzter Push 2026-05 | ? | <https://github.com/LBALab/timeco> |
-| Tomb Engine | Tomb Raider | ja | C++ / DirectX | Custom | playable · letzter Push 2026-10 | ? | <https://github.com/TombEngine/TombEngine> |
+| Tomb Engine – Weg denkbar | Tomb Raider (Level-Editor-Engine) | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm bzw. ein Projekt mit ungeklärten Rechten; die Kitchen verlinkt es nicht. Möglicher Weg: freie Neuimplementierungen OpenLara (Quest-VR: Beef Raider XR) bzw. OpenTomb mit Daten aus eigener Kopie. |
 | Tomb Raider – Weg denkbar | Tomb Raider | ? | C (GitHub) | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Engine-Nachbauten OpenLara (🥽 Beef Raider XR), OpenTomb oder CroftEngine mit Daten aus eigener Kopie. |
 | Tomb Raider, Tomb Raider II, Tomb Raider III – Weg denkbar | Tomb Raider, Tomb Raider II, Tomb Raider III | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Engine-Nachbauten OpenLara (🥽 Beef Raider XR), OpenTomb oder CroftEngine mit Daten aus eigener Kopie. |
 | Tomba! – Weg denkbar | Tomba! | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |

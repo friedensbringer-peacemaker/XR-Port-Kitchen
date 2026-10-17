@@ -48,8 +48,8 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | QuakeQuest | Quake | DOS/Win | source-port | C/GLES/OpenXR | GPL, PAK nötig | stabil | **Quest-VR** | <https://github.com/Team-Beef-Studios/QuakeQuest> |
 | Quakespasm | Quake | DOS/Win | source-port | C/SDL2/OpenGL | GPL (1999), PAK nötig | aktiv | PortMaster | <https://github.com/sezero/quakespasm> |
 | QuestZDoom | Doom/Heretic/Hexen/Strife (über GZDoom/LZDoom) | DOS | source-port | C++/OpenXR/GLES | GPL, WAD nötig | aktiv | **Quest-VR** | <https://github.com/Team-Beef-Studios/QuestZDoom> |
-| Raze 🥽 RazeXR | Duke 3D, Shadow Warrior, Blood, PowerSlave/Exhumed, Redneck Rampage | DOS | source-port | C++ | GPL (Build-Code relizenziert), Daten nötig | aktiv | **Quest-VR** (RazeXR) | <https://github.com/ZDoom/Raze> |
-| RazeXR | Build-Spiele (s. Raze) | DOS | source-port | C++/OpenXR | GPL, Daten nötig | aktiv | **Quest-VR** | <https://github.com/Team-Beef-Studios/RazeXR> |
+| Raze – Weg denkbar | Duke 3D, Shadow Warrior, Blood, PowerSlave/Exhumed, Redneck Rampage | DOS | source-port | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm bzw. ein Projekt mit ungeklärten Rechten; die Kitchen verlinkt es nicht. Möglicher Weg: Duke Nukem 3D und Shadow Warrior über die offiziell freigegebenen Quellen (z. B. EDuke32, VoidSW) mit eigener Kopie; Blood und die übrigen Build-Spiele nur als offizielle Fassung (z. B. Blood: Fresh Supply) am Flachbild. |
+| RazeXR – Weg denkbar | Build-Spiele (s. Raze) | DOS | source-port | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm bzw. ein Projekt mit ungeklärten Rechten; die Kitchen verlinkt es nicht. Möglicher Weg: Duke Nukem 3D und Shadow Warrior über die offiziell freigegebenen Quellen (z. B. EDuke32, VoidSW) mit eigener Kopie; Blood und die übrigen Build-Spiele nur als offizielle Fassung (z. B. Blood: Fresh Supply) am Flachbild. Kein sauberer Quest-VR-Weg verlinkt. |
 | RBDOOM-3-BFG | Doom 3 BFG Edition | Win/Konsolen | source-port | C++/Vulkan | GPL (2012), BFG-Daten nötig | aktiv | – | <https://github.com/RobertBeckebans/RBDOOM-3-BFG> |
 | Reflection Keen | Keen Dreams, Catacomb 3-D/Abyss/Armageddon/Apocalypse, Wolf3D-Ableger | DOS | source-port | C/SDL2 | GPL (Flat Rock 2014), Daten nötig | aktiv | inoffiziell | <https://github.com/NY00123/refkeen> |
 | RTCWQuest | Return to Castle Wolfenstein | Win | source-port | C/GLES/OpenXR | GPL, PK3 nötig | stabil | **Quest-VR** | <https://github.com/Team-Beef-Studios/RTCWQuest> |
@@ -204,7 +204,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Projekt | Originalspiel | Plattform | Art | Sprache | Lizenz/Rechtslage | Status | Android/ARM64 | URL |
 |---|---|---|---|---|---|---|---|---|
 | Sonic 1/2/3&K, Knuckles' Chaotix, Kid Chameleon – Weg denkbar | Sonic 1/2/3&K, Knuckles' Chaotix, Kid Chameleon | Mega Drive/32X | decomp | 68k-ASM | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
-| SOR2 New Era (Kontext) | Streets of Rage 2 | Mega Drive | decomp | – | fanmade | aktiv | – | <https://www.sor2newera.com> |
+| Streets of Rage 2 (Fan-Remake) – Weg denkbar | Streets of Rage 2 | Mega Drive | decomp | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm bzw. ein Projekt mit ungeklärten Rechten; die Kitchen verlinkt es nicht. Möglicher Weg: offizielle Fassungen (Streets of Rage 4, SEGA-Sammlungen) oder Mega-Drive-Emulation mit eigenem Abbild. |
 
 ## PlayStation 1 / PlayStation 2 (15)
 
