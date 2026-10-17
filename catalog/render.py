@@ -52,7 +52,7 @@ HEADER = """<!-- Erzeugt von catalog/render.py aus catalog.tsv – nicht von Han
 {intro}
 
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
-„?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
+„?“ = nicht bekannt (nicht: „nein“). „Grauzone – nicht verlinkt“ = es gibt eine Rekonstruktion aus dem Originalprogramm (Dekompilierung, Disassemblierung, Recompilierung) ohne geklärte Rechte; die Kitchen nennt nur einen möglichen sauberen Weg. Erklärung und Bewertung: [README.md](README.md).
 
 """
 

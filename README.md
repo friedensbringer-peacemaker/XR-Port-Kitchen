@@ -30,7 +30,6 @@ nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle
 | openage | Age of Empires II | [openage.sft.mx](https://openage.sft.mx) | [GitHub](https://github.com/SFTtech/openage) |
 | 0 A.D. | eigenständiges Echtzeit-Strategiespiel | [play0ad.com](https://play0ad.com) | [GitHub-Spiegel](https://github.com/0ad/0ad) |
 | KeeperFX | Dungeon Keeper | – | [GitHub](https://github.com/dkfans/keeperfx) |
-| DevilutionX | Diablo, Hellfire | [devilutionx.com](https://devilutionx.com) | [GitHub](https://github.com/diasurgical/DevilutionX) |
 | JA2 Stracciatella | Jagged Alliance 2 | [Website](https://ja2-stracciatella.github.io) | [GitHub](https://github.com/ja2-stracciatella/ja2-stracciatella) |
 | Akhenaten | Pharao, Kleopatra | – | [GitHub](https://github.com/dalerank/Akhenaten) |
 | fheroes2 | Heroes of Might & Magic II | – | [GitHub](https://github.com/ihhub/fheroes2) |
@@ -46,8 +45,8 @@ nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle
 Caesar III, [openblack](https://github.com/openblack/openblack) für Black & White,
 [OpenKeeper](https://github.com/tonihele/OpenKeeper) für Dungeon Keeper 2.
 
-**Die ausführliche Liste:** Der [Katalog](catalog/README.md) führt rund 1.830 Open-Source-Engines,
-Source-Ports, Dekompilierungen und schon vorhandene VR-Ports mit Lizenz, Stand und Link –
+**Die ausführliche Liste:** Der [Katalog](catalog/README.md) führt rund 1.770 Open-Source-Engines,
+Source-Ports, Hinweise zu Dekompilierungen (ohne Link) und schon vorhandene VR-Ports mit Lizenz, Stand und Link –
 aufgeteilt in [Engines](catalog/ENGINES.md), [Source-Ports](catalog/SOURCE-PORTS.md) und
 [VR-Ports](catalog/VR-PORTS.md). Eine weitere große Sammlung ist
 [osgameclones.com](https://osgameclones.com) ([GitHub](https://github.com/opengaming/osgameclones)).
@@ -273,11 +272,11 @@ nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
 Heroes of Might & Magic II (fheroes2).
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
-**Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.830 Open-Source-Engines,
-Source-Ports, Dekompilierungen und schon vorhandene VR-Ports klassischer Spiele – mit Lizenz,
+**Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.770 Open-Source-Engines,
+Source-Ports, Hinweise zu Dekompilierungen (ohne Link) und schon vorhandene VR-Ports klassischer Spiele – mit Lizenz,
 Aktivität, Android-Hinweis und Link, dazu eine Schnellprüfung „geht ein Port?“ und der passende Weg
 je Technik. Durchsuchen mit `kitchen catalog <Spiel>`. *(English: [catalog](catalog/README.md) of
-~1,830 engines, source ports, decomps and existing VR ports; search with `kitchen catalog <game>`.)*
+~1,770 engines, source ports, decomp notes (not linked) and existing VR ports; search with `kitchen catalog <game>`.)*
 
 **Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 199
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,

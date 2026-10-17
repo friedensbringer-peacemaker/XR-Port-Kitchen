@@ -4,11 +4,11 @@
 Open-Source-Nachbauten von Spiel-Engines, die mit den Originaldaten des Spiels laufen. Open-source engine re-implementations that run with the original game data.
 
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
-„?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
+„?“ = nicht bekannt (nicht: „nein“). „Grauzone – nicht verlinkt“ = es gibt eine Rekonstruktion aus dem Originalprogramm (Dekompilierung, Disassemblierung, Recompilierung) ohne geklärte Rechte; die Kitchen nennt nur einen möglichen sauberen Weg. Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Strategie/RTS (112) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (66) · Rollenspiel (236) · Adventure (42) · Shooter/FPS (233) · Action/Jump'n'Run (535) · Renn-/Flugsim/Weltraum (104) · Sonstiges (158)
+**Abschnitte:** Strategie/RTS (111) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (64) · Rollenspiel (212) · Adventure (42) · Shooter/FPS (232) · Action/Jump'n'Run (504) · Renn-/Flugsim/Weltraum (99) · Sonstiges (156)
 
-## Strategie/RTS (112)
+## Strategie/RTS (111)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -35,6 +35,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Dizgruntled | Gruntz | frei (Freeware) | TypeScript | MIT | WIP (teilw. spielbar) · letzter Push 2023-10 | ? | <https://github.com/Dizgruntled/Dizgruntled> |
 | dizgruntled-java 💤 | Gruntz | ja | Java | As-is | early · dead (letzter Push 2011-11) | ? | <https://github.com/Hugheth/dizgruntled-java> |
 | Dune 2 - The Maker - Java version 💤 | Dune 2 | ? | Java | MIT | WIP (teilw. spielbar) · dead (letzter Push 2020-11) | ? | <https://github.com/Fundynamic/dune2themaker4j> |
+| Dune 2 – Weg denkbar | Dune 2 | ? | C / SDL, SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Neuimplementierung Dune Legacy mit eigener Kopie; sonst DOSBox Pure. |
 | Dune Dynasty | Dune 2 | ? | C | GPL2 | playable · letzter Push 2026-01 | ? | <https://github.com/gameflorist/dunedynasty> |
 | Dune II - The Maker | Dune 2 | ja | C++ / Allegro | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/stefanhendriks/Dune-II---The-Maker> |
 | Dune Legacy | Dune 2 | ja | C++ / SDL2 | GPL2 | playable · aktiv | ? | <https://sourceforge.net/projects/dunelegacy/> |
@@ -70,7 +71,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenClonk | Clonk | ? | C++ / SDL2, OpenGL, Qt | ISC | playable · letzter Push 2026-04 | ? | <https://github.com/openclonk/openclonk> |
 | OpenDeathValley | Desperados: Wanted Dead or Alive | ? | C / SDL2 | GPL3 | early · letzter Push 2022-12 | ? | <https://github.com/OpenDeathValley/OpenDeathValley> |
 | OpenDR | Dark Reign: The Future of War | frei (Freeware) | C# / OpenRA | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-07 | ? | <https://github.com/drogoganor/OpenDR> |
-| OpenDUNE | Dune 2 | ? | C / SDL, SDL2 | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/OpenDUNE/OpenDUNE> |
 | opene2140 💤 | Earth 2140 | ja | C++ / SDL2, OpenGL | GPL3 | early · eingestellt | ? | <https://gitlab.com/opene2140/opene2140> |
 | OpenE2140 (OpenRA) | Earth 2140 | ja | C# / OpenRA | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/OpenE2140/OpenE2140> |
 | OpenKrush | Krush, Kill 'n' Destroy | ja | C# / OpenRA | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-11 | ? | <https://github.com/IceReaper/OpenKrush> |
@@ -82,7 +82,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenSAGE | Command & Conquer: Generals | ? | C# / .NET | LGPL3 | early · letzter Push 2026-03 | ? | <https://github.com/OpenSAGE/OpenSAGE> |
 | OpenVic | Victoria II | ja | GDScript / Godot | GPL3 | early · letzter Push 2026-10 | ? | <https://github.com/OpenVicProject/OpenVic> |
 | OpenWar | Warcraft: Orcs & Humans | ja | Go | GPL3 | early · letzter Push 2023-04 | ? | <https://github.com/andreas-jonsson/openwar> |
-| PlantsVsZombies.NET ᵂ | Plants vs. Zombies | ? | ? | MIT License | playable · aktiv | ? | ? |
+| Plants vs. Zombies – Weg denkbar | Plants vs. Zombies | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: eigener Nachbau der Spiellogik + Grafik und Ton aus eigener Kopie (Steam/EA); alternativ die PC-Fassung per WinlatorXR. |
 | Populous The Beginning ᴬ | Populous: The Beginning | ? | C++ (GitHub) | ? | ? · letzter Push 2026-08 | ? | <https://github.com/TylerTheFox/Populous-The-Beginning-Public> |
 | Populous: Reincarnated ᴬ | Populous: The Beginning | ? | ? | ? | ? | ? | <https://www.popre.net/> |
 | Project Alice | Victoria II | ? | C++ | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/schombert/Project-Alice> |
@@ -103,8 +103,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Stargus | StarCraft | ja | Lua, C++ | GPL2 | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/Wargus/stargus> |
 | StarGus with Stratagus ᵂ | StarCraft | ? | ? | GPL-2.0 | early · aktiv | ? | ? |
 | Stone Kingdoms | Stronghold | ja | Lua / LÖVE | Apache | WIP (teilw. spielbar) · aktiv | ? | <https://gitlab.com/stone-kingdoms/stone-kingdoms> |
-| Syndicate Wars Port | Syndicate Wars | ja | C / SDL | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/mefistotelis/swars> |
-| Syndicate Wars ᴬ | Syndicate Wars | ? | C (GitHub) | ? | ? · letzter Push 2026-10 | ? | <https://github.com/swfans/syndwarsfx> |
+| Syndicate Wars – Weg denkbar | Syndicate Wars | ? | C (GitHub) | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Thyme | Command & Conquer: Generals | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2024-10 | ? | <https://github.com/TheAssemblyArmada/Thyme> |
 | Total Annihilation 3D | Total Annihilation | ja | C++, Lua / OpenGL, Qt, SDL | GPL2 | WIP (teilw. spielbar) · letzter Push 2022-01 | ? | <https://github.com/zuzuf/TA3D> |
 | Tribal Trouble Resurrected | Tribal Trouble | frei (Freeware) | Java / LWJGL | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/OmarAMokhtar/tribaltrouble> |
@@ -155,7 +154,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | KeeperFX 📖 [dungeonkeeper-keeperfx](../recipes/dungeonkeeper-keeperfx/RECIPE.md) | Dungeon Keeper | ja | C / SDL2 | GPL2+ | playable · letzter Push 2026-10 | ? | <https://github.com/dkfans/keeperfx> |
 | keeperfx-linux-alpha ᴬ | Dungeon Keeper | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2026-10 | ? | <https://github.com/ForkedInTime/keeperfx-linux-alpha> |
 | micropolisJS | SimCity | ? | JavaScript, TypeScript | GPL3 | playable · letzter Push 2025-07 | ? | <https://github.com/graememcc/micropolisJS> |
-| Minecraft-4K-Decompilation | Minecraft 4k | ja | Java | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/CelestialAmber/Minecraft-4K-Decompilation> |
+| Minecraft 4k – Weg denkbar | Minecraft 4k | ja | Java | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: QuestCraft/Vivecraft (🥽) mit eigener Minecraft-Java-Lizenz. |
 | Moonlander 💤 | Moonlander | ? | Assembly, Objective-C | MIT | playable · dead (letzter Push 2021-04) | ? | <https://github.com/sillygoose/moonlander> |
 | OpenArena (gladiator management game) | Areena 5 | ja | Java | GPL3 | early · sporadisch | ? | <https://gitlab.com/Mige5/openarena> |
 | openblack | Black & White | ja | C++ / SDL2, OpenGL | GPL3 | early · letzter Push 2026-10 | ja | <https://github.com/openblack/openblack> |
@@ -186,7 +185,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | TVTower | Mad TV | frei (Freeware) | BlitzMax | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/TVTower/TVTower> |
 | Uplink | Uplink | ja | C++ | MIT | early · letzter Push 2026-03 | ? | <https://github.com/AdrUlb/Uplink> |
 
-## Rundenstrategie/4X (66)
+## Rundenstrategie/4X (64)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -244,20 +243,18 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Scorched Earth 2000 💤 | Scorched Earth | frei (Freeware) | Java | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/scorch/> |
 | Scorched Earth 2000 HTML Port | Scorched Earth | frei (Freeware) | JavaScript, CSS, HTML | GPL3 | playable · letzter Push 2026-06 | ? | <https://github.com/meshko/Scorched-Earth-2000/> |
 | Scorched Moon 💤 | Moonbase Commander | ? | Python / pygame | GPL3 | early · dead (letzter Push 2017-07) | ? | <https://github.com/Scorched-Moon/client> |
-| SF1DISASM | Shining Force | ja | Assembly | As-is | playable · letzter Push 2025-11 | ? | <https://github.com/ShiningForceCentral/SF1DISASM> |
-| SF1RE | Shining Force | ja | C, Assembly | As-is | playable · letzter Push 2024-09 | ? | <https://github.com/ShiningForceCentral/SF1RE> |
-| SFCDDISASM 💤 | Shining Force CD | ja | Assembly | As-is | early · dead (letzter Push 2015-09) | ? | <https://github.com/ShiningForceCentral/SFCDDISASM> |
-| SFCDRE 💤 | Shining Force CD | ? | C | As-is | early · dead (letzter Push 2015-09) | ? | <https://github.com/ShiningForceCentral/SFCDRE> |
+| Shining Force CD – Weg denkbar | Shining Force CD | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Shining Force – Weg denkbar | Shining Force | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Space-rangers 💤 | Space Rangers | ? | C# / XNA | As-is | early · dead (letzter Push 2013-02) | ? | <https://github.com/markevich/Space-rangers> |
 | Starlane Empire 💤 | Ascendancy | ? | C++ / SDL | GPL2 | playable · dead (letzter Push 2017-04) | ? | <https://github.com/karona75/starlane-empire> |
-| Starship Commander Disassembly | Starship Commander | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-starship-cmdr/> |
+| Starship Commander – Weg denkbar | Starship Commander | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | thinker ᴬ | Sid Meier's Alpha Centauri | ? | C++ (GitHub) | ? | ? · letzter Push 2026-09 | ? | <https://github.com/induktio/thinker> |
 | Transarctica-2 ᴬ | Transarctica | ? | GDScript (GitHub) | GPL-3.0 | ? · letzter Push 2026-07 | ? | <https://github.com/SembeiNorimaki/Transarctica-2> |
 | UFO2000 💤 | X-COM: UFO Defense, X-COM: Terror from the Deep, X-COM: Apocalypse | teils | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/ufo2000/> |
 | VCMI | Heroes of Might and Magic III | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2026-10 | ja | <https://github.com/vcmi/vcmi> |
 | Wages of War ᴬ | Wages of War: The Business of Battle | ? | Rust (GitHub) | Apache-2.0 | ? · letzter Push 2026-06 | ? | <https://github.com/suhteevah/wages-of-war> |
 
-## Rollenspiel (236)
+## Rollenspiel (212)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -265,13 +262,12 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | 2009scape | RuneScape | frei (Freeware) | Kotlin | AGPL3 | playable · sehr aktiv | ? | <https://gitlab.com/2009scape/2009scape> |
 | Abyss Engine | Diablo II | ja | C | MIT | early · letzter Push 2024-04 | ? | <https://github.com/AbyssEngine/AbyssEngine> |
 | ACEmulator ᴬ | Asheron's Call | ? | ? | ? | ? | ? | <https://emulator.ac> |
-| Aidyn Chronicles Decompilation | Aidyn Chronicles: The First Mage | ja | C++ | As-is | early · letzter Push 2026-09 | ? | <https://github.com/blackgamma7/Aidyn> |
 | Akalabeth: World of Doom（Pyxel） | Akalabeth: World of Doom | frei (Freeware) | Python / Pyxel | As-is | playable · letzter Push 2022-12 | ? | <https://github.com/CoBinee/akalabeth-pyxel> |
 | Aklabeth 💤 | Akalabeth: World of Doom | ? | C / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/aklabeth/> |
 | Amber ᴬ | Ambermoon, Amberstar | ? | C# (GitHub) | MIT | ? · letzter Push 2026-09 | ? | <https://github.com/Pyrdacor/Amber> |
 | Ambermoon.net | Ambermoon | ja | C# / .NET | GPL3 | playable · letzter Push 2026-08 | ? | <https://github.com/Pyrdacor/Ambermoon.net> |
-| Arcanum Community Edition | Arcanum: Of Steamworks and Magick Obscura | ja | C / SDL3 | Custom | playable · letzter Push 2026-05 | ? | <https://github.com/alexbatalov/arcanum-ce> |
 | Arcanum on iOS | Arcanum: Of Steamworks and Magick Obscura | ja | C++ | Apache | early · letzter Push 2023-04 | ? | <https://github.com/arcanum-project/game> |
+| Arcanum: Of Steamworks and Magick Obscura – Weg denkbar | Arcanum: Of Steamworks and Magick Obscura | ja | C / SDL3 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | Arkanum 💤 | Arcanum: Of Steamworks and Magick Obscura | ja | Python | As-is | early · dead (letzter Push 2017-07) | ? | <https://github.com/vleon1/Arkanum> |
 | Arx Libertatis | Arx Fatalis | ja | C++ / SDL, SDL2, OpenGL | GPL3 | playable · letzter Push 2024-08 | ? | <https://github.com/arx/ArxLibertatis> |
 | BaKGL | Betrayal at Krondor | frei (Freeware) | C++ / OpenGL, SDL2 | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/xavieran/BaKGL> |
@@ -280,9 +276,8 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | beijing-hell | 北京浮生记 | ? | JavaScript | MIT | early · letzter Push 2026-09 | ? | <https://github.com/zoubingwu/beijing-hell> |
 | BeijingFuShengJi-Godot | 北京浮生记 | ? | GDScript / Godot | GPL2 | WIP (teilw. spielbar) · letzter Push 2025-04 | ? | <https://github.com/Nivdc/BeijingFuShengJi-Godot> |
 | Castle of the Winds in Elm | Castle of the Winds | ? | Elm | BSD | playable · letzter Push 2026-02 | ? | <https://github.com/mordrax/cotwelm> |
-| Castlevania: Symphony of the Night Decompilation | Castlevania: Symphony of the Night | ja | C | AGPL3 | early · letzter Push 2026-10 | ? | <https://github.com/Xeeynamo/sotn-decomp> |
+| Castlevania: Symphony of the Night – Weg denkbar | Castlevania: Symphony of the Night | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | Cataclysm: Dark Days Ahead | Cataclysm | ? | C++ / ncurses, SDL2 | CC-BY-SA | playable · letzter Push 2026-10 | ja | <https://github.com/CleverRaven/Cataclysm-DDA> |
-| Caverns of Freitag Disassembly | The Caverns of Freitag | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-caverns-freitag/> |
 | Chocolate Doom | Doom, Heretic, Hexen, Strife | ? | C | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/chocolate-doom/chocolate-doom> |
 | Chrono Trigger C 💤 | Chrono Trigger | ja | C / SDL2 | As-is | early · archiviert, dead (2018) | ? | <https://github.com/AandersonL/Chrono-Trigger-C> |
 | Citadel | System Shock | ja | C# / Unity | As-is | playable · letzter Push 2026-03 | ? | <https://github.com/JosiahJack/Citadel> |
@@ -292,7 +287,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | coUserver 💤 | Glitch | ? | Dart / Redstone | MIT | WIP (teilw. spielbar) · archiviert, dead (2018) | ? | <https://github.com/ChildrenOfUr/coUserver> |
 | Crispy Doom | Doom, Heretic, Hexen, Strife | ja | C / SDL2 | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/fabiangreffrath/crispy-doom> |
 | CrossUO ᵂ | Ultima Online | ? | ? | GPL | ? · aktiv | ? | ? |
-| crystalisdisassembly 💤 | Crystalis | ja | Assembly | As-is | WIP (teilw. spielbar) · dead (letzter Push 2019-06) | ? | <https://github.com/crystalisdisassembly/crystalisdisassembly> |
 | CSBwin 💤 | Dungeon Master | frei (Freeware) | C++ / SDL2 | As-is | playable · eingestellt | ? | <http://www.dianneandpaul.net/CSBwin/> |
 | Cuberite | Minecraft | ? | C++ | Apache | playable · letzter Push 2026-04 | ja | <https://github.com/cuberite/cuberite> |
 | Daggerfall Unity | The Elder Scrolls II: Daggerfall | ja | C# / Unity | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/Interkarma/daggerfall-unity> |
@@ -303,45 +297,28 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Der Clou! | The Clue! | ja | C / SDL2 | Custom | playable · letzter Push 2022-01 | ? | <https://github.com/vcosta/derclou> |
 | Desktop Adventures Engine for ScummVM 💤 | Indiana Jones and his Desktop Adventures, Star Wars: Yoda Stories | ja | C++ | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2019-10) | ? | <https://github.com/digitall/scummvm-deskadv> |
 | DesktopAdventures 💤 | Indiana Jones and his Desktop Adventures, Star Wars: Yoda Stories | ja | C / SDL2 | LGPL2 | WIP (teilw. spielbar) · dead (letzter Push 2018-06) | ? | <https://github.com/shinyquagsire23/DesktopAdventures> |
-| Devilution | Diablo | ja | C++ | Custom | playable · letzter Push 2025-09 | ? | <https://github.com/diasurgical/devilution> |
-| DevilutionX ((XR-DevilutionX)) | Diablo | ja | C++ / SDL, SDL2 | Custom | playable · letzter Push 2026-10 | ja | <https://github.com/diasurgical/devilutionX> |
 | DGEngine | Diablo, Diablo II | teils | C++ / SFML | GPL3, Zlib | WIP (teilw. spielbar) · letzter Push 2025-07 | ? | <https://github.com/dgcor/DGEngine> |
 | Diablerie | Diablo II | ja | C# / Unity | MIT | WIP (teilw. spielbar) · letzter Push 2022-12 | ? | <https://github.com/mofr/Diablerie> |
+| Diablo – Weg denkbar | Diablo | ja | C++ | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener GOG-Kopie; sonst eigener Nachbau der Spiellogik. |
 | Digimon World Project Ark 💤 | Digimon World | ? | C# / Unity | As-is | early · dead (letzter Push 2015-02) | ? | <https://github.com/dwProjectark/Digimon-World-Project-Ark> |
 | Dink Smallwood HD | Dink Smallwood | frei (Freeware) | C++ / OpenGL | Custom | playable · letzter Push 2026-08 | ja | <https://github.com/SethRobinson/RTDink> |
 | DIRTSAND | Myst Online: Uru Live | ? | C++ | AGPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/H-uru/dirtsand> |
 | djavul 💤 | Diablo | ja | Go / OpenGL, Pixel | Unlicense | early · dead (letzter Push 2019-02) | ? | <https://github.com/Happy-Ferret/djavul> |
 | DMOE 💤 | Dungeon Master | ja | C / SDL | GPL2 | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/dmle/> |
-| dragon-warrior-disassembly | Dragon Quest | ja | Assembly | As-is | playable · letzter Push 2023-08 | ? | <https://github.com/nmikstas/dragon-warrior-disassembly> |
-| Dragonball Z 3: Killer Androids ASM Source Code | Dragon Ball Z III: Ressen Jinzō Ningen | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/312/> |
-| Dragonball Z Gaiden: Plan to Eliminate the Saiyans Source Code | Dragon Ball Z Side Story: Plan to Eradicate the Saiyans | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/319/> |
-| Dragonball Z: Assault of the Saiyans Source Code | Dragon Ball Z: Kyōshū! Saiyajin | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/313/> |
 | Dungeon Craft | Forgotten Realms: Unlimited Adventures | ja | C++ / DirectX | GPL2 | playable · letzter Push 2026-01 | ? | <https://github.com/grannypron/uaf> |
 | Dungeon Eye 💤 | Eye of the Beholder II | ? | C# | GPL3 | playable · dead (letzter Push 2021-07) | ? | <https://github.com/iliak/dungeoneye> |
 | Dungeon Master Qt | Dungeon Master | frei (Freeware) | C++ / Qt | As-is | playable · fertig | ? | <http://fredericgoset.ovh/dungeon/en/part50.html> |
+| Dungeon Master – Weg denkbar | Dungeon Master | ja | Assembly, C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation (Atari ST/Amiga) mit eigener Kopie oder DOS-Fassung per DOSBox Pure. |
 | Dungeon Strikes Back | Dungeon Master | ja | C | As-is | WIP (teilw. spielbar) · letzter Push 2024-09 | ? | <https://github.com/sparkletwist/DSB> |
 | DungeonMaster 💤 | Dungeon Master | ? | C# / .NET | As-is | early · dead (letzter Push 2017-09) | ? | <https://github.com/ggrrin/DungeonMaster> |
 | Dungeons Of Daggorath | Dungeons of Daggorath | frei (Freeware) | C++ / SDL2 | Custom, As-is | playable · letzter Push 2026-01 | ? | <https://github.com/cognitivegears/DungeonsOfDaggorath> |
 | Dungeons of Daggorath 3DS 💤 | Dungeons of Daggorath | frei (Freeware) | C++ | GPL3 | playable · dead (letzter Push 2020-06) | ? | <https://github.com/pyroticinsanity/3dsdod> |
 | Dungeons of Daggorath PC-Port 💤 | Dungeons of Daggorath | frei (Freeware) | C++ / SDL | Custom | playable · dead (letzter Push 2016-04) | ? | <https://github.com/gondur/dungeons-of-daggorath> |
-| DW2 Disassembly | Dragon Quest II | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/858/> |
-| DWM | Dragon Warrior Monsters | ja | Assembly | As-is | playable · letzter Push 2022-03 | ? | <https://github.com/Mallos31/dwm> |
 | ElonaFoobar 💤 | Elona | ja | C++, Lua / SDL2 | MIT | playable · archiviert, dead (2021) | ? | <https://github.com/elonafoobar/elonafoobar> |
 | Exult | Ultima VII: The Black Gate | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/exult/exult> |
-| Fallout 2 Community Edition | Fallout 2 | ja | C++ / SDL2 | Custom | playable · letzter Push 2025-02 | ja | <https://github.com/alexbatalov/fallout2-ce/> |
-| Fallout 2 Reference Edition ᵂ | Fallout 2 | ? | C (GitHub) | ? | playable · letzter Push 2024-05 | ? | <https://github.com/alexbatalov/fallout2-re> |
-| Fallout Community Edition | Fallout | ja | C++ / SDL2 | Custom | playable · letzter Push 2025-01 | ja | <https://github.com/alexbatalov/fallout1-ce> |
-| Fallout Reference Edition ᵂ | Fallout | ? | C (GitHub) | ? | playable · letzter Push 2023-01 | ? | <https://github.com/alexbatalov/fallout1-re> |
+| Fallout 2 – Weg denkbar | Fallout 2 | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
+| Fallout – Weg denkbar | Fallout | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | Falltergeist | Fallout 2 | ja | C++ / SDL2, OpenGL | GPL3 | early · letzter Push 2023-01 | ? | <https://github.com/falltergeist/falltergeist> |
-| Faxanadu Disassembly 💤 | Faxanadu | ? | Assembly | As-is | early · eingestellt | ? | <https://www.romhacking.net/documents/586/> |
-| FF Disassembly | Final Fantasy | ja | Assembly | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/Entroper/FF1Disassembly> |
-| FF1 Disassembly with Bugfix & Enhancement Patches | Final Fantasy | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/663/> |
-| ff1snes | Final Fantasy | ja | Assembly, C# | MIT | WIP (teilw. spielbar) · letzter Push 2025-08 | ? | <https://github.com/Entroper/ff1snes> |
-| ff2 | Final Fantasy II | ja | Assembly | As-is | playable · letzter Push 2022-12 | ? | <https://github.com/everything8215/ff2> |
-| ff3 | Final Fantasy III | ja | Assembly | As-is | playable · letzter Push 2022-05 | ? | <https://github.com/everything8215/ff3> |
-| Final Fantasy IV Disassembly | Final Fantasy IV | ja | Assembly | GPL3 | playable · letzter Push 2022-08 | ? | <https://github.com/everything8215/ff4> |
-| Final Fantasy V Disassembly | Final Fantasy V | ja | Assembly | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/everything8215/ff5> |
-| Final Fantasy VI Disassembly | Final Fantasy VI | ja | Assembly | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/everything8215/ff6> |
 | FOnline | Fallout Online | ? | C++ | GPL3 | early · letzter Push 2022-03 | ? | <https://github.com/hobwekiva/fonline> |
 | freeablo | Diablo | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2023-04 | ? | <https://github.com/wheybags/freeablo> |
 | FTE QuakeWorld | Quake, Hexen II, Quake 2, Quake 3 | ja | C / OpenGL, Vulkan, SDL2 | GPL2 | playable · letzter Push 2026-06 | ? | <https://github.com/fte-team/fteqw> |
@@ -413,10 +390,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | PARPG 💤 | Fallout 2 | ? | Python, C++ | GPL3, CC-BY-SA | early · eingestellt | ? | <https://sourceforge.net/projects/parpg/> |
 | Pentagram ᵂ | Ultima VIII: Pagan | ? | ? | GPL | playable · inaktiv | ? | ? |
 | Phantasy 💤 | Phantasy Star | ? | Java | As-is | early · dead (letzter Push 2018-03) | ? | <https://github.com/rafael-esper/Phantasy> |
-| Phantasy Star Disassembly 💤 | Phantasy Star | ja | Assembly | As-is | playable · dead (letzter Push 2019-01) | ? | <https://github.com/sung3r/ps1disasm> |
-| Phantasy Star II Disassembly 💤 | Phantasy Star II | ja | Assembly | As-is | playable · dead (letzter Push 2017-12) | ? | <https://github.com/jon13doe/SEGA_ps2_disasm> |
-| Phantasy Star III Disassembly | Phantasy Star III | ja | Assembly | As-is | playable · letzter Push 2022-05 | ? | <https://github.com/brecert/ps3disasm> |
-| Phantasy Star IV Disassembly | Phantasy Star IV | ja | Assembly | As-is | playable · letzter Push 2023-08 | ? | <https://github.com/squidfeatures/ps4disasm> |
+| Phantasy Star II – Weg denkbar | Phantasy Star II | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Phantasy Star III – Weg denkbar | Phantasy Star III | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Phantasy Star IV – Weg denkbar | Phantasy Star IV | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Phantasy Star – Weg denkbar | Phantasy Star | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Plasma | Myst Online: Uru Live | frei (Freeware) | C++ / OpenAL | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/H-uru/Plasma> |
 | pq2 | Progress Quest | ? | C++ / ncurses, Qt | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-01 | ? | <https://github.com/nbollom/pq2> |
 | progress-quest 💤 | Progress Quest | ? | C++ / Qt | MIT | early · dead (letzter Push 2020-06) | ? | <https://github.com/sandsmark/progress-quest> |
@@ -425,7 +402,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Purpur | Minecraft | ? | Java | MIT | playable · letzter Push 2026-10 | ? | <https://github.com/PurpurMC/Purpur> |
 | pycraft | Minecraft | ? | Python, C | GPL2 | playable · letzter Push 2026-04 | ? | <https://github.com/itsapi/pycraft> |
 | Q-Gears 💤 | Final Fantasy VII | ja | C++ / OGRE | GPL2 | early · dead (letzter Push 2017-01) | ? | <https://github.com/q-gears/q-gears> |
-| ReDMCSB 💤 | Dungeon Master | ja | Assembly, C | As-is | playable · dead (letzter Push 2017-02) | ? | <https://github.com/gondur/ReDMCSB_Release2> |
 | REGoth 💤 | Gothic | ja | C++ | MIT | playable · dead (letzter Push 2020-05) | ? | <https://github.com/REGoth-project/REGoth-bs> |
 | REGoth-bs ᵂ | Gothic | ? | ? | MIT License | ? · aktiv | ? | ? |
 | reone | Star Wars: Knights of the Old Republic, Star Wars: Knights of the Old Republic II – The Sith Lords | ja | C++ / SDL2, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-04 | ? | <https://github.com/seedhartha/reone/> |
@@ -436,18 +412,14 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | RuneLite | Old School RuneScape | ja | Java / LWJGL | BSD2 | playable · letzter Push 2026-10 | ? | <https://github.com/runelite/runelite> |
 | Ryzom Core | Ryzom | ? | C++ | AGPL3 | playable · aktiv | ? | <https://gitlab.com/ryzom/ryzom-core> |
 | SDLPAL | The Legend of Sword and Fairy | ja | C / SDL, SDL2, SDL3 | GPL3 | playable · letzter Push 2026-08 | ja (APK im Release) | <https://github.com/sdlpal/sdlpal> |
-| Severed Chains | The Legend of Dragoon | ja | Java / LWJGL | AGPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/Legend-of-Dragoon-Modding/Severed-Chains> |
-| SF2DISASM | Shining Force II | ja | Assembly | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/ShiningForceCentral/SF2DISASM> |
 | sfall ᴬ | Fallout 2 | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-10 | ? | <https://github.com/phobos2077/sfall> |
 | SharpMC | Minecraft | ? | C# / Mono | MIT | WIP (teilw. spielbar) · letzter Push 2022-05 | ? | <https://github.com/SharpMC/SharpMC> |
 | SharpMC-Rewritten 💤 | Minecraft | ? | C# | MIT | early · dead (letzter Push 2020-01) | ? | <https://github.com/SharpMC/SharpMC-Rewritten> |
-| Shining Force 2 Reverse Engineer (SF2RE) | Shining Force II | ? | C | As-is | early · letzter Push 2025-07 | ? | <https://github.com/ShiningForceCentral/SF2RE> |
+| Shining Force II – Weg denkbar | Shining Force II | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Shining in the Darkness – Weg denkbar | Shining in the Darkness | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Shining Soul Remake | Shining Soul | ? | Python / pygame | As-is | early · letzter Push 2022-12 | ? | <https://github.com/CharlieIsMyName/ShiningSoulRemake> |
-| shiren | Mystery Dungeon: Shiren the Wanderer | ja | Assembly | As-is | playable · letzter Push 2023-07 | ? | <https://github.com/CelestialAmber/shiren> |
 | Shockolate | System Shock | ja | C / SDL2 | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/Interrupt/systemshock> |
 | Siege of Avalon : Open Source 💤 | Siege of Avalon | frei (Freeware) | Delphi / SDL | LGPL2 | early · dead (letzter Push 2021-02) | ? | <https://github.com/CartBlanche/Siege-of-Avalon-Open-Source> |
-| SITDDISASM | Shining in the Darkness | ja | Assembly | As-is | early · letzter Push 2024-07 | ? | <https://github.com/ShiningForceCentral/SITDDISASM> |
-| SITDRE | Shining in the Darkness | ja | C | As-is | early · letzter Push 2024-07 | ? | <https://github.com/ShiningForceCentral/SITDRE> |
 | skproject | Dungeon Master II: The Legend of Skullkeep | frei (Freeware) | C++ | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/gbsphenx/skproject> |
 | Space Station 14 | Space Station 13 | teils | C# / .NET | MIT, CC-BY-SA, CC-BY-NC-SA | playable · letzter Push 2026-10 | ? | <https://github.com/space-wizards/space-station-14> |
 | Spectalum 💤 | Eye of the Beholder II | ? | C++ / SDL | Custom | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/spectalum/> |
@@ -461,8 +433,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Telengard Remastered 💤 | Telengard | ? | Assembly, BASIC | As-is | playable · dead (letzter Push 2016-04) | ? | <https://github.com/gondur/Telengard> |
 | TES3MP | The Elder Scrolls III: Morrowind | teils | C++ | GPL3 | playable · letzter Push 2024-05 | ? | <https://github.com/TES3MP/openmw-tes3mp> |
 | The Bard's Tale III | The Bard's Tale III: Thief of Fate | ja | C, Assembly | Apache | playable · letzter Push 2023-01 | ? | <https://github.com/Drunella/bt3-easyflash> |
+| The Caverns of Freitag – Weg denkbar | The Caverns of Freitag | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | The Crystal Scrolls 💤 | The Elder Scrolls III: Morrowind | ja | C++ | LGPL3 | early · eingestellt | ? | <https://sourceforge.net/projects/crystalscrolls/> |
 | The Eternity Engine | Doom, Heretic, Hexen, Strife | ja | C++, C / SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/team-eternity/eternity> |
+| The Legend of Dragoon – Weg denkbar | The Legend of Dragoon | ja | Java / LWJGL | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | The Lord of the Rings game engine 💤 | J.R.R. Tolkien's The Lord of the Rings, Vol. I, J.R.R. Tolkien's The Lord of the Rings, Vol. II: The Two Towers | ja | C / SDL2 | LGPL2 | WIP (teilw. spielbar) · eingestellt | ? | <https://www.wonderland.cz/lotr/> |
 | The System Shock Hack Project 💤 | System Shock, Ultima Underworld, Ultima Underworld II: Labyrinth of Worlds | ja | C++ / SDL | BSD | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/tsshp/> |
 | Thirdeye ᴬ | Eye of the Beholder III, Dungeon Hack | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-08 | ? | <https://github.com/psi29a/thirdeye> |
@@ -470,14 +444,13 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | TrinityCore | World of Warcraft | ja | C++ | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/TrinityCore/TrinityCore> |
 | TrueCraft 💤 | Minecraft | ? | C# | MIT | playable · archiviert, dead (2019) | ? | <https://github.com/ddevault/TrueCraft> |
 | TSSHP (The System Shock Hack Project) ᵂ | System Shock | ? | ? | BSD | ? · inaktiv | ? | ? |
-| u4-decompiled | Ultima IV | ja | C, Assembly | As-is | playable · letzter Push 2023-10 | ? | <https://github.com/ergonomy-joe/u4-decompiled> |
-| u6-decompiled | Ultima VI | ja | C, Assembly | As-is | playable · letzter Push 2022-04 | ? | <https://github.com/ergonomy-joe/u6-decompiled> |
 | UAlbion | Albion | ja | C# / .NET | MIT | early · letzter Push 2026-05 | ? | <https://github.com/csinkers/ualbion> |
 | UchuServer | Lego Universe | ja | C# / .NET | AGPL3 | playable · letzter Push 2025-10 | ? | <https://github.com/UchuServer/Uchu> |
 | UiirJS 💤 | Ultima II: The Revenge of the Enchantress | ? | JavaScript | As-is | early · dead (letzter Push 2014-07) | ? | <https://github.com/jaggedsoft/UiirJS> |
 | ult3src 💤 | Ultima III: Exodus | ja | C | As-is | playable · dead (letzter Push 2017-04) | ? | <https://github.com/gondur/ult3src> |
-| Ultima 3 Disassembly | Ultima III: Exodus | ja | Assembly | As-is | early · letzter Push 2023-09 | ? | <https://github.com/nmikstas/nes_ultima_3_disassembly> |
 | Ultima 5 Redux | Ultima V: Warriors of Destiny | ja | C# / .NET | MIT | playable · letzter Push 2024-01 | ? | <https://github.com/bradhannah/Ultima5Redux> |
+| Ultima IV – Weg denkbar | Ultima IV | ja | C, Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: ScummVM (Ultima-Engine) bzw. die freien Nachbauten xu4/Nuvie mit eigener GOG-Kopie. |
+| Ultima VI – Weg denkbar | Ultima VI | ja | C, Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: ScummVM (Ultima-Engine) bzw. die freien Nachbauten xu4/Nuvie mit eigener GOG-Kopie. |
 | Ultima: Escape from Mount Drash 💤 | Ultima: Escape from Mt. Drash | ? | C++ / SDL, OpenGL | GPL2 | playable · eingestellt | ? | <https://www.peroxide.dk/projects_old.shtml#:~:text=the%20mount%20drash%20project> |
 | undertale 💤 | Undertale | ja | Game Maker Language / GameMaker Studio | As-is | early · dead (letzter Push 2019-02) | ? | <https://github.com/fachinformatiker/undertale> |
 | Underworld Adventures | Ultima Underworld, Ultima Underworld II: Labyrinth of Worlds | ja | C++ / SDL2, OpenGL | GPL2 | WIP (teilw. spielbar) · letzter Push 2026-07 | ? | <https://github.com/vividos/UnderworldAdventures> |
@@ -508,19 +481,18 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Amnesia: The Dark Descent (rework) | Amnesia: The Dark Descent | ja | C++ / SDL, SDL2, OpenGL | Apache, GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/OSS-Cosmic/AmnesiaTheDarkDescent> |
 | Beyond the Titanic 💤 | Beyond the Titanic | ? | Pascal | GPL2 | playable · dead (letzter Push 2017-11) | ? | <https://github.com/samuelbrian/beyond-the-titanic> |
 | Castle Adventure 💤 | Castle Adventure | ? | C++ / Allegro | Zlib | playable · dead (letzter Push 2020-07) | ? | <https://github.com/elishacloud/Castle-Adventure> |
-| Deathmaze5000 Disassembly | Deathmaze 5000 | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-deathmaze/> |
+| Deathmaze 5000 – Weg denkbar | Deathmaze 5000 | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Encounter HD | Encounter | ? | Assembly, C | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/Dhebug/Encounter> |
 | Encounter-BASIC-version- | Encounter | ? | BASIC | As-is | playable · letzter Push 2024-05 | ? | <https://github.com/Dhebug/Encounter-BASIC-version-> |
 | engge 💤 | Thimbleweed Park | ja | C++, Squirrel / SDL2 | MIT | playable · archiviert, dead (2022) | ? | <https://github.com/scemino/engge> |
 | engge2 | Thimbleweed Park | ja | Nim / SDL2, OpenGL | MIT | WIP (teilw. spielbar) · letzter Push 2024-04 | ? | <https://github.com/scemino/engge2> |
 | Entombed! | Entombed! | ? | C | GPL2 | playable · fertig | ? | <http://www.newbreedsoftware.com/entombed/> |
 | FGRE ᵂ | Chaos;Head | ? | ? | GPLv3+ | ? · inaktiv | ? | ? |
-| FNaF 2 Decomp | Five Nights at Freddy's 2 | ja | C# | As-is | early · letzter Push 2025-10 | ? | <https://github.com/fr3dsp/FNaF-2-Decomp> |
-| GoldenVoyage Disassembly | The Golden Voyage | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-scott-adams/> |
+| Five Nights at Freddy's 2 – Weg denkbar | Five Nights at Freddy's 2 | ja | C# | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassungen (die Reihe hat eigene VR-Spiele im Quest-Store); sonst eigener Nachbau mit eigener Grafik. |
 | House Of Death remake 💤 | House of Death | ? | C / SDL | As-is | playable · eingestellt | ? | <https://web.archive.org/web/20231002032911/https://jotd.pagesperso-orange.fr/house_of_death/index.html> |
-| How to be a Complete Bastard disassembly | How to Be a Complete Bastard | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-03 | ? | <https://github.com/pobtastic/howtobeacompletebastard> |
+| How to Be a Complete Bastard – Weg denkbar | How to Be a Complete Bastard | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Igor 💤 | Igor: Objective Uikokahonia | ja | C++ / SDL | As-is | playable · archiviert, dead (2018) | ja | <https://github.com/cyxx/igor> |
-| Leftovers Decomp | Leftovers | frei (Freeware) | C# | As-is | WIP (teilw. spielbar) · letzter Push 2026-01 | ? | <https://github.com/fr3dsp/Leftovers-Decomp> |
+| Leftovers – Weg denkbar | Leftovers | frei (Freeware) | C# | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassung (teils für Android erhältlich); sonst eigener Nachbau der Spiellogik mit eigener Grafik. |
 | legion 💤 | Legion | ? | C++ / Irrlicht | Custom | early · dead (letzter Push 2013-10) | ? | <https://github.com/mahho/legion> |
 | libnpengine 💤 | Chaos;Head, Steins;Gate | ja | C++ / SDL | LGPL3 | playable · dead (letzter Push 2019-06) | ? | <https://github.com/FGRE/libnpengine> |
 | Lost Mine | Lost Dutchman Mine | ? | C#, C++ / Unreal Engine 5 | BSD2 | early · aktiv | ja | <https://github.com/niner-games/dutchman-gold> |
@@ -536,7 +508,8 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | shin | Umineko: When They Cry Saku | ja | Rust | MPL | WIP (teilw. spielbar) · letzter Push 2025-12 | ? | <https://github.com/dcnick3/shin> |
 | Supernova 💤 | Supernova | ? | Pascal | GPL2 | playable · dead (letzter Push 2018-11) | ? | <https://github.com/samuelbrian/supernova> |
 | The Beyond Castle Wolfenstein Project 💤 | Beyond Castle Wolfenstein | ? | Assembly | As-is | playable · eingestellt | ? | <http://www.oldskool.org/pc/BCW/> |
-| The Hobbit disassembly | The Hobbit | ja | Skool | As-is | playable · letzter Push 2023-10 | ? | <https://github.com/pobtastic/hobbit> |
+| The Golden Voyage – Weg denkbar | The Golden Voyage | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
+| The Hobbit – Weg denkbar | The Hobbit | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | The Planet of Death | Adventure A: Planet of Death | ? | C | As-is | playable · fertig | ? | <https://www.ticalc.org/archives/files/fileinfo/141/14125.html> |
 | Umineko Project | Umineko: When They Cry Saku | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2022-10 | ja | <https://github.com/umineko-project/onscripter-ru> |
 | uninvited 💤 | Uninvited | frei (Freeware) | Inform 6 / Inform | Artistic | playable · eingestellt | ? | <https://gitlab.com/DavidGriffith/uninvited> |
@@ -545,7 +518,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | WinTex | Under a Killing Moon | ja | C++ / DirectX | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/ElakaSnarne/WinTex> |
 | zorkClone | Zork | ? | Java | Apache | early · letzter Push 2023-06 | ? | <https://github.com/vatbub/zorkClone> |
 
-## Shooter/FPS (233)
+## Shooter/FPS (232)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -561,6 +534,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Berserker@Quake2 Engine 💤 | Quake 2 | ja | C / SDL2 | GPL2 | playable · dead (letzter Push 2021-03) | ? | <https://github.com/UCyborg/BerserkerQuake2> |
 | BetterSpades ᴬ | Ace of Spades (classic) | ? | C (GitHub) | GPL-3.0 | ? · letzter Push 2025-07 | ? | <https://github.com/xtreme8000/BetterSpades/> |
 | Blake4SDL 💤 | Blake Stone: Planet Strike, Blake Stone: Aliens of Gold | ja | C / SDL2 | GPL2 | playable · eingestellt | ? | <https://bitbucket.org/ks-presto/blake4sdl> |
+| Blood, Duke Nukem 3D, Powerslave, Redneck Rampage – Weg denkbar | Blood, Duke Nukem 3D, Powerslave, Redneck Rampage | ja | C++ / SDL, SDL2, OpenGL | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | BloodGDX | Blood | ja | Java / libGDX | GPL3 | playable · sporadisch | ? | <https://gitlab.com/m210/BloodGDX> |
 | BStone | Blake Stone: Planet Strike, Blake Stone: Aliens of Gold | ja | C++ / SDL2, OpenGL | GPL2 | playable · letzter Push 2026-08 | ? | <https://github.com/bibendovsky/bstone> |
 | CatacombGL | Catacomb 3-D | ja | C++ / OpenGL, SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/ArnoAnsems/CatacombGL> |
@@ -587,6 +561,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Doom 64 for Dreamcast | Doom 64 | ja | C | As-is | playable · letzter Push 2026-05 | ? | <https://github.com/jnmartin84/doom64-dc/> |
 | Doom Legacy | Doom, Heretic, Hexen | ? | C++ | GPL2 | playable · aktiv | ? | <https://sourceforge.net/projects/doomlegacy/> |
 | DOOM Retro | Doom | ja | C / SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/bradharding/doomretro> |
+| Doom – Weg denkbar | Doom | ja | C++ / SDL2, Vulkan | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild; Doom selbst über freie Source-Ports auf Basis des offiziellen Quellcodes (z. B. QuestZDoom 🥽). |
 | DOOM64-EX-Plus-Enhanced ᴬ | Doom 64 | ? | C (GitHub) | ? | ? · letzter Push 2026-08 | ? | <https://github.com/Styd051/DOOM64-EX-Plus-Enhanced> |
 | doom64DS 💤 | Doom 64 | ? | C | Custom | playable · dead (letzter Push 2013-12) | ? | <https://github.com/svkaiser/doom64DS> |
 | Doom64EX | Doom 64 | ? | C / SDL2 | GPL2 | WIP (teilw. spielbar) · letzter Push 2025-11 | ? | <https://github.com/svkaiser/Doom64EX> |
@@ -597,7 +572,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Duke3D 💤 | Duke Nukem 3D | ja | C / SDL | Custom | playable · eingestellt | ? | <https://svn.icculus.org/duke3d/trunk/> |
 | Duke3d_win32 💤 | Duke Nukem 3D | ja | C / SDL | Custom | playable · eingestellt | ? | <http://www.rancidmeat.com/projects/duke3d_w32/duke3d_w32_b20_src.zip> |
 | Duke3dw 💤 | Duke Nukem 3D | ja | C | GPL2 | playable · eingestellt | ? | <http://www.proasm.com/duke/duke3dw.html> |
-| Duke64-RE | Duke Nukem 3D | ja | C | As-is | early · letzter Push 2025-08 | ? | <https://github.com/NBlood/Duke64-RE> |
 | DukeGDX | Duke Nukem 3D | ja | Java / libGDX | Custom | playable · aktiv | ? | <https://gitlab.com/m210/DukeGDX> |
 | DukeVR | Duke Nukem 3D | ja | C++ / Oculus, Build, GTK, SDL, OpenGL | GPL2 | playable · fertig | ? | <http://www.malcolm-s.net/dukevr/> |
 | DXX-Rebirth | Descent, Descent II | ? | C++ | GPL3, Custom | playable · letzter Push 2026-09 | ? | <https://github.com/dxx-rebirth/dxx-rebirth> |
@@ -668,7 +642,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | LZWolf 💤 | Wolfenstein 3D | ja | C++ / SDL2 | Custom | playable · eingestellt | ? | <https://bitbucket.org/linuxwolf6/lzwolf/> |
 | MacWolfSDL | Wolfenstein 3D | ja | C / SDL3 | Custom, As-is | playable · sporadisch | ? | <https://codeberg.org/kaylagator/MacWolfSDL> |
 | MafiaUnity 💤 | Mafia | ja | C# / Unity | GPL3 | early · archiviert, dead (2020) | ? | <https://github.com/MafiaHub/MafiaUnity> |
-| Magic Carpet 2 HD | Magic Carpet 2 | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/thobbsinteractive/magic-carpet-2-hd> |
+| Magic Carpet 2 – Weg denkbar | Magic Carpet 2 | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | magiccarpet 💤 | Magic Carpet | ? | C++ / OpenGL | As-is | early · dead (letzter Push 2016-04) | ? | <https://github.com/wonea/magiccarpet> |
 | MBF-SNM | Doom | ja | C / Allegro | GPL2 | playable · letzter Push 2023-12 | ? | <https://github.com/Sakitoshi/mbf_sigil> |
 | memory of alessa | Silent Hill 2, Silent Hill 3 | ja | C | MIT | early · letzter Push 2026-10 | ? | <https://github.com/dreamingmoths/memory-of-alessa> |
@@ -680,7 +654,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | NakedLinuxDoom | Doom | ja | C++ / SDL3 | MIT | playable · letzter Push 2026-02 | ? | <https://github.com/atsb/NakedLinuxDoom> |
 | Nanosaur | Nanosaur | ja | C / OpenGL, SDL2 | CC-BY-NC-SA | playable · letzter Push 2026-04 | ? | <https://github.com/jorio/Nanosaur> |
 | Nanosaur II: Hatchling | Nanosaur 2 | frei (Freeware) | C / SDL2, OpenGL | CC-BY-NC-SA | playable · letzter Push 2026-06 | ? | <https://github.com/jorio/Nanosaur2> |
-| NBlood | Blood, Duke Nukem 3D, Powerslave, Redneck Rampage | ja | C++ / SDL, SDL2, OpenGL | Custom | playable · letzter Push 2026-10 | ? | <https://github.com/NBlood/NBlood> |
 | NearChuckle ᴬ | Far Cry | ? | C++ (GitHub) | ? | ? · letzter Push 2026-08 | ? | <https://github.com/rohit-n/NearChuckle> |
 | neortcw | Return to Castle Wolfenstein | ja | C / SDL2 | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/klaussilveira/neortcw> |
 | Oblivion-Reconstructed ᴬ | Quake II (Oblivion mission pack) | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2026-03 | ? | <https://github.com/themuffinator/Oblivion-Reconstructed> |
@@ -689,7 +662,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenArena | Quake 3 | ? | C | GPL2 | playable · letzter Push 2026-04 | ? | <https://github.com/OpenArena/engine> |
 | OpenChasm ᴬ 💤 | Chasm: The Rift | ? | C++ (GitHub) | ? | ? · archiviert, dead (2014) | ? | <https://github.com/alexey-lysiuk/OpenChasm> |
 | OpenJK 🥽 JKXR | Star Wars Jedi Knight: Jedi Academy, Star Wars Jedi Knight II: Jedi Outcast | ? | C++ | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/JACoders/OpenJK> |
-| OpenJKDF2 🥽 JK: Dark Forces II (Team Beef, in Entwicklung) | Star Wars Jedi Knight: Dark Forces II | ja | C / SDL2 | As-is | playable · letzter Push 2026-09 | ja | <https://github.com/shinyquagsire23/OpenJKDF2> |
 | OpenMoHAA | Medal of Honor: Allied Assault | ja | C, C++ / SDL2 | GPL2 | playable · letzter Push 2026-04 | ? | <https://github.com/openmoh/openmohaa> |
 | OpenNitemare3D | Nitemare 3D | ja | C#, C / SDL2 | GPL3 | WIP (teilw. spielbar) · letzter Push 2022-08 | ? | <https://github.com/BBQGiraffe/OpenNitemare3D> |
 | openQ4 ᴬ | Quake 4 | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-10 | ? | <https://github.com/themuffinator/openQ4> |
@@ -705,7 +677,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Prey 2006: A Talon Brave Game | Prey, Doom 3 | ja | C++, C / SDL2, SDL3 | GPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/FriskTheFallenHuman/Prey2006> |
 | ProjectX | Forsaken | ? | C | GPL2 | playable · letzter Push 2025-10 | ? | <https://github.com/ForsakenX/forsaken> |
 | ProQuake 4 💤 | Quake | ja | C | GPL2 | playable · eingestellt | ? | <https://quakeone.com/proquake/> |
-| PsyDoom | Doom | ja | C++ / SDL2, Vulkan | GPL3 | playable · letzter Push 2025-10 | ? | <https://github.com/BodbDearg/PsyDoom> |
 | Q2Pro 💤 | Quake 2 | ja | C / OpenGL, SDL2 | GPL2 | playable · archiviert, dead (2025) | ? | <https://github.com/vloup/q2pro> |
 | Q2REPRO | Quake 2 | ja | C / SDL2 | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/Paril/q2repro> |
 | Q2RTXPerimental ᴬ | Quake II | ? | C++ (GitHub) | ? | ? · letzter Push 2026-10 | ? | <https://github.com/PolyhedronStudio/Q2RTXPerimental> |
@@ -744,6 +715,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Spearmint | Quake 3 | ja | C | GPL3 | playable · letzter Push 2026-05 | ? | <https://github.com/clover-moe/spearmint> |
 | Speed-Academy ᴬ | Star Wars Jedi Knight: Jedi Academy | ? | C++ (GitHub) | GPL-2.0 | ? · letzter Push 2026-07 | ? | <https://github.com/kugelrund/Speed-Academy> |
 | Speed-Outcast ᴬ | Star Wars Jedi Knight II: Jedi Outcast | ? | C++ (GitHub) | GPL-2.0 | ? · letzter Push 2026-06 | ? | <https://github.com/kugelrund/Speed-Outcast> |
+| Star Wars Jedi Knight: Dark Forces II – Weg denkbar | Star Wars Jedi Knight: Dark Forces II | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | SurrealEngine | Unreal Tournament | ja | C++ / Vulkan | Zlib | early · letzter Push 2026-09 | ? | <https://github.com/dpjudas/SurrealEngine> |
 | SWP 💤 | Shadow Warrior | ja | C / OpenGL, DirectX, SDL | GPL2, Custom | playable · dead (letzter Push 2019-01) | ? | <https://github.com/Hendricks266/SWP> |
 | Taradino ᴬ | Rise of the Triad | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2026-03 | ? | <https://github.com/fabiangreffrath/taradino> |
@@ -783,25 +755,24 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | ZGloom | Gloom | ja | C++ / SDL2 | Custom | playable · letzter Push 2023-01 | ? | <https://github.com/Swizpig/ZGloom> |
 | μQuake 💤 | Quake | ja | C | GPL2 | early · dead (letzter Push 2021-04) | ? | <https://github.com/goshhhy/uquake> |
 
-## Action/Jump'n'Run (535)
+## Action/Jump'n'Run (504)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
 | 1JETPACK.EXE | Jetpack | frei (Freeware) | Lua / TIC-80 | As-is | WIP (teilw. spielbar) · aktiv | ? | <https://verysoftwares.itch.io/1jetpackexe> |
-| 3S Decomp | Street Fighter III: 3rd Strike | ja | C | AGPL3 | playable · letzter Push 2026-04 | ? | <https://github.com/crowded-street/3s-decomp> |
 | 3SX | Street Fighter III: 3rd Strike | ja | C / SDL3 | AGPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/crowded-street/3sx> |
-| ABM Disassembly | ABM | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-abm/ABM.html> |
+| ABM – Weg denkbar | ABM | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Abuse 💤 | Abuse | teils | C++, Common Lisp / SDL | PD, WTFPL, GPL2, Custom | playable · eingestellt | ? | <http://abuse.zoy.org/wiki/download> |
 | Abuse (Xenoveritas) | Abuse | frei (Freeware) | C++ / SDL2 | PD, GPL2, WTFPL | playable · letzter Push 2026-09 | ? | <https://github.com/Xenoveritas/abuse> |
 | Abuse 1996 💤 | Abuse | frei (Freeware) | C++, Lisp / SDL2 | Custom, PD, GPL2, WTFPL | playable · dead (letzter Push 2016-07) | ? | <https://github.com/antrad/Abuse_1996> |
 | Abuse 2025 | Abuse | frei (Freeware) | C++ / SDL2 | Custom, GPL2, WTFPL | playable · letzter Push 2026-03 | ? | <https://github.com/apancik/Abuse_2025> |
-| Adventure Disassembly | Adventure | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/adventure.asm> |
+| Adventure – Weg denkbar | Adventure | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Aerofoil | Glider | frei (Freeware) | C++ / SDL2 | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/elasota/Aerofoil> |
 | Agendaroids | Asteroids | ? | C | GPL2 | playable · fertig | ? | <http://www.newbreedsoftware.com/agendaroids/> |
-| Air-Sea Battle Disassembly | Air-Sea Battle | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/air_sea_battle.asm> |
+| Air-Sea Battle – Weg denkbar | Air-Sea Battle | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Aladdin_DirectX 💤 | Aladdin | ? | C++ / DirectX | As-is | early · dead (letzter Push 2017-12) | ? | <https://github.com/phanletrunghieu/Aladdin_DirectX> |
 | Alien 8 💤 | Alien 8 | ? | C | Custom | playable · eingestellt | ? | <https://retrospec.sgn.net/info.htm?id=alien8&t=g> |
-| Alleyway 💤 | Alleyway | ja | Assembly | As-is | playable · dead (letzter Push 2021-07) | ? | <https://github.com/CelestialAmber/alleyway> |
+| Alien 8, Atic Atac, Bubbler, Cookie, Cyberun, Gunfright, Knight Lore, Jetpac … (+8 weitere) – Weg denkbar | Alien 8, Atic Atac, Bubbler, Cookie, Cyberun, Gunfright, Knight Lore, Jetpac … (+8 weitere) | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Alpha Waves Classic 💤 | Alpha Waves | ? | C++ | GPL2 | early · eingestellt | ? | <https://sourceforge.net/projects/alpha-waves/> |
 | Amidar500 | Amidar | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/jotd666/amidar500> |
 | AnodyneSharp | Anodyne | frei (Freeware) | C# / MonoGame | Custom | playable · letzter Push 2026-02 | ? | <https://github.com/PixieCatSupreme/AnodyneSharp> |
@@ -812,10 +783,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | ARCADE! | Galaga | ja | C, Assembly | As-is | playable · letzter Push 2026-07 | ? | <https://github.com/neiderm/arcade> |
 | Arduino UNO Game Engine | Manic Miner, Scramble, Space Invaders | frei (Freeware) | C, Assembly | GPL3 | playable · letzter Push 2024-05 | ? | <https://github.com/Smashcat/UNO_Manic_Miner> |
 | asdf 💤 | Simon | ? | JavaScript | MIT | playable · dead (letzter Push 2012-12) | ? | <https://github.com/TimPietrusky/asdf> |
-| Asteroids Disassembly | Asteroids | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/va-asteroids/> |
+| Asteroids – Weg denkbar | Asteroids | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Atari8bit_StarRaiders 💤 | Star Raiders | ? | Assembly | As-is | early · dead (letzter Push 2013-12) | ? | <https://github.com/sidneycadot/Atari8bit_StarRaiders> |
 | Babaliba 💤 | Babaliba | frei (Freeware) | BennuGD | As-is | playable · dead (letzter Push 2015-11) | ? | <https://github.com/compilersoftware/babaliba> |
-| Back to Skool disassembly | Back to Skool | ? | Skool | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/skoolkid/backtoskool> |
+| Back to Skool – Weg denkbar | Back to Skool | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | back-to-nature-c64-remake | Frog! | ? | Java | As-is / MIT | playable · letzter Push 2022-12 | ja | <https://github.com/gborp/back-to-nature-c64-remake> |
 | Bad Dudes vs Dragonninja | Bad Dudes Vs. DragonNinja | frei (Freeware) | Assembly | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/jotd666/baddudes> |
 | Bagman500 | Bagman | frei (Freeware) | C++, Assembly / SDL | As-is | playable · letzter Push 2026-02 | ? | <https://github.com/jotd666/bagman> |
@@ -823,37 +794,37 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | BananiaJS | Banania | frei (Freeware) | JavaScript | MIT | playable · letzter Push 2022-10 | ? | <https://github.com/BenjaminRi/Banania> |
 | Barbarian 💤 | Barbarian: The Ultimate Warrior | ? | BASIC / QB64 | As-is | playable · eingestellt | ? | <http://barbarian.1987.free.fr/indexEN.htm> |
 | Batrachians 💤 | Frog Bog | ? | C++ / SDL2 | GPL2 | WIP (teilw. spielbar) · eingestellt | ? | <http://sarrazip.com/dev/batrachians.html> |
-| Batty disassembly | Batty | ? | Skool | As-is | playable · letzter Push 2023-12 | ? | <https://github.com/pobtastic/batty> |
+| Batty – Weg denkbar | Batty | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Beach-Head Ia | Beach-Head | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=111671> |
 | Beach-Head Ia ReM | Beach-Head | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=145118> |
 | Bedlam 2: Absolute Bedlam | Bedlam 2: Absolute Bedlam | ja | Assembly, C++ / SDL2 | As-is | playable · letzter Push 2023-02 | ? | <https://github.com/8street/Bedlam2> |
 | Bermuda Syndrome 💤 | Bermuda Syndrome | ja | C++ / SDL2, libretro | As-is | playable · archiviert, dead (2020) | ? | <https://github.com/cyxx/bermuda> |
 | Bermuda Syndrome engine reimplementation ᵂ | Bermuda Syndrome | ? | ? | ? | ? · inaktiv | ? | ? |
-| Berzerk Disassembly | Berzerk | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/berzerk.asm> |
+| Berzerk – Weg denkbar | Berzerk | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Billy Frontier | Billy Frontier | frei (Freeware) | C, C++ / SDL3 | CC-BY-NC-SA | playable · letzter Push 2026-06 | ? | <https://github.com/jorio/BillyFrontier> |
-| BioMenace decompilation | Bio Menace | ja | C | GPL2 | WIP (teilw. spielbar) · letzter Push 2024-12 | ? | <https://github.com/lethal-guitar/BioMenaceDecomp> |
+| Bio Menace – Weg denkbar | Bio Menace | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Blues 💤 | The Blues Brothers, The Blues Brothers: Jukebox Adventure, Prehistorik 2 | ja | C / SDL2 | As-is | playable · archiviert, dead (2022) | ? | <https://github.com/cyxx/blues> |
 | Bomb Mania Reloaded 💤 | Bomberman | ? | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/bomb-mania/> |
-| Bomber Disassembly | Bomber | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-bomber/Bomber.html> |
+| Bomber – Weg denkbar | Bomber | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Bombermaaan | Bomberman | frei (Freeware) | C++ / SDL, Allegro, DirectX | GPL3 | playable · sporadisch | ? | <https://sourceforge.net/projects/bombermaaan/> |
 | Bomberman LAN | Bomberman | ja | C / SDL | Custom | playable · fertig | ? | <https://oldschoolprg.x10.mx/projets.php#:~:text=Bomberman%20LAN> |
 | BOMBERWARRIORS OF WOR | Wizard of Wor | frei (Freeware) | C++ / Qt, SDL2 | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/vranki/Warriors-of-Wor> |
 | Bombic 💤 | Bomberman | ? | C++ / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/bombic/> |
 | Bombic2 💤 | Bomberman | ? | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/bombic2/> |
 | BOOM: Remake | BOOM | teils | C++ / SFML | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/silverweed/lifish> |
-| Booty disassembly | Booty | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-01 | ? | <https://github.com/pobtastic/booty> |
+| Booty – Weg denkbar | Booty | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | BootyRemake_CPC | Booty | frei (Freeware) | C | GPL3 | playable · letzter Push 2024-10 | ? | <https://github.com/salvakantero/BootyRemake_CPC> |
 | BootyRemake_ZX | Booty | frei (Freeware) | C | GPL2 | playable · letzter Push 2024-02 | ? | <https://github.com/salvakantero/BootyRemake_ZX> |
 | Boulder Dash | Boulder Dash | ? | C / SVGALib | As-is | playable · fertig | ? | <https://www.artsoft.org/rocksndiamonds/levels/martijnmooij/2010-03-16/www.bd-fans.com/FreewareUnix.html#:~:text=Boulder%20Dash,-%20v1> |
+| Boulder Dash – Weg denkbar | Boulder Dash | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Boulder Dashes ReM | Boulder Dash, Boulder Dash II, Boulder Dash Construction Kit | ? | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=145094> |
 | boulder-dash 💤 | Boulder Dash | ? | Java | MIT | early · archiviert, dead (2020) | ? | <https://github.com/valeriansaliou/boulder-dash> |
 | Bounty Bob Strikes Back! | Bounty Bob Strikes Back! | ? | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=155889> |
 | bratwurst | Bratwurst | ? | Common Lisp | GPL2 | early · letzter Push 2022-07 | ? | <https://github.com/sabetts/bratwurst> |
 | Bugdom | Bugdom | frei (Freeware) | C, C++ / SDL3 | CC-BY-NC-SA | playable · letzter Push 2025-03 | ? | <https://github.com/jorio/Bugdom> |
 | Bugdom 2 | Bugdom 2 | frei (Freeware) | C, C++ / SDL3 | CC-BY-NC-SA | playable · letzter Push 2025-03 | ? | <https://github.com/jorio/Bugdom2> |
-| bumpy-reverse | Bumpy's Arcade Fantasy | ja | C | As-is | playable · letzter Push 2026-07 | ? | <https://github.com/GeReV/bumpy-reverse> |
+| Bumpy's Arcade Fantasy – Weg denkbar | Bumpy's Arcade Fantasy | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | BurgerSpace | BurgerTime | ? | C++ / SDL2 | GPL2 | playable · sporadisch | ? | <http://sarrazip.com/dev/burgerspace.html> |
-| C64 Wizard of Wor Disassembly | Wizard of Wor | ? | Assembly | As-is | playable · letzter Push 2023-05 | ? | <https://github.com/dabadab/wizardofwor> |
 | Cadaver Remake 💤 | Cadaver | ja | C++ | GPL2 | early · eingestellt | ? | <https://web.archive.org/web/20231002172923/https://jotd.pagesperso-orange.fr/cadaver/> |
 | Cannon Fodder 💤 | Cannon Fodder | ja | JavaScript | As-is | early · dead (letzter Push 2014-05) | ? | <https://github.com/krazyjakee/CannonFodder> |
 | Cantaloupe | Sensitive | ? | AMOS BASIC | As-is | playable · fertig | ? | <https://generic.aminet.net/package/game/misc/Cantaloupe_src> |
@@ -861,34 +832,32 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Castle-Combat | Rampart | ? | Python | GPL2 | playable · letzter Push 2026-08 | ? | <https://github.com/karlb/castle-combat> |
 | Castles of Dr Creep 3 ReM V2 | The Castles of Dr. Creep | ? | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=145120> |
 | Cattle Bity 💤 | Battle City | ja | TypeScript | MIT | playable · dead (letzter Push 2021-11) | ? | <https://github.com/dogballs/cattle-bity> |
+| Cave Story – Weg denkbar | Cave Story | frei (Freeware) | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Neuimplementierung NXEngine-evo mit den Freeware-Daten; offizielle Neuauflage Cave Story+. |
 | ccleste 💤 | Celeste Classic | frei (Freeware) | C / SDL, SDL2 | As-is | playable · archiviert, dead (2021) | ? | <https://github.com/lemon32767/ccleste> |
-| Centipede Disassembly | Centipede | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/va-centipede/> |
-| Chameleon Twist 2: Recompiled | Chameleon Twist 2 | ja | C++ / RT64 | GPL3 | playable · letzter Push 2025-03 | ? | <https://github.com/Rainchus/ChameleonTwist2-JP-Recomp> |
-| Chameleon Twist: Recompiled | Chameleon Twist | ja | C++ / RT64 | GPL3 | playable · letzter Push 2025-03 | ? | <https://github.com/Rainchus/ChameleonTwist1-JP-Recomp> |
+| Centipede – Weg denkbar | Centipede | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | chuckie | Chuckie Egg | ? | Skool | As-is | playable · letzter Push 2023-11 | ? | <https://github.com/Ritchie333/chuckie> |
 | Circus Linux! | Circus Atari | ? | C | GPL2 | playable · fertig | ? | <http://www.newbreedsoftware.com/circus-linux/> |
 | ClaimJumper | Claim Jumper | ? | Assembly | As-is | playable · letzter Push 2025-07 | ? | <https://github.com/scttgs0/ClaimJumper> |
 | CloneKeen | Commander Keen Series | ja | C / SDL | GPL3 | playable · fertig | ? | <https://sourceforge.net/projects/clonekeen/> |
 | Clumsy Bird 💤 | Flappy Bird | ja | JavaScript / melonJS | GPL3 | playable · archiviert, dead (2018) | ? | <https://github.com/ellisonleao/clumsy-bird> |
 | Colditz Escape | Escape from Colditz | frei (Freeware) | C / OpenGL | GPL3 | playable · letzter Push 2025-10 | ? | <https://github.com/aperture-software/colditz-escape> |
-| Combat Disassembly | Combat | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/dicombat.asm> |
+| Combat – Weg denkbar | Combat | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Commander Genius | Commander Keen Series | ja | C++ / SDL2 | GPL2 | playable · sporadisch | ? | <https://gitlab.com/Dringgstein/Commander-Genius> |
+| Commander Keen Series – Weg denkbar | Commander Keen Series | ja | C / OpenGL | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Neuimplementierung Commander Genius mit eigener Kopie; sonst DOSBox Pure. |
 | CommandoJS 💤 | Commando | ? | JavaScript, CoffeeScript / melonJS | MIT | playable · dead (letzter Push 2012-08) | ? | <https://github.com/commandojs/CommandoJS> |
-| Contact Sam Cruise disassembly | Contact Sam Cruise | ? | Skool | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/skoolkid/contactsamcruise> |
-| Contra US Annotated Disassembly | Contra | ja | Assembly | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/vermiceli/nes-contra-us> |
+| Contact Sam Cruise – Weg denkbar | Contact Sam Cruise | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Contra_remake 💤 | Contra | ja | C++ | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2016-11) | ? | <https://github.com/EmileSonneveld/Contra_remake> |
 | CookieClickerRemake 💤 | Cookie Clicker | ? | C# | As-is | early · dead (letzter Push 2016-10) | ? | <https://github.com/ricodejong02/CookieClickerRemake> |
-| Cosmic Ark Disassembly | Cosmic Ark | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/CosmicArk.asm> |
+| Cosmic Ark – Weg denkbar | Cosmic Ark | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | CosmicArk-Advanced 💤 | Cosmic Ark | ? | JavaScript | Custom | early · archiviert, dead (2017) | ? | <https://github.com/JakeGill70/CosmicArk-Advanced> |
+| Cosmo's Cosmic Adventure – Weg denkbar | Cosmo's Cosmic Adventure | ja | C, Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Cosmo-Engine | Cosmo's Cosmic Adventure | ja | C / SDL2 | GPL2 | playable · letzter Push 2026-03 | ? | <https://github.com/yuv422/cosmo-engine> |
-| Cosmore | Cosmo's Cosmic Adventure | ja | C, Assembly | MIT | playable · letzter Push 2024-10 | ? | <https://github.com/smitelli/cosmore> |
 | Cosmosmash 💤 | Astrosmash | ? | C++ / SDL2 | GPL2 | playable · eingestellt | ? | <http://sarrazip.com/dev/cosmosmash.html> |
 | CrappyBird | Flappy Bird | ? | JavaScript | MIT | playable · letzter Push 2024-01 | ? | <https://github.com/varunpant/CrappyBird> |
 | Crimsonland ᴬ | Crimsonland | ? | Python (GitHub) | ? | ? · letzter Push 2026-10 | ? | <https://github.com/banteg/crimson> |
 | CroftEngine | Tomb Raider | ja | C++ / OpenGL | LGPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/stohrendorf/CroftEngine> |
 | Cruising on Broadway 💤 | Crossfire (Cruising) | ? | C++ / SDL | GPL2 | playable · eingestellt | ? | <https://web.archive.org/web/20080404203751/http://www.autismuk.freeserve.co.uk/#:~:text=Cruising%20on%20Broadway,-A> |
 | CrystalQuest 💤 | Crystal Quest | ? | JavaScript / jQuery | As-is | playable · dead (letzter Push 2017-01) | ? | <https://github.com/haleymt/CrystalQuest> |
-| CSE2 | Cave Story | frei (Freeware) | C++ / SDL2 | As-is | playable · letzter Push 2026-03 | ? | <https://github.com/gameblabla/CSE2> |
 | Cubosphere 💤 | Kula World | ? | C++ / SDL2, OpenGL | GPL3 | playable · dead (letzter Push 2020-10) | ? | <https://github.com/cubosphere/cubosphere-code> |
 | Céleste Classic 💤 | Celeste Classic | ? | C | As-is | WIP (teilw. spielbar) · dead (letzter Push 2021-12) | ? | <https://github.com/minirop/Celeste-META> |
 | Dangerous Dave 2: Modification Edition | Dangerous Dave in the Haunted Mansion | ja | C++ / SFML, TGUI | Custom | playable · letzter Push 2026-06 | ? | <https://github.com/Harchvertelol/Dangerous-Dave-2-Modification-Edition> |
@@ -902,7 +871,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | digger-kt 💤 | Digger | ? | Kotlin / Swing | AGPL3 | playable · dead (letzter Push 2021-07) | ? | <https://github.com/xafero/digger-kt> |
 | digger-py 💤 | Digger | ? | Python / GTK | AGPL3 | playable · dead (letzter Push 2021-07) | ? | <https://github.com/xafero/digger-py> |
 | digger-swift 💤 | Digger | ? | Swift / GTK | AGPL3 | playable · dead (letzter Push 2021-07) | ? | <https://github.com/xafero/digger-swift> |
-| Disassembly of Boulder Dash for the BBC Micro | Boulder Dash | ? | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/Boulderdash> |
 | div-pacman2600 💤 | Pac-Man | ? | DIV / DIV Games Studio | MIT | playable · dead (letzter Push 2016-04) | ja | <https://github.com/MikeDX/div-pacman2600> |
 | div-pitfall 💤 | Pitfall! | ? | DIV / DIV Games Studio | MIT | playable · dead (letzter Push 2016-02) | ja | <https://github.com/MikeDX/div-pitfall> |
 | div-spaceinvaders2600 💤 | Space Invaders | ? | DIV / DIV Games Studio | MIT | playable · dead (letzter Push 2016-04) | ja | <https://github.com/MikeDX/div-spaceinvaders2600> |
@@ -915,8 +883,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Duck Game Rebuilt | Duck Game | ja | C# / XNA | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/TheFlyingFoool/DuckGameRebuilt> |
 | Duck Marines 💤 | ChuChu Rocket! | frei (Freeware) | Lua / LÖVE | CC-BY-SA, CC-BY-NC-ND | playable · dead (letzter Push 2019-06) | ? | <https://github.com/SimonLarsen/duckmarines> |
 | Duckie Egg | Chuckie Egg | frei (Freeware) | Assembly, C | As-is | playable · fertig | ? | <https://forums.atariage.com/topic/203470-duckie-egg/> |
-| DuckTales2 full disassembly | DuckTales 2 | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/725/> |
-| Duke 2 Reconstructed | Duke Nukem II | ja | C | GPL2 | playable · letzter Push 2025-04 | ? | <https://github.com/lethal-guitar/Duke2Reconstructed> |
+| Duke Nukem II – Weg denkbar | Duke Nukem II | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Neuimplementierung Rigel Engine mit eigener Kopie; sonst DOSBox Pure. |
 | DXBall 💤 | DX-Ball | ? | Java | As-is | early · dead (letzter Push 2016-05) | ja | <https://github.com/nomanHasan/DXBall> |
 | Elevator Action 500 | Elevator Action | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/jotd666/elevator_action> |
 | Elevator_Action 💤 | Elevator Action | ? | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/Elevator_Action> |
@@ -924,16 +891,16 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Escalade 💤 | Rampart | ? | Scala | As-is | early · dead (letzter Push 2010-11) | ? | <https://github.com/mdr/escalade> |
 | Executive Man 💤 | MegaMan | ja | JavaScript | BSD4 | WIP (teilw. spielbar) · dead (letzter Push 2018-01) | ? | <https://github.com/CamHenlin/ExecutiveMan> |
 | EXILE 💤 | Exile | ? | Lua / LÖVE | Zlib | early · dead (letzter Push 2010-07) | ? | <https://github.com/Geti/EXILE> |
-| Exile (Enhanced version) disassembly | Exile | ja | Assembly | As-is | playable · fertig | ? | <https://level7.org.uk/miscellany/exile-enhanced-disassembly.txt> |
-| Exile disassembly 💤 | Exile | ja | Assembly | As-is | playable · archiviert, dead (2026) | ? | <https://github.com/tom-seddon/exile_disassembly> |
+| Exile – Weg denkbar | Exile | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Exolon 💤 | Exolon | frei (Freeware) | JavaScript / melonJS | MIT | playable · dead (letzter Push 2021-11) | ? | <https://github.com/newagebegins/exolon> |
 | F.LF | Little Fighter 2 | teils | JavaScript | CC-BY-NC-SA | playable · letzter Push 2023-12 | ? | <https://github.com/Project-F/F.LF> |
 | f2bgl 💤 | Fade to Black | ja | C++ / SDL2, OpenGL | As-is | playable · archiviert, dead (2021) | ja | <https://github.com/cyxx/f2bgl> |
 | fakk2-rework 💤 | Heavy Metal: F.A.K.K. 2 | ja | C++ | As-is | early · dead (letzter Push 2020-11) | ? | <https://github.com/Sporesirius/fakk2-rework> |
+| Fatal Frame – Weg denkbar | Fatal Frame | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: derzeit kein sauberer Quest-Weg (Emulation dieser Konsole auf ARM64 nicht praktikabel); offizielle Fassung am Flachbild. |
+| Flappy Bird – Weg denkbar | Flappy Bird | frei (Freeware) | C# | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassung (teils für Android erhältlich); sonst eigener Nachbau der Spiellogik mit eigener Grafik. |
 | Flappybird 💤 | Flappy Bird | frei (Freeware) | Swift | MIT | playable · dead (letzter Push 2020-02) | ? | <https://github.com/JannikCrack/flappybird-1> |
-| FlappyBird Decomp | Flappy Bird | frei (Freeware) | C# | As-is | early · letzter Push 2025-10 | ? | <https://github.com/fr3dsp/FlappyBird-Decomp> |
 | Flash Flood | Flash Flood | frei (Freeware) | C / Allegro | As-is | playable · fertig | ? | <https://www.allegro.cc/depot/FlashFlood> |
-| Flicky-Disassembly 💤 | Flicky | ja | Assembly | As-is | playable · dead (letzter Push 2016-08) | ? | <https://github.com/Dandaman955/Flicky-Disassembly> |
+| Flicky – Weg denkbar | Flicky | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | FPC Atomic | Atomic Bomberman | ja | Pascal / Lazarus, SDL2 | Custom, LGPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/PascalCorpsman/fpc_atomic> |
 | Free in the Dark | Alone in the Dark, Alone in the Dark 2, Alone in the Dark 3, Jack in the Dark | ja | C / SDL, bgfx | GPL2 | WIP (teilw. spielbar) · letzter Push 2025-08 | ? | <https://github.com/yaz0r/FITD> |
 | Freenukum | Duke Nukem | ? | Rust / SDL2 | AGPL3 | WIP (teilw. spielbar) · sporadisch | ? | <https://gitlab.com/silwol/freenukum/> |
@@ -943,6 +910,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Frogger 2: Swampy's Revenge (Dreamcast) | Frogger 2: Swampy's Revenge | frei (Freeware) | C | As-is | playable · letzter Push 2023-06 | ? | <https://github.com/HighwayFrogs/frogger2-dc> |
 | Frogger He's Back (PS) | Frogger: He's Back! | ja | C | As-is | playable · letzter Push 2025-06 | ? | <https://github.com/HighwayFrogs/frogger-psx> |
 | Froggix 💤 | Frogger | ? | Python | GPL3 | playable · eingestellt | ? | <https://sourceforge.net/projects/froggix/> |
+| Full Tilt! Pinball – Weg denkbar | Full Tilt! Pinball | frei (Freeware) | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | Galaga500 | Galaga | ja | C | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/jotd666/galaga> |
 | galaxian 💤 | Galaxian | ? | ActionScript | As-is | early · dead (letzter Push 2011-12) | ? | <https://github.com/codedrive/galaxian> |
 | Galaxian500 | Galaxian | frei (Freeware) | Assembly, C | As-is | playable · letzter Push 2026-05 | ? | <https://github.com/jotd666/galaxian500> |
@@ -951,16 +919,15 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Geometry Wars Remake 💤 | Geometry Wars | ? | Java | As-is | early · dead (letzter Push 2015-05) | ? | <https://github.com/esimionato/geomwarsremake> |
 | Glider for Apple II | Glider | frei (Freeware) | Assembly | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/colinleroy/a2tools> |
 | Gods Deluxe | Gods | frei (Freeware) | Java | MIT | playable · letzter Push 2025-03 | ? | <https://github.com/jotd666/gods-deluxe> |
-| Golden Axe Disassembly | Golden Axe | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/719/> |
+| Golden Axe – Weg denkbar | Golden Axe | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Google Pacman | Pac-Man | ja | JavaScript / Flash | As-is | playable · letzter Push 2026-02 | ? | <https://github.com/livingston/google-pacman> |
 | Gorillas 💤 | Gorillas | ? | Objective-C | JRL | playable · dead (letzter Push 2014-05) | ? | <https://github.com/Lyndir/Gorillas> |
 | Gravity Power II 💤 | Gravity Force 2 | frei (Freeware) | BlitzBasic, C++ / SDL, DirectX | GPL2 | early · eingestellt | ? | <https://sourceforge.net/projects/gp2/> |
-| GumshoeNESRecomp | Gumshoe | ja | C, TOML | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/mstan/GumshoeNESRecomp> |
 | Gunocide II EX | Gunocide II | frei (Freeware) | C++ / SDL | GPL2 | playable · fertig | ? | <https://sourceforge.net/projects/g2ex/> |
-| Gunstar Heroes Disassembly | Gunstar Heroes | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/721/> |
+| Gunstar Heroes – Weg denkbar | Gunstar Heroes | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | GUSANOS 💤 | Liero | ? | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/gusanos/> |
 | Hacman | Pac-Man | ? | JavaScript | ISC | playable · letzter Push 2023-12 | ? | <https://github.com/snozza/pacman> |
-| Harrier Attack disassembly | Harrier Attack! | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2025-01 | ? | <https://github.com/pobtastic/harrierattack> |
+| Harrier Attack! – Weg denkbar | Harrier Attack! | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | HauntedHouse 💤 | Haunted House | ? | ActionScript | As-is | playable · dead (letzter Push 2013-11) | ? | <https://github.com/KunoNoOni/HauntedHouse> |
 | Head over Heels 2 | Head over Heels | ? | C++ / Allegro | GPL2 | playable · fertig | ? | <https://hoh.helmantika.com/en/> |
 | Heart of the Alien Redux | Another World 2: Heart of the Alien | ja | C / SDL | GPL2 | playable · letzter Push 2026-06 | ? | <https://github.com/carstene1ns/hota-redux> |
@@ -972,14 +939,15 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Horacio Esquiador 💤 | Horace Goes Skiing | frei (Freeware) | C++ / Allegro | As-is | playable · eingestellt | ? | <https://computeremuzone.com/ficha/710/horacio-esquiador&l=en> |
 | hugo.js 💤 | Hugo: På Nye Eventyr | ja | C | As-is | WIP (teilw. spielbar) · archiviert, dead (2018) | ? | <https://github.com/cyxx/hugo_js/> |
 | Humphrey 💤 | Humphrey | ja | C / Allegro | As-is | playable · eingestellt | ? | <https://retrospec.sgn.net/info.htm?id=humphrey&t=g> |
-| Hungry Horace disassembly | Hungry Horace | ? | Skool | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/skoolkid/hungryhorace> |
+| Hungry Horace – Weg denkbar | Hungry Horace | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Hurrican | Turrican | frei (Freeware) | C++ / SDL, OpenGL | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/HurricanGame/Hurrican> |
 | Hypercycles (SDL2) | Hypercycles | frei (Freeware) | C / SDL2 | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-01 | ? | <https://github.com/jevarg/hypercycles> |
 | I Have No Tomatoes 💤 | Bomberman | ? | C++ / SDL | Zlib | playable · eingestellt | ? | <https://sourceforge.net/projects/tomatoes/> |
 | Ice Breaker | JezzBall | ? | C / SDL | GPL2 | playable · sporadisch | ? | <https://mattdm.org/icebreaker/> |
 | invaders (in C) 💤 | Space Invaders | ja | C / SDL | MIT | playable · dead (letzter Push 2020-08) | ? | <https://github.com/herrecito/invaders> |
 | Jail Break | Jail Break | ja | Assembly | As-is | WIP (teilw. spielbar) · letzter Push 2026-07 | ? | <https://github.com/jotd666/jailbreak> |
-| Jason's Gem disassembly | Jason's Gem | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2023-10 | ? | <https://github.com/pobtastic/jasons-gem> |
+| Jak and Daxter: The Precursor Legacy – Weg denkbar | Jak and Daxter: The Precursor Legacy | ja | C++, Common Lisp | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: derzeit kein sauberer Quest-Weg (Emulation dieser Konsole auf ARM64 nicht praktikabel); offizielle Fassung am Flachbild. |
+| Jason's Gem – Weg denkbar | Jason's Gem | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Javascript BoulderDash | Boulder Dash | ja | JavaScript | MIT | playable · letzter Push 2025-06 | ? | <https://github.com/jakesgordon/javascript-boulderdash/> |
 | Javascript Tower Platformer | Nebulus | ? | JavaScript | MIT | WIP (teilw. spielbar) · letzter Push 2025-06 | ? | <https://github.com/jakesgordon/javascript-tower-platformer> |
 | javascript-E.T. | E.T. the Extra-Terrestrial | frei (Freeware) | JavaScript | MIT | early · letzter Push 2026-03 | ? | <https://github.com/FranciscoG/javascript-E.T.> |
@@ -987,7 +955,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Jet Lee | Bruce Lee | ? | C++ / SDL2 | As-is | playable · letzter Push 2022-12 | ? | <https://github.com/Uvadzucumi/JetLee> |
 | Jet Set Willy (BBC Micro) | Jet Set Willy | ? | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/jsw> |
 | Jet Set Willy 2021 Edition (BBC Micro) | Jet Set Willy | ? | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/jsw2021> |
-| Jet Set Willy disassembly | Jet Set Willy | ? | Skool | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/skoolkid/jetsetwilly> |
+| Jet Set Willy – Weg denkbar | Jet Set Willy | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Jet-Story | Jet-Story | ? | C++ / DirectX | MIT | WIP (teilw. spielbar) · letzter Push 2026-05 | ? | <https://github.com/adamenkov/jet-story> |
 | JetPac | Jetpac | ? | C# / XNA | As-is / MIT | playable · letzter Push 2026-04 | ? | <https://github.com/ian-wigley/JetPac> |
 | jspacman-canvas | Pac-Man | ? | JavaScript / Impact | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/hguillermo/jspacman-canvas> |
@@ -996,14 +964,13 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Jumping Jack 2: Worryingly Familiar 💤 | Jumping Jack | ? | C++ / Allegro | Custom | playable · eingestellt | ? | <https://retrospec.sgn.net/info.htm?id=jj2&t=g> |
 | Jumping Jack: Further Adventures | Jumping Jack | ? | C++ / Allegro | Custom | playable · fertig | ? | <https://retrospec.sgn.net/info.htm?id=jj&t=g> |
 | Jumpman 💤 | Jumpman | ? | Assembly | PD | playable · eingestellt | ? | <http://www.oldskool.org/pc/jumpman> |
-| Kaboom! Disassembly | Kaboom! | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/kaboom.asm> |
+| Kaboom! – Weg denkbar | Kaboom! | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | KGoldrunner | Lode Runner | ? | C++ / SDL2 | GPL2 | playable · aktiv | ? | <https://invent.kde.org/games/kgoldrunner> |
 | KidChameleonRemake 💤 | Kid Chameleon | ? | C# | As-is | early · dead (letzter Push 2015-09) | ? | <https://github.com/mp1011/KidChameleonRemake> |
 | Kiloblaster (SDL) 💤 | Kiloblaster | frei (Freeware) | C++ / SDL | GPL3 | playable · dead (letzter Push 2012-05) | ? | <https://github.com/Malvineous/kiloblaster> |
 | Knight Lore | Knight Lore | frei (Freeware) | Assembly | As-is | playable · letzter Push 2022-06 | ? | <https://github.com/Rasmus-M/Knight-lore> |
-| Knuckles' Chaotix Disassembly | Knuckles' Chaotix | ja | Assembly | As-is | WIP (teilw. spielbar) · letzter Push 2026-02 | ? | <https://github.com/sonicretro/chaotix> |
+| Knuckles' Chaotix – Weg denkbar | Knuckles' Chaotix | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | knyttds ᵂ | Knytt Stories | ? | ? | ? | ? · ? | ? | <http://rodrigoroman.com/rrc2soft/nds_dsknytt_post.html> |
-| ktes2 💤 | Sonic 2 | ja | Assembly | As-is | WIP (teilw. spielbar) · dead (letzter Push 2013-12) | ? | <https://github.com/sonicretro/ktes2/> |
 | Ladder | Ladder | ? | Java, JavaScript | GPL2 | playable · letzter Push 2026-05 | ? | <https://github.com/stephenostermiller/ladder> |
 | ladder (Go) 💤 | Ladder | ? | Go | MIT | WIP (teilw. spielbar) · dead (letzter Push 2016-01) | ? | <https://github.com/mengstr/ladder> |
 | LastNinja 💤 | The Last Ninja | ja | C++ | GPL3 | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/lastninja/> |
@@ -1015,7 +982,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | LBA2 Ida edition | Little Big Adventure 2 | ja | C++, Assembly | GPL2 | playable · letzter Push 2026-03 | ? | <https://github.com/innerbytes/lba2-classic-ida> |
 | LBA2 IdaJS | Little Big Adventure 2 | ja | JavaScript, TypeScript, C++, Assembly | GPL2 | playable · letzter Push 2026-03 | ? | <https://github.com/innerbytes/idajs> |
 | LBA2 Remake | Little Big Adventure 2 | ja | TypeScript / three.js, React | MIT | WIP (teilw. spielbar) · letzter Push 2026-04 | ? | <https://github.com/LBALab/lba2remake> |
-| Legacy of Kain: Soul Reaver Decompile | Legacy of Kain: Soul Reaver | ja | C / SDL2 | As-is / Unlicense | WIP (teilw. spielbar) · letzter Push 2024-04 | ja | <https://github.com/Gh0stBlade/KAIN2> |
+| Legacy of Kain: Soul Reaver – Weg denkbar | Legacy of Kain: Soul Reaver | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | Lionheart Remake | Lionheart | frei (Freeware) | Java | GPL3 | playable · letzter Push 2026-08 | ja | <https://github.com/b3dgs/lionheart-remake> |
 | Lode Runner - Total Recall | Lode Runner | ? | JavaScript / CreateJS | As-is | playable · letzter Push 2025-04 | ? | <https://github.com/SimonHung/LodeRunner_TotalRecall> |
 | Lode Runner 2020 | Lode Runner | ja | C++ / OpenGL | MIT | playable · letzter Push 2026-04 | ? | <https://github.com/Ma-Pe-Ma/Lode-Runner-2020> |
@@ -1024,42 +991,34 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Loderunner | Lode Runner | ja | Assembly | As-is | playable · letzter Push 2024-04 | ? | <https://github.com/Piddewitt/Loderunner> |
 | LostVikings | The Lost Vikings | ja | C++ / SDL2 | As-is | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/akaWolf/LostVikings> |
 | Lunatic Fringe | Lunatic Fringe | ? | JavaScript | AGPL3 | playable · letzter Push 2025-03 | ? | <https://github.com/schwal10/lunatic-fringe> |
-| Lupin Sansei - Pandora no Isan | Lupin Sansei: Pandora no Isan | ja | Assembly | As-is | playable · letzter Push 2026-01 | ? | <https://github.com/PavelSha/Lupin-Sansei---Pandora-no-Isan/> |
 | Manic Miner (BBC) | Manic Miner | frei (Freeware) | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/ManicMiner> |
 | Manic Miner 2021 | Manic Miner | frei (Freeware) | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/ManicMiner2021> |
-| Manic Miner disassembly | Manic Miner | frei (Freeware) | Skool | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/skoolkid/manicminer> |
 | Manic Miner PC | Manic Miner | ? | BlitzBasic | Custom | playable · fertig | ? | <https://retrospec.sgn.net/info.htm?id=mm&t=g> |
 | Manic Miner ReM | Manic Miner | ? | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=145096> |
+| Manic Miner – Weg denkbar | Manic Miner | frei (Freeware) | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Marble Madness 3d 💤 | Marble Madness | ? | C++ / SDL, OpenGL | LGPL2 | early · dead (letzter Push 2012-10) | ? | <https://github.com/davido262/marble-madness-3d> |
-| mb-decomp 💤 | Super Monkey Ball | ja | C, Assembly | As-is | early · dead (letzter Push 2021-03) | ? | <https://github.com/Yoshimaster96/mb-decomp> |
 | MBHaxe | Marble Blast, Marble Blast Ultra | teils | Haxe / WebGL | MIT | playable · letzter Push 2026-09 | ja | <https://github.com/RandomityGuy/MBHaxe> |
-| Mega Man 7 Disassembly 💤 | Mega Man 7 | ja | Assembly | GPL3 | playable · dead (letzter Push 2021-01) | ? | <https://github.com/Yoshifanatic1/Mega-Man-7-Disassembly> |
-| Megaman3NESRecomp | Mega Man 3 | ja | TOML | As-is | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/mstan/Megaman3NESRecomp> |
-| MegaManX4Recomp | Mega Man X4 | ja | TOML | Custom | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/mstan/MegaManX4Recomp> |
-| MegaManX5Recomp | Mega Man X5 | ja | TOML | Custom | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/mstan/MegaManX5Recomp> |
-| MegaManX6Recomp | Mega Man X6 | ja | TOML | Custom | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/mstan/MegaManX6Recomp> |
-| MegaManXSNESRecomp | Mega Man X | ja | TOML | As-is | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/mstan/MegaManXSNESRecomp> |
+| Mega Man X4 – Weg denkbar | Mega Man X4 | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
+| Mega Man X5 – Weg denkbar | Mega Man X5 | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
+| Mega Man X6 – Weg denkbar | Mega Man X6 | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | Metro-Cross | Metro-Cross | ja | C / SDL, OpenGL | As-is | playable · fertig | ? | <https://oldschoolprg.x10.mx/projets.php#metrocross> |
 | Mighty Mike | Mighty Mike | frei (Freeware) | C / SDL3 | CC-BY-NC-SA | playable · letzter Push 2026-06 | ? | <https://github.com/jorio/MightyMike> |
 | Mikompilation | Fatal Frame II: Crimson Butterfly | ja | C / SDL2 | BSD2 | playable · letzter Push 2024-06 | ? | <https://github.com/Mikompilation/Mikompilation> |
-| MikuPan | Fatal Frame | ja | C | AGPL3 | WIP (teilw. spielbar) · letzter Push 2026-10 | ja | <https://github.com/Mikompilation/MikuPan> |
 | Miner 2049'er ReM V2 | Miner 2049er | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://csdb.dk/release/?id=145119> |
 | Mining Haze 💤 | Boulder Dash | ? | C / ncurses | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/mininghaze/> |
 | MININIM ᵂ | Prince of Persia | ? | ? | GPL | ? · inaktiv | ? | <https://oitofelix.github.io/mininim/> |
 | mint-metal ᴬ | Heavy Metal: F.A.K.K. 2, American McGee's Alice | ? | C (GitHub) | GPL-3.0 | ? · letzter Push 2026-06 | ? | <https://github.com/zturtleman/mint-metal> |
 | Missile Command | Missile Command | ? | Lua / LÖVE | GPL3 | playable · letzter Push 2024-01 | ? | <https://github.com/chadpaulson/missile-command> |
-| Missile Command Disassembly | Missile Command | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/va-missile-command/> |
+| Missile Command – Weg denkbar | Missile Command | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | mk.js | Mortal Kombat | frei (Freeware) | JavaScript / angular | MIT | WIP (teilw. spielbar) · letzter Push 2022-02 | ? | <https://github.com/mgechev/mk.js> |
-| mm4 | Mega Man 4 | ja | Assembly | As-is | early · letzter Push 2023-04 | ? | <https://github.com/captainsouthbird/mm4> |
 | Monsters and Mushrooms | Millipede | ? | Python / pygame | GPL2 | playable · letzter Push 2026-06 | ? | <https://github.com/machineinteractive/monsters_and_mushrooms> |
 | Monty Mole PC remake 💤 | Monty Mole | ? | C++ / SDL | As-is | playable · eingestellt | ? | <https://sourceforge.net/projects/montymole/> |
 | Moon Defense | Planetary Defense | frei (Freeware) | C++ / Allegro | As-is | playable · fertig | ? | <https://www.allegro.cc/depot/MoonDefence> |
 | Mr.Boom | Bomberman | frei (Freeware) | C++ / libretro, SDL, SDL2 | MIT | playable · letzter Push 2026-03 | ? | <https://github.com/Javanaise/mrboom-libretro> |
-| Ms. Pac-Man Disassembly | Ms. Pac-Man | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/741/> |
+| Ms. Pac-Man – Weg denkbar | Ms. Pac-Man | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | MsPacman 500 | Ms. Pac-Man | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/jotd666/mspacman500> |
 | multi-pong | Pong | frei (Freeware) | C++ / SFML | MIT | WIP (teilw. spielbar) · letzter Push 2023-01 | ? | <https://github.com/Hopson97/multi-pong> |
 | NakedGish | Gish | ja | C / SDL2 | GPL2 | playable · letzter Push 2026-05 | ? | <https://github.com/atsb/NakedGish> |
-| Naruto: Gekitou Ninja Taisen 4 | Naruto: Gekitō Ninja Taisen! 4 | ja | Assembly | As-is | WIP (teilw. spielbar) · letzter Push 2022-08 | ? | <https://github.com/doldecomp/gnt4> |
 | NEO-RAW | Another World | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2025-03 | ? | <https://github.com/fabiensanglard/Another-World-Bytecode-Interpreter> |
 | Netacka 💤 | Achtung, die Kurve! | ? | C / Allegro | MIT | playable · dead (letzter Push 2019-01) | ja | <https://github.com/pwmarcz/netacka> |
 | New RAW 💤 | Another World | ja | C++ / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/newraw/> |
@@ -1073,7 +1032,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | NXEngine | Cave Story | frei (Freeware) | C++ / SDL | GPL3 | playable · letzter Push 2022-10 | ? | <https://github.com/EXL/NXEngine> |
 | NXEngine-evo | Cave Story | frei (Freeware) | C++ / SDL2 | GPL3 | playable · letzter Push 2026-03 | ? | <https://github.com/nxengine/nxengine-evo> |
 | Octopus 💤 | Octopus | ja | Swift | As-is | playable · dead (letzter Push 2016-01) | ? | <https://github.com/roger-wetzel/Octopus> |
-| Omnispeak | Commander Keen Series | ja | C / OpenGL | GPL2 | playable · letzter Push 2026-07 | ? | <https://github.com/sulix/omnispeak> |
 | One Way To Go 💤 | Sensitive | ? | Lua | GPL3 | WIP (teilw. spielbar) · eingestellt | ? | <https://gordebak.itch.io/onewaytogo> |
 | Open Fodder | Cannon Fodder | ? | C++ | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/OpenFodder/openfodder> |
 | Open Greedy | Pac-Man | frei (Freeware) | C / SDL2 | GPL2 | playable · letzter Push 2023-04 | ? | <https://github.com/atroel/open-greedy> |
@@ -1088,7 +1046,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | openDOW | Dogs of War | ja | C / SDL | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-03 | ? | <https://github.com/rofl0r/openDOW> |
 | OpenDrakan | Drakan: Order of the Flame | ja | C++ / OpenSceneGraph | GPL3 | early · letzter Push 2023-12 | ? | <https://github.com/Zalasus/opendrakan> |
 | OpenGGS | The Great Giana Sisters | ? | C++ / SDL2 | GPL2 | playable · letzter Push 2023-08 | ? | <https://github.com/bugix/OpenGGS> |
-| OpenGOAL | Jak and Daxter: The Precursor Legacy | ja | C++, Common Lisp | ISC | playable · letzter Push 2026-10 | ? | <https://github.com/open-goal/jak-project> |
 | OpenHCL | Meikyuujou Hydra | frei (Freeware) | C++ / SDL2 | GPL3 | playable · letzter Push 2023-09 | ? | <https://github.com/JeffRuLz/OpenHCL> |
 | OpenJazz | Jazz Jackrabbit | ja | C++ / SDL | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/AlisterT/openjazz> |
 | openjazz.github.io | Jazz Jackrabbit | frei (Freeware) | JavaScript | Custom | playable · letzter Push 2026-07 | ? | <https://github.com/OpenJazz/openjazz.github.io> |
@@ -1108,7 +1065,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenTomb 💤 | Tomb Raider | ja | C++ / OpenGL, SDL2, Bullet3 | LGPL3 | playable · archiviert, dead (2025) | ? | <https://github.com/opentomb/OpenTomb> |
 | OpenTyrian | Tyrian | frei (Freeware) | C / SDL2 | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/opentyrian/opentyrian> |
 | orona 💤 | Bolo | frei (Freeware) | CoffeeScript | GPL2 | WIP (teilw. spielbar) · archiviert, dead (2012) | ? | <https://github.com/stephank/orona> |
-| Outlaw Disassembly | Outlaw | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/outlaw.asm> |
+| Outlaw – Weg denkbar | Outlaw | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | pacman | Pac-Man | ? | JavaScript | WTFPL | playable · letzter Push 2023-10 | ? | <https://github.com/daleharvey/pacman> |
 | pacman (harto) 💤 | Pac-Man | frei (Freeware) | JavaScript | As-is | playable · archiviert, dead (2014) | ? | <https://github.com/harto/pacman> |
 | Pacman 500 | Pac-Man | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/jotd666/pacman500> |
@@ -1120,18 +1077,19 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Paku Paku | Pac-Man | ? | Pascal | Custom | playable · fertig | ? | <https://www.classicdosgames.com/game/Paku_Paku.html> |
 | Pang Zero 💤 | Buster Bros. | ? | Perl / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/pangzero/> |
 | Pendomotion | Locomotion (Amiga 1992) | ? | Python / pygame | As-is | early · letzter Push 2022-12 | ? | <https://github.com/Pafycio/Pendomotion> |
-| Penny Arcade Disassembly | Penny Arcade | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-penny-arcade/> |
-| Percy the Potty Pigeon disassembly | Percy the Potty Pigeon | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-03 | ? | <https://github.com/pobtastic/percythepottypigeon> |
+| Penny Arcade – Weg denkbar | Penny Arcade | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
+| Percy the Potty Pigeon – Weg denkbar | Percy the Potty Pigeon | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Pesterminator 💤 | Pesterminator: The Western Exterminator | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/Pesterminator> |
 | Phantomas PC 💤 | Phantomas, Phantomas 2 | frei (Freeware) | C | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://web.archive.org/web/20080511014156/http://www.phantomaspc.org/down.html> |
-| Phantoms Five Disassembly | Phantoms Five | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-phantoms-five/> |
+| Phantoms Five – Weg denkbar | Phantoms Five | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Phavon 💤 | Xenon 2 Megablast | ja | C / SDL | GPL2 | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/phavon/> |
-| Pitfall! Disassembly | Pitfall! | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/pitfall.asm> |
+| Pitfall! – Weg denkbar | Pitfall! | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | PlanetaryDefense | Planetary Defense | ? | Assembly | PD | playable · letzter Push 2025-07 | ? | <https://github.com/scttgs0/PlanetaryDefense> |
 | Pooyan | Pooyan | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/jotd666/pooyan> |
 | POSTAL-SourceCode | Postal | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2025-05 | ? | <https://github.com/RWS-Studios/POSTAL-SourceCode> |
 | Prehistorik_js 💤 | Prehistorik | ja | C / SDL2 | As-is | WIP (teilw. spielbar) · archiviert, dead (2022) | ? | <https://github.com/cyxx/prehistorik_js> |
 | Prince of Persia (JS) - princejs.com | Prince of Persia | frei (Freeware) | JavaScript / Phaser | Unlicense | playable · letzter Push 2026-05 | ? | <https://github.com/oklemenz/PrinceJS> |
+| Prince of Persia – Weg denkbar | Prince of Persia | frei (Freeware) | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Prince-Monogame | Prince of Persia 2 | ? | C# / MonoGame, OpenGL, OpenTK, SDL2 | GPL2 | playable · letzter Push 2026-08 | ? | <https://github.com/salvadorc17/Prince-Monogame> |
 | Privateer - Gemini Gold 💤 | Wing Commander: Privateer | ? | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/privateer/> |
 | Project Carrot 💤 | Jazz Jackrabbit 2 | ? | C++ / Qt, SFML | MIT | WIP (teilw. spielbar) · dead (letzter Push 2017-08) | ? | <https://github.com/soulweaver91/project-carrot> |
@@ -1144,10 +1102,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | pyspaceinvaders 💤 | Space Invaders | ? | Python / pygame | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2010-04) | ? | <https://github.com/map0logo/pyspaceinvaders> |
 | PyTouhou 💤 | Touhou | ja | Python / SDL2 | GPL3 | playable · eingestellt | ? | <https://hg.linkmauve.fr/touhou> |
 | QB64 | Gorillas, Nibbles | frei (Freeware) | C / OpenGL | MIT | playable · letzter Push 2023-10 | ? | <https://github.com/QB64Official/qb64> |
-| QuackShot Disassembly | QuackShot | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/764/> |
+| QuackShot – Weg denkbar | QuackShot | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | R.E.L.I.V.E. | Oddworld: Abe's Oddysee, Oddworld: Abe's Exoddus | ja | C++ / SDL2 | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/AliveTeam/alive_reversing> |
 | RAID2020 💤 | Raid 2020 | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/RAID2020> |
-| Rampage disassembly | Rampage | ? | Skool | As-is | playable · letzter Push 2025-01 | ? | <https://github.com/pobtastic/rampage> |
+| Rampage – Weg denkbar | Rampage | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Rampart-Android 💤 | Rampart | ? | Java | As-is | early · dead (letzter Push 2015-05) | ja | <https://github.com/dwmai/Rampart-Android> |
 | Raptor | Raptor: Call of the Shadows | ja | C | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/skynettx/raptor> |
 | Raptor (JS) 💤 | Raptor: Call of the Shadows | frei (Freeware) | JavaScript | As-is | WIP (teilw. spielbar) · dead (letzter Push 2012-07) | ? | <https://github.com/robgietema/raptor> |
@@ -1156,10 +1114,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | rawgl 💤 | Another World | ja | C++ / SDL2 | As-is | playable · archiviert, dead (2025) | ? | <https://github.com/cyxx/rawgl> |
 | re-Sonic06Demo | Sonic '06 | ja | C++ | As-is | WIP (teilw. spielbar) · letzter Push 2026-02 | ? | <https://github.com/PranchaD/re-Sonic06Demo> |
 | realice ᴬ | Heavy Metal: F.A.K.K. 2, American McGee's Alice | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2026-02 | ? | <https://github.com/FWGS/realice> |
-| ReC98 | Touhou | ja | Assembly, C++ | As-is | playable · letzter Push 2026-03 | ? | <https://github.com/nmlgc/ReC98> |
-| Reconstructed BioMenace Source Code | Bio Menace | ja | C, Assembly | As-is | playable · sporadisch | ? | <https://pckf.com/viewtopic.php?p=111897> |
-| Reconstructed Commander Keen 1-3 💤 | Commander Keen Series | ja | C++, Assembly | As-is | playable · eingestellt | ? | <https://pckf.com/viewtopic.php?t=18248> |
-| Reconstructed Commander Keen 4-6 | Commander Keen Series | ja | C, Assembly | GPL2 | playable · letzter Push 2023-10 | ? | <https://github.com/sparky4/keen4-6> |
 | Reconstruction of Super ZZT | Super ZZT | ? | Pascal | MIT | playable · letzter Push 2025-06 | ? | <https://github.com/asiekierka/reconstruction-of-super-zzt> |
 | Reconstruction of ZZT | ZZT | ? | Pascal | MIT | playable · letzter Push 2025-06 | ? | <https://github.com/asiekierka/reconstruction-of-zzt> |
 | Redguard Unity | The Elder Scrolls Adventures: Redguard | ja | C# / Unity | MIT | early · letzter Push 2026-06 | ? | <https://github.com/RGUnity/redguard-unity> |
@@ -1168,105 +1122,92 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | REminiscence / REinforced | Flashback | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2026-07 | ? | <https://github.com/chermenin/REminiscence> |
 | Rescue! Max | Rescue! | ? | Java | GPL3 | playable · sporadisch | ? | <https://sourceforge.net/projects/rescue/> |
 | Return of Dr. Destructo 💤 | Destructo | ? | C++ / Allegro | MIT | playable · dead (letzter Push 2021-01) | ja | <https://github.com/MaxSavenkov/drdestructo2> |
-| Rex disassembly 💤 | Rex | ? | Skool | As-is | playable · dead (letzter Push 2021-11) | ? | <https://github.com/ultrabolido/skRex> |
+| Rex – Weg denkbar | Rex | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | RickyD 💤 | Rick Dangerous | ? | C++ / SDL2 | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/rickyd/> |
-| Riddle of the Sphinx Disassembly | Riddle of the Sphinx | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/riddle-pal.asm> |
+| Riddle of the Sphinx – Weg denkbar | Riddle of the Sphinx | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Rigel Engine | Duke Nukem II | ja | C++ / SDL2 | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/lethal-guitar/RigelEngine> |
 | River Raid (VHDL) 💤 | River Raid | ? | VHDL | As-is | WIP (teilw. spielbar) · dead (letzter Push 2020-01) | ? | <https://github.com/SadraSamadi/river-raid> |
-| River Raid Disassembly | River Raid | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/RiverRaid.asm> |
+| River Raid – Weg denkbar | River Raid | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | River/Covid Raid 2020 💤 | River Raid | frei (Freeware) | Python / pygame | GPL3 | playable · dead (letzter Push 2020-07) | ? | <https://github.com/masoudhassani/river_raid> |
 | Robotron 💤 | Robotron: 2084 | ? | JavaScript | As-is | playable · dead (letzter Push 2014-12) | ? | <https://github.com/Ernir/robotron> |
 | Rocks'n'Diamonds | Boulder Dash, Emerald Mine, Sokoban, Supaplex | frei (Freeware) | C / SDL2 | GPL2 | playable · aktiv | ? | <https://git.artsoft.org/rocksndiamonds.git/> |
 | Roton | Super ZZT, ZZT | ? | C# / .NET, SDL2 | ISC | playable · letzter Push 2026-10 | ? | <https://github.com/SaxxonPike/roton> |
-| RSDKv2 Decompilation | Sonic Nexus | ja | C++ / SDL2 | Custom | playable · letzter Push 2026-07 | ? | <https://github.com/RSDKModding/RSDKv2-Decompilation> |
-| RSDKv3 | Sonic CD | ja | C++ / SDL2 | Custom | playable · letzter Push 2026-08 | ja | <https://github.com/RSDKModding/RSDKv3-Decompilation> |
-| RSDKv4-Decompilation | Sonic the Hedgehog, Sonic 2 | ja | C++ / SDL, SDL2 | Custom | playable · letzter Push 2026-09 | ja | <https://github.com/RSDKModding/RSDKv4-Decompilation> |
 | Ruby Raid 💤 | River Raid | ? | Ruby | As-is | early · dead (letzter Push 2010-08) | ? | <https://github.com/zukunftsalick/ruby-raid> |
 | RuZZT 💤 | ZZT | ? | Rust / SDL2 | MIT | playable · dead (letzter Push 2019-08) | ? | <https://github.com/yokljo/ruzzt> |
-| s1disasm | Sonic the Hedgehog | ja | Assembly | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/sonicretro/s1disasm> |
-| s2disasm | Sonic 2 | ja | Assembly | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/sonicretro/s2disasm> |
 | S2HD | Sonic 2 | ja | C# | As-is | WIP (teilw. spielbar) · letzter Push 2026-08 | ja | <https://github.com/SonicOrcaModding/S2HD> |
-| s2smsdisasm 💤 | Sonic the Hedgehog 2 (8-bit video game) | ja | Assembly | As-is | playable · dead (letzter Push 2013-12) | ? | <https://github.com/sonicretro/s2smsdisasm> |
-| s3ddisasm 💤 | Sonic 3D Blast | ja | Assembly | As-is | playable · dead (letzter Push 2013-12) | ? | <https://github.com/sonicretro/s3ddisasm> |
-| sadx_decomp 💤 | Sonic Adventure | ja | C | As-is | early · archiviert, dead (2013) | ? | <https://github.com/FraGag/sadx_decomp> |
 | SDL Bomber 💤 | Bomberman | ? | C / SDL | GPL2 | playable · eingestellt | ? | <https://www.linuxmotors.com/linux/SDL_bomber/downloads/> |
 | SDL2-Space-Invaders 💤 | Space Invaders | ? | C++ / SDL2 | MIT | playable · archiviert, dead (2018) | ? | <https://github.com/toivjon/sdl2-space-invaders> |
-| SDLPoP | Prince of Persia | frei (Freeware) | C / SDL2 | GPL3 | playable · letzter Push 2025-12 | ? | <https://github.com/NagyD/SDLPoP> |
 | Sea-Wolf | Sea Wolf | frei (Freeware) | JavaScript / Phaser | MIT | playable · letzter Push 2023-02 | ? | <https://github.com/DanJP2016/Sea-Wolf> |
 | SeaDefender | Seaquest | frei (Freeware) | GDScript / Godot | As-is | playable · letzter Push 2023-06 | ? | <https://github.com/HelamanWarrior/SeaDefender> |
 | Secret Agent Remake 💤 | Secret Agent | frei (Freeware) | Java / OpenGL | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://sourceforge.net/projects/secretagentremake/> |
 | SecretScout 💤 | Secret Scout in the Temple of Demise | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/SecretScout> |
 | Shadow of the Blitz 💤 | Shadow of the Beast | frei (Freeware) | C / SDL | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://glop.org/sotb/> |
-| Shadow of the Colossus Decompilation Project | Shadow of the Colossus | ja | C | MIT | WIP (teilw. spielbar) · letzter Push 2026-03 | ? | <https://github.com/Fantaskink/SOTC> |
+| Shadow of the Colossus – Weg denkbar | Shadow of the Colossus | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: derzeit kein sauberer Quest-Weg (Emulation dieser Konsole auf ARM64 nicht praktikabel); offizielle Fassung am Flachbild. |
 | shadow-of-the-beast-html5 | Shadow of the Beast | ? | JavaScript / PandaJS | Apache | early · letzter Push 2025-10 | ? | <https://github.com/spleennooname/shadow-of-the-beast-html5> |
 | shadowgrounds | Shadowgrounds: Survivor | ? | C++ | Custom | early · letzter Push 2024-09 | ? | <https://github.com/vayerx/shadowgrounds> |
 | Shamus | Shamus | frei (Freeware) | Rust / macroquad | MIT | WIP (teilw. spielbar) · letzter Push 2023-06 | ? | <https://github.com/denix666/shamus> |
 | Shobon no Action (Modified) 💤 | Shobon no Action | frei (Freeware) | C++ / DxLib | Custom | playable · eingestellt | ? | <https://yaruki0.net/programs/action.html> |
-| silent-hill-decomp | Silent Hill | ja | C | As-is | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/Vatuu/silent-hill-decomp> |
-| skcollectioncport | Sonic 3, Sonic & Knuckles | ja | C | CC0 | playable · aktiv | ? | <https://git.sr.ht/~benoitren/skccport> |
+| Silent Hill – Weg denkbar | Silent Hill | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | SkiFree 💤 | SkiFree | ? | C | As-is | playable · eingestellt | ? | <https://www.ticalc.org/archives/files/fileinfo/216/21605.html> |
-| Skifree Decompilation Project | SkiFree | ja | Assembly, C | As-is | playable · letzter Push 2022-12 | ? | <https://github.com/yuv422/skifree_decomp> |
+| SkiFree – Weg denkbar | SkiFree | ja | Assembly, C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | Skifree-HTML5-clone 💤 | SkiFree | ? | JavaScript | GPL3 | WIP (teilw. spielbar) · dead (letzter Push 2011-01) | ? | <https://github.com/andymason/Skifree-HTML5-clone> |
 | skifree.js | SkiFree | frei (Freeware) | JavaScript | MIT | WIP (teilw. spielbar) · letzter Push 2026-06 | ? | <https://github.com/basicallydan/skifree.js> |
-| Skool Daze disassembly | Skool Daze | ? | Skool | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/skoolkid/skooldaze> |
+| Skool Daze – Weg denkbar | Skool Daze | ? | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | SLF | Super Lemonade Factory | frei (Freeware) | GDScript / Godot | As-is | early · letzter Push 2024-08 | ? | <https://github.com/initials/SLF> |
 | SliSnake 💤 | Snake | frei (Freeware) | Delphi | GPL3 | playable · dead (letzter Push 2020-09) | ? | <https://github.com/cricri-pingouin/SliSnake> |
 | SliTris | Tetris | frei (Freeware) | Delphi | GPL3 | playable · letzter Push 2024-05 | ? | <https://github.com/cricri-pingouin/SliTris> |
 | Sly Cooper and the Thievius Raccoonus | Sly Cooper and the Thievius Raccoonus | ja | C++ | As-is / CC0-1.0 | early · letzter Push 2026-09 | ? | <https://github.com/TheOnlyZac/sly1> |
 | snake | Snake | ? | Java | WTFPL | playable · letzter Push 2022-04 | ? | <https://github.com/spypunk/snake> |
-| Sonic 1 J2ME Decompilation 💤 | Sonic the Hedgehog | ja | Java | As-is | early · dead (letzter Push 2021-02) | ? | <https://github.com/Iso-Kilo/Sonic-1-J2ME-Decompilation> |
+| Sonic 2 – Weg denkbar | Sonic 2 | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Sonic 3 A.I.R. | Sonic the Hedgehog | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2026-09 | ja | <https://github.com/Eukaryot/sonic3air> |
-| Sonic 3/Sonic & Knuckles Disassembly | Sonic 3, Sonic & Knuckles | ja | Assembly | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/sonicretro/skdisasm> |
-| Sonic Advance 2 | Sonic Advance, Sonic Advance 2 | ja | C, Assembly / SDL2, OpenGL | As-is | WIP (teilw. spielbar) · letzter Push 2026-08 | ? | <https://github.com/SAT-R/sa2> |
-| Sonic Advance 3 | Sonic Advance 3 | ? | C, Assembly | As-is | early · letzter Push 2026-10 | ? | <https://github.com/SAT-R/sa3> |
-| Sonic Adventure DX | Sonic Adventure | ja | C | As-is | early · letzter Push 2024-08 | ? | <https://github.com/doldecomp/sadx> |
-| Sonic CD decompilation | Sonic CD | ja | C | CC0 | playable · sporadisch | ? | <https://git.sr.ht/~benoitren/soniccddecompilation> |
-| Sonic CD Disassembly | Sonic CD | ja | Assembly | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/sonicretro/scddisasm> |
-| Sonic Runners (2015) Decompilation | Sonic Runners | ja | C# / Unity | As-is | playable · letzter Push 2023-09 | ja | <https://github.com/itsmattkc/RunnersDecomp> |
-| Sonic Rush Adventure | Sonic Rush Adventure | ja | C, Assembly | As-is | early · letzter Push 2026-09 | ? | <https://github.com/RushRE/SonicRushAdventure-Decomp> |
-| Sonic-Mania-Decompilation | Sonic Mania | ja | C / SDL2 | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/RSDKModding/Sonic-Mania-Decompilation> |
-| Sonic4Ep1 Decomp | Sonic the Hedgehog 4: Episode I | ja | C# | As-is | early · letzter Push 2025-10 | ? | <https://github.com/fr3dsp/Sonic4Ep1-Decomp> |
+| Sonic 3, Sonic & Knuckles – Weg denkbar | Sonic 3, Sonic & Knuckles | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic 3D Blast – Weg denkbar | Sonic 3D Blast | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Sonic Adventure – Weg denkbar | Sonic Adventure | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
+| Sonic CD – Weg denkbar | Sonic CD | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic Mania – Weg denkbar | Sonic Mania | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic Nexus – Weg denkbar | Sonic Nexus | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic Runners – Weg denkbar | Sonic Runners | ja | C# / Unity | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassung (teils für Android erhältlich); sonst eigener Nachbau der Spiellogik mit eigener Grafik. |
+| Sonic the Fighters – Weg denkbar | Sonic the Fighters | ja | Assembly, C++ | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Arcade-Emulation mit eigenem Abbild (libretro-Core) oder offizielle Neuauflage. |
+| Sonic the Hedgehog 2 (8-bit video game) – Weg denkbar | Sonic the Hedgehog 2 (8-bit video game) | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Sonic the Hedgehog 4: Episode I – Weg denkbar | Sonic the Hedgehog 4: Episode I | ja | C# | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassung (teils für Android erhältlich); sonst eigener Nachbau der Spiellogik mit eigener Grafik. |
+| Sonic the Hedgehog – Weg denkbar | Sonic the Hedgehog | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Sonic the Hedgehog, Sonic 2 – Weg denkbar | Sonic the Hedgehog, Sonic 2 | ja | C++ / SDL, SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic Unleashed – Weg denkbar | Sonic Unleashed | ja | C++ | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: derzeit kein sauberer Quest-Weg (Emulation dieser Konsole auf ARM64 nicht praktikabel); offizielle Fassung am Flachbild. |
 | soniccdrespinned | Sonic CD | ja | C | CC0 | playable · sporadisch | ? | <https://git.sr.ht/~benoitren/soniccdrespinned> |
 | Sopwith 3 💤 | Sopwith | ? | C++ / Allegro | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/sopwith3/> |
 | sopwith_stm3241g_eval 💤 | Sopwith | ? | C | GPL2 | playable · dead (letzter Push 2020-05) | ? | <https://github.com/PavelVPV/sopwith_stm3241g_eval> |
 | SotE | Star Wars: Shadows of the Empire | ja | C | As-is | early · letzter Push 2025-02 | ? | <https://github.com/EltaleLibrarian/SotE> |
-| Soul Reaverse | Legacy of Kain: Soul Reaver | ja | C | CC0 | early · letzter Push 2024-11 | ? | <https://github.com/Mc-muffin/kain2-splatdisasm> |
 | Space Ace IIgs 💤 | Space Ace | frei (Freeware) | Assembly | Zlib | playable · dead (letzter Push 2015-07) | ? | <https://github.com/Olde-Skuul/spaceaceiigs> |
+| Space Eggs – Weg denkbar | Space Eggs | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Space Invaders 1978 | Space Invaders | frei (Freeware) | QuickBASIC | Custom | playable · fertig | ? | <https://web.archive.org/web/20200107094711/https://www.netadelica.com/coding/index.html#:~:text=Space%20Invaders%201978> |
 | Space Invaders Emulator | Space Invaders | frei (Freeware) | C# / .NET, SDL2 | As-is | playable · letzter Push 2026-05 | ? | <https://github.com/Justin-Credible/space-invaders-emulator> |
 | Space Invaders Part II | Space Invaders Part II | frei (Freeware) | C++ / SDL2 | As-is / MIT | playable · letzter Push 2026-02 | ? | <https://github.com/ianmurfinxyz/space_invaders_part_ii> |
-| Space Jockey Disassembly | Space Jockey | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/space_jockey.asm> |
-| SpaceCadetPinball | Full Tilt! Pinball | frei (Freeware) | C++ / SDL2 | MIT | playable · letzter Push 2024-08 | ? | <https://github.com/k4zmu2a/SpaceCadetPinball> |
-| SpaceEggs Disassembly | Space Eggs | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-space-eggs/> |
+| Space Jockey – Weg denkbar | Space Jockey | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | spaceroads 💤 | SkyRoads | ? | C++ / OGRE | As-is | early · dead (letzter Push 2012-09) | ? | <https://github.com/sebhd/spaceroads> |
 | SpaceTwitch 💤 | Tempest | frei (Freeware) | C# / Unity | As-is | WIP (teilw. spielbar) · dead (letzter Push 2014-08) | ? | <https://github.com/KirbyAu2/SpaceTwitch> |
 | Speedball 2 💤 | Speedball 2 | ? | C# | As-is | WIP (teilw. spielbar) · eingestellt | ? | <http://bringerp.free.fr/RE/Speedball2/remake.php5> |
-| Speedy Gonzales: Los Gatos Banditos Disassembly 💤 | Speedy Gonzales: Los Gatos Bandidos | ja | Assembly | As-is / GPL-3.0 | playable · dead (letzter Push 2021-03) | ? | <https://github.com/Yoshifanatic1/Speedy-Gonzales-Los-Gatos-Banditos-Disassembly> |
-| spidey-decomp | Spider-Man | ja | C++ | As-is | early · letzter Push 2026-08 | ? | <https://github.com/krystalgamer/spidey-decomp> |
-| Star Wars: The Arcade Game Disassembly | Star Wars (1983 arcade game) | ? | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/488/> |
+| Spider-Man – Weg denkbar | Spider-Man | ja | C++ | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Fassung per libretro-Core mit eigenem Abbild, PC-Fassung per WinlatorXR. |
+| Star Wars (1983 arcade game) – Weg denkbar | Star Wars (1983 arcade game) | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | star-control2 💤 | Star Control 2 | ? | C++ | MIT | early · dead (letzter Push 2018-11) | ? | <https://github.com/jjimenezg93/star-control2> |
 | Star-Wars-III 💤 | Star Wars (1983 arcade game) | ? | Python | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2014-06) | ? | <https://github.com/abhinandanramesh/Star-Wars-III> |
 | Stardust rebuilt 💤 | Star Dust | ja | Assembly | CC-BY-NC-ND | early · dead (letzter Push 2017-12) | ? | <https://github.com/TheJare/stardust-48k> |
 | StarRaiders | Star Raiders | ja | Assembly | As-is | playable · letzter Push 2025-06 | ? | <https://github.com/lwiest/StarRaiders> |
-| stfdecomp | Sonic the Fighters | ja | Assembly, C++ | As-is | early · letzter Push 2026-02 | ? | <https://github.com/biggestsonicfan/stfdecomp> |
-| stfdisasm | Sonic the Fighters | ja | Assembly | As-is | playable · letzter Push 2024-05 | ? | <https://github.com/biggestsonicfan/stfdisasm> |
+| Street Fighter III: 3rd Strike – Weg denkbar | Street Fighter III: 3rd Strike | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Arcade-Emulation mit eigenem Abbild (libretro-Core) oder offizielle Neuauflage. |
 | Styx | Styx | ? | C++ / Allegro | As-is | playable · fertig | ? | <https://retrospec.sgn.net/info.htm?id=styx&t=g> |
-| Super C Annotated Disassembly | Super Contra | ja | Assembly | As-is | playable · letzter Push 2026-07 | ? | <https://github.com/vermiceli/nes-super-c/> |
 | Super Lemonade Factory 1989 💤 | Super Lemonade Factory | frei (Freeware) | C# / XNA | As-is | playable · dead (letzter Push 2016-01) | ? | <https://github.com/initials/SuperLemonadeFactory1989> |
 | Super Lemonade Factory Part Two 💤 | Super Lemonade Factory Part Two | frei (Freeware) | C# / XNA | As-is | playable · dead (letzter Push 2016-07) | ? | <https://github.com/initials/SuperLemonadeFactoryPartTwo> |
 | Super Methane Brothers 💤 | Super Methane Brothers | ? | C++ | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/methane/> |
 | Super Methane Brothers (homebrew edition) | Super Methane Brothers | ? | C++ | GPL2 | playable · letzter Push 2022-12 | ? | <https://github.com/carstene1ns/super-methane-brothers> |
 | Super-Lemonade-Factory-Pico-8 💤 | Super Lemonade Factory | frei (Freeware) | Lua / PICO-8 | As-is | WIP (teilw. spielbar) · dead (letzter Push 2017-07) | ? | <https://github.com/initials/Super-Lemonade-Factory-Pico-8> |
 | SuperBagman500 | Super Bagman | frei (Freeware) | Assembly | PD | playable · letzter Push 2026-07 | ? | <https://github.com/jotd666/sbagman> |
-| superbomberman | Super Bomberman | ja | Assembly | As-is | playable · letzter Push 2026-07 | ? | <https://github.com/LIJI32/superbomberman> |
-| supercopter_decompiled | Supercopter | ja | Pascal / Borland | As-is | playable · letzter Push 2025-04 | ? | <https://github.com/ergonomy-joe/supercopter_decompiled> |
+| Supercopter – Weg denkbar | Supercopter | ja | Pascal / Borland | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | SuperFoulEgg 💤 | Super Foul Egg | ja | Objective-C / Cocos2d | MIT | playable · dead (letzter Push 2014-03) | ? | <https://github.com/ant512/SuperFoulEgg> |
 | SuperHorrorFactory 💤 | Super Lemonade Factory | frei (Freeware) | C# / XNA | As-is | early · dead (letzter Push 2016-02) | ? | <https://github.com/initials/SuperHorrorFactory> |
-| Surround Disassembly | Surround | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/surround.asm> |
+| Surround – Weg denkbar | Surround | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | SyobonKZ | Shobon no Action | ? | C++ / SDL, SDL3 | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/M0REKZ/SyobonKZ> |
 | Tempest Code Project 💤 | Tempest | ? | Assembly | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://web.archive.org/web/20150929202131if_/http://www.ionpool.net/arcade/tempest_code_project/136002.txt> |
 | temptations | Temptations | frei (Freeware) | C / SDL2 | As-is | playable · letzter Push 2023-08 | ? | <https://github.com/pipagerardo/temptations> |
-| The A-Team Disassembly | The A-Team | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/a-team.asm> |
+| The A-Team – Weg denkbar | The A-Team | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | The Bub's Brothers 💤 | Bubble Bobble | frei (Freeware) | Python / pygame | MIT | playable · eingestellt | ? | <https://sourceforge.net/projects/bub-n-bros/> |
 | The Castles of Doctor Creep | The Castles of Dr. Creep | ? | Assembly | Apache | playable · letzter Push 2023-04 | ? | <https://github.com/Drunella/codc-easyflash> |
 | The Castles of Dr. Creep | The Castles of Dr. Creep | ja | C++ / SDL2 | GPL3 | playable · letzter Push 2022-03 | ? | <https://github.com/segrax/DrCreep> |
@@ -1275,39 +1216,39 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | The Great Escape | The Great Escape | ? | Assembly | As-is | playable · letzter Push 2024-01 | ? | <https://github.com/dpt/The-Great-Escape> |
 | The Great Escape Ported to C | The Great Escape | ? | C | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/dpt/The-Great-Escape-in-C> |
 | The Ur-Quan Masters 💤 | Star Control 2 | teils | C / SDL2 | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/sc2/> |
-| The Way of the Exploding Fist disassembly | The Way of the Exploding Fist | ja | Skool | As-is | playable · letzter Push 2023-10 | ? | <https://github.com/pobtastic/wayoftheexplodingfist> |
+| The Way of the Exploding Fist – Weg denkbar | The Way of the Exploding Fist | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Thrust 💤 | Thrust | ? | C | GPL2 | playable · eingestellt | ? | <https://www.lysator.liu.se/~peda/thrust/src/> |
-| Thrust Disassembly | Thrust | ? | Assembly | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/kieranhj/thrust-disassembly> |
+| Thrust – Weg denkbar | Thrust | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Thunder Force IV Rebirth 💤 | Thunder Force IV | ja | C#, JavaScript / OpenGL, Unity | As-is | WIP (teilw. spielbar) · dead (letzter Push 2015-12) | ? | <https://github.com/Fissuras/tf4r> |
 | TimeCo | Time Commando | ja | C / SDL3 | GPL2 | early · letzter Push 2026-05 | ? | <https://github.com/LBALab/timeco> |
 | Tomb Engine | Tomb Raider | ja | C++ / DirectX | Custom | playable · letzter Push 2026-10 | ? | <https://github.com/TombEngine/TombEngine> |
-| TombaRecomp | Tomba! | ja | TOML | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/mstan/TombaRecomp> |
+| Tomb Raider – Weg denkbar | Tomb Raider | ? | C (GitHub) | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Engine-Nachbauten OpenLara (🥽 Beef Raider XR), OpenTomb oder CroftEngine mit Daten aus eigener Kopie. |
+| Tomb Raider, Tomb Raider II, Tomb Raider III – Weg denkbar | Tomb Raider, Tomb Raider II, Tomb Raider III | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: freie Engine-Nachbauten OpenLara (🥽 Beef Raider XR), OpenTomb oder CroftEngine mit Daten aus eigener Kopie. |
+| Tomba! – Weg denkbar | Tomba! | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
+| Touhou – Weg denkbar | Touhou | ja | Assembly, C++ | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (Windows-Teile); PC-98-Teile per Emulation. |
 | Tower Toppler 💤 | Nebulus | ? | C++ / SDL2 | GPL3 | playable · eingestellt | ? | <https://gitlab.com/roever/toppler/> |
-| TR1X ᴬ | Tomb Raider | ? | C (GitHub) | GPL-3.0 | ? · letzter Push 2026-10 | ? | <https://github.com/LostArtefacts/TR1X> |
 | Train | Vlak | ? | Java / Slick2D | BSD | early · letzter Push 2026-04 | ? | <https://github.com/nenadalm/Train> |
 | Tranzam | Tranz Am | ? | C++ / Allegro | Custom | playable · fertig | ? | <https://retrospec.sgn.net/info.htm?id=tranzam&t=g> |
 | Trashman | Trashman | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2023-11 | ? | <https://github.com/pobtastic/trashman> |
 | Travel With Trashman | Travel with Trashman | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2024-10 | ? | <https://github.com/pobtastic/travelwithtrashman> |
 | Tron | Tron | ? | JavaScript / jQuery | As-is | playable · letzter Push 2022-11 | ? | <https://github.com/momajd/Tron> |
-| TRX | Tomb Raider, Tomb Raider II, Tomb Raider III | ja | C / SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/LostArtefacts/TRX> |
 | twin-e ᴬ | Little Big Adventure | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2025-08 | ? | <https://github.com/LBALab/twin-e> |
 | TwinEngine | Little Big Adventure | ja | C / SDL | GPL2 | playable · letzter Push 2025-08 | ? | <https://github.com/xesf/twin-e> |
 | Tyger 💤 | ZZT | ? | Python / pygame | MIT | WIP (teilw. spielbar) · eingestellt | ? | <https://code.google.com/archive/p/tyger/> |
 | TypeScript Xenon | Xenon 2 Megablast | frei (Freeware) | TypeScript | MIT | WIP (teilw. spielbar) · letzter Push 2026-06 | ? | <https://github.com/ian-wigley/Xenon> |
 | Tyrian Remake | Tyrian | frei (Freeware) | Java | GPL2 | playable · letzter Push 2025-12 | ja | <https://github.com/b3dgs/tyrian-remake> |
 | UGH-remake | Ugh! | ? | C | As-is | playable · fertig | ? | <https://bitbucket.org/Andy51/ugh-remake> |
-| Ultimate Play the Game disassemblies | Alien 8, Atic Atac, Bubbler, Cookie, Cyberun, Gunfright, Knight Lore, Jetpac … (+8 weitere) | ja | Skool | As-is | playable · letzter Push 2024-01 | ? | <https://github.com/pobtastic/ultimate> |
 | Ultra Nibble 💤 | Nibbles | ? | RPL | As-is | playable · eingestellt | ? | <https://www.hpcalc.org/details/603> |
 | UnityPacmania | Pac-Mania | ja | C# / Unity | As-is | playable · letzter Push 2024-05 | ? | <https://github.com/stuart73/UnityPacmania> |
-| UnleashedRecomp | Sonic Unleashed | ja | C++ | GPL3 | playable · letzter Push 2026-06 | ? | <https://github.com/hedge-dev/UnleashedRecomp> |
 | Vectrex-Minestorm 💤 | Mine Storm | ? | Assembly | As-is | playable · dead (letzter Push 2021-11) | ? | <https://github.com/philspil66/Vectrex-Minestorm> |
-| Venture Disassembly | Venture | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/venture.asm> |
+| Venture – Weg denkbar | Venture | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | viper 💤 | Viper | frei (Freeware) | CoffeeScript | As-is | playable · archiviert, dead (2011) | ? | <https://github.com/bjornharrtell/viper> |
 | Vorton 💤 | Highway Encounter | ? | C / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/vorton/> |
 | West Bank | West Bank | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2023-09 | ? | <https://github.com/pobtastic/westbank> |
 | Willow-Game-Remake 💤 | Willow | ? | C++ | As-is | early · dead (letzter Push 2014-11) | ? | <https://github.com/Kwintenvdb/Willow-Game-Remake> |
 | Winblockade | Blockade | frei (Freeware) | C++ | As-is | playable · fertig | ? | <https://web.archive.org/web/20170530140001/http://sven.50webs.org/winblockade.html> |
 | Winter Jumper 💤 | The Great Giana Sisters | ja | C++ / SDL | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://os4depot.net/?function=showfile&file=game/platform/winterjumper.lha> |
+| Wizard of Wor – Weg denkbar | Wizard of Wor | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Wizznic! 💤 | Puzznic | ? | C / SDL | GPL3, Multiple | playable · dead (letzter Push 2021-04) | ? | <https://github.com/DusteDdk/Wizznic> |
 | Xargon (SDL) 💤 | Xargon | frei (Freeware) | C++ / SDL | GPL3 | playable · dead (letzter Push 2015-07) | ? | <https://github.com/Malvineous/xargon> |
 | Xevious1200 | Xevious | frei (Freeware) | C | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/jotd666/xevious> |
@@ -1323,42 +1264,42 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | zSILENCER 💤 | Silencer | ? | C++ / SDL2 | As-is | playable · dead (letzter Push 2020-12) | ? | <https://github.com/zsilencer/zSILENCER> |
 | zztgo 💤 | ZZT | ? | Go | MIT | WIP (teilw. spielbar) · dead (letzter Push 2020-06) | ? | <https://github.com/benhoyt/zztgo> |
 
-## Renn-/Flugsim/Weltraum (104)
+## Renn-/Flugsim/Weltraum (99)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
 | 1972 Star Trek in Python | Star Trek | ? | Python | As-is | playable · fertig | ? | <https://www.hpcalc.org/details/9650> |
 | Amiga Cannonball-C 💤 | Out Run | ja | C / SDL, OpenGL | As-is | playable · dead (letzter Push 2017-07) | ? | <https://github.com/lantus/Cannonball-C> |
+| Atic Atac, Boffin, Citadel, Firetrack, Killer Gorilla, Knight Lore, Monsters, Nightshade … (+8 weitere) – Weg denkbar | Atic Atac, Boffin, Citadel, Firetrack, Killer Gorilla, Knight Lore, Monsters, Nightshade … (+8 weitere) | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | BaconBytes.StarTrek 💤 | Star Trek | ? | C#, BASIC | GPL3 | playable · dead (letzter Push 2017-05) | ? | <https://github.com/IDDemon/BaconBytes.StarTrek/> |
-| Battlezone Disassembly | Battlezone | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/va-battlezone/> |
-| Cannonball | Out Run | ja | C++ / SDL2 | MAME | playable · letzter Push 2023-12 | ? | <https://github.com/djyt/cannonball> |
+| Battlezone – Weg denkbar | Battlezone | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
+| Carmageddon – Weg denkbar | Carmageddon | ja | C / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Carnage3D | Grand Theft Auto | frei (Freeware) | C++ / OpenGL | MIT | early · letzter Push 2026-08 | ? | <https://github.com/codenamecpp/carnage3d> |
 | City_Connection 💤 | City Connection | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/City_Connection> |
 | ClassicStarTrek | Star Trek, Super Star Trek | ? | C | As-is | playable · letzter Push 2022-08 | ? | <https://github.com/codefool/ClassicStarTrek> |
 | Crazy Cars | Crazy Cars | ? | BASIC / QB64 | As-is | playable · fertig | ? | <http://crazycarscpc.free.fr/indexEN.htm> |
 | Cro-Mag Rally | Cro-Mag Rally | frei (Freeware) | C / SDL2, OpenGL | CC-BY-NC-SA | playable · letzter Push 2025-09 | ? | <https://github.com/jorio/CroMagRally> |
 | Danger from the Deep | Silent Hunter 4 | ? | C++ / SDL | CC-BY-NC-ND, GPL2 | playable · sporadisch | ? | <https://sourceforge.net/projects/dangerdeep/> |
+| Death Rally – Weg denkbar | Death Rally | ja | Assembly, C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Deathchase 3D | Deathchase | ? | C / SDL | GPL2 | playable · letzter Push 2024-06 | ? | <https://github.com/BachToTheFuture/DeathChase3D> |
-| Dethrace | Carmageddon | ja | C / SDL2 | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/dethrace-labs/dethrace> |
-| Disassemblies of classic BBC Micro games | Atic Atac, Boffin, Citadel, Firetrack, Killer Gorilla, Knight Lore, Monsters, Nightshade … (+8 weitere) | ? | Assembly | As-is | playable · fertig | ? | <https://www.level7.org.uk/miscellany> |
 | donut | The Simpsons: Hit & Run | ja | C++ / SDL2, OpenGL | GPL3 | early · letzter Push 2024-03 | ? | <https://github.com/plowteam/donut> |
-| Dragster-Disassembly 💤 | Dragster | ? | Assembly | As-is | playable · dead (letzter Push 2019-02) | ? | <https://github.com/CelestialAmber/Dragster-Disassembly> |
-| dRally | Death Rally | ja | Assembly, C | MIT | early · letzter Push 2023-07 | ? | <https://github.com/urxp/drally> |
+| Dragster – Weg denkbar | Dragster | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Dreerally 💤 | Death Rally | ja | C / SDL | PD | WIP (teilw. spielbar) · dead (letzter Push 2021-09) | ? | <https://github.com/enriquesomolinos/DreeRally> |
+| Driver 2 – Weg denkbar | Driver 2 | ja | C / SDL, SDL2, OpenGL | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | Elite : Harmless | Elite | frei (Freeware) | Assembly | CC-BY-NC-SA | WIP (teilw. spielbar) · sporadisch | ? | <https://codeberg.org/Kroc/elite-harmless> |
-| Elite Disassembly | Elite | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-elite/> |
+| Elite II – Weg denkbar | Elite II | ? | C / OpenGL | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
+| Elite III – Weg denkbar | Elite III | ja | Assembly, C++ / DirectX | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Elite remake 💤 | Elite | ? | C | As-is | playable · eingestellt | ? | <http://polarelephant.blogspot.co.uk/2007/10/elite-remake.html> |
+| Elite – Weg denkbar | Elite | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Elite-A | Elite | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/markmoxon/elite-a-source-code-bbc-micro> |
 | Elite: The New Kind 💤 | Elite | frei (Freeware) | C / DirectX, Allegro | As-is | playable · dead (letzter Push 2015-10) | ? | <https://github.com/fesh0r/newkind> |
 | EliteGL 💤 | Elite | frei (Freeware) | C / SDL, OpenGL | Custom | playable · dead (letzter Push 2020-11) | ? | <https://github.com/davewongillies/elitegl> |
-| Epoch Disassembly | Epoch | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-epoch/> |
+| Epoch – Weg denkbar | Epoch | frei (Freeware) | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | F-1 Spirit 💤 | F-1 Spirit | frei (Freeware) | C++ / SDL | GPL2 | playable · dead (letzter Push 2021-08) | ? | <https://github.com/ptitSeb/f1spirit> |
-| F-15 Strike Eagle 2 source code reconstruction | F-15 Strike Eagle II | ja | C, Assembly | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/neuviemeporte/f15se2-re> |
+| F-15 Strike Eagle II – Weg denkbar | F-15 Strike Eagle II | ja | C, Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | F1-Spirit Remake ᵂ | F-1 Spirit | ? | ? | ? | ? · ? | ? | <https://web.archive.org/web/20110724083345/http://www.braingames.getput.com/f1spirit/> |
-| FFED3D 💤 | Elite III | ja | Assembly, C++ / DirectX | As-is | playable · dead (letzter Push 2016-01) | ? | <https://github.com/corpsofengineers/ffed3d> |
+| Fatal Racing – Weg denkbar | Fatal Racing | frei (Freeware) | C, Zig / SDL3 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Frontier 1337 | Elite II | ? | C | As-is | playable | ? | <https://www.txori.com/?static2/frontier> |
-| glFFE | Elite III | ja | C, Assembly / SDL, OpenGL | As-is | playable · fertig | ? | <https://web.archive.org/web/20211123060910/https://nic.dnsalias.com/FFE.html> |
-| GLFrontier 💤 | Elite II | ? | C / OpenGL | As-is | WIP (teilw. spielbar) · dead (letzter Push 2016-09) | ? | <https://github.com/pcercuei/glfrontier> |
 | GLSpeed | Speed Haste | ja | Pascal, C / OpenGL | GPL2 | playable · letzter Push 2023-06 | ? | <https://github.com/jval1972/Speed> |
 | Gravitar | Gravitar | frei (Freeware) | Assembly | As-is | early · letzter Push 2026-09 | ? | <https://github.com/jotd666/gravitar> |
 | grid-leader 💤 | Pole Position | ? | Python / Panda3D | As-is | early · archiviert, dead (2012) | ? | <https://github.com/jonathanopalise/grid-leader> |
@@ -1367,21 +1308,17 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | hi-octane202x ᴬ | Hi-Octane | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-09 | ? | <https://github.com/woalexan/hi-octane202x> |
 | HoverRace | HoverRace | frei (Freeware) | C++ / SDL2 | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/HoverRace/HoverRace> |
 | HoverX | HoverRace | frei (Freeware) | C++ / SDL2, OpenGL | As-is / GPL-3.0 | playable · letzter Push 2026-06 | ? | <https://github.com/jevans312/HoverX> |
-| Indy 500 Disassembly 💤 | Indy 500 | ? | Assembly | As-is | playable · eingestellt | ? | <https://www.qotile.net/minidig/disassembly/indy_500_pass_01.asm> |
+| Indy 500 – Weg denkbar | Indy 500 | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | IronSeedSharp | Ironseed | ? | C# / SFML | GPL3 | early · fertig | ? | <https://archive.softwareheritage.org/browse/origin/directory/?origin_url=https://bitbucket.org/blueachenar/ironseedsharp> |
 | Javascript Delta | Delta | frei (Freeware) | JavaScript | MIT | WIP (teilw. spielbar) · letzter Push 2025-06 | ? | <https://github.com/jakesgordon/javascript-delta> |
-| JJFFE 💤 | Elite III | ja | Assembly, C++ / SDL | As-is | playable · archiviert, dead (2015) | ? | <https://github.com/videogamepreservation/jjffe> |
-| LEGO Island Decompilation | Lego Island | ja | C++ / DirectX | LGPL3 | playable · letzter Push 2026-09 | ? | <https://github.com/isledecomp/isle> |
-| LEGO Island, portable | Lego Island | ja | C++ / SDL3, OpenGL, DirectX | LGPL3 | playable · letzter Push 2026-10 | ja | <https://github.com/isledecomp/isle-portable> |
+| Lego Island – Weg denkbar | Lego Island | ja | C++ / DirectX | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | libRealSpace | Strike Commander | ja | C++ / SDL2 | As-is | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/remileonard/libRealSpace> |
 | linyaga 💤 | Pajama Sam: Life Is Rough When You Lose Your Stuff!, Putt-Putt: Pep's Birthday Surprise | ja | C, Python / SDL2 | As-is | playable · archiviert, dead (2021) | ? | <https://github.com/cyxx/linyaga> |
-| MacJJFFE 💤 | Elite III | ja | Assembly, C++ / SDL | As-is | playable · eingestellt | ? | <https://web.archive.org/web/20110211062950/http://www.m3fe.com/content/MacJJFFE> |
 | ManiaDrive 💤 | TrackMania | ? | C, PHP | As-is | playable · eingestellt | ? | <https://sourceforge.net/projects/maniadrive/> |
-| NFS Recompiled | Need For Speed II, Need For Speed III: Hot Pursuit | ja | C++ / SDL3 | As-is | playable · letzter Push 2026-03 | ? | <https://github.com/motor-dev/nfs-recompiled> |
+| Need For Speed II, Need For Speed III: Hot Pursuit – Weg denkbar | Need For Speed II, Need For Speed III: Hot Pursuit | ja | C++ / SDL3 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | NFSIISE | Need For Speed II | ja | C / SDL2, OpenGL | MIT | playable · letzter Push 2026-05 | ja | <https://github.com/zaps166/NFSIISE> |
 | O21 | U95 | ja | F# | CC-BY, MIT, OFL, WTFPL | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/ForNeVeR/O21> |
 | Open Horizon | Ace Combat: Assault Horizon | ja | C++ / nya-engine | MIT | WIP (teilw. spielbar) · letzter Push 2022-02 | ? | <https://github.com/undefined-darkness/open-horizon> |
-| Open Test Drive Unlimited | Test Drive Unlimited | ? | C++, C / Vulkan | As-is | early · letzter Push 2026-10 | ? | <https://github.com/opentestdriveunlimited/OpenTestDriveUnlimited> |
 | Open76 💤 | Interstate '76 | ja | C# / Unity | GPL3 | WIP (teilw. spielbar) · dead (letzter Push 2020-04) | ? | <https://github.com/r1sc/Open76> |
 | openBVE ᵂ | BVE Trainsim | ? | ? | Public-domain | playable · fertig | ? | ? |
 | OpenC1 💤 | Carmageddon | ja | C# | Custom | playable · dead (letzter Push 2014-12) | ? | <https://github.com/jeff-1amstudios/OpenC1> |
@@ -1394,6 +1331,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenRW „Open ReWrite“ | Grand Theft Auto III | ja | C++ / SDL2, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-06 | ? | <https://github.com/rwengine/openrw> |
 | OpenSWE1R 💤 | Star Wars Episode I: Racer | ja | C / OpenGL, SDL2 | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2020-01) | ? | <https://github.com/OpenSWE1R/openswe1r> |
 | OpenVice | Grand Theft Auto: Vice City | ja | C# / OpenTK | GPL3 | early · letzter Push 2024-09 | ? | <https://github.com/clashbyte/openvice> |
+| Out Run – Weg denkbar | Out Run | ja | C++ / SDL2 | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Arcade-Emulation mit eigenem Abbild (libretro-Core) oder offizielle Neuauflage. |
 | OutRun CPC 💤 | Out Run | ? | BASIC / QB64 | As-is | WIP (teilw. spielbar) · eingestellt | ? | <http://outruncpc.free.fr/> |
 | OutRun ᴬ | Out Run | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2023-06 | ? | <https://github.com/ZgzInfinity/OutRun> |
 | Powerslide remake | Powerslide | ja | C++ / OGRE, SFML | MIT | WIP (teilw. spielbar) · letzter Push 2026-08 | ja | <https://github.com/dm999/powerslideremake> |
@@ -1402,47 +1340,45 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Quarantine ᴬ | Quarantine | ? | ? | Apache-2.0 | ? · letzter Push 2026-08 | ? | <https://github.com/mattseabrook/Quarantine> |
 | Rally-X | Rally-X | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-09 | ? | <https://github.com/jotd666/rally-x> |
 | Reburn 3 ᴬ | Burnout 3: Takedown | ? | C++ (GitHub) | ? | ? · letzter Push 2024-06 | ? | <https://github.com/reburndev/reburn3> |
-| REDRIVER2 | Driver 2 | ja | C / SDL, SDL2, OpenGL | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/OpenDriver2/REDRIVER2> |
-| Restunts 💤 | Stunts | frei (Freeware) | Assembly, C | As-is | playable · dead (letzter Push 2020-07) | ? | <https://github.com/xor2003/restunts> |
 | Revs on the BBC Micro | Revs | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/markmoxon/revs-source-code-bbc-micro> |
-| Road Rash II Disassembly | Road Rash II | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/722/> |
+| Road Rash II – Weg denkbar | Road Rash II | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | roadfighter | Road Fighter | frei (Freeware) | C++ / SDL, SDL2 | As-is | playable · letzter Push 2022-08 | ? | <https://github.com/ptitSeb/roadfighter> |
-| ROLLER | Fatal Racing | frei (Freeware) | C, Zig / SDL3 | GPL3 | playable · letzter Push 2026-10 | ja | <https://github.com/FatalDecomp/ROLLER> |
 | SanAndreasUnity | Grand Theft Auto: San Andreas | ja | C# / Unity | MIT | playable · letzter Push 2023-06 | ja | <https://github.com/in0finite/SanAndreasUnity> |
-| Sonic Riders (USA) | Sonic Riders | ja | Assembly | As-is | playable · letzter Push 2022-02 | ? | <https://github.com/doldecomp/sonicriders> |
 | Spacewars 💤 | Spacewar! | frei (Freeware) | Rust / Amethyst, SDL2 | CC-BY-NC-ND, CC-BY-NC-SA, GPL3 | playable · dead (letzter Push 2020-05) | ? | <https://github.com/spotzero/spacewars> |
 | Star Castle 2600 | Star Castle | frei (Freeware) | Assembly | As-is | playable · fertig | ? | <https://drive.google.com/open?id=0B8R5I5dM0C45VDExTklneDMzTUU> |
 | Star Trek 1971 for Python | Star Trek | ? | Python | MIT | playable · letzter Push 2022-11 | ? | <https://github.com/cosmicr/startrek1971> |
-| Starmaster Disassembly | Starmaster | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/Starmaster.asm> |
+| Starmaster – Weg denkbar | Starmaster | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | starshatter-open 💤 | Starshatter | ? | C++ | BSD | playable · dead (letzter Push 2015-03) | ? | <https://github.com/Luomu/starshatter-open> |
 | Starship Command 2022 Edition | Starship Command | ? | Assembly | As-is | playable · letzter Push 2024-03 | ? | <https://github.com/TobyLobster/StarshipCommand2022> |
 | Stunt Car Racer 💤 | Stunt Car Racer | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-05) | ? | <https://github.com/kieranhj/scr-beeb> |
 | Stunt Car Racer Remake 💤 | Stunt Car Racer | ? | C++ | As-is | playable · eingestellt | ? | <https://sourceforge.net/projects/stuntcarremake/> |
 | stuntcarremake | Stunt Car Racer | ? | C++ | As-is | playable · letzter Push 2026-01 | ? | <https://github.com/ptitSeb/stuntcarremake> |
 | Stunts 💤 | Stunts | ? | Haskell / LambdaCube | BSD | WIP (teilw. spielbar) · dead (letzter Push 2018-12) | ? | <https://github.com/csabahruska/lambdacube-stunts> |
+| Stunts – Weg denkbar | Stunts | frei (Freeware) | Assembly, C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: DOSBox Pure in XRShell mit eigener Kopie (GOG, Steam oder Original-Datenträger); Skript-Idee: Daten aus der eigenen Kopie mit einem prepare-Skript einsortieren (Muster: Rezept dos-xrshell). |
 | Super Star Trek meets 25th Anniversary | Super Star Trek | ja | AGS Script / Adventure Game Studio | As-is | playable · letzter Push 2025-06 | ? | <https://github.com/emabolo/sst25th> |
 | Supercars III 💤 | Super Cars, Super Cars II | ? | Java | JRL | playable · dead (letzter Push 2020-04) | ? | <https://github.com/jotd666/supercars3> |
 | SuperStarTrek - Perl and LUA ports 💤 | Super Star Trek | ? | Lua, Perl | As-is | playable · dead (letzter Push 2021-06) | ? | <https://github.com/emabolo/superstartrek> |
 | SuperStarTrek25thGMS | Super Star Trek | ja | Game Maker Language / GameMaker Studio | As-is | playable · letzter Push 2026-09 | ja | <https://github.com/JeodC/SuperStarTrek25thGMS> |
 | Teletext Elite | Elite | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/markmoxon/teletext-elite> |
+| Test Drive Unlimited – Weg denkbar | Test Drive Unlimited | ? | C++, C / Vulkan | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | TINY TREK | Tiny Trek | frei (Freeware) | C | As-is | playable · letzter Push 2023-07 | ? | <https://github.com/CoBinee/tinytrek-playdate> |
 | Tiny Trek（Pyxel） | Tiny Trek | ? | Python / Pyxel | As-is | playable · letzter Push 2022-12 | ? | <https://github.com/CoBinee/tinytrek-pyxel> |
 | Tread Marks (SDL2) | Tread Marks | frei (Freeware) | C++ / SDL2, OpenGL, SFML, Qt, OpenAL | GPL3 | playable · letzter Push 2022-02 | ? | <https://github.com/ptitSeb/TreadMarks> |
 | Tube64 | Tube | frei (Freeware) | C++ / SDL2 | GPL2 | playable · letzter Push 2024-03 | ? | <https://github.com/rep-stosw/tube64> |
 | Twisted Metal: Harbor City | Twisted Metal: Black | ja | C | As-is | early · letzter Push 2026-08 | ? | <https://github.com/jacobleeharris/tmhc> |
-| Wheelie disassembly | Wheelie | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2025-09 | ? | <https://github.com/pobtastic/wheelie> |
+| Wheelie – Weg denkbar | Wheelie | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 
-## Sonstiges (158)
+## Sonstiges (156)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
-| 180 disassembly | 180 | ja | Skool | GPL3 | playable · letzter Push 2025-01 | ? | <https://github.com/pobtastic/180> |
+| 180 – Weg denkbar | 180 | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | A Mouse's Vengeance 💤 | Rodent's Revenge | frei (Freeware) | Java | As-is | playable · dead (letzter Push 2017-04) | ? | <https://github.com/maxxboehme/A_Mouses_Vengeance> |
 | Acolyte ᵂ 💤 | GameMaker Studio 1 games | ? | C++ (GitHub) | BSD-3-Clause | ? · dead (letzter Push 2014-02) | ? | <https://github.com/gm-archive/acolyte> |
 | AGE 💤 | Air | ja | ActionScript | MIT | early · dead (letzter Push 2015-06) | ? | <https://github.com/weimingtom/air-galgame-engine> |
 | Airball - 25th Anniversary Revival | Airball | ja | C / SDL | As-is | playable · fertig | ? | <https://oldschoolprg.x10.mx/projets.php#airball> |
 | ArcEngine ᵂ | EverQuest | ? | ? | ? | ? · inaktiv | ? | ? |
-| Art Alive! Disassembly | Art Alive! | ja | Assembly, C | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/720/> |
+| Art Alive! – Weg denkbar | Art Alive! | ja | Assembly, C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | Atomiks 💤 | Atomix | frei (Freeware) | C / SDL2 | GPL3 | playable · eingestellt | ? | <https://sourceforge.net/projects/atomiks/> |
 | aTwin 💤 | TetriNET | ? | C | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/atwin/> |
 | avp ᵂ | Aliens versus Predator (1999) | ? | ? | ? | ? · ? | ? | ? |
@@ -1455,7 +1391,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | chainreaction 💤 | Nuclear Reaction | ? | Java | LGPL3 | playable · dead (letzter Push 2017-06) | ? | <https://github.com/maikmerten/chainreaction> |
 | Chaos Strikes Back ᵂ | Dungeon Master, Chaos Strikes Back, and Dungeon Master II | ? | ? | ? | playable · fertig | ? | ? |
 | Clone Dash | Muse Dash | ja | C# / raylib, SDL3 | MIT | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/marchc1/CloneDash> |
-| Columns Disassembly | Columns | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/727/> |
+| Columns – Weg denkbar | Columns | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | CrystalMines 💤 | Crystal Mines | frei (Freeware) | Assembly | As-is | playable · dead (letzter Push 2021-12) | ? | <https://github.com/Evenball-8bit/CrystalMines> |
 | Deflektor X4 | Deflektor | ? | C / Allegro | As-is | playable · fertig | ? | <https://retrospec.sgn.net/info.htm?id=deflektorx4&t=g> |
 | DejaVu ᵂ | GameMaker Studio 1 games | ? | Rust (GitHub) | MIT, Apache-2.0 | ? · letzter Push 2025-03 | ? | <https://github.com/rpjohnst/dejavu> |
@@ -1469,11 +1405,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | EasyRPG ᵂ | RPG Maker 2000 | ? | ? | GPL | playable · aktiv | ? | ? |
 | Eat the Whistle | Eat The Whistle | ? | C / SDL3 | GPL2 | playable · sporadisch | ? | <https://sourceforge.net/projects/etw/> |
 | ebiten-mines | Minesweeper | frei (Freeware) | Go / Ebitengine | MIT | playable · letzter Push 2024-04 | ? | <https://github.com/mevdschee/ebiten-mines/> |
-| English Translation of Captain Tsubasa 2 | Captain Tsubasa II: Super Striker | ja | Assembly | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/cyneprepou4uk/Captain-Tsubasa-2-English-Translation> |
 | Enigma | Oxyd | ? | C++ / SDL2 | GPL2 | playable · letzter Push 2026-09 | ? | <https://github.com/Enigma-Game/Enigma> |
 | Fill-er-up | Fill 'Er Up | ? | Assembly | PD | playable · letzter Push 2025-07 | ? | <https://github.com/scttgs0/Fill-er-up> |
 | Fish Fillets Reborn | Fish Fillets | frei (Freeware) | C++, Lua | GPL3 | playable · letzter Push 2025-02 | ja | <https://github.com/vasekp/fish-fillets> |
-| FNaF Decomp | Five Nights at Freddy's | ja | C# | As-is | early · letzter Push 2025-10 | ? | <https://github.com/fr3dsp/FNaF-Decomp> |
+| Five Nights at Freddy's – Weg denkbar | Five Nights at Freddy's | ja | C# | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Fassungen (die Reihe hat eigene VR-Spiele im Quest-Store); sonst eigener Nachbau mit eigener Grafik. |
 | Free Hero Mesh | MESH: Hero's Hearts | teils | C / SDL | PD | playable · aktiv | ? | <https://chiselapp.com/user/zzo38/repository/freeheromesh/> |
 | Freekick 3 💤 | Sensible World of Soccer | frei (Freeware) | C++ / SDL | GPL3 | playable · dead (letzter Push 2020-08) | ? | <https://github.com/anttisalonen/freekick3> |
 | Frets on Fire | Guitar Hero | ? | Python | GPL2 | playable · letzter Push 2023-02 | ? | <https://github.com/skyostil/fretsonfire> |
@@ -1484,9 +1419,9 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Gikopoi.com | Gikopoi | ? | TypeScript | Custom | playable · letzter Push 2026-10 | ? | <https://github.com/153/gikopoi3> |
 | Gikopoipoi | Gikopoi | ? | TypeScript | Unlicense | playable · letzter Push 2026-09 | ? | <https://github.com/iccanobif/gikopoi2/> |
 | GtkTetcolor 💤 | Tetcolor | frei (Freeware) | C / GTK | GPL2 | playable · eingestellt | ? | <https://www.ibiblio.org/pub/Linux/games/#:~:text=gtktetcolor> |
-| Hollywood Poker disassembly | Hollywood Poker | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-05 | ? | <https://github.com/pobtastic/hollywoodpoker> |
+| Hollywood Poker – Weg denkbar | Hollywood Poker | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | HyperRogue | Deadly Rooms of Death | teils | C++ / SDL | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/zenorogue/hyperrogue> |
-| Jawbreaker Disassembly | Jawbreaker | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/jaw_breaker.asm> |
+| Jawbreaker – Weg denkbar | Jawbreaker | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Jetrix TetriNET Server 💤 | TetriNET | ? | Java | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/jetrix/> |
 | JOverflow 💤 | Overflow | ? | Java | As-is | early · dead (letzter Push 2012-01) | ? | <https://github.com/bluepoke/JOverflow> |
 | Katawa Shoujo: Re-Engineered | Katawa Shoujo | frei (Freeware) | Python / Ren'Py | MPL | playable · sehr aktiv | ? | <https://codeberg.org/fhs/katawa-shoujo-re-engineered> |
@@ -1509,8 +1444,8 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Mirror Magic 💤 | Deflektor | ? | C | GPL2 | playable · eingestellt | ja | <https://www.artsoft.org/mirrormagic/> |
 | NAGI ᵂ | Adventure Game Interpreter (AGI) engine by Sierra adventure games | ? | ? | ? | ? · ? | ? | ? |
 | NeoLemmix | Lemmings | teils | Delphi / Graphics32 | CC-BY-NC | playable · sehr aktiv | ? | <https://bitbucket.org/namida42/neolemmixplayer/> |
+| NHL '94 – Weg denkbar | NHL '94 | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
 | NHL94 | NHL '94 | ja | Assembly | As-is | early · letzter Push 2025-12 | ? | <https://github.com/abdulahmad/NHL94Genesis> |
-| nhl94-disassembly | NHL '94 | ja | Assembly | GPL3 | early · letzter Push 2026-09 | ? | <https://github.com/Chaos81/nhl94-disassembly> |
 | NHLPA93Genesis | NHLPA Hockey '93 | ja | Assembly | As-is | early · letzter Push 2026-01 | ? | <https://github.com/abdulahmad/NHLPA93Genesis> |
 | Open General ᵂ | Panzer General II | ? | ? | BSD | playable · aktiv | ? | ? |
 | Open Rodent's Revenge 💤 | Rodent's Revenge | ? | C++ / Qt, SFML | MIT | WIP (teilw. spielbar) · dead (letzter Push 2020-11) | ? | <https://github.com/pierreyoda/o2r> |
@@ -1531,7 +1466,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | OpenTriad | Triple Triad | ? | Java | GPL3 | playable · letzter Push 2024-11 | ja (lt. Repo) | <https://github.com/benjaminfoo/OpenTriad> |
 | OpenTS ᵂ | Command & Conquer: Tiberian Sun | ? | C++ (GitHub) | GPLv3 | playable · letzter Push 2026-10 | ? | <https://github.com/OpenTS-Developers/OpenTS> |
 | Orbium | Log!cal | frei (Freeware) | JavaScript | GPL2 | playable · letzter Push 2024-08 | ? | <https://github.com/bni/orbium> |
-| PaRappa the Rapper 2 Decompilation | PaRappa the Rapper 2 | ja | C | As-is | early · letzter Push 2026-09 | ? | <https://github.com/parappadev/parappa2> |
+| PaRappa the Rapper 2 – Weg denkbar | PaRappa the Rapper 2 | ja | C | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: derzeit kein sauberer Quest-Weg (Emulation dieser Konsole auf ARM64 nicht praktikabel); offizielle Fassung am Flachbild. |
 | Pathological 💤 | Log!cal | ? | Python / pygame | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/pathological/> |
 | Phantasma ᵂ | freescape engine used for games like Driller and Castle Master | ? | ? | ? | ? · ? | ? | ? |
 | Pipemania 💤 | Pipe Mania | ? | Lua / LÖVE | As-is | early · dead (letzter Push 2014-02) | ? | <https://github.com/zbiq13/Pipemania> |
@@ -1539,7 +1474,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Python Kye | Kye | frei (Freeware) | Python / GTK | GPL2 | playable · fertig | ? | <http://games.moria.org.uk/kye/download-install> |
 | Pythonista Minesweeper 💤 | Minesweeper | ? | Python / Pythonista | As-is | playable · dead (letzter Push 2021-02) | ? | <https://github.com/mevdschee/pythonista-minesweeper> |
 | QB64 Minesweeper | Minesweeper | ja | BASIC / QB64 | As-is | playable · fertig | ? | <https://qb64forum.alephc.xyz/index.php?topic=455.0> |
-| Red vs. Blue Disassembly | RealSports Football | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/redblue.asm> |
+| RealSports Football – Weg denkbar | RealSports Football | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Reflection Keen ᵂ | Commander Keen in Keen Dreams | ? | ? | GPL | ? · aktiv | ? | ? |
 | ReFlood ᵂ | Flashback: The Quest for Identity | ? | C (GitHub) | GPL | playable · letzter Push 2026-09 | ? | <https://github.com/VonKossa/ReFlood> |
 | RetroLemmini | Lemmings | ja | Java | Apache | playable · letzter Push 2026-09 | ? | <https://github.com/Willicious/RetroLemmini> |
@@ -1555,12 +1490,12 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | SliSame 💤 | SameGame | frei (Freeware) | Delphi | GPL3 | playable · dead (letzter Push 2020-09) | ? | <https://github.com/cricri-pingouin/SliSame> |
 | Snipes | Snipes | frei (Freeware) | C++ / SDL2 | Custom | playable · letzter Push 2024-03 | ? | <https://github.com/Davidebyzero/Snipes> |
 | SokoJS | Box World | frei (Freeware) | JavaScript, HTML | As-is | playable · letzter Push 2025-11 | ? | <https://github.com/michbuze/sokojs> |
-| Sonic-1-2-2013-Decompilation ᵂ | Sonic the Hedgehog (2013) | ? | ? | ? | playable · aktiv | ? | ? |
-| Sonic-CD-11-Decompilation ᵂ | Sonic CD (2011) | ? | ? | ? | playable · aktiv | ? | ? |
-| spindisasm 💤 | Sonic Spinball | ja | Assembly | As-is | playable · dead (letzter Push 2019-11) | ? | <https://github.com/sonicretro/spindisasm> |
+| Sonic CD (2011) – Weg denkbar | Sonic CD (2011) | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
+| Sonic Spinball – Weg denkbar | Sonic Spinball | ja | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Mega-Drive-/Master-System-Emulation mit eigenem Abbild (libretro-Core in XRShell, Bildschirm-Modus). |
+| Sonic the Hedgehog (2013) – Weg denkbar | Sonic the Hedgehog (2013) | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: offizielle Neuauflagen am Flachbild; Konsolen-Fassungen per libretro-Core mit eigenem Abbild. |
 | splexhd 💤 | Supaplex | ? | C++ / SDL, OpenGL | GPL2 | early · dead (letzter Push 2020-11) | ? | <https://github.com/radu124/splexhd> |
-| Splitting Images/ Split Personalities disassembly | Split Personalities | ja | Skool | GPL3 | WIP (teilw. spielbar) · letzter Push 2025-01 | ? | <https://github.com/pobtastic/splittingimages> |
-| Stellar 7 Disassembly | Stellar 7 | ? | Assembly | As-is | playable · fertig | ? | <https://6502disassembly.com/a2-stellar7/> |
+| Split Personalities – Weg denkbar | Split Personalities | ja | Skool | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
+| Stellar 7 – Weg denkbar | Stellar 7 | ? | Assembly | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: Emulation mit eigener Kopie (libretro-Core in XRShell, Bildschirm-Modus). |
 | Styx Remastered | Styx (Windmill) | ? | Assembly, C | GPL2 | playable · fertig | ? | <https://www.digger.org/download.html#:~:text=source%20code%20for%20-,Styx%20remastered> |
 | Supaxl | Supaplex | frei (Freeware) | JavaScript / PixiJS | MIT | playable · letzter Push 2022-12 | ? | <https://github.com/eguneys/supaxl> |
 | SuperLemmini 💤 | Lemmings | ja | Java | Custom | playable · eingestellt | ? | <https://www.lemmingsforums.net/index.php?topic=1793.0> |
@@ -1575,11 +1510,10 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | TI-Minesweeper | Minesweeper | frei (Freeware) | C | As-is | playable · fertig | ? | <https://www.ticalc.org/archives/files/fileinfo/138/13840.html> |
 | Tile World 💤 | Chip's Challenge | ja | C / SDL | GPL2 | playable · eingestellt | ? | <https://www.muppetlabs.com/~breadbox/software/tworld/> |
 | Tile World 2 | Chip's Challenge | ja | C / SDL, Qt | GPL2 | playable · letzter Push 2026-03 | ? | <https://github.com/SicklySilverMoon/tworld> |
-| Tomb Raider 5 Decompilation Project ᵂ | Tomb Raider classic series | ? | ? | ? | ? · aktiv | ? | ? |
+| Tomb Raider classic series – Weg denkbar | Tomb Raider classic series | ? | ? | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie; für TR1 freie Engine-Nachbauten (OpenLara, 🥽 Beef Raider XR). |
 | Track'N'Field | Track & Field | ? | Assembly | As-is | playable · letzter Push 2026-08 | ? | <https://github.com/jotd666/track_and_field> |
-| TRX – Tomb Raider I & II: Community Edition ᵂ | Tomb Raider classic series | ? | ? | GPLv3 | playable · aktiv | ? | ? |
 | tserver 💤 | TetriNET | ? | Java | As-is | early · eingestellt | ? | <https://sourceforge.net/projects/tserver/> |
-| TsumuLightRecomp | Tsumu Light | ja | TOML | Custom | WIP (teilw. spielbar) · letzter Push 2026-09 | ? | <https://github.com/mstan/TsumuLightRecomp> |
+| Tsumu Light – Weg denkbar | Tsumu Light | ja | TOML | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | turnabout | Turnabout | ? | Elm | As-is | early · letzter Push 2023-03 | ? | <https://github.com/sch/turnabout> |
 | UltraStar Deluxe | SingStar | ? | Pascal, Lua / SDL2 | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/UltraStar-Deluxe/USDX> |
 | US Championship V'ball | V'Ball | frei (Freeware) | Assembly | As-is | playable · letzter Push 2026-07 | ? | <https://github.com/jotd666/us_champ_vball> |
@@ -1592,5 +1526,5 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | xit 💤 | X-It | frei (Freeware) | JavaScript | As-is | playable · dead (letzter Push 2011-12) | ? | <https://github.com/qfel13/xit> |
 | xkanon 💤 | Kanon, Air, sense off, Ribbon2, PureHeart, Lemon ~Kageetei Nostalgia~ | ja | C / GTK | As-is, GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2018-07) | ? | <https://github.com/weimingtom/xkanon_fork> |
 | XP Minesweeper Classic | Minesweeper | frei (Freeware) | Lua / LÖVE | MIT | playable · letzter Push 2026-07 | ? | <https://github.com/Kurtsley/XP-Minesweeper-Classic> |
-| Zuma Portable | Zuma | ja | C++ / SexyAppFramework | Multiple | playable · letzter Push 2026-10 | ja | <https://github.com/kyle-sylvestre/CircleShootApp> |
+| Zuma – Weg denkbar | Zuma | ja | C++ / SexyAppFramework | Grauzone – nicht verlinkt | Hinweis | ? | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: eigener Nachbau der Spiellogik + Grafik und Ton aus eigener Kopie; alternativ die PC-Fassung per WinlatorXR. |
 | Zuma-Deluxe-HD | Zuma | ja | C / SDL2 | MIT | WIP (teilw. spielbar) · letzter Push 2024-12 | ? | <https://github.com/GalaxyShad/Zuma-Deluxe-HD> |

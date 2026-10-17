@@ -4,7 +4,7 @@
 Was es für die Quest (und PC-VR) schon gibt – vor einem neuen Port hier nachsehen, um nichts doppelt zu bauen. What already exists – check here first to avoid duplicate work.
 
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
-„?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
+„?“ = nicht bekannt (nicht: „nein“). „Grauzone – nicht verlinkt“ = es gibt eine Rekonstruktion aus dem Originalprogramm (Dekompilierung, Disassemblierung, Recompilierung) ohne geklärte Rechte; die Kitchen nennt nur einen möglichen sauberen Weg. Erklärung und Bewertung: [README.md](README.md).
 
 **Abschnitte:** Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16) · Standalone Quest (APK) / Weitere native Quest-Ports (Community) (9) · Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10) · Standalone Quest (APK) / Emulatoren / Kino-Bildschirm / Kompatibilitätsschichten (Quest) (8) · Nur PC-VR (Mods/Ports) (23) · Offizielle VR-Remaster (zur Abgrenzung) (10)
 
@@ -15,7 +15,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Beef Raider XR | Tomb Raider 1 (+ Gold) | OpenLara | immersiv 6DoF · Team Beef · SideQuest, GitHub | released; auch PCVR | <https://github.com/Team-Beef-Studios/BeefRaiderXR> |
 | CSVR | Counter-Strike 1.6 | Xash3D / GoldSrc-kompatibel | immersiv 6DoF, MP · Team Beef · SideQuest, GitHub | released | <https://github.com/Team-Beef-Studios/CSVR> |
 | Doom3Quest | Doom 3 + RoE + Lost Mission | dhewm3 + d3wasm, VR aus „Fully Possessed“ | immersiv 6DoF · Team Beef · SideQuest, GitHub | 1.4.x, Repo aktiv Sep 2026 | <https://github.com/Team-Beef-Studios/Doom3Quest> |
-| JK: Dark Forces II (OpenJKDF2) | Jedi Knight: Dark Forces II | OpenJKDF2 | immersiv 6DoF · Team Beef · Patreon/später SideQuest | in Entwicklung (Repo Sep 2026) | <https://github.com/Team-Beef-Studios/OpenJKDF2> |
+| Jedi Knight: Dark Forces II – Weg denkbar | Jedi Knight: Dark Forces II | Rekonstruktion (nicht verlinkt) | – | Hinweis | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: WinlatorXR mit eigener Kopie (GOG, Steam oder Original-Datenträger). |
 | JKXR | Jedi Outcast + Jedi Academy | OpenJK (id Tech 3) | immersiv 6DoF (Lichtschwert) · Team Beef · SideQuest, GitHub | Repo aktiv Sep 2026; auch PCVR | <https://github.com/Team-Beef-Studios/JKXR> |
 | Lambda1VR | Half-Life 1 (+ Addons/Mods) | Xash3D-FWGS | immersiv 6DoF · Team Beef · SideQuest, GitHub | Repo aktiv Sep 2026 | <https://github.com/Team-Beef-Studios/Lambda1VR> |
 | OpenMW XR | Morrowind | OpenMW | immersiv 6DoF · Team Beef · SideQuest/Patreon | in Entwicklung (laut teambeefvr.com, Stand 2026-10-04) | <https://www.teambeefvr.com/> |
@@ -34,7 +34,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Projekt | Spiel | Engine-Basis | Art · Entwickler · Vertrieb | Stand | URL |
 |---|---|---|---|---|---|
 | Generals: Zero Hour XR | C&C Generals + Zero Hour | GPL-Engine (GeneralsZH-Android / GeneralsX / TheSuperHackers) | MR-Tisch (Miniatur), + Ground View · Cesarus85 · GitHub | 1.2.33-xr-preview (Repo 2026-10-03) | <https://github.com/Cesarus85/Generals-Zero-Hour-XR> |
-| HaloCE-Quest-VR | Halo CE (Xbox-Daten) | Halo-CE-Dekompilierung + OpenXR (astromaddie) | immersiv 6DoF, Full-Body-IK, MP · moistman42069 · GitHub | 1.0.1 (code 20), Okt 2026 | <https://github.com/moistman42069/HaloCE-Quest-VR> |
+| Halo CE (Xbox-Daten) – Weg denkbar | Halo CE (Xbox-Daten) | Rekonstruktion (nicht verlinkt) | – | Hinweis | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PC-Fassung mit VR-Mod HaloCEVR (PC-VR); auf der Quest WinlatorXR mit eigener PC-Kopie. |
 | OpenGothic-VR / Gothic-UnZENity | Gothic 2 DNdR (UnZENity: G1+G2) | OpenGothic / eigene Unity-Engine | immersiv 6DoF · JaXt0r (+ Team) · GitHub | v0.2.0 (Quest 3 + PCVR) | <https://github.com/JaXt0r/OpenGothic-VR> |
 | openmw-vr-quest | Morrowind | OpenMW-VR (Sandvei) + gl4es | immersiv 6DoF · tomups (Forks u. a. mmry2940) · GitHub | v1.0 / 0.48.0-45 experimental | <https://github.com/tomups/openmw-vr-quest> |
 | QuestCraft | Minecraft Java | Pojlib + Vivecraft | immersiv 6DoF · QuestCraftPlusPlus · SideQuest, GitHub | 6.0.0 stabil; 26.2-Experiment | <https://github.com/QuestCraftPlusPlus/QuestCraft> |
@@ -49,7 +49,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 |---|---|---|---|---|---|
 | Bugdom VR / Bugdom 2 VR | Bugdom 1/2 | Pangea-Ports | immersiv · SgtBilko76 · GitHub | v1.3.5 / v4.0.1-vr-beta1 | <https://portroyale.online> |
 | CoD4 VR, BF1942 VR, Crysis VR, Far Cry VR, TrackMania NF VR | diverse PC-Spiele | WinlatorXR + Mod | immersiv via Winlator · SgtBilko76 · GitHub | Betas | <https://portroyale.online> |
-| Crash Bandicoot Launcher | Crash Bandicoot | ? (Dekomp./PS1) | ? · SgtBilko76 · GitHub | v2.0.0-beta.1 | <https://portroyale.online> |
+| Crash Bandicoot – Weg denkbar | Crash Bandicoot | Rekonstruktion (nicht verlinkt) | – | Hinweis | Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht. Möglicher Weg: PS1-Emulation mit eigenem Abbild (libretro-Core, Bildschirm-Modus). |
 | Descent 3 VR | Descent 3 | Descent-3-Open-Source (1.5-Patch) | Cockpit, Stereo · SgtBilko76 · GitHub | quest-v0.3-beta | <https://github.com/SgtBilko76/Descent3-VR> |
 | Hurrican 3D | Hurrican (Turrican-Klon) | Hurrican | stereoskopisch 2.5D · SgtBilko76 · GitHub | v1.1.0 | <https://portroyale.online> |
 | Sauerbraten / Xonotic / SuperTuxKart / Extreme Tux Racer / Neverball / VDrift / Speed Dreams / Luanti VR | (Open-Source-Spiele) | jeweilige Engines | immersiv · SgtBilko76 · GitHub | Betas 2026 | <https://portroyale.online> |

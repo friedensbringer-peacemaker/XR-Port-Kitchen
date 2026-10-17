@@ -3,8 +3,9 @@
 *English summary below.*
 
 Dieser Katalog sammelt alles, worauf ein Quest-Port eines klassischen Spiels aufbauen kann:
-Open-Source-Nachbauten von Spiel-Engines, Source-Ports von freigegebenem Quellcode, Dekompilierungen
-und Recompilierungen – und, damit niemand doppelt baut, die VR-Ports, die es schon gibt.
+Open-Source-Nachbauten von Spiel-Engines, Source-Ports von freigegebenem Quellcode, Hinweise zu
+Dekompilierungen und Recompilierungen (ohne Link, siehe „Grauzone – nicht verlinkt“) – und, damit niemand
+doppelt baut, die VR-Ports, die es schon gibt.
 Ziel: Menschen und Agenten sehen auf einen Blick, **was zur Verfügung steht**, und finden über die
 Rezepte der Kitchen heraus, **ob und wie** ein Port geht.
 
@@ -17,7 +18,7 @@ machen – nicht ums Geldverdienen.
 |---|---|
 | [catalog.tsv](catalog.tsv) | **die eine Quelle** – alle Einträge als Tabelle (Tab-getrennt), für Skripte und Agenten |
 | [ENGINES.md](ENGINES.md) | Engine-Nachbauten, die mit den Originaldaten laufen (z. B. OpenRA, OpenTTD, VCMI, Julius), nach Genre |
-| [SOURCE-PORTS.md](SOURCE-PORTS.md) | Source-Ports (Doom, Quake, Descent, FreeSpace 2 …), Dekompilierungen, Recompilierungen |
+| [SOURCE-PORTS.md](SOURCE-PORTS.md) | Source-Ports (Doom, Quake, Descent, FreeSpace 2 …), Hinweise zu Dekompilierungen/Recompilierungen |
 | [VR-PORTS.md](VR-PORTS.md) | was es für die Quest und PC-VR schon gibt (Team Beef, Port Royale, Community …) |
 | [render.py](render.py) | erzeugt die drei .md-Seiten aus `catalog.tsv` |
 
@@ -35,10 +36,20 @@ sh kitchen.sh catalog heroes
 anderen (erst dort mitmachen statt neu bauen) · 💤 = seit 2022 ohne Commit oder eingestellt.
 „?“ heißt „nicht bekannt“, nicht „nein“ – gerade die Android-Spalte ist oft unvollständig.
 
+**Grauzone – nicht verlinkt:** Für das Spiel existiert eine Rekonstruktion aus dem Originalprogramm
+(Dekompilierung, Disassemblierung oder statische Recompilierung), deren Rechtekette nicht geklärt ist – meist
+bei Spielen, die noch verkauft werden. Die Kitchen nennt solche Projekte nicht beim Namen und verlinkt sie nicht.
+Der Eintrag zeigt stattdessen einen **möglichen sauberen Weg** (Spalte „Repo“/„URL“), z. B. eine freie
+Neuimplementierung, DOSBox Pure oder WinlatorXR mit der eigenen Kopie, eine offizielle Mod-Schnittstelle oder einen
+eigenen Nachbau der Spiellogik mit den Originaldaten aus der eigenen Kopie – höchstens mit einer Skript-Idee,
+nie mit Code aus einer Dekompilierung. Nicht betroffen sind offizielle Quellcode-Freigaben (z. B. Doom, Quake,
+EAs GPL-Veröffentlichungen) und seit vielen Jahren geduldete Neuimplementierungen wie OpenTTD oder OpenRCT2.
+
 ## Was bewusst fehlt
 
-- **Nintendo-Spiele** (inkl. aller Decomps/Recomps von Nintendo-Konsolen) – rechtlich besonders heikel,
-  deshalb grundsätzlich nicht in der Kitchen.
+- **Nintendo-Spiele** (inkl. aller Decomps/Recomps/Disassemblierungen von Nintendo-Konsolen – NES, SNES,
+  Game Boy, DS, N64, GameCube) – rechtlich besonders heikel, deshalb grundsätzlich nicht in der Kitchen.
+- **Links auf Dekompilierungen** ohne geklärte Rechte – nur als Hinweis „Grauzone – nicht verlinkt“ (siehe oben).
 - **Projekte auf Basis von geleaktem Code**, **DMCA-gesperrte** Projekte und **unveröffentlichte Prototypen** –
   dafür gibt es keine legal erworbene Kopie.
 - Reine „inspiriert von“-Klone ohne Originaldaten sind nur vereinzelt drin.
@@ -79,15 +90,17 @@ Die .md-Seiten nie von Hand ändern.
 `projekt` · `original` · `plattform` · `sprache` · `lizenz` · `daten` (Originaldaten nötig: ja/teils/frei/?) ·
 `status` · `android` · `url` · `kitchen` · `quest_vr`.
 
+Grauzonen-Einträge: `projekt` = „<Spiel> – Weg denkbar“, `lizenz` = „Grauzone – nicht verlinkt“, `status` = „Hinweis“,
+`url` = Hinweistext „Grauzone: Es existiert eine Rekonstruktion aus dem Originalprogramm; die Kitchen verlinkt sie nicht.
+Möglicher Weg: …“ – ohne Projektnamen oder Adresse der Rekonstruktion.
+
 ## Quellen (Stand 2026-10-04)
 
 [osgameclones.com](https://osgameclones.com/) (Rohdaten [opengaming/osgameclones](https://github.com/opengaming/osgameclones), Typ „remake“) ·
 [awesome-game-remakes](https://github.com/radek-sprta/awesome-game-remakes) ·
 Wikipedia: [List of game engine recreations](https://en.wikipedia.org/wiki/List_of_game_engine_recreations),
 [List of commercial video games with available source code](https://en.wikipedia.org/wiki/List_of_commercial_video_games_with_available_source_code) ·
-[readonlymemo.com](https://readonlymemo.com/decompilation-projects-and-n64-recompiled-list/) ·
-[heldgames.com](https://heldgames.com/guides/recompiled-games-list) ·
-[awesome-game-decompilations](https://github.com/CharlotteCross1998/awesome-game-decompilations) ·
+Übersichten zu Dekompilierungen/Recompilierungen (readonlymemo.com, heldgames.com, awesome-game-decompilations; bewusst nicht verlinkt) ·
 [Team Beef](https://www.teambeefvr.com/) · [Port Royale](https://portroyale.online) · [SideQuest](https://sidequestvr.com).
 Der letzte Commit je GitHub-Projekt wurde am 2026-10-04 über die GitHub-API abgefragt; Android- und Statusangaben
 stammen teils aus den Quellen und sind nicht einzeln geprüft.
@@ -97,10 +110,13 @@ stammen teils aus den Quellen und sind nicht einzeln geprüft.
 ## English summary
 
 This catalog lists everything a Quest port of a classic game can build on: open-source engine
-re-implementations, source ports of released code, decompilations/recompilations, and the VR ports that
+re-implementations, source ports of released code, notes on decompilations/recompilations, and the VR ports that
 already exist (so nobody builds the same thing twice). Search it with `kitchen catalog <keyword>`;
 `catalog.tsv` is the single source of truth, `render.py` regenerates the pages. Nintendo titles, leaked-code
-projects, DMCA-affected projects and unreleased prototypes are excluded on purpose. The quick check above
+projects, DMCA-affected projects and unreleased prototypes are excluded on purpose. Reconstructions from the
+original binary (decompilations, disassemblies, recompilations) without a clear chain of rights are marked
+„Grauzone – nicht verlinkt“ (grey area, not linked): the catalog names a possible clean route instead (free
+re-implementation, DOSBox Pure/WinlatorXR with your own copy, official mod interface, own re-creation). The quick check above
 (exists already? alive? licence? legal data? technology) and the "route by technology" table point to the
 recipe that serves as a model for a new port. A hobby project – about making old classics playable on the
 Quest, not about money.

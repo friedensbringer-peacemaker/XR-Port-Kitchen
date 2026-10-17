@@ -584,8 +584,8 @@
     "en": "Install the built app on the Quest now?"
   },
   "cat_summary": {
-    "de": "Katalog: {0} Einträge (Engine-Nachbauten, Source-Ports, Decomps, bestehende VR-Ports). Suche: kitchen catalog <Spiel oder Engine>",
-    "en": "Catalog: {0} entries (engine re-implementations, source ports, decomps, existing VR ports). Search: kitchen catalog <game or engine>"
+    "de": "Katalog: {0} Einträge (Engine-Nachbauten, Source-Ports, Decomp-Hinweise ohne Link, bestehende VR-Ports). Suche: kitchen catalog <Spiel oder Engine>",
+    "en": "Catalog: {0} entries (engine re-implementations, source ports, decomp notes (not linked), existing VR ports). Search: kitchen catalog <game or engine>"
   },
   "cat_hits": {
     "de": "{0} Treffer für „{1}“:",
