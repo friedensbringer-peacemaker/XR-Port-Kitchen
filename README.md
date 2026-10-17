@@ -46,7 +46,7 @@ nennt das Upstream-Projekt, seine Lizenz und seine Mitwirkenden an erster Stelle
 Caesar III, [openblack](https://github.com/openblack/openblack) für Black & White,
 [OpenKeeper](https://github.com/tonihele/OpenKeeper) für Dungeon Keeper 2.
 
-**Die ausführliche Liste:** Der [Katalog](catalog/README.md) führt rund 1.850 Open-Source-Engines,
+**Die ausführliche Liste:** Der [Katalog](catalog/README.md) führt rund 1.830 Open-Source-Engines,
 Source-Ports, Dekompilierungen und schon vorhandene VR-Ports mit Lizenz, Stand und Link –
 aufgeteilt in [Engines](catalog/ENGINES.md), [Source-Ports](catalog/SOURCE-PORTS.md) und
 [VR-Ports](catalog/VR-PORTS.md). Eine weitere große Sammlung ist
@@ -273,11 +273,11 @@ nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
 Heroes of Might & Magic II (fheroes2).
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
-**Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.850 Open-Source-Engines,
+**Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.830 Open-Source-Engines,
 Source-Ports, Dekompilierungen und schon vorhandene VR-Ports klassischer Spiele – mit Lizenz,
 Aktivität, Android-Hinweis und Link, dazu eine Schnellprüfung „geht ein Port?“ und der passende Weg
 je Technik. Durchsuchen mit `kitchen catalog <Spiel>`. *(English: [catalog](catalog/README.md) of
-~1,850 engines, source ports, decomps and existing VR ports; search with `kitchen catalog <game>`.)*
+~1,830 engines, source ports, decomps and existing VR ports; search with `kitchen catalog <game>`.)*
 
 **Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 199
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,
