@@ -47,7 +47,9 @@
     { "id": "S3", "title": "Controller als Maus/Gamepad", "actions": ["Skill xr-quest-port"], "done_when": "Partie ohne Tastatur spielbar", "automatable": "manual", "status": "open" },
     { "id": "S4", "title": "VR-Menü (Pflichtumfang)", "actions": ["Skill xr-vr-menu"], "done_when": "Beenden mit Bestätigung, Zeiger ausblendbar", "automatable": "manual", "status": "open" },
     { "id": "S5", "title": "Lebenszyklus", "actions": ["Brille ab/auf, Laden < 5 s je Frame"], "done_when": "kein ANR, Beenden < 10 s", "automatable": "partial", "status": "open" },
-    { "id": "S6", "title": "Bildqualität und Leistung", "actions": ["Skill xr-image-quality"], "done_when": "Text lesbar, Bildrate stabil", "automatable": "partial", "status": "open" }
+    { "id": "S6", "title": "Bildqualität und Leistung", "actions": ["Skill xr-image-quality"], "done_when": "Text lesbar, Bildrate stabil", "automatable": "partial", "status": "open" },
+    { "id": "S7", "title": "Ladebild L1–L8", "actions": ["Skill xr-loading-screen", "Startbild (com.oculus.ossplash), Ladeanzeige an der Stelle des Spielfensters, Restzeit, Systemcheck, Fehlerseite"], "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %", "automatable": "partial", "status": "open" },
+    { "id": "S8", "title": "Fenster verschieben F1–F10", "actions": ["Anfasser-Leiste und Eckbögen, Griff am Rahmen, linker Griff = Fenster folgt der Hand (außer Strategie-Ports mit Zoom links), Haltezeit 0,60 s"], "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick", "automatable": "manual", "status": "open" }
   ],
   "xr_modes": { "screen": "planned", "passthrough": "planned", "tabletop": "planned", "diorama": "unsuitable", "full-vr": "unsuitable" },
   "known_issues": [],
