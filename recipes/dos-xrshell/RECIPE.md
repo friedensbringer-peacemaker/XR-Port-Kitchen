@@ -93,6 +93,8 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 | S5 Tasten und Maus | ohne Tastatur bedienbar | ⬜ Profile ungeprüft |
 | S6 Ton | Effekte und Musik | ⬜ im Headset nur mit snes9x geprüft |
 | S7 Bildqualität | gestochen scharf | ✅ 2026-09-27 (snes9x) |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | 🟨 teilweise (F5/F6) |
 </details>
 
 <details>

@@ -225,6 +225,30 @@
       "done_when": "Karte als Tisch",
       "automatable": "manual",
       "status": "open"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "Referenz-Port des Standards: L1 Startbild, L2–L8 mit Restzeit, Systemcheck und Absturz-Marker gebaut"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "Heute nur Größe: anderer Griff + Stick = Breite/Abstand, dazu Handzoom; Anfasser und Griff am Rahmen fehlen; Strategie-Port, linker Griff bleibt Zoom"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "nicht begonnen"
     }
   ],
   "xr_modes": {

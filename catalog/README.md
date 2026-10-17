@@ -57,13 +57,13 @@ anderen (erst dort mitmachen statt neu bauen) · 💤 = seit 2022 ohne Commit od
 
 | Technik der Basis (Spalte „Sprache/Framework“) | Weg | Vorbild-Rezept |
 |---|---|---|
-| C/C++ mit SDL2/SDL3, Android-Build vorhanden | Android-Build übernehmen, OpenXR-Schicht und VR-Menü einziehen | [openttd](../recipes/openttd/RECIPE.md) (mit PORTING.md), [themehospital-corsixth](../recipes/themehospital-corsixth/RECIPE.md), [xcom-tftd-oxce](../recipes/xcom-tftd-oxce/RECIPE.md) |
-| C/C++ mit SDL2, ohne Android-Build | erst Android/arm64 bauen (NDK, CMake), dann wie oben | [settlers2-rttr](../recipes/settlers2-rttr/RECIPE.md), [warcraft2-wargus](../recipes/warcraft2-wargus/RECIPE.md) |
+| C/C++ mit SDL2/SDL3, Android-Build vorhanden | Android-Build übernehmen, OpenXR-Schicht und VR-Menü einziehen | [openttd](../recipes/openttd/RECIPE.md) (mit PORTING.md), [themehospital-corsixth](../recipes/themehospital-corsixth/RECIPE.md), [xcom-tftd-oxce](../recipes/xcom-tftd-oxce/RECIPE.md), [pharaoh-akhenaten](../recipes/pharaoh-akhenaten/RECIPE.md) (Entwurf) |
+| C/C++ mit SDL2, ohne Android-Build | erst Android/arm64 bauen (NDK, CMake), dann wie oben | [settlers2-rttr](../recipes/settlers2-rttr/RECIPE.md), [warcraft2-wargus](../recipes/warcraft2-wargus/RECIPE.md), [dungeonkeeper-keeperfx](../recipes/dungeonkeeper-keeperfx/RECIPE.md), [zeroad-pyrogenesis](../recipes/zeroad-pyrogenesis/RECIPE.md) (SpiderMonkey, WSL), [aoe2-openage](../recipes/aoe2-openage/RECIPE.md) (Qt/Python ersetzen) – alle Entwurf |
 | C#/.NET (MonoGame/FNA/OpenTK) | .NET für Android, Bild per GL an OpenXR übergeben | [openra-redalert](../recipes/openra-redalert/RECIPE.md) |
 | Godot | Godot 4 mit OpenXR-Plugin, Renderer `gl_compatibility` | – (siehe „Suppe versalzen?“, Abschnitt Godot) |
 | reines DOS-Spiel, keine Engine nötig | DOSBox Pure in XRShell, nur Profil anlegen | [dos-xrshell](../recipes/dos-xrshell/RECIPE.md) (mit PORTING.md) |
 | Windows-only, kein Quellcode | Kompatibilitätsschicht (Winlator-Ansatz) – aufwendig, schwächer | – |
-| Java, Unity, Rust, Lua/LÖVE | Einzelfall; meist deutlich mehr Aufwand | – |
+| Java, Unity, Rust, Lua/LÖVE | Einzelfall; meist deutlich mehr Aufwand | [domination](../recipes/domination/RECIPE.md) (Java mit eigenem Android-Client, Entwurf) |
 | x86-only (AVX, D3D12, Xbox-360-Recomps) | auf der Quest (ARM64) derzeit nicht machbar | – |
 
 Danach: neues Rezept aus `recipes/_template/` anlegen (Regeln in [AGENTS.md](../AGENTS.md), Abschnitt

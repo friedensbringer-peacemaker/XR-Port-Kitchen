@@ -6,12 +6,13 @@ Open-Source-Nachbauten von Spiel-Engines, die mit den Originaldaten des Spiels l
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Strategie/RTS (111) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (65) · Rollenspiel (236) · Adventure (42) · Shooter/FPS (233) · Action/Jump'n'Run (542) · Renn-/Flugsim/Weltraum (105) · Sonstiges (159)
+**Abschnitte:** Strategie/RTS (112) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (66) · Rollenspiel (236) · Adventure (42) · Shooter/FPS (233) · Action/Jump'n'Run (542) · Renn-/Flugsim/Weltraum (105) · Sonstiges (159)
 
-## Strategie/RTS (111)
+## Strategie/RTS (112)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
+| 0 A.D. (Pyrogenesis) 📖 [zeroad-pyrogenesis](../recipes/zeroad-pyrogenesis/RECIPE.md) | 0 A.D. (eigenständiges freies Spiel) | frei (CC BY-SA) | C++, JavaScript / SDL2, OpenGL | GPL2+ (Code), CC BY-SA 3.0 (Daten) | playable · letzter Push 2026-10 | ? | <https://gitea.wildfiregames.com/0ad/0ad> |
 | 7k2 💤 | Seven Kingdoms II: The Fryhtan Wars | ja | C++ / SDL2 | GPL2 | playable · dead (letzter Push 2016-04) | ? | <https://github.com/7k2/7k2> |
 | After Protocol 💤 | Beyond Protocol | frei (Freeware) | Visual Basic .NET | Custom | playable · eingestellt | ? | <https://sourceforge.net/projects/beyondprotocol/> |
 | Age of Empires Free Software Remake ᵂ | Age of Empires | ? | C++ (GitHub) | Apache-2.0 | early · letzter Push 2026-09 | ? | <https://github.com/FolkertVanVerseveld/aoe> |
@@ -63,7 +64,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | MechCommander2HD 💤 | MechCommander 2 | ja | C++ / DirectX | Custom | playable · dead (letzter Push 2015-03) | ? | <https://github.com/Ariemeth/MechCommander2HD> |
 | MegaGlest | Glest | ? | C, C++ | GPL3, CC-BY-SA | playable · letzter Push 2026-06 | ? | <https://github.com/MegaGlest/megaglest-source> |
 | Nether Earth Remake 💤 | Nether Earth | ? | C++ / SDL | As-is | playable · dead (letzter Push 2019-10) | ? | <https://github.com/4ndrej/nether-earth-pc> |
-| openage | Age of Empires, Age of Empires II, Star Wars: Galactic Battlegrounds | ja | C++, Python / SDL, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/SFTtech/openage> |
+| openage 📖 [aoe2-openage](../recipes/aoe2-openage/RECIPE.md) | Age of Empires, Age of Empires II, Star Wars: Galactic Battlegrounds | ja | C++, Python / SDL, OpenGL | GPL3 | WIP (teilw. spielbar) · letzter Push 2026-10 | ? | <https://github.com/SFTtech/openage> |
 | OpenBound | Gunbound | ja | C# / MonoGame | GPL3 | playable · letzter Push 2024-09 | ? | <https://github.com/WickedPeanuts/OpenBound> |
 | OpenBW | StarCraft | ja | C++ | As-is | early · letzter Push 2026-08 | ? | <https://github.com/OpenBW/openbw> |
 | OpenClonk | Clonk | ? | C++ / SDL2, OpenGL, Qt | ISC | playable · letzter Push 2026-04 | ? | <https://github.com/openclonk/openclonk> |
@@ -129,7 +130,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
 | Airline Tycoon | Airline Tycoon | ja | C++ | Custom | playable · letzter Push 2022-12 | ? | <https://github.com/openairlinetycoon/AirlineTycoon> |
-| Akhenaten | Pharaoh | ja | C++, JavaScript / SDL2 | GPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/dalerank/Akhenaten> |
+| Akhenaten 📖 [pharaoh-akhenaten](../recipes/pharaoh-akhenaten/RECIPE.md) | Pharaoh | ja | C++, JavaScript / SDL2 | AGPL3 | playable · letzter Push 2026-10 | ? | <https://github.com/dalerank/Akhenaten> |
 | Augustus | Caesar III | ja | C / SDL2 | AGPL3 | playable · letzter Push 2026-10 | ja (APK im Release) | <https://github.com/Keriew/augustus> |
 | Aviator on the BBC Micro | Aviator | ? | Assembly | As-is | playable · letzter Push 2026-10 | ? | <https://github.com/markmoxon/aviator-source-code-bbc-micro> |
 | CaesarIA 💤 | Caesar III | ? | C++, JavaScript | GPL3 | playable · dead (letzter Push 2017-09) | ? | <https://github.com/dalerank/caesaria-game> |
@@ -151,7 +152,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Honey Town | Story of Seasons series | ? | C# / MonoGame | GPL3 | WIP (teilw. spielbar) · letzter Push 2023-02 | ? | <https://github.com/Greentwip/HoneyTown> |
 | Jactorio | Factorio | ja | C++ / SDL2 | MIT | playable · letzter Push 2026-03 | ? | <https://github.com/jaihysc/Jactorio> |
 | Julius | Caesar III | ja | C / SDL2 | AGPL3 | playable · letzter Push 2026-09 | ja | <https://github.com/bvschaik/julius> |
-| KeeperFX | Dungeon Keeper | ja | C / SDL2 | GPL2 | playable · letzter Push 2026-10 | ? | <https://github.com/dkfans/keeperfx> |
+| KeeperFX 📖 [dungeonkeeper-keeperfx](../recipes/dungeonkeeper-keeperfx/RECIPE.md) | Dungeon Keeper | ja | C / SDL2 | GPL2+ | playable · letzter Push 2026-10 | ? | <https://github.com/dkfans/keeperfx> |
 | keeperfx-linux-alpha ᴬ | Dungeon Keeper | ? | C (GitHub) | GPL-2.0 | ? · letzter Push 2026-10 | ? | <https://github.com/ForkedInTime/keeperfx-linux-alpha> |
 | micropolisJS | SimCity | ? | JavaScript, TypeScript | GPL3 | playable · letzter Push 2025-07 | ? | <https://github.com/graememcc/micropolisJS> |
 | Minecraft-4K-Decompilation | Minecraft 4k | ja | Java | As-is | playable · letzter Push 2026-04 | ? | <https://github.com/CelestialAmber/Minecraft-4K-Decompilation> |
@@ -185,7 +186,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | TVTower | Mad TV | frei (Freeware) | BlitzMax | Custom | playable · letzter Push 2026-09 | ? | <https://github.com/TVTower/TVTower> |
 | Uplink | Uplink | ja | C++ | MIT | early · letzter Push 2026-03 | ? | <https://github.com/AdrUlb/Uplink> |
 
-## Rundenstrategie/4X (65)
+## Rundenstrategie/4X (66)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -199,6 +200,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Chaos Groove 💤 | Chaos: The Battle of Wizards | frei (Freeware) | C++ | As-is | playable · dead (letzter Push 2011-08) | ? | <https://github.com/adamjimenez/ChaosGroove> |
 | Civ2-clone | Civilization II | ja | C# / .NET, raylib | GPL3 | early · letzter Push 2026-08 | ? | <https://github.com/axx0/Civ2-clone> |
 | CivOne 💤 | Civilization | ja | C# | CC0 | early · dead (letzter Push 2021-01) | ? | <https://github.com/SWY1985/CivOne> |
+| Domination 📖 [domination](../recipes/domination/RECIPE.md) | Domination (eigenständiges freies Brettspiel um Gebietseroberung) | frei (Freeware) | Java / Android | GPL3 | playable · letzter Release 2026-08 | ja | <https://sourceforge.net/projects/domination/> |
 | Dopewars BBS Door | Drugwars | ? | C | As-is | playable · fertig | ? | <http://www.bbsdocumentary.com/library/PROGRAMS/DOORS/DOPEWARS/> |
 | DopeWars for Palm OS 💤 | Drugwars | ? | C | As-is | playable · dead (letzter Push 2020-05) | ? | <https://github.com/crummy/dopewars-palm-os> |
 | Eastern Front 1941 | Eastern Front (1941) | ? | TypeScript | MIT | playable · letzter Push 2026-01 | ? | <https://github.com/patricksurry/eastern-front-1941> |
@@ -209,7 +211,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Freestars 💤 | Stars! | ? | C++ | GPL2 | early · eingestellt | ? | <https://sourceforge.net/projects/freestars/> |
 | GLSMAC | Sid Meier's Alpha Centauri | ja | C++ / SDL2, OpenGL | AGPL3 | early · letzter Push 2026-10 | ? | <https://github.com/afwbkbc/glsmac> |
 | Historyline 💤 | History Line: 1914-1918 | ? | C# / Unity | As-is | early · dead (letzter Push 2013-11) | ? | <https://github.com/oliverdb/Historyline> |
-| Jagged Alliance 2 Stracciatella | Jagged Alliance 2 | ? | C++, C | PD | playable · letzter Push 2026-10 | ja | <https://github.com/ja2-stracciatella/ja2-stracciatella> |
+| Jagged Alliance 2 Stracciatella | Jagged Alliance 2 | ? | C++, C | SFI-SCLA (nicht-kommerziell) + PD | playable · letzter Push 2026-10 | ja | <https://github.com/ja2-stracciatella/ja2-stracciatella> |
 | KittenMaxit | Maxit | ? | Java / libGDX | MIT | playable · letzter Push 2022-09 | ? | <https://github.com/ahmetkasif/kmaxit> |
 | LGeneral 💤 | Panzer General | ? | C / SDL | GPL2 | playable · eingestellt | ? | <https://sourceforge.net/projects/lgeneral/> |
 | LibDay 💤 | Liberation Day | ja | C# / Unity | MIT | early · dead (letzter Push 2017-04) | ? | <https://github.com/gitter-badger/LibDay> |

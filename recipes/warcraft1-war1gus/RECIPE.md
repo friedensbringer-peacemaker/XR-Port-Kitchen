@@ -47,6 +47,8 @@ einzeln mit `cd android && ./gradlew assembleWar1gusDebug`. APK:
 | S2 Daten umwandeln | war1gus-quest mit Marker `extracted` | ✅ |
 | S3 Erster Start auf der Quest | Hauptmenü im VR-Fenster | ⬜ |
 | S4 Bedienung | Partie mit Controllern spielbar | ⬜ |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | ⬜ |
 </details>
 
 <details>

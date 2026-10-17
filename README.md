@@ -258,14 +258,19 @@ runs, because its own adb conflicts with the kitchen's).
 | [**Warcraft II**](recipes/warcraft2-wargus/RECIPE.md) | Wargus + Stratagus | ★★★★☆ | ★★★★☆ | ja – Battle.net Edition (GOG)/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 Menü im Headset, VR-Fassung in Arbeit |
 | [**Warcraft: Orcs & Humans**](recipes/warcraft1-war1gus/RECIPE.md) | War1gus + Stratagus | ★★★★☆ | ★★★★☆ | ja – GOG/CD | [xr.wargus](https://github.com/friedensbringer-peacemaker/xr.wargus) | 🟡 gebaut, noch nicht im Headset |
 | [**DOS-Spiele, z. B. Theme Park**](recipes/dos-xrshell/RECIPE.md) | DOSBox Pure + XRShell | ★★★★★ | ★★☆☆☆ | ja – eigene Kopie | [xr.shell](https://github.com/friedensbringer-peacemaker/xr.shell) | 🟡 in Arbeit |
+| [**Dungeon Keeper**](recipes/dungeonkeeper-keeperfx/RECIPE.md) | KeeperFX | ★★★★☆ | ★★★★★ | ja – GOG/Steam/CD | noch nicht veröffentlicht | ⚪ Entwurf (im Headset gespielt, Rezept neu) |
+| [**Pharao + Kleopatra**](recipes/pharaoh-akhenaten/RECIPE.md) | Akhenaten | ★★★★☆ | ★★★★☆ | ja – Steam/GOG/CD | noch nicht veröffentlicht | ⚪ Entwurf |
+| [**0 A.D.**](recipes/zeroad-pyrogenesis/RECIPE.md) | Pyrogenesis | ★★☆☆☆ | ★★★★★ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ Entwurf (Hauptmenü im Headset) |
+| [**Age of Empires II**](recipes/aoe2-openage/RECIPE.md) | openage (eigener Fork) | ★★☆☆☆ | ★★★★☆ | ja – Steam/CD | noch nicht veröffentlicht | ⚪ Entwurf |
+| [**Domination**](recipes/domination/RECIPE.md) | Domination (Java) | ★★★★☆ | ★★★☆☆ | nein – freies Spiel | noch nicht veröffentlicht | ⚪ Entwurf |
 
-🟢 im Headset geprüft · 🟡 in Arbeit · Die Sterne bewerten Portierbarkeit und XR-Potenzial
+🟢 im Headset geprüft · 🟡 in Arbeit · ⚪ Entwurf (Weg, Bausteine und Fallen; Port-Code folgt) · Die Sterne bewerten Portierbarkeit und XR-Potenzial
 getrennt (siehe [Bewertung](#bewertung-zwei-achsen-statt-einer-note)). „Im Headset gespielt“
 bezieht sich auf eine ältere Version; neuere Versionen mit VR-Menüs sind gebaut, aber oft noch
 nicht abgenommen. Die genauen Belege stehen im jeweiligen Rezept.
 
 **Als Nächstes denkbar:** RollerCoaster Tycoon 2 (OpenRCT2), Caesar III (Julius/Augustus),
-Heroes of Might & Magic II (fheroes2), Dungeon Keeper (KeeperFX), Diablo (DevilutionX).
+Heroes of Might & Magic II (fheroes2).
 Neue Rezepte entstehen aus [`recipes/_template/`](recipes/_template/).
 
 **Was gibt es überhaupt?** → [Katalog](catalog/README.md): rund 1.850 Open-Source-Engines,
@@ -274,9 +279,9 @@ Aktivität, Android-Hinweis und Link, dazu eine Schnellprüfung „geht ein Port
 je Technik. Durchsuchen mit `kitchen catalog <Spiel>`. *(English: [catalog](catalog/README.md) of
 ~1,850 engines, source ports, decomps and existing VR ports; search with `kitchen catalog <game>`.)*
 
-**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 178
+**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 199
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,
-Eingabe, Daten, Leistung, Godot, .NET), jeweils mit Ursache, Lösung und betroffenem Port – plus eine Checkliste
+Eingabe, Daten, Leistung, Godot, .NET, Start und Ladeanzeige), jeweils mit Ursache, Lösung und betroffenem Port – plus eine Checkliste
 für jeden neuen Port.
 
 ## Die vier Ebenen

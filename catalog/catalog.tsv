@@ -1,4 +1,5 @@
 bereich	gruppe	projekt	original	plattform	sprache	lizenz	daten	status	android	url	kitchen	quest_vr
+engine	Strategie/RTS	0 A.D. (Pyrogenesis)	0 A.D. (eigenständiges freies Spiel)		C++, JavaScript / SDL2, OpenGL	GPL2+ (Code), CC BY-SA 3.0 (Daten)	frei (CC BY-SA)	playable · letzter Push 2026-10	?	https://gitea.wildfiregames.com/0ad/0ad	zeroad-pyrogenesis	
 engine	Strategie/RTS	7k2	Seven Kingdoms II: The Fryhtan Wars		C++ / SDL2	GPL2	ja	playable · dead (letzter Push 2016-04)	?	https://github.com/7k2/7k2		
 engine	Strategie/RTS	After Protocol	Beyond Protocol		Visual Basic .NET	Custom	frei (Freeware)	playable · eingestellt	?	https://sourceforge.net/projects/beyondprotocol/		
 engine	Strategie/RTS	Age of Empires Free Software Remake ᵂ	Age of Empires		C++ (GitHub)	Apache-2.0	?	early · letzter Push 2026-09	?	https://github.com/FolkertVanVerseveld/aoe		
@@ -50,7 +51,7 @@ engine	Strategie/RTS	mechcommander2	MechCommander 2		C++ / DirectX	BSD2	?	playab
 engine	Strategie/RTS	MechCommander2HD	MechCommander 2		C++ / DirectX	Custom	ja	playable · dead (letzter Push 2015-03)	?	https://github.com/Ariemeth/MechCommander2HD		
 engine	Strategie/RTS	MegaGlest	Glest		C, C++	GPL3, CC-BY-SA	?	playable · letzter Push 2026-06	?	https://github.com/MegaGlest/megaglest-source		
 engine	Strategie/RTS	Nether Earth Remake	Nether Earth		C++ / SDL	As-is	?	playable · dead (letzter Push 2019-10)	?	https://github.com/4ndrej/nether-earth-pc		
-engine	Strategie/RTS	openage	Age of Empires, Age of Empires II, Star Wars: Galactic Battlegrounds		C++, Python / SDL, OpenGL	GPL3	ja	WIP (teilw. spielbar) · letzter Push 2026-10	?	https://github.com/SFTtech/openage		
+engine	Strategie/RTS	openage	Age of Empires, Age of Empires II, Star Wars: Galactic Battlegrounds		C++, Python / SDL, OpenGL	GPL3	ja	WIP (teilw. spielbar) · letzter Push 2026-10	?	https://github.com/SFTtech/openage	aoe2-openage	
 engine	Strategie/RTS	OpenBound	Gunbound		C# / MonoGame	GPL3	ja	playable · letzter Push 2024-09	?	https://github.com/WickedPeanuts/OpenBound		
 engine	Strategie/RTS	OpenBW	StarCraft		C++	As-is	ja	early · letzter Push 2026-08	?	https://github.com/OpenBW/openbw		
 engine	Strategie/RTS	OpenClonk	Clonk		C++ / SDL2, OpenGL, Qt	ISC	?	playable · letzter Push 2026-04	?	https://github.com/openclonk/openclonk		
@@ -111,7 +112,7 @@ engine	Strategie/RTS	Zed Online	Z		C++	GPL3	frei (Freeware)	playable · eingeste
 engine	Strategie/RTS	Zero Hour Reforged ᴬ	Command & Conquer: Generals - Zero Hour		C++ (GitHub)	?	?	? · letzter Push 2026-10	?	https://github.com/olcayseygan/CnCGeneralsZH-Reforged		
 engine	Strategie/RTS	Zod Engine	Z		C++ / SDL	GPL3	?	playable · eingestellt	?	https://sourceforge.net/projects/zod/		
 engine	Aufbau/Wirtschaftssimulation	Airline Tycoon	Airline Tycoon		C++	Custom	ja	playable · letzter Push 2022-12	?	https://github.com/openairlinetycoon/AirlineTycoon		
-engine	Aufbau/Wirtschaftssimulation	Akhenaten	Pharaoh		C++, JavaScript / SDL2	GPL3	ja	playable · letzter Push 2026-10	?	https://github.com/dalerank/Akhenaten		
+engine	Aufbau/Wirtschaftssimulation	Akhenaten	Pharaoh		C++, JavaScript / SDL2	AGPL3	ja	playable · letzter Push 2026-10	?	https://github.com/dalerank/Akhenaten	pharaoh-akhenaten	
 engine	Aufbau/Wirtschaftssimulation	Augustus	Caesar III		C / SDL2	AGPL3	ja	playable · letzter Push 2026-10	ja (APK im Release)	https://github.com/Keriew/augustus		
 engine	Aufbau/Wirtschaftssimulation	Aviator on the BBC Micro	Aviator		Assembly	As-is	?	playable · letzter Push 2026-10	?	https://github.com/markmoxon/aviator-source-code-bbc-micro		
 engine	Aufbau/Wirtschaftssimulation	CaesarIA	Caesar III		C++, JavaScript	GPL3	?	playable · dead (letzter Push 2017-09)	?	https://github.com/dalerank/caesaria-game		
@@ -133,7 +134,7 @@ engine	Aufbau/Wirtschaftssimulation	grenzmark ᴬ	The Settlers II		GDScript (Git
 engine	Aufbau/Wirtschaftssimulation	Honey Town	Story of Seasons series		C# / MonoGame	GPL3	?	WIP (teilw. spielbar) · letzter Push 2023-02	?	https://github.com/Greentwip/HoneyTown		
 engine	Aufbau/Wirtschaftssimulation	Jactorio	Factorio		C++ / SDL2	MIT	ja	playable · letzter Push 2026-03	?	https://github.com/jaihysc/Jactorio		
 engine	Aufbau/Wirtschaftssimulation	Julius	Caesar III		C / SDL2	AGPL3	ja	playable · letzter Push 2026-09	ja	https://github.com/bvschaik/julius		
-engine	Aufbau/Wirtschaftssimulation	KeeperFX	Dungeon Keeper		C / SDL2	GPL2	ja	playable · letzter Push 2026-10	?	https://github.com/dkfans/keeperfx		
+engine	Aufbau/Wirtschaftssimulation	KeeperFX	Dungeon Keeper		C / SDL2	GPL2+	ja	playable · letzter Push 2026-10	?	https://github.com/dkfans/keeperfx	dungeonkeeper-keeperfx	
 engine	Aufbau/Wirtschaftssimulation	keeperfx-linux-alpha ᴬ	Dungeon Keeper		C (GitHub)	GPL-2.0	?	? · letzter Push 2026-10	?	https://github.com/ForkedInTime/keeperfx-linux-alpha		
 engine	Aufbau/Wirtschaftssimulation	micropolisJS	SimCity		JavaScript, TypeScript	GPL3	?	playable · letzter Push 2025-07	?	https://github.com/graememcc/micropolisJS		
 engine	Aufbau/Wirtschaftssimulation	Minecraft-4K-Decompilation	Minecraft 4k		Java	As-is	ja	playable · letzter Push 2026-04	?	https://github.com/CelestialAmber/Minecraft-4K-Decompilation		
@@ -176,6 +177,7 @@ engine	Rundenstrategie/4X	cc94	Sid Meier's Colonization		C++	AGPL3	ja	early · d
 engine	Rundenstrategie/4X	Chaos Groove	Chaos: The Battle of Wizards		C++	As-is	frei (Freeware)	playable · dead (letzter Push 2011-08)	?	https://github.com/adamjimenez/ChaosGroove		
 engine	Rundenstrategie/4X	Civ2-clone	Civilization II		C# / .NET, raylib	GPL3	ja	early · letzter Push 2026-08	?	https://github.com/axx0/Civ2-clone		
 engine	Rundenstrategie/4X	CivOne	Civilization		C#	CC0	ja	early · dead (letzter Push 2021-01)	?	https://github.com/SWY1985/CivOne		
+engine	Rundenstrategie/4X	Domination	Domination (eigenständiges freies Brettspiel um Gebietseroberung)		Java / Android	GPL3	frei (Freeware)	playable · letzter Release 2026-08	ja	https://sourceforge.net/projects/domination/	domination	
 engine	Rundenstrategie/4X	Dopewars BBS Door	Drugwars		C	As-is	?	playable · fertig	?	http://www.bbsdocumentary.com/library/PROGRAMS/DOORS/DOPEWARS/		
 engine	Rundenstrategie/4X	DopeWars for Palm OS	Drugwars		C	As-is	?	playable · dead (letzter Push 2020-05)	?	https://github.com/crummy/dopewars-palm-os		
 engine	Rundenstrategie/4X	Eastern Front 1941	Eastern Front (1941)		TypeScript	MIT	?	playable · letzter Push 2026-01	?	https://github.com/patricksurry/eastern-front-1941		
@@ -186,7 +188,7 @@ engine	Rundenstrategie/4X	FreeLords	Warlords II		Java	GPL2	?	early · eingestell
 engine	Rundenstrategie/4X	Freestars	Stars!		C++	GPL2	?	early · eingestellt	?	https://sourceforge.net/projects/freestars/		
 engine	Rundenstrategie/4X	GLSMAC	Sid Meier's Alpha Centauri		C++ / SDL2, OpenGL	AGPL3	ja	early · letzter Push 2026-10	?	https://github.com/afwbkbc/glsmac		
 engine	Rundenstrategie/4X	Historyline	History Line: 1914-1918		C# / Unity	As-is	?	early · dead (letzter Push 2013-11)	?	https://github.com/oliverdb/Historyline		
-engine	Rundenstrategie/4X	Jagged Alliance 2 Stracciatella	Jagged Alliance 2		C++, C	PD	?	playable · letzter Push 2026-10	ja	https://github.com/ja2-stracciatella/ja2-stracciatella		
+engine	Rundenstrategie/4X	Jagged Alliance 2 Stracciatella	Jagged Alliance 2		C++, C	SFI-SCLA (nicht-kommerziell) + PD	?	playable · letzter Push 2026-10	ja	https://github.com/ja2-stracciatella/ja2-stracciatella		
 engine	Rundenstrategie/4X	KittenMaxit	Maxit		Java / libGDX	MIT	?	playable · letzter Push 2022-09	?	https://github.com/ahmetkasif/kmaxit		
 engine	Rundenstrategie/4X	LGeneral	Panzer General		C / SDL	GPL2	?	playable · eingestellt	?	https://sourceforge.net/projects/lgeneral/		
 engine	Rundenstrategie/4X	LibDay	Liberation Day		C# / Unity	MIT	ja	early · dead (letzter Push 2017-04)	?	https://github.com/gitter-badger/LibDay		
@@ -1668,7 +1670,7 @@ decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompi
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	gta-reversed	GTA San Andreas	Win	C++	Grauzone, Daten nötig		WIP	–	https://github.com/gta-reversed/gta-reversed		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	gta2_re	GTA 2	Win	C++	Grauzone, Daten nötig		WIP	–	https://github.com/CriminalRETeam/gta2_re		
 source-port	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	TRX (TR1X / TR2X)	Tomb Raider I & II (+ Erweiterungen)	Win/DOS	C/SDL2	Grauzone, GOG/Steam-Daten nötig		aktiv	–	https://github.com/LostArtefacts/TRX		
-decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	KeeperFX	Dungeon Keeper	DOS/Win	C	GPL-3, Daten nötig		aktiv	–	https://github.com/dkfans/keeperfx		
+decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	KeeperFX	Dungeon Keeper	DOS/Win	C	GPL-2.0-or-later, Daten nötig		aktiv	–	https://github.com/dkfans/keeperfx	dungeonkeeper-keeperfx	
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	openblack + bw1-decomp	Black & White	Win	C++	GPL-3, Daten nötig		aktiv	–	https://github.com/openblack/openblack		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	OpenDUNE	Dune II	DOS	C	GPL-2, Daten nötig		ruhend	inoffiziell	https://github.com/OpenDUNE/OpenDUNE		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	OpenFodder	Cannon Fodder 1/2	DOS/Amiga	C++/SDL2	GPL-3, Daten nötig (Demo frei)		aktiv	inoffiziell	https://github.com/OpenFodder/openfodder		

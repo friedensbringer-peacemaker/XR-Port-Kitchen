@@ -1,0 +1,222 @@
+{
+  "id": "dungeonkeeper-keeperfx",
+  "title": "Dungeon Keeper via KeeperFX",
+  "title_en": "Dungeon Keeper via KeeperFX",
+  "status": "draft",
+  "last_verified": "2026-10-04 headset (0.3.2-preview.1: Level 2 gewonnen); 0.6.0-preview.1 installiert, ungeprüft",
+  "app": {
+    "id": "xr.dungeonfx",
+    "label": "xr.dungeonfx",
+    "version": "0.6.0-preview.1"
+  },
+  "game": {
+    "name": "Dungeon Keeper",
+    "name_en": "Dungeon Keeper",
+    "platform": "PC/DOS/Windows",
+    "year": 1997,
+    "rights_holder": "Electronic Arts (Bullfrog)",
+    "buy": [
+      "GOG (Dungeon Keeper Gold)",
+      "Steam",
+      "Original-CD"
+    ]
+  },
+  "base": [
+    {
+      "name": "KeeperFX",
+      "url": "https://github.com/dkfans/keeperfx",
+      "license": "GPL-2.0-or-later (Dateiköpfe; LICENSE enthält den GPL-2.0-Text)",
+      "role": "Engine – aus einer Disassemblierung entstanden, laut Upstream inzwischen vollständig neu geschrieben",
+      "ref": "1.4.0"
+    },
+    {
+      "name": "SDL3",
+      "url": "https://github.com/libsdl-org/SDL",
+      "license": "Zlib",
+      "role": "Plattform",
+      "ref": "3.x"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.x"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "<XR-Ordner>/XR-KeeperFX",
+    "note": "noch nicht veröffentlicht"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 5,
+    "base_maturity": 5,
+    "note": "KeeperFX ist seit 2008 aktiv und läuft auf SDL3 mit 64 Bit. Ein Kerker eignet sich ideal als Diorama, die Besessenheit (Ich-Perspektive) sogar für echtes VR. Herkunft offen benannt: KeeperFX entstand aus einer Disassemblierung des Originals; der Code gilt laut Upstream als vollständig neu geschrieben."
+  },
+  "effort": {
+    "with_apk": "30–60 min",
+    "with_apk_en": "30–60 min",
+    "from_source": "2–4 h"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Deine eigene Dungeon-Keeper-Kopie (GOG Gold, Steam oder CD). KeeperFX braucht daraus eine kleine Zahl Originaldateien und die Musik; das Port-Skript stellt den Datenordner zusammen.",
+      "hint_en": "Your own Dungeon Keeper copy (GOG Gold, Steam or CD). KeeperFX needs a small set of original files plus the music; the port script assembles the data folder.",
+      "required": [
+        "DATA",
+        "SOUND",
+        "LEVELS"
+      ],
+      "device_path": "App-intern files/keeperfx (per run-as)",
+      "transfer": "Port-Skript bzw. tar-Weg wie kitchen push mit run-as"
+    },
+    "modules": [
+      "quest-tools",
+      "xr-common",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    },
+    {
+      "id": "innoextract"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Herkunft",
+      "actions": [
+        "Skill xr-port-new-project",
+        "Herkunft (Disassemblierung) offenlegen"
+      ],
+      "done_when": "Lizenz und Herkunft im Rezept benannt",
+      "automatable": "partial",
+      "status": "done"
+    },
+    {
+      "id": "S1",
+      "title": "Panel-App",
+      "actions": [
+        "SDLActivity, deutsches Hauptmenü, Ton"
+      ],
+      "done_when": "Hauptmenü als flaches Fenster",
+      "automatable": "partial",
+      "status": "done"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Bild und Controller",
+      "actions": [
+        "Ausgabe des SDL-Renderers abfangen",
+        "Maus absolut setzen"
+      ],
+      "done_when": "Level im VR-Fenster spielbar",
+      "automatable": "manual",
+      "status": "done",
+      "evidence": "Rückmeldung Nutzer 2026-10-03 (0.2.0-preview.1), Level 2 gewonnen 2026-10-04 (0.3.2-preview.1)"
+    },
+    {
+      "id": "S3",
+      "title": "VR-Menü, Landkarte, Ton",
+      "actions": [
+        "Skill xr-vr-menu",
+        "Musik mit absolutem Pfad"
+      ],
+      "done_when": "Kampagne läuft von Level zu Level, Musik hörbar",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Fixes gebaut"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "L1 Startbild (Startfilm 3–4 s), früher XR-Start per Renderer-Wrap"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "Anfasser und Skalieren ergänzen"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (Griff am Rahmen verschiebt, nur Position)"
+    },
+    {
+      "id": "S4",
+      "title": "Diorama und Besessenheit",
+      "actions": [
+        "Kerker als Tisch",
+        "Ich-Perspektive in VR"
+      ],
+      "done_when": "–",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Forschung"
+    }
+  ],
+  "xr_modes": {
+    "screen": "done",
+    "passthrough": "planned",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "planned"
+  },
+  "known_issues": [
+    "char ist auf ARM vorzeichenlos, der Engine-Code rechnet mit Vorzeichen → -fsigned-char",
+    "Spielzeiger lag nicht unter dem Strahl: die Engine skaliert relative Mausbewegung → Position absolut im Spielthread setzen",
+    "Musik und Sprecher stumm: der Laufzeitordner ist auf Android „.“, der Pfad blieb relativ → absolute Pfade (getcwd)",
+    "Nach einem Sieg wurde die Landkarte übersprungen bzw. blieb stehen – Folge der Menüzustände prüfen",
+    "Randscrollen der Landkarte per Strahl verschiebt die Ansicht von der Fahne weg",
+    "Zweiter Start verhält sich anders (viel globaler Zustand) → Prozess beim Spielende beenden",
+    "Meldungsfenster der Engine sind in der immersiven App unsichtbar → in die Ladeanzeige umleiten"
+  ],
+  "legal": [
+    "GPL-2.0-or-later (alle Dateiköpfe) – verträglich mit dem Apache-2.0-OpenXR-Loader",
+    "Herkunft offen benannt: KeeperFX entstand aus einer Disassemblierung des Originals; laut Upstream ist der Code inzwischen vollständig neu geschrieben, eine Abmahnung ist nicht bekannt",
+    "Spieldaten bringt der Spieler mit (BYOA); die APK enthält keine Originaldateien",
+    "Kein Markenname in App-ID/Label (xr.dungeonfx)"
+  ],
+  "links": {
+    "Upstream": "https://keeperfx.net"
+  }
+}

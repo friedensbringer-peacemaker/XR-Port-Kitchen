@@ -1,0 +1,184 @@
+{
+  "id": "domination",
+  "title": "Domination (Gebietseroberung) als Spieltisch",
+  "title_en": "Domination (territory conquest) as a game table",
+  "status": "draft",
+  "last_verified": "0.1.0 gebaut (2D-Panel), noch nie auf der Quest gelaufen",
+  "app": {
+    "id": "xr.domination",
+    "label": "xr.domination",
+    "version": "0.1.0"
+  },
+  "game": {
+    "name": "Domination",
+    "name_en": "Domination",
+    "platform": "Java / Android",
+    "year": 2004,
+    "rights_holder": "yura.net (freies Spiel, GPL-3.0)",
+    "buy": [
+      "kostenlos (freies Spiel)"
+    ]
+  },
+  "base": [
+    {
+      "name": "Domination",
+      "url": "https://sourceforge.net/projects/domination/",
+      "license": "GPL-3.0",
+      "role": "Spiel, KI, Mobil-Oberfläche und Android-Hülle (Java)",
+      "ref": "SVN-Trunk nach 1.3.5"
+    },
+    {
+      "name": "SwingME / AndroidME / UtilME",
+      "url": "https://sourceforge.net/projects/swingme/",
+      "license": "LGPL-2.1-or-later bzw. LGPL-3.0, AndroidME GPL-2.0-or-later",
+      "role": "UI-Framework und MIDP-Laufzeit auf Android",
+      "ref": "SVN-Trunk"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader (erst Phase 2)",
+      "ref": "–"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "<XR-Ordner>/XR-Domination",
+    "note": "noch nicht veröffentlicht"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 3,
+    "base_maturity": 4,
+    "note": "Freies Java-Brettspiel mit KI und eigenem Android-Client – keine Originaldaten nötig. Phase 1 läuft als 2D-Panel ohne Google-Dienste; der eigentliche Reiz ist Phase 2, der Mixed-Reality-Spieltisch, dafür fehlt noch eine eigene XR-Darstellung."
+  },
+  "effort": {
+    "with_apk": "15 min",
+    "with_apk_en": "15 min",
+    "from_source": "1 h"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Keine eigene Kopie nötig: Karten, Grafik und Ton kommen aus dem freien Upstream-Projekt.",
+      "hint_en": "No own copy needed: maps, graphics and sound come from the free upstream project.",
+      "required": [],
+      "device_path": "in der APK",
+      "transfer": "–"
+    },
+    "modules": [
+      "quest-tools",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "python",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Rechtelage",
+      "actions": [
+        "Skill xr-port-new-project",
+        "Lizenz je Teil, Karten und Ton prüfen"
+      ],
+      "done_when": "GPL-2.0-only-Teil ausgeschlossen, proprietäre SDKs entfernt",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-03"
+    },
+    {
+      "id": "S1",
+      "title": "Android-App als 2D-Panel",
+      "actions": [
+        "eigener Gradle-Aufbau um den unveränderten Upstream",
+        "Google-/Amazon-Dienste entfernen, Fehlerversand abschalten"
+      ],
+      "done_when": "APK startet auf der Quest als Panel, Partie gegen KI",
+      "automatable": "full",
+      "status": "open",
+      "evidence": "gebaut, nie auf der Quest"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "L1 Startbild; L2–L8 erst mit eigener XR-Darstellung"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "L1 gebaut; als 2D-Panel offen, ob das Startbild erscheint"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "erst mit eigener XR-Darstellung"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "nur Fensterleiste von Horizon OS (2D-Panel)"
+    },
+    {
+      "id": "S2",
+      "title": "Mixed-Reality-Spieltisch",
+      "actions": [
+        "eigene XR-Darstellung der Karte als Tisch im Passthrough"
+      ],
+      "done_when": "Partie am Tisch im Raum",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Konzept"
+    }
+  ],
+  "xr_modes": {
+    "screen": "planned",
+    "passthrough": "planned",
+    "tabletop": "planned",
+    "diorama": "unsuitable",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Upstream-Build ist veraltet (Gradle 4, AGP 3, Geschwister-Checkouts) → eigener Gradle-Aufbau, Upstream unverändert und per Herkunftsdatei gepinnt",
+    "SourceForge hat nur SVN – Upstream per HTTP-Revision holen und mit Baum-Hash prüfen",
+    "Eine Hilfsdatei ist GPL-2.0-only (unverträglich mit GPL-3 und Apache-2.0), wird aber nicht genutzt → im Build ausschließen",
+    "Upstream bündelt Werbe-, Play- und Firebase-SDKs → aus der APK entfernen; die Quest hat ohnehin keine Google-Dienste",
+    "Automatischer Fehlerbericht an den Upstream-Server → abschalten"
+  ],
+  "legal": [
+    "GPL-3.0 – verträglich mit dem Apache-2.0-OpenXR-Loader",
+    "Name des bekannten Vorbild-Brettspiels nie in App, Paket oder Texten",
+    "Einzelne mitgelieferte Karten berühren fremde Rechte (Fantasy-Welt, U-Bahn-Plan, Fremdmarke im Kartennamen) – vor Veröffentlichung einer APK weglassen",
+    "Lizenz von Musik/Ton und Grafiken ist im Upstream nicht angegeben – vor Veröffentlichung einer APK klären",
+    "Community-Karten aus dem Netz nicht mitliefern"
+  ],
+  "links": {
+    "Upstream": "https://sourceforge.net/projects/domination/"
+  }
+}

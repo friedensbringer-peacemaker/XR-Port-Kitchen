@@ -83,6 +83,8 @@ Prüfsumme und legt ihn nach `third_party/openxr/lib/arm64-v8a/`.
 | S5 Stabilität, Spielstände | Spielstand übersteht Beenden | 🟨 Fixes gebaut |
 | S6 Tisch / Modellbahn-Diorama | Karte als Tisch im Raum | ⬜ UX-004 |
 | S7 Quellcode veröffentlichen | Quellcode öffentlich, Selbstbau möglich | ✅ 2026-10-03 (die APK baut jeder selbst) |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | ⬜ |
 </details>
 
 <details>

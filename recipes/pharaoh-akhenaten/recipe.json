@@ -1,0 +1,220 @@
+{
+  "id": "pharaoh-akhenaten",
+  "title": "Pharao + Kleopatra via Akhenaten",
+  "title_en": "Pharaoh + Cleopatra via Akhenaten",
+  "status": "draft",
+  "last_verified": "0.1.1 im Headset gelaufen (2026-10-03, nur Logbefunde, keine Abnahme); 0.3.0 gebaut, ungeprüft",
+  "app": {
+    "id": "xr.nile",
+    "label": "xr.nile",
+    "version": "0.3.0"
+  },
+  "game": {
+    "name": "Pharao + Kleopatra",
+    "name_en": "Pharaoh + Cleopatra",
+    "platform": "PC/Windows",
+    "year": 1999,
+    "rights_holder": "Activision (Impressions Games)",
+    "buy": [
+      "Steam",
+      "GOG",
+      "Original-CD"
+    ]
+  },
+  "base": [
+    {
+      "name": "Akhenaten",
+      "url": "https://github.com/dalerank/Akhenaten",
+      "license": "AGPL-3.0",
+      "role": "Engine-Neuimplementierung (Fork von Julius/Augustus), SDL2",
+      "ref": "master 2026-10"
+    },
+    {
+      "name": "SDL 2.32, SDL2_mixer",
+      "url": "https://github.com/libsdl-org",
+      "license": "Zlib",
+      "role": "Plattform, Renderer, Ton",
+      "ref": "2.32.x"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.x"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "<XR-Ordner>/XR-Akhenaten",
+    "note": "noch nicht veröffentlicht"
+  },
+  "ratings": {
+    "portability": 4,
+    "xr_potential": 4,
+    "base_maturity": 3,
+    "note": "Upstream hat einen Android-Build und rendert schon in eine Ziel-Textur – guter Anschlusspunkt für das OpenXR-Quad. Spielbar, aber jünger als Julius/Augustus. Isometrische Stadt – Diorama denkbar. AGPL verlangt bei jeder APK-Weitergabe den vollständigen Quellcode."
+  },
+  "effort": {
+    "with_apk": "30–60 min",
+    "with_apk_en": "30–60 min",
+    "from_source": "2–4 h"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Ordner deiner Pharao-Installation mit der Kleopatra-Erweiterung (beide Pflicht, gepatcht) – dort liegen Data/ mit den Pharaoh_*-Paketen, AUDIO/ und BINKS/. Spätere Neuauflagen sind ein anderes Produkt und nicht kompatibel.",
+      "hint_en": "Folder of your Pharaoh installation with the Cleopatra expansion (both required, patched) – contains Data/ with the Pharaoh_* packages, AUDIO/ and BINKS/. Later remakes are a different product and not compatible.",
+      "required": [
+        "Data",
+        "AUDIO",
+        "BINKS"
+      ],
+      "device_path": "/sdcard/Android/data/xr.nile/files/pharaoh (Spielstände ebenda)",
+      "transfer": "tar-Weg wie kitchen push, danach Rechte setzen"
+    },
+    "modules": [
+      "quest-tools",
+      "xr-common",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Upstream-APK als Panel",
+      "actions": [
+        "Upstream-Android-Build mit NDK 30"
+      ],
+      "done_when": "Hauptmenü als flaches Fenster",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-03"
+    },
+    {
+      "id": "S1",
+      "title": "Immersive App mit OpenXR-Quad",
+      "actions": [
+        "Ziel-Textur statt SDL_RenderPresent aufs Quad",
+        "fester Datenordner ohne Ordnerwahl"
+      ],
+      "done_when": "Stadt im VR-Fenster",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "im Headset gelaufen (0.1.1), keine Abnahme"
+    },
+    {
+      "id": "S2",
+      "title": "Controller als Maus, VR-Menü",
+      "actions": [
+        "Skill xr-quest-port",
+        "Skill xr-vr-menu"
+      ],
+      "done_when": "Pflichtumfang, Beenden erreicht die Engine",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "gebaut"
+    },
+    {
+      "id": "S3",
+      "title": "Stabilität und Lebenszyklus",
+      "actions": [
+        "Pause bei Fokusverlust",
+        "Beenden über das Quest-Menü"
+      ],
+      "done_when": "10 Minuten ohne Einfrieren",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Fixes gebaut"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "L1 Startbild, Ladetafel nach etwa 1,3 s; fehlende Daten weiterhin als Hinweis"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "Anfasser und Skalieren ergänzen"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (Griff am Rahmen verschiebt, nur Position)"
+    },
+    {
+      "id": "S4",
+      "title": "Diorama",
+      "actions": [
+        "Stadt als Tisch"
+      ],
+      "done_when": "–",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Forschung"
+    }
+  ],
+  "xr_modes": {
+    "screen": "partial",
+    "passthrough": "planned",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Glyphensalat in Dialogen: SDL 2.32 (GLES2) bindet bei SDL_SetTextureScaleMode sofort die Textur, gepufferte Befehle lesen aus der falschen → vorher flushen",
+    "Start-Log auf dem UI-Thread löste ein ANR aus",
+    "Beenden über das Quest-Systemmenü erreichte die Engine nie → bei EXITING Engine-Quit auslösen",
+    "Einfrieren beim Drehen der Karte außerhalb der Stadt",
+    "Von adb angelegte Datenordner gehören shell – Rechte setzen, sonst kann die App nicht speichern",
+    "Escape auf der VR-Tastatur kam als Rechtsklick an",
+    "Engine-Einstellungen gingen bei jedem Start verloren (Ende per _exit) → vor _exit und beim Schließen des Menüs sichern"
+  ],
+  "legal": [
+    "AGPL-3.0 – verträglich mit dem Apache-2.0-OpenXR-Loader; bei jeder Weitergabe einer APK muss der vollständige Quellcode (Engine-Fork + XR-Schicht) öffentlich sein",
+    "Gebündelte Bibliotheken (u. a. LAME, OpenH264) vor einer Veröffentlichung einzeln prüfen",
+    "Spieldaten bringt der Spieler mit (BYOA)",
+    "Kein Markenname in App-ID/Label (xr.nile)"
+  ],
+  "links": {
+    "Upstream": "https://github.com/dalerank/Akhenaten"
+  }
+}

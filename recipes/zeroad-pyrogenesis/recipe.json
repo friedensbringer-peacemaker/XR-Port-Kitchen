@@ -1,0 +1,248 @@
+{
+  "id": "zeroad-pyrogenesis",
+  "title": "0 A.D. via Pyrogenesis",
+  "title_en": "0 A.D. via Pyrogenesis",
+  "status": "draft",
+  "last_verified": "Hauptmenü im Headset gesehen (0.28.0-xr.0.1, 2026-10-01, ~60 fps Spiel / 72 Hz XR); Partie im Headset noch nicht geprüft",
+  "app": {
+    "id": "xr.zeroad",
+    "label": "xr.0ad",
+    "version": "0.28.0-xr.0.5.1"
+  },
+  "game": {
+    "name": "0 A.D.",
+    "name_en": "0 A.D.",
+    "platform": "PC (freies Spiel)",
+    "year": 2026,
+    "rights_holder": "Wildfire Games (freies Spiel: Code GPL-2.0-or-later, Daten CC BY-SA 3.0)",
+    "buy": [
+      "kostenlos (freie Daten von Wildfire Games)"
+    ]
+  },
+  "base": [
+    {
+      "name": "0 A.D. / Pyrogenesis",
+      "url": "https://gitea.wildfiregames.com/0ad/0ad",
+      "license": "GPL-2.0-or-later (source/), MIT (source/lib/), Daten CC BY-SA 3.0",
+      "role": "Spiel und Engine (C++, Spiellogik/GUI/KI in JavaScript)",
+      "ref": "v0.28.0"
+    },
+    {
+      "name": "SpiderMonkey (mozjs 128)",
+      "url": "https://spidermonkey.dev",
+      "license": "MPL-2.0",
+      "role": "JavaScript-Laufzeit",
+      "ref": "ESR 128"
+    },
+    {
+      "name": "0ad-sailfish (Fan-Port)",
+      "url": "https://github.com/smatkovi/0ad-sailfish",
+      "license": "wie 0 A.D.",
+      "role": "GLES- und Touch-Patches für aarch64, Vorlage für den Android-Build",
+      "ref": "Patches 0001–0008"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.x"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "<XR-Ordner>/XR-0AD",
+    "note": "noch nicht veröffentlicht"
+  },
+  "ratings": {
+    "portability": 2,
+    "xr_potential": 5,
+    "base_maturity": 5,
+    "note": "Reifes, aktiv gepflegtes freies Spiel – keine Originaldaten nötig. Der Android-Build ist aufwendig: SpiderMonkey muss mit Rust für aarch64-android quer gebaut werden, das geht nur unter Linux (bei uns WSL2). Echtes 3D – ein Schlachtfeld als Tisch-Diorama ist denkbar."
+  },
+  "effort": {
+    "with_apk": "30–60 min (plus 3,5 GB Daten übertragen)",
+    "with_apk_en": "30–60 min (plus 3.5 GB of data to copy)",
+    "from_source": "1–2 Tage (erster Build ~10 GB, davon ~6 GB SpiderMonkey)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Keine eigene Kopie nötig: die freien Spieldaten von Wildfire Games (Datenpaket 0.28.0, entpackt etwa 3,5 GB). Wegen der Größe nicht in der APK, sondern getrennt übertragen.",
+      "hint_en": "No own copy needed: the free game data from Wildfire Games (0.28.0 data package, about 3.5 GB unpacked). Too big for the APK, copied separately.",
+      "required": [
+        "mods/public"
+      ],
+      "device_path": "Datenordner der App (Port-Skript)",
+      "transfer": "Port-Skript (Daten holen, bereitstellen, übertragen), tar-Weg wie kitchen push"
+    },
+    "modules": [
+      "quest-tools",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    },
+    {
+      "id": "python",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Rechtelage",
+      "actions": [
+        "Skill xr-port-new-project"
+      ],
+      "done_when": "Code GPL-2.0-or-later, Daten CC BY-SA geklärt, Namensfrage notiert",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-09-30"
+    },
+    {
+      "id": "S1",
+      "title": "Android-Build unter WSL2",
+      "actions": [
+        "Werkzeuge aus conda-forge ohne sudo",
+        "SpiderMonkey quer bauen (eigener NDK nur für mozjs)",
+        "premake mit --gles, ohne Lobby/Atlas"
+      ],
+      "done_when": "libmain.so baut reproduzierbar per Skript",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "2026-10-01"
+    },
+    {
+      "id": "S2",
+      "title": "OpenXR-Bild",
+      "actions": [
+        "Present per Wrap abfangen",
+        "Offscreen-FBO → Quad"
+      ],
+      "done_when": "Hauptmenü im VR-Fenster",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "Hauptmenü im Headset 2026-10-01 (0.1)"
+    },
+    {
+      "id": "S3",
+      "title": "Karte laden und Partie",
+      "actions": [
+        "optionale GLES-Erweiterungen absichern",
+        "Touch-Schicht unter XR abschalten (Kamera)"
+      ],
+      "done_when": "Partie gegen KI im Headset spielbar",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Fixes gebaut, Headset offen"
+    },
+    {
+      "id": "S4",
+      "title": "VR-Menü (Pflichtumfang)",
+      "actions": [
+        "Skill xr-vr-menu"
+      ],
+      "done_when": "Beenden mit Bestätigung, Zeiger ausblendbar",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "gebaut, Menü im Headset gesehen"
+    },
+    {
+      "id": "S5",
+      "title": "Leistung",
+      "actions": [
+        "VR-Voreinstellungen: Schatten, Reflexionen, Nachbearbeitung aus"
+      ],
+      "done_when": "Partie mit 4 KI-Gegnern ≥ 30 fps, Leistungszeile im Sitzungslog",
+      "automatable": "partial",
+      "status": "open"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "L1 Startbild; XR-Start beim GL-Kontext, Ladetafel nach etwa 1 s"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "heute nur Größe: anderer Griff + Stick = Breite/Abstand"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "nicht begonnen"
+    },
+    {
+      "id": "S6",
+      "title": "Tisch-Diorama",
+      "actions": [
+        "zwei Views und eigene Projektion in der Spielkamera"
+      ],
+      "done_when": "Schlachtfeld als Tisch im Raum",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Forschung"
+    }
+  ],
+  "xr_modes": {
+    "screen": "partial",
+    "passthrough": "planned",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "SIGSEGV beim Kartenladen: GL_OES_mapbuffer fehlt im Quest-Treiber → CPU-Puffer + glBufferSubData",
+    "Kamera tot in der Partie: die Touch-Schicht ist unter Android fest an und blockiert die Kamerasteuerung → unter XR abschalten",
+    "GL-Debug-Ausgabe stürzt unter GLES 3.2 ab, wenn die Zeiger nicht über GL_KHR_debug geladen wurden",
+    "SpiderMonkey 128 baut nur mit einem älteren NDK (r26c); -lstdc++ vor mozjs linken, sonst Absturz im ersten Simulationsschritt",
+    "Eine alte libc-Schicht aus dem früheren Android-Versuch lieferte Nullzeiger bei opendir/readdir → entfernen",
+    "gui.scale über ~1,34 schiebt Dialoge aus dem Bild",
+    "Lange WSL-Builds sterben mit dem wsl.exe-Aufruf → setsid nohup, Fortschritt in eine Logdatei"
+  ],
+  "legal": [
+    "Code GPL-2.0-or-later – verträglich mit dem Apache-2.0-OpenXR-Loader",
+    "Daten CC BY-SA 3.0: Namensnennung Wildfire Games, Weitergabe unter gleichen Bedingungen; trotzdem nicht ins Repo (Größe)",
+    "„0 A.D.“ ist der Name des Spiels von Wildfire Games – App-ID neutral (xr.zeroad); Label und eine Veröffentlichung vorher mit Wildfire Games abstimmen",
+    "MPL-2.0-Lizenz von SpiderMonkey beilegen"
+  ],
+  "links": {
+    "Projekt": "https://play0ad.com"
+  }
+}

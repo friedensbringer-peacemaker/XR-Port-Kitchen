@@ -72,6 +72,8 @@ APK: `Artifacts/xr-corsixth-quest3.apk`. Der erste Windows-Build ist sehr langsa
 | S4 Tor G1: 10 Minuten stabil | kein Absturz | 🟨 BUG-006 offen |
 | S5 Einrichtungsassistent, Spielstände | Einrichtung ohne adb | ⬜ |
 | S6 Zylinder, Tisch, Diorama | – | ⬜ Forschung |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | 🟨 gebaut (Referenz), Headset-Abnahme offen |
 </details>
 
 <details>

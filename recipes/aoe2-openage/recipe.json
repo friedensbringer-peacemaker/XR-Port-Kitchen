@@ -1,0 +1,224 @@
+{
+  "id": "aoe2-openage",
+  "title": "Age of Empires II via openage",
+  "title_en": "Age of Empires II via openage",
+  "status": "draft",
+  "last_verified": "frühe Fassung (0.4) im Headset gesehen; 0.6.0-xr.0.12 installiert, ungeprüft",
+  "app": {
+    "id": "xr.ages",
+    "label": "xr.ages",
+    "version": "0.6.0-xr.0.12"
+  },
+  "game": {
+    "name": "Age of Empires II",
+    "name_en": "Age of Empires II",
+    "platform": "PC/Windows",
+    "year": 1999,
+    "rights_holder": "Microsoft (Ensemble Studios)",
+    "buy": [
+      "Steam (HD Edition oder Definitive Edition)",
+      "Original-CD (The Conquerors 1.0c)"
+    ]
+  },
+  "base": [
+    {
+      "name": "openage",
+      "url": "https://github.com/SFTtech/openage",
+      "license": "GPL-3.0-or-later (Ausnahmen in copying.md)",
+      "role": "freie Engine-Neuimplementierung mit Asset-Konverter",
+      "ref": "master 2026-10"
+    },
+    {
+      "name": "OpenXR-SDK",
+      "url": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "license": "Apache-2.0",
+      "role": "OpenXR-Loader",
+      "ref": "1.1.x"
+    }
+  ],
+  "port": {
+    "repo": "",
+    "branch": "",
+    "local_path": "<XR-Ordner>/XR-openage",
+    "note": "noch nicht veröffentlicht"
+  },
+  "ratings": {
+    "portability": 2,
+    "xr_potential": 4,
+    "base_maturity": 1,
+    "note": "Saubere Rechtslage (GPL-3+, Clean-Room-Neuimplementierung, Daten werden am PC konvertiert). Upstream ist aber noch kein spielbares Spiel: Sammeln, Kampf, Bauen und KI müssen im eigenen Fork entstehen; Python/Qt-Start und GL 3.3 werden für Android ersetzt. Gelände als echtes Mesh – Tischansicht denkbar."
+  },
+  "effort": {
+    "with_apk": "1 h (Konvertierung am PC + Übertragung)",
+    "with_apk_en": "1 h (conversion on the PC + transfer)",
+    "from_source": "Wochen (eigener Fork mit Spiellogik)"
+  },
+  "ingredients": {
+    "original_assets": {
+      "hint": "Eigene Kopie von Age of Empires II (am sinnvollsten HD oder Definitive Edition). Der openage-Konverter wandelt sie am PC in ein Modpack (PNG/Opus/nyan); nur das Modpack kommt auf die Quest.",
+      "hint_en": "Your own copy of Age of Empires II (HD or Definitive Edition work best). The openage converter turns it into a modpack (PNG/Opus/nyan) on the PC; only the modpack goes to the Quest.",
+      "required": [
+        "konvertiertes Modpack"
+      ],
+      "device_path": "Datenordner der App (Port-Skript)",
+      "transfer": "Port-Skript, tar-Weg wie kitchen push; beim Konverterwechsel vollständig ersetzen"
+    },
+    "modules": [
+      "quest-tools",
+      "xr-common",
+      "vr-menu-pflicht",
+      "ladebild-standard"
+    ]
+  },
+  "tools": [
+    {
+      "id": "adb"
+    },
+    {
+      "id": "git",
+      "only_for": "build"
+    },
+    {
+      "id": "jdk",
+      "version": "17",
+      "only_for": "build"
+    },
+    {
+      "id": "android-platform",
+      "version": "34",
+      "only_for": "build"
+    },
+    {
+      "id": "android-ndk",
+      "version": "30.0",
+      "only_for": "build"
+    },
+    {
+      "id": "cmake",
+      "only_for": "build"
+    },
+    {
+      "id": "python",
+      "only_for": "build"
+    }
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "title": "Machbarkeit und Rechtelage",
+      "actions": [
+        "Skill xr-port-new-project"
+      ],
+      "done_when": "GPL-3+, Clean-Room, Konvertierung am PC",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "2026-10-03"
+    },
+    {
+      "id": "S1",
+      "title": "C++-Einstieg ohne Python, GLES 3.2",
+      "actions": [
+        "eigener Einstieg statt python -m openage",
+        "Shader 330 → 300 es/320 es"
+      ],
+      "done_when": "läuft am PC mit GLES-Kontext",
+      "automatable": "full",
+      "status": "done",
+      "evidence": "2026-10"
+    },
+    {
+      "id": "S2",
+      "title": "Android-Build und OpenXR-Bild",
+      "actions": [
+        "EGL/OpenXR statt Qt-Fenster",
+        "Final-Pass in die Swapchain"
+      ],
+      "done_when": "Spielbild als VR-Fenster",
+      "automatable": "partial",
+      "status": "done",
+      "evidence": "im Headset gesehen (0.4)"
+    },
+    {
+      "id": "S3",
+      "title": "Spiellogik im Fork",
+      "actions": [
+        "Sammeln/Abliefern, Kampf, Bauen, Ausbilden, einfache KI"
+      ],
+      "done_when": "Partie gegen KI spielbar",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "am PC spielbar, Headset offen"
+    },
+    {
+      "id": "S4",
+      "title": "VR-Menü und Spieloberfläche",
+      "actions": [
+        "Skill xr-vr-menu",
+        "Befehle, Auswahl, Minimap, Speichern/Laden"
+      ],
+      "done_when": "Pflichtumfang im Headset",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "gebaut"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "auf die gemeinsame Ladeanzeige aus xr-common umstellen"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "teilweise (eigene Ladeanzeige-Logik; Startbild, Restzeit, Systemcheck offen)"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "Haltezeit auf 0,60 s bzw. 3° anheben"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "teilweise (Anfasser gebaut, Haltezeit noch 0,30 s)"
+    },
+    {
+      "id": "S5",
+      "title": "Tischansicht",
+      "actions": [
+        "Gelände-Mesh als Tisch"
+      ],
+      "done_when": "Karte als Tisch im Raum",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "Forschung"
+    }
+  ],
+  "xr_modes": {
+    "screen": "partial",
+    "passthrough": "planned",
+    "tabletop": "planned",
+    "diorama": "planned",
+    "full-vr": "unsuitable"
+  },
+  "known_issues": [
+    "Upstream ist noch nicht spielbar – ohne eigenen Fork mit Spiellogik kein Spiel",
+    "Nach einem Engine-Neustart zeigten wiederverwendete Bild-FBOs alte Inhalte → beim Neustart neu anlegen",
+    "Konverter kann hängen; beim Wechsel der Konverterversion das Modpack vollständig ersetzen (--replace)",
+    "Qt-Makro „slots“ kollidiert mit Bezeichnern anderer Bibliotheken → #undef in einer eigenen Übersetzungseinheit",
+    "Am PC unter WSLg nur Software-Rendering, solange GALLIUM_DRIVER=d3d12 fehlt",
+    "Hänger bei der Rahmenauswahl war eine Verklemmung zweier Threads – Thread-Stacks unter Last ansehen"
+  ],
+  "legal": [
+    "GPL-3.0-or-later – verträglich mit dem Apache-2.0-OpenXR-Loader",
+    "Spieldaten bringt der Spieler mit (BYOA); nur das selbst konvertierte Modpack kommt aufs Gerät, nie in Repo oder APK",
+    "Kein Markenname in App-ID/Label (xr.ages); „Age of Empires“ nur beschreibend",
+    "Engine-Fork und XR-Schicht müssen bei Weitergabe einer APK als Quellcode verfügbar sein (GPL)"
+  ],
+  "links": {
+    "Upstream": "https://openage.dev"
+  }
+}

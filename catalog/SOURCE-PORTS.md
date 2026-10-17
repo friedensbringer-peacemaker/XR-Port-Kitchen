@@ -167,7 +167,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | hode | Heart of Darkness | Win/PS1 | decomp | C++/SDL2 | Daten nötig | stabil | inoffiziell | <http://cyxdown.free.fr/hode/> |
 | isle / isle-portable | LEGO Island | Win | decomp | C++/SDL3 | Grauzone, Daten nötig | aktiv | inoffiziell (Android-Fork mjkoo) | <https://github.com/isledecomp/isle-portable> |
 | jazzjackrabbit2-decompiled | Jazz Jackrabbit 2 | Win | decomp | C++ | Grauzone (Alternative: Jazz² Resurrection = Reimpl.) | WIP | – | <https://github.com/Mustafa1177/jazzjackrabbit2-decompiled> |
-| KeeperFX | Dungeon Keeper | DOS/Win | decomp | C | GPL-3, Daten nötig | aktiv | – | <https://github.com/dkfans/keeperfx> |
+| KeeperFX 📖 [dungeonkeeper-keeperfx](../recipes/dungeonkeeper-keeperfx/RECIPE.md) | Dungeon Keeper | DOS/Win | decomp | C | GPL-2.0-or-later, Daten nötig | aktiv | – | <https://github.com/dkfans/keeperfx> |
 | libRealSpace | Strike Commander | DOS | decomp | C++ | Grauzone, Daten nötig | WIP | – | <https://github.com/fabiensanglard/libRealSpace> |
 | M-HT SR (Static Recompilations) | Albion, X-COM: UFO Defense, X-COM: TFTD, Warcraft: Orcs & Humans, Septerra Core | DOS/Win | recomp | C/SDL | MIT (Recompiler), Daten nötig | aktiv | **ja (ARM Linux: Pandora/Pyra, auch Win/Linux)** | <https://github.com/M-HT/SR> |
 | mafia-re | Mafia | Win | decomp | C++ | Grauzone | WIP | – | <https://github.com/Marvisak/mafia-re> |

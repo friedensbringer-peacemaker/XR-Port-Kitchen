@@ -80,6 +80,8 @@ APK: `android/build/outputs/apk/stratagus/debug/XR-Stratagus-debug.apk`.
 | S3 VR-Menü, VR-Tastatur | Menü-Pflichtumfang im Headset | 🟨 gebaut |
 | S4 Komfort, Paket | weitergebbare APK | ⬜ |
 | S5 Tisch / Diorama | Karte als Tisch | ⬜ Recherche |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | ⬜ |
 </details>
 
 <details>

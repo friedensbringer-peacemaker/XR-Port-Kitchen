@@ -73,6 +73,8 @@ die Küchenhilfe (`kitchen push xcom-tftd-oxce <TFTD-Ordner>`).
 | S3 Tisch-Ansicht, Passthrough | im Headset abgenommen | 🟨 gebaut |
 | S4 Einrichtung ohne „Alle Dateien“ | keine Sonderberechtigung | ⬜ SETUP-001 |
 | S5 Geoscape als 3D-Globus | Globus im Raum | ⬜ Recherche |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen; Zeitpunkt des Startbilds prüfen |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | ⬜ |
 </details>
 
 <details>

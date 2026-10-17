@@ -14,11 +14,14 @@ der Küche: **Symptom** = was komisch schmeckt, **Ursache** = was beim Kochen sc
 
 Spalte **Gesehen in**: Siedler = settlers2-rttr, RA = openra-redalert, TTD = openttd,
 TH = themehospital-corsixth, XCOM = xcom-tftd-oxce, WC2/WC1 = warcraft2-wargus/warcraft1-war1gus,
-DOS = dos-xrshell (XRShell). Weitere XRShell-Apps: RETRO (Konsolen), FPS (Shooter), ADV (ScummVM),
-DK1 (DOS-Strategie). Ports ohne eigenes Rezept: FARM (Farm-Sim, .NET/MonoGame), TERRA (FNA),
-LAWN (SDL2-Portierung), MERCS (SDL3/Rust), NILE (SDL2-Aufbauspiel), HACKER (SDL), DIABLO
-(DevilutionX), DKFX (KeeperFX), 0AD (0 A.D.), AGES (openage), GEMS (SDL-Renderer-Spiel),
-ISLAND/FLEET (eigene Godot-Prototypen), LOGGER (Log-App), WINLATOR (Windows-Spiel über Winlator).
+DOS = dos-xrshell (XRShell), 0AD = zeroad-pyrogenesis, AGES = aoe2-openage, NILE = pharaoh-akhenaten,
+DKFX = dungeonkeeper-keeperfx, DOM = domination. Weitere XRShell-Apps: RETRO (Konsolen), FPS (Shooter),
+ADV (ScummVM), DK1 (DOS-Strategie). Ports ohne eigenes Rezept: FARM (Farm-Sim, .NET/MonoGame),
+TERRA (FNA), LAWN (SDL2-Portierung), MERCS (SDL3/Rust, nicht-kommerzielle Lizenz), HACKER (SDL),
+DIABLO (DevilutionX), GEMS (SDL-Renderer-Spiel), MARBLES (Murmel-Schießspiel, eigene Engine),
+MANAGER (Fußballmanager-Nachbau), HEDGE (Artillerie-Spiel, SDL), DAWN (3D-Fassung eines
+Echtzeit-Strategiespiels), XASH (Shooter-Engine), ISLAND/FLEET (eigene Godot-Prototypen),
+LOGGER (Log-App), WINLATOR (Windows-Spiel über Winlator).
 
 **◐** = Ursache belegt, Lösung gebaut und am PC/Gerät getestet, im Headset noch nicht bestätigt.
 
@@ -37,6 +40,7 @@ ISLAND/FLEET (eigene Godot-Prototypen), LOGGER (Log-App), WINLATOR (Windows-Spie
 | 7 | **VR-Menü-Pflichtumfang** | Beenden mit Bestätigung, Zeiger ausblendbar, Stick-Bedienung, Persistenz (Skill `xr-vr-menu`) | – |
 | 8 | **Nachweis** | „Gebaut“ ist nicht „im Headset geprüft“ – mehrere Fehlschlüsse kamen von zu optimistischen Prüfungen | [Prozess](#h-prozess-und-nachweis) |
 | 9 | **Bildrate** | Spielrate und Anzeigerate passend wählen (72/90/120 Hz), Takt ohne Drift | [Leistung](#g-leistung-und-bildqualität) |
+| 10 | **Start und Ladeanzeige** | Startbild statt drei Punkten, Ladeanzeige ohne schwarzes Loch, Restzeit und Systemcheck (Skill `xr-loading-screen`) | [Start](#l-start-und-ladeanzeige) |
 
 ---
 
@@ -81,6 +85,11 @@ Windows war das bei fast jedem Port die erste Hürde.
 | Gradle/AAPT2 stürzt sporadisch ab, ohne Codeänderung | mehrere schwere Builds gleichzeitig auf demselben Rechner | erneut bauen; schwere Builds nicht parallel | ISLAND |
 | Windows-3.1-INI „incomplete“ nach Skriptänderung | Git-Bash-`sed` hat die CRLF-Zeilenenden entfernt | Windows-Konfigs byte-genau ändern (CRLF behalten), mit dem echten Lader prüfen | DOS (Win 3.1) |
 | PowerShell-5.1-Wrapper übergibt verstümmelte Anführungszeichen | PS 5.1 maskiert Argumente für native Programme falsch | Befehl in eine temporäre `.sh` schreiben und über Git Bash ausführen | Kitchen |
+| APK-Prüftor meldet grün, obwohl der native Build scheiterte | `pipefail` + `tee` + `\|\| true` verschluckt den Exit-Code | Status direkt nach dem Befehl sichern; Prüftor vergleicht Prüfsumme/Zeitstempel der `.so` mit dem Build | LAWN, GEMS, MARBLES, MANAGER |
+| Neuer Worktree baut nicht oder liefert fremde Artefakte | Worktrees kommen ohne Submodule und vorgebaute Abhängigkeiten; mehrere Worktrees teilen einen Build-Ordner | Einrichtungsskript je Port (Submodule, Prebuilts), eigener Build-Ordner je Worktree | alle |
+| Systemheader wird verdeckt (`math.h`, `limits.h`) | gemeinsame Bibliothek legte einen Ordner mit gleichnamigen Dateien (auch `VERSION`) auf den Include-Pfad | nur `include/` auf den Pfad, Einbindung als `xrc/…`, Versionsstempel als Makro | alle mit xr-common |
+| Kompilierfehler in fremden Headern | Makros aus anderen Bibliotheken (X11 `None`, Qt `slots`) kollidieren mit Bezeichnern | umbenennen bzw. `#undef` in einer eigenen Übersetzungseinheit | HEDGE, AGES |
+| Host-Build mit clang-mingw: `main` der Engine kollidiert | clang-mingw fügt einen `__main`-Aufruf in die `main` einer DLL ein | `-Dmain=<engine>_main` und eigener Einstieg | DAWN |
 
 ## B. Gerät, Installation, Daten
 
@@ -94,7 +103,7 @@ Topf (vom PC auf die Quest) geht etwas verloren oder landet im falschen Topf.
 | `/sdcard/…` wird zu `C:/Program Files/Git/sdcard` | Git Bash schreibt Pfade um | `MSYS_NO_PATHCONV=1` für adb – aber **nicht** für gradlew (bricht dort); lokale Pfade dann als `D:/…` übergeben (`cygpath -m`) | alle |
 | App kann übertragene Daten nicht lesen | von adb angelegte Ordner gehören dem Nutzer `shell` | Rechte setzen (`chmod`), macht `kitchen push` | DOS |
 | Schreiben nach `Android/data/<app>` klappt nicht zuverlässig | Horizon OS schränkt adb dort ein | in den App-Speicher per `run-as` (nur Debug-APK) oder eigener Ordner mit „Alle Dateien“ | TH, XCOM |
-| `install -r` scheitert mit Signaturfehler | jeder Rechner (bzw. jede Godot-Editoreinstellung) hat einen eigenen Debug-Schlüssel | **nicht** deinstallieren (löscht Spielstände) – erst Spielstände sichern; gemeinsamen Debug-Schlüssel fest im Projekt/Export-Preset, Signatur vor dem Install prüfen | Siedler, TH, ISLAND |
+| `install -r` scheitert mit Signaturfehler | jeder Rechner (bzw. jede Godot-Editoreinstellung) hat einen eigenen Debug-Schlüssel | **nicht** deinstallieren (löscht Spielstände) – erst Spielstände sichern; gemeinsamen Debug-Schlüssel fest im Projekt/Export-Preset, Signatur vor dem Install prüfen; bei Raumankern bewusst nicht deinstallieren (Anker sind sonst weg) | Siedler, TH, ISLAND, FLEET |
 | Testergebnis ergibt keinen Sinn | versehentlich ein alter oder anderer Build installiert (z. B. abgebrochene Installation) | vor jedem Test `versionName` prüfen (`dumpsys package`); Version + Commit sichtbar in der App anzeigen | Siedler, FLEET |
 | App startet nicht, Systemdialog erscheint | Horizon OS fängt den Start ab (Brille schläft, Controller-Update) | Brille wecken, Controller aktualisieren; Start nicht blind wiederholen | RA, TTD |
 | Test ohne Brille bleibt hängen | Brille im Ruhezustand, Guardian/Systemdialoge | `adb shell am broadcast -a com.oculus.vrpowermanager.prox_close` | XCOM, TTD |
@@ -102,7 +111,7 @@ Topf (vom PC auf die Quest) geht etwas verloren oder landet im falschen Topf.
 | Falsches Spiel startet | XRShell nimmt eine Datei in `game/` vor dem alphabetisch ersten Ordner | Ordner benennen (`1-…`), keine losen Dateien | DOS |
 | adb kann von der App geschriebene Logs/Einstellungen nicht lesen | Gegenrichtung der Rechte-Falle: Ordner ohne Setgid, App-umask 027 | Ordner `0775`/`02770` und Dateien `0664` ausdrücklich setzen | DOS, RETRO, FPS, WC2 |
 | `adb push` scheitert mit „remote fchown failed“ | App nie gestartet, Paketordner gehört `shell` | App einmal starten (legt `files/` an) oder nach `/data/local/tmp` pushen und hineinkopieren | DOS, 0AD |
-| `INSTALL_FAILED_VERSION_DOWNGRADE` | anderer Rechner/Arbeitsstand hat dieselbe App mit höherem `versionCode` installiert | `versionCode` bei jeder weitergegebenen APK erhöhen; klären, wer die App baut; nie deinstallieren | DOS |
+| `INSTALL_FAILED_VERSION_DOWNGRADE` | anderer Rechner/Arbeitsstand hat dieselbe App mit höherem `versionCode` installiert; mehrere Flavors/Branches zählen einen gemeinsamen `versionCode` | `versionCode` bei jeder weitergegebenen APK erhöhen, je Flavor getrennt führen und vor dem Bau den installierten Wert lesen; klären, wer die App baut; nie deinstallieren | DOS |
 | `adb devices` leer, obwohl Windows das ADB-Interface zeigt | adb-Server hängt | `adb kill-server`, `adb start-server` – nur, wenn gerade niemand sonst adb nutzt (beendet laufende Logger/Übertragungen) | XCOM, alle |
 | Logger hat Lücken oder läuft doppelt | logd verwirft alte Einträge ohne Dauer-Logger; Beenden der Hülle stoppt `adb logcat` nicht | vor jedem Test prüfen, dass genau **ein** Dauer-Logger läuft; Kindprozesse gezielt beenden | LAWN, alle |
 | `screencap` liefert 0 Byte oder kein Spielbild | Brille schläft; System-Screenshots enthalten immersive Ebenen nicht immer | Brille wecken (`prox_close`, danach `automation_disable`); Bildbefunde per Screenshot aus der Brille | alle |
@@ -125,17 +134,19 @@ in falschen Farben angerichtet.
 | Bild steht auf dem Kopf | GL-Zeilen zählen von unten; Engine dreht erst beim Blit | beim Kopieren vertikal spiegeln; an bekanntem Layout prüfen, nicht an Zahlen | XCOM, RA |
 | Nur ein Ausschnitt oder Streifen | Texturausschnitt/`mediump` bei großen Bildern | richtigen Ausschnitt; `highp` bzw. `texelFetch` | XRShell |
 | Bild flackert nach eigenem GL-Zugriff | SDL cached den GL-Zustand | GL-Zustand um jeden eigenen Zugriff sichern/wiederherstellen | TH, TTD |
+| Spielbild komplett schwarz, XR-Ebenen sichtbar | eigener GL-Code ließ ein VAO gebunden; die Engine verlässt sich auf ihr eigenes | Engine-VAO je Bild selbst binden; eigener Code löst VAO und `ARRAY_BUFFER` nach Gebrauch | RA (im Headset bestätigt) |
 | Absturz nach Auflösungswechsel | FBO und Swapchain nicht gemeinsam neu angelegt | immer beide zusammen neu, alte Ressourcen erst nach Erfolg freigeben | Siedler |
 | Welt dreht falsch mit dem Kopf | falsche View-Matrix | View = invertierte Augenpose, Projektion aus `XrFovf` (asymmetrisch) | XRShell |
 | `xrCreateInstance`/`xrCreateSession` scheitern | `xrInitializeLoaderKHR` nicht der erste Aufruf bzw. Grafikanforderungen nicht abgefragt | Loader-Init mit VM/Activity zuerst; `xrGetOpenGLESGraphicsRequirementsKHR` vor `xrCreateSession`; ohne Instanz den Zahlencode loggen | alle |
 | OpenXR startet nicht/kein Bild, obwohl die Engine läuft | Engine fordert über SDL einen GLES-2-Kontext an | `SDL_GL_SetAttribute` per Wrap auf GLES 3 umbiegen; GLES-2-Shader laufen weiter | LAWN |
 | Intro/Film schwarz, Spiel sichtbar | Engine hat für Filme eine zweite Present-Stelle | vorher **alle** Present-/Swap-Stellen suchen (`SDL_RenderPresent`, `SDL_GL_SwapWindow`, `SDL_UpdateTexture`, `eglSwapBuffers`) | WC2 |
-| Nur ein vergrößerter Ausschnitt im Fenster | Spiel schaltet auf Vollbild und übernimmt die echte Panelauflösung | der Engine eine virtuelle Anzeige fester Größe melden, Fläche per `setFixedSize` | FARM, HACKER |
+| Nur ein vergrößerter Ausschnitt im Fenster bzw. Maus skaliert falsch | Spiel schaltet auf Vollbild und übernimmt die echte Panelauflösung (z. B. 4128×2208), auch Mauskoordinaten werden darauf skaliert | der Engine eine virtuelle Anzeige fester Größe melden, Fläche per `setFixedSize`; Maus über `SDL_GetWindowSizeInPixels` bzw. feste Fenstergröße umrechnen | FARM, HACKER, TERRA, DAWN, HEDGE |
 | Bild bleibt stehen, Log „passt nicht“ | Frame größer als die Bildschirm-Textur wird verworfen | Renderauflösung passend zur Textur wählen (z. B. 640×400 für 16:9) | FPS, DOS |
 | SIGSEGV mit `pc 0` beim ersten dynamischen Puffer-Upload | optionale GLES-Erweiterung fehlt im Quest-Treiber (`GL_OES_mapbuffer`) | Ersatzweg über `glBufferSubData`; Build-Prüfung, dass optionale Erweiterungsaufrufe abgesichert sind; Erweiterungsliste loggen | 0AD |
 | Absturz bei GL-Debug-Ausgabe unter GLES 3.2 | Debug-Zeiger werden nur über `GL_KHR_debug` geladen | Debug-Ausgabe nur, wenn die Erweiterung gemeldet und alle Zeiger geladen sind | 0AD |
 | Vertauschte Glyphen in Dialogen (SDL2-Renderer) | `SDL_SetTextureScaleMode` bindet die Textur sofort, gepufferte Befehle lesen aus der falschen | Wrapper: vorher flushen, Bindung verwerfen ◐ | NILE |
 | Fenster startet an alter/falscher Position | Kopfpose in den ersten Frames noch ungültig | erst zentrieren, wenn Position **und** Orientierung gültig sind, sonst jeden Frame neu versuchen; nur Yaw übernehmen | Siedler, ISLAND |
+| Fenster steht nach System-Recenter schief oder hinter dem Nutzer | `XrEventDataReferenceSpaceChangePending` wird nicht ausgewertet | Ereignis auswerten und das Fenster neu vor den Kopf stellen (Fenster-Standard F10) ◐ | TH, Fenster-Standard |
 
 ## D. Lebenszyklus, ANR, Beenden
 
@@ -157,13 +168,15 @@ oder den Topf falsch vom Feuer genommen (Beenden) – und schon ist die Sauerei 
 | Absturz in der Konfiguration | Umgebungsvariable `USER` fehlt | `USER` setzen | TH |
 | Wirkt wie ein Freeze, ist aber ein Absturz | letzter Frame bleibt stehen; ein eigener Signal-Handler der Engine kehrt nach SIGSEGV zurück und wiederholt die Anweisung endlos | bei Ausnahme ein deutliches Fehlerbild aufs Quad legen; Signal-Handler beendet den Prozess | RA, Siedler, NILE |
 | ANR („Input dispatching timed out“) 5 s nach jedem Beenden | `android_main` kehrte nach `ANativeActivity_finish` sofort zurück | nach dem Beenden-Wunsch Ereignisse weiter abholen bis `APP_CMD_DESTROY` ◐ | DOS, DK1 |
-| Beenden über das Quest-Menü erreicht die Engine nie bzw. Prozess läuft Minuten weiter | Quit nur bei laufender Session geprüft; XR-Session nach Spielende nicht abgemeldet | bei `EXITING`/`LOSS_PENDING` Engine-Quit auslösen; beim Spielende `xrRequestExitSession`, dann geordnet abbauen ◐ | NILE, LAWN |
+| Beenden über das Quest-Menü erreicht die Engine nie bzw. Prozess läuft Minuten weiter; nach Sitzungsverlust endlos `xrWaitFrame` | Quit nur bei laufender Session geprüft; XR-Session nach Spielende nicht abgemeldet; `SESSION_LOST` je Bild erneut behandelt | bei `EXITING`/`LOSS_PENDING` Engine-Quit auslösen; `SESSION_LOST` einmal melden, `SDL_QUIT` einspeisen; beim Spielende `xrRequestExitSession`, dann geordnet abbauen ◐ | NILE, LAWN, HEDGE |
 | Einstellungen der Engine gehen bei jedem Start verloren | Engine speichert nur beim regulären Ende, die App endet per `_exit` | vor `_exit` sichern; zusätzlich beim Schließen des VR-Menüs und bei Fokusverlust ◐ | NILE |
 | Spiel läuft bei abgesetzter Brille weiter (Ton, Rumble, Spielzeit) | Pause hing nur am eigenen Menü; ohne Session dreht die Schleife leer | eigener Pausengrund „Fokus/Session“: Ton und Rumble aus, Spielstand sichern; ohne Session mit Timeout pollen ◐ | DOS, FPS, RETRO |
 | Ton hörbar, aber nichts zu sehen | App gestartet, während die Brille lag – Inhalt irgendwo im Raum platziert | bei Fokus-Rückkehr nicht verankerte Inhalte neu vor den Nutzer stellen bzw. Richtungshinweis | FLEET, ISLAND |
-| App beendet sich lautlos oder hängt beim Start | Engine-Fehler erscheinen als MessageBox/Dialog – in der immersiven App unsichtbar, der modale Dialog hält die Schleife an | Meldungsfenster per Wrap in die VR-Ladeanzeige umleiten bzw. eigenes Hinweis-Panel | NILE, FARM, TERRA, DKFX |
+| App beendet sich lautlos oder hängt beim Start | Engine-Fehler erscheinen als MessageBox/Dialog – in der immersiven App unsichtbar, der modale Dialog hält die Schleife an | Meldungsfenster per Wrap (`SDL_ShowSimpleMessageBox`, `SDL_ShowMessageBox`, engine-eigene OK-Dialoge) auf die Fehlerseite der Ladeanzeige umleiten (Ladebild L7) ◐ | NILE, FARM, TERRA, DKFX, DIABLO |
 | Absturz beim Spielwechsel oder Beenden (libretro) | `dlclose` direkt nach `retro_deinit`, während ein Core-Thread noch auslief | Core nach `retro_init` nicht mehr entladen | DOS |
 | Absturz beim Beenden (SDL-Renderer-Spiel) | Texturen erst nach dem Renderer zerstört | Spielobjekte vor `SDL_DestroyRenderer` freigeben | GEMS |
+| Musik läuft, aber es erscheint nie ein Bild | Wartezeit für `ALooper_pollOnce` nur einmal vor der Schleife berechnet – sie blieb blockierend | Wartezeit in jedem Durchlauf neu bestimmen (0, sobald die Session läuft) | DOS (im Headset bestätigt) |
+| SIGSEGV in `PHYSFS_init` beim Start | PhysFS ≥ 3.1 erwartet auf Android eine `PHYSFS_AndroidInit`-Struktur statt `argv[0]` | die Struktur bzw. `NULL` übergeben | HEDGE |
 
 ## E. Eingabe
 
@@ -177,16 +190,18 @@ oder den Topf falsch vom Feuer genommen (Beenden) – und schon ist die Sauerei 
 | Taste „klebt“ nach Menü/Fokuswechsel | gehaltene Eingaben werden nicht gelöst | bei Fokus-/Tracking-/Handwechsel alles lösen, erst nach Loslassen wieder aktiv; Sticks erst nach Rückkehr in die Totzone wieder scharf | alle, NILE, FARM |
 | Doppelklick funktioniert nicht | Klick-Handler wurde jeden Frame neu angelegt | Zustand über Frames behalten; 500 ms / 24 px | RA |
 | Fenster verschiebt sich beim Scrollen | Fenster-Griff auf der Zeigerhand | Fensterverstellung auf den Griff der anderen Hand | Siedler |
+| Fenster wird aus Versehen gegriffen („Mini-Griffe“) | Griff auf dem Bild greift schon nach 0,30 s | erst nach 0,60 s oder 3° Bewegung greifen, kurzer Griff = Rechtsklick beim Loslassen; Abbruch bei Menü, Fokus, Recenter und Trackingverlust (Fenster-Standard F8) ◐ | MERCS, AGES, FARM, TERRA, GEMS, LAWN |
+| Stick verstellt das Fenster je Port anders herum | keine gemeinsame Regel für Abstand/Größe | einheitlich: Stick vor = weiter weg; Hand = Lage, Stick = Größe/Abstand (Fenster-Standard F7) | alle mit Fenstergriff |
 | Strg-/Shift-Klick unmöglich | Modifikator-Tasten fehlen | pro Spiel belegen (OpenTTD: X = Strg, OpenRA: B = Shift) | TTD, RA |
 | Knöpfe tippen Zeichen in Textfelder | X/Y/A/B erzeugen Tastendrücke | in Textfeldern nie Zeichen aus Controller-Tasten | alle |
 | Tipp aus dem Tastenprofil kommt nicht an | Tastendruck zu kurz – Engines werten die Eingaben eines Updates gemeinsam aus | Haltezeit ≥ 50–80 ms, Tipps nacheinander aus einer Warteschlange | DOS, FARM |
 | Win-3.x-Cursor liegt neben dem Laser | relative Maus | `mouse_input = direct` + `vmwmouse.drv` (direct ist nicht universell, siehe Rezept DOS) | DOS (Win 3.x) |
 | Spielzeiger driftet langsam vom Strahl weg | relative Deltas pro Abfrage abgeschnitten, Position als float gemerkt | Deltas ganzzahlig gegen die zuletzt gesendete Position rechnen; Start-/Randabgleich | DOS, DK1, LAWN |
 | Zeiger springt bei Auflösungs- oder Menüwechsel | „neu − alt“ aus zwei Pixelräumen | letzten Laserpunkt beim Größenwechsel umrechnen; Eingaben bis zum ersten neuen Frame verwerfen | DOS, ADV, DK1 |
-| Spielzeiger liegt nicht unter dem Strahl (SDL-Engine) | Engine skaliert relative Mausbewegung | Maus nie relativ einspeisen, Position absolut im Spielthread setzen | DKFX |
+| Spielzeiger liegt nicht unter dem Strahl (SDL-Engine) | Engine skaliert relative Mausbewegung bzw. rechnet Ereignisse auf die Renderfläche um | Maus nie relativ einspeisen, Position absolut im Spielthread setzen; XR-Mausereignisse direkt in Spielpixeln, an `SDL_ConvertEventToRenderCoordinates` vorbei | DKFX, MERCS |
 | Spiel-Mauszeiger unsichtbar oder doppelt | Engine nutzt den System-Cursor, den Android nicht ins abgegriffene Bild zeichnet; VR-Zielpunkt und Spielpfeil gleichzeitig an | Cursor per Wrap erkennen und selbst zeichnen (bzw. Software-Cursor); Zielpunkt aus, wenn das Spiel einen Pfeil zeigt | LAWN, NILE, DIABLO, DOS |
 | Taste/Maustaste hängt bei viel Eingabe | Warteschlange verwarf beim Überlauf auch Loslass-Ereignisse | nur Bewegung/Rad zusammenfassen, Tasten nie verwerfen | NILE, DOS |
-| VR-Tastatur nimmt nur ein Zeichen bzw. tippt falsche Zeichen | nur `TEXT_INPUT` ohne Tastendruck gesendet; Emulator übersetzt nach Tastenposition (Y/Z, Umlaute) | je Zeichen Taste runter → Text → Taste hoch; Layout nach der Gast-Tastaturbelegung; Host-Test „jede Taste kommt an“ ◐ | TH, DOS |
+| VR-Tastatur nimmt nur ein Zeichen bzw. tippt falsche Zeichen | nur `TEXT_INPUT` ohne Tastendruck gesendet; Emulator übersetzt nach Tastenposition (Y/Z, Umlaute); SDL3-Textereignis zeigt auf Speicher, der vor der Auswertung frei wird | je Zeichen Taste runter → Text → Taste hoch; Layout nach der Gast-Tastaturbelegung; Text für SDL3 in dauerhaftem Speicher; Host-Test „jede Taste kommt an“ ◐ | TH, DOS, MERCS |
 | VR-Tastatur ist ab dem ersten Bild offen | SDL2 schaltet Texteingabe beim Video-Init ein | Tastatur nur auf das Engine-Ereignis „Textfeld aktiv“ öffnen | NILE |
 | Dauerdruck auf ‹ ›/−/+ wiederholt viel zu schnell | Wiederholung an Bildrate gekoppelt | zeitbasiert: erste Wiederholung nach 0,45 s, dann alle 0,12 s ◐ | TH, TTD |
 | Pad-Spiel reagiert auf keine Eingabe (libretro) | `retro_set_controller_port_device` nach dem Laden fehlte | Port-Gerät nach `retro_load_game` setzen | FPS, DOS |
@@ -209,7 +224,7 @@ Engine erwartet – oder eine Zutat fehlt ganz.
 | CD-Spiel startet ohne CD | CD nur über Startmenü/AUTOBOOT eingehängt | Start über `AUTOBOOT.DBP`, Image auf C: | DOS |
 | Einstellungen stürzen ab | String-ID 0xFFFF | Abfrage absichern | TTD |
 | Menü in Spieloptik erscheint nie | Frame-Handler vor dem Laden des Menü-Skripts gecacht | Reihenfolge der Initialisierung korrigieren | TH |
-| Startfilm/Musik hängt, Engine-Thread 100 % CPU | `SDL_mixer` öffnet relative Pfade auf Android nur in den Assets | Musik/Filme immer mit absolutem Pfad laden (per Wrap, ohne Upstream-Patch) | WC2, WC1 |
+| Startfilm/Musik hängt bzw. bleibt stumm, Engine-Thread 100 % CPU | `SDL_mixer` öffnet relative Pfade auf Android nur in den Assets – auch ein Laufzeitordner „.“ ist relativ | Musik/Filme immer mit absolutem Pfad laden (per Wrap, ohne Upstream-Patch); eine Basis „.“ vorher mit `getcwd` auflösen | WC2, WC1, DKFX |
 | Absturz beim Start einer Zufallskarte | Engine schreibt in den Datenordner, den die App nicht beschreiben darf | Schreibziele (Zufallskarte, Caches) ins Benutzerverzeichnis umbiegen ◐ | WC2, WC1 |
 | Normale Spielstände (Batteriespeicher) nach dem Beenden weg | Konsolen-Cores schreiben SRAM nicht selbst | `retro_get_memory_data` laden und atomar sichern (alle ~2 s bei Änderung, bei Pause und vor dem Entladen) ◐ | RETRO |
 | Spielstand eines anderen Spiels überschrieben | Ablage nur nach Dateiname ohne System; Punkte im Ordnernamen als Endung abgeschnitten | `saves/<system>/<Spiel>`, Endung nur bei Dateien entfernen; Altdateien einmalig übernehmen | RETRO |
@@ -253,14 +268,16 @@ für Enttäuschungen beim Servieren. Erst was im Headset beobachtet wurde, gilt 
 | Einstellungen nach Testlauf verstellt | Selbsttest überschrieb die cfg dauerhaft | Tests mit eigener Konfiguration | TTD |
 | Regressionen nach Menü-Umbau | separate Menü-Ebenen, drehbarer Fenstergriff | zurückgestellt; kleine Schritte mit Rückroll-Tag | Siedler |
 | Funktion „fertig“, aber nie gesehen | „gebaut“ / „installiert“ als „geprüft“ gemeldet; Autor und Prüfer sind dieselbe Instanz | Stand dreistufig führen: gebaut → installiert → im Headset beobachtet (mit Datum/Version); unabhängiger QS-Schritt prüft Behauptungen gegen Belege | alle |
-| App „hängt“ ohne Absturz, Ursache unklar | ein stehender Engine-Thread hinterlässt keinen Stapel | Hänger-Wächter: kommt 3/10/30 s kein Bild, Aufrufstapel und Thread-Zustand ins Sitzungslog | WC2, NILE |
+| App „hängt“ ohne Absturz, Ursache unklar | ein stehender Engine-Thread hinterlässt keinen Stapel | Hänger-Wächter: kommt 3/10/30 s kein Bild, Aufrufstapel und Thread-Zustand ins Sitzungslog; als gemeinsamer Baustein statt Kopie je Port (Kandidat K11) | WC2, NILE, TH, TTD, XCOM, DKFX |
 | Absturz lässt sich nachträglich nicht klären | logcat-Ringpuffer überschrieben, Test ohne USB | eigenes Sitzungslog als Datei auf der Brille (für adb lesbar) plus Leistungszeile, ab dem ersten Headset-Test | WC2, XCOM, DOS |
 | Fehler in Kernoptionen, Startregeln oder Tempo fallen erst im Headset auf | Cores liefen nur in der App mit Brille | Core-Smoke-Test: echter Core + echte Daten auf der Quest ohne App, mit Eingabe-Skript und Zeitmessung | DOS, FPS |
 | Hänger, bei dem die letzte Logzeile wie die Ursache aussieht | in Wahrheit Verklemmung zweier Threads | Thread-Stacks unter Last per `gdb`; Prüfläufe nie unbegrenzt warten lassen | AGES |
 | Prüfsumme im CHANGELOG passt nicht zur APK | Prüfsumme stammte aus einem Build vor dem Commit | Prüfsummen nur aus einem sauberen Neubau des Commit-Stands | WC2 |
 | Host-Tests scheitern sporadisch | feste Temp-Dateinamen, parallele Läufe teilen sich TEMP | Prozess-ID/Zufallssuffix, danach aufräumen | DOS |
 | Änderungen verschwinden, Branch plötzlich gewechselt | mehrere Arbeitsstände im selben Ordner | jede Aufgabe in einem eigenen `git worktree`; fremde, nicht committete Änderungen nie stashen/verwerfen | DOS, alle |
-| App springt dem Tester mitten im Test ins Gesicht, falscher Build | Installieren/Starten während jemand die Brille trägt | im Testblock nichts installieren oder starten; erst lokal fertig, dann den Test ankündigen | WC2, Siedler |
+| App springt dem Tester mitten im Test ins Gesicht, falscher Build, laufende App plötzlich weg | Installieren/Starten während jemand die Brille trägt; `install -r` beendet eine laufende App | im Testblock nichts installieren oder starten; vor dem Install per `pidof` prüfen, ob die App läuft; erst lokal fertig, dann den Test ankündigen | WC2, Siedler, LAWN |
+| Sitzungsverlust und Lebenszyklus-Fehler fallen erst im Headset auf | am PC lief die App ohne OpenXR-Runtime | PC-VR-Prüfstand: Monado in WSL (Werkzeuge aus conda-forge, Eingabe-Treiber über TCP, Software-Vulkan, `XRT_NO_STDIN=1`) mit automatischen Eingaben – fand einen Hänger nach Sitzungsverlust | HEDGE |
+| Gemeinsame Bibliothek bringt fremde, halbfertige Änderungen mit | aus einem Arbeitsordner mit nicht committeten Änderungen anderer synchronisiert | Bibliothek nur aus einem sauberen Commit/Tag übernehmen; eigene Änderungen auf einem Feature-Branch im eigenen Worktree | alle mit xr-common |
 
 ## I. Recht und Veröffentlichung
 
@@ -271,11 +288,12 @@ weiter – nicht die Zutaten aus der eigenen Speisekammer (Spieldaten) und nicht
 | Symptom | Ursache | Lösung | Gesehen in |
 |---|---|---|---|
 | Persönliche Pfade/E-Mail im Repo, „push declined due to email privacy“ | Doku, Skript-Standardwerte, Commit-Autor; private Historie direkt veröffentlicht | Variablen/Platzhalter (`<XR-Ordner>`), noreply-Adresse; öffentlich nur Squash-Commits aus einem bereinigten Zweig (`publish-check` + `publish-prepare`) | alle |
-| Spieldaten-Nähe im Code | aus Spieldaten erzeugte Dateien (z. B. Menü-Skins in Spieloptik) | nur Generator-Skripte veröffentlichen, nie die Ergebnisse | DOS |
+| Spieldaten-Nähe im Code | aus Spieldaten erzeugte Dateien (z. B. Menü-Skins in Spieloptik, Vorschaubilder von Menü und Ladebild) | nur Generator-Skripte veröffentlichen, nie die Ergebnisse; Vorschaubilder nur mit einem Ersatz-Theme ohne Spieldaten erzeugen | DOS, Ladebild-Welle |
 | Lizenzdatei fehlt | Port-Repo ohne COPYING | Lizenz des Upstream-Projekts übernehmen | TTD, WC2, XCOM |
-| Lizenzfrage OpenXR-Loader | GPL-2.0-only-Engine mit Apache-2.0-Loader | vor Weitergabe einer APK klären; Quellcode + Selbstbau ist unkritisch. GPL-2.0-oder-später und GPL-3.0 sind verträglich; nicht-kommerzielle Komponenten nur kostenlos weitergeben; Lizenztabelle (THIRD-PARTY) je Port | TTD, DOS, RETRO, FPS |
+| Lizenzfrage OpenXR-Loader | GPL-2.0-only-Engine mit Apache-2.0-Loader | vor Weitergabe einer APK klären; Quellcode + Selbstbau ist unkritisch. GPL-2.0-oder-später und GPL-3.0 sind verträglich; nicht-kommerzielle Komponenten nur kostenlos weitergeben; Lizenztabelle (THIRD-PARTY) je Port; GPL-2.0-only-Ports bleiben privat, einzelne GPL-2.0-only-Dateien nach Möglichkeit aus dem Build nehmen | TTD, DOS, RETRO, FPS, HEDGE, DOM |
 | Push ins private Arbeits-Repo landet öffentlich | Repo umbenannt; ein alter Klon nutzt den alten Namen, GitHub leitet auf das jetzt öffentliche Repo weiter | nach jeder Umbenennung alle Klone umstellen; Sichtbarkeit vor dem Push bei GitHub prüfen | RA |
 | Altlasten in öffentlichen Repos (Grafiken, Namen) | Prüfung vor Veröffentlichung sieht nur den aktuellen Stand | regelmäßiger, nur lesender Watcher über Historie, Releases und Pages aller öffentlichen Repos | alle |
+| Fehler-Mails von GitHub nach dem Forken | geerbte Upstream-Workflows (Nightly, Coverity) laufen im Fork weiter und scheitern | nach Rückfrage `gh workflow disable`; bei jedem neuen Fork prüfen | MERCS |
 | Screenshot/Video verrät Privates oder löst Content-ID aus | Passthrough zeigt den Raum, Originalmusik läuft mit | Logs und Aufnahmen nie ins Repo; für Galerie/Videos Passthrough aus, Spielmusik aus | alle |
 | Geklontes Fan-Repo enthält gerippte Assets | Fan-Ports bündeln oft Originaldaten | Sparse-Checkout mit Ausschlüssen (Git Bash: `MSYS_NO_PATHCONV=1`) | alle |
 | Spielmarke im App-Namen | naheliegender Spielname übernommen | generischer Begriff als App-ID/Label; Spielname nur beschreibend in der Doku | DK1, DOS |
@@ -305,6 +323,22 @@ einzeln, nacheinander, erst auf dem Gerät.
 | Menüs verschoben, UI-Viewport 0×0 | Spiel erkennt den Hauptthread an `!IsBackground`, der SDL-Thread gilt als Hintergrund | SDL-Thread vor `Program.Main` als Vordergrund-Thread markieren | FARM |
 | `NoSuitableGraphicsDeviceException` (MonoGame unter GLES) | Desktop-GL-Aufrufe (`glPolygonMode`, `glDrawBuffer`) gibt es unter GLES 3.0 nicht | Desktop-Zweige mit `&& !GLES` absichern; alle geladenen GL-Funktionen offline gegen GLES 3.0 prüfen | FARM |
 | Build-/Laufzeitfallen von .NET for Android | `*.java` im Projekt wird automatisch gebunden; Trimming entfernt per Reflection genutzte APIs; Typ-Konstruktor öffnet Socket ohne `INTERNET`; MSBuild-Knoten hängen | Java außerhalb des Projekts; `PublishTrimmed=false`; `INTERNET` ins Manifest; `-nodeReuse:false` | FARM, TERRA |
+| Ausnahme beim Start in der Speicherbereinigung (Mono) | `GCSettings.LargeObjectHeapCompactionMode` wird auf Android nicht unterstützt und wirft | Aufruf absichern (try/catch) bzw. unter Android weglassen | RA |
+
+## L. Start und Ladeanzeige
+
+*Die Gäste stehen vor verschlossener Tür.* Das Essen ist fertig, aber niemand macht auf – der Gast
+sieht drei Punkte, dann Schwarz, und weiß nicht, ob drinnen überhaupt gekocht wird. Der Standard
+L1–L8 (Zutat `ladebild-standard`, Skill `xr-loading-screen`) beschreibt, wie es richtig geht.
+
+| Symptom | Ursache | Lösung | Gesehen in |
+|---|---|---|---|
+| Beim Start nur drei pulsierende Punkte, kein App-Name | ohne eigenes Startbild zeigt Horizon OS seine Standardanzeige | `com.oculus.ossplash` im Manifest + `assets/vr_splash.png` mit App-Name und „dauert etwa N s“; Godot: Plugin-Option `instant_splash_screen`; APK-Prüftor prüft beides ◐ | WC2, TH, TTD, XCOM, 0AD, NILE, DKFX, MERCS, LAWN, DIABLO, FARM, TERRA, DOS, ISLAND, FLEET, GEMS |
+| Startbild fehlt in der APK oder ist veraltet | ein CMake-Schritt, der ungenutzte Assets entfernt, löschte das PNG; zwei Bildquellen und doppelter `ossplash`-Eintrag | Bild beim Build erzeugen, Ausnahme im Asset-Trim, Prüftor: Bild und Eintrag genau einmal vorhanden ◐ | DIABLO, DOS |
+| Nach dem Startbild 3–4 s Schwarz | XR startet erst, wenn die Engine ihren Grafikkontext hat | XR-Thread vor der Engine starten: eigener EGL-Kontext und Wrap auf `SDL_GL_CreateContext`/`SDL_CreateWindow`, bei libretro ein Lade-Thread; Ziel: Ladeanzeige < 1 s nach dem Startbild ◐ | MERCS, LAWN, 0AD, DKFX, DIABLO, DOS |
+| „Schwarzes Loch“ zwischen Ladeanzeige und Spiel | Startsignal war das erste Bild der Engine – das ist oft noch schwarz | Startsignal = erstes Bild mit Inhalt; schwarze Bilder bis 1,5 s mit der Ladeanzeige überbrücken ◐ | WC2, Ladebild-Welle |
+| Restzeit unplausibel (springt, nach dem ersten Start viel zu lang) | erster Start (Entpacken, Caches) und Wartezeit auf den Nutzer flossen in die Mittelung ein | ersten Start getrennt führen; gleitender Mittelwert α 0,3, Ausreißer halb gewichten; unter 10 s ganze Sekunden; „bereit, wartet“ beendet die Messung; Messdatei atomar schreiben ◐ | WC2, Ladebild-Welle |
+| Systemcheck zeigt Kästchen statt ✓/⚠/✗ (oder statt →) | die Glyphen fehlen in der Quest-Systemschrift | Zustand als eigenes Feld übergeben, das Symbol zeichnet der Port selbst; Pfeile als ASCII oder eigene Grafik ◐ | MERCS, Ladebild-Welle |
 
 ---
 
@@ -326,6 +360,8 @@ Anfang an in den Plan – sie mussten bisher in fast jedem Port nachgerüstet we
 10. **Diagnose einbauen:** Sitzungslog als Datei, Leistungszeile, Hänger-Wächter; ungestrippte `.so` je Version aufheben (Tombstones symbolisieren).
 11. **VR-Menü-Pflichtumfang** von Anfang an: Beenden mit Bestätigung, Strahl/Zielpunkt/Spielzeiger abschaltbar, Zeiger-Versatz, Stick-Bedienung.
 12. **Bildrate** an die Spielrate anpassen und bei jedem Session-Start neu anfordern.
+13. **Start und Ladeanzeige L1–L8** von Anfang an: Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit, Systemcheck, Fehlerseite (Zutat `ladebild-standard`).
+14. **Fenster nach Standard F1–F10:** Anfasser, Griff am Rahmen, Haltezeit 0,60 s, Stick vor = weiter weg, Recenter (Zutat `fenster-standard`).
 
 Neue versalzene Suppen, die mehr als einen Port betreffen, gehören hierher; spielspezifische in das
 jeweilige Rezept (Abschnitt „Bekannte Fallen“).

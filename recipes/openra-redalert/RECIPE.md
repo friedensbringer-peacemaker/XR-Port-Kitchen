@@ -71,6 +71,8 @@ APK: `Artifacts/xr-openra-quest3.apk`. `build.sh` prüft Manifest, `.so`-Liste u
 | S5 VR-Menü, Kontrollgruppen, VR-Tastatur | im Headset bedienbar (TEST-001) | 🟨 gebaut |
 | S6 ≥ 30 Bilder/s | Leistungszeile in einer Partie | 🟨 PERF-001 gebaut, nicht gemessen |
 | S7 Passthrough, Tisch | im Headset abgenommen | 🟨 Passthrough gebaut, Tisch offen |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 L1 gebaut, L2–L8 teilweise |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | ⬜ |
 </details>
 
 <details>

@@ -227,6 +227,30 @@
       "done_when": "–",
       "automatable": "manual",
       "status": "open"
+    },
+    {
+      "id": "L",
+      "title": "Ladebild L1–L8",
+      "actions": [
+        "Skill xr-loading-screen",
+        "L1 Startbild, L2–L8 über die gemeinsame Ladeanzeige und den Systemcheck aus xr-common"
+      ],
+      "done_when": "Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, zweiter Start mit Restzeit ±30 %",
+      "automatable": "partial",
+      "status": "open",
+      "evidence": "gebaut, Headset-Abnahme offen"
+    },
+    {
+      "id": "F",
+      "title": "Fenster verschieben F1–F10",
+      "actions": [
+        "Zutat fenster-standard",
+        "Referenz für F1–F10 mit dem gemeinsamen Greif-Baustein aus xr-common"
+      ],
+      "done_when": "Fenster greifen, verschieben, skalieren ohne Klick ins Spiel; kurzer Griff bleibt Rechtsklick",
+      "automatable": "manual",
+      "status": "open",
+      "evidence": "gebaut (Referenz), Headset-Abnahme offen"
     }
   ],
   "xr_modes": {

@@ -76,6 +76,8 @@ APK: `android/app/build/outputs/apk/debug/XR-Settlers-2.5-Quest.apk`. Alternativ
 | S5 Zylinder, Passthrough, Tisch | im Headset abgenommen | 🟨 gebaut (VR-011, VR-021, VR-022) |
 | S6 Diorama | Gelände mit Höhen | ⬜ geplant |
 | S7 Ein-Klick-Build für Dritte | fremder Rechner baut ohne Hilfe | 🟨 Windows-CLI ok, GUI/Linux offen |
+| L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 L1 gebaut, L2–L8 teilweise |
+| F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | 🟨 teilweise (nur Position) |
 </details>
 
 <details>
