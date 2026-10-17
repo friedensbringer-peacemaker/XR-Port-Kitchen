@@ -15,7 +15,7 @@ der Küche: **Symptom** = was komisch schmeckt, **Ursache** = was beim Kochen sc
 Spalte **Gesehen in**: Siedler = settlers2-rttr, RA = openra-redalert, TTD = openttd,
 TH = themehospital-corsixth, XCOM = xcom-tftd-oxce, WC2/WC1 = warcraft2-wargus/warcraft1-war1gus,
 DOS = dos-xrshell (XRShell), 0AD = zeroad-pyrogenesis, AGES = aoe2-openage, NILE = pharaoh-akhenaten,
-DKFX = dungeonkeeper-keeperfx, DOM = domination. Weitere XRShell-Apps: RETRO (Konsolen), FPS (Shooter),
+DKFX = dungeonkeeper-keeperfx, DOM = domination. Weitere XRShell-Apps: FPS (Shooter),
 ADV (ScummVM), DK1 (DOS-Strategie). Ports ohne eigenes Rezept: FARM (Farm-Sim, .NET/MonoGame),
 TERRA (FNA), LAWN (SDL2-Portierung), MERCS (SDL3/Rust, nicht-kommerzielle Lizenz), HACKER (SDL),
 DIABLO (DevilutionX), GEMS (SDL-Renderer-Spiel), MARBLES (Murmel-Schießspiel, eigene Engine),
@@ -109,7 +109,7 @@ Topf (vom PC auf die Quest) geht etwas verloren oder landet im falschen Topf.
 | Test ohne Brille bleibt hängen | Brille im Ruhezustand, Guardian/Systemdialoge | `adb shell am broadcast -a com.oculus.vrpowermanager.prox_close` | XCOM, TTD |
 | „App-Name nicht verfügbar“ in der Systemleiste | Horizon-OS-Eigenheit | aus der App nicht zu verhindern – ignorieren | Siedler, RA |
 | Falsches Spiel startet | XRShell nimmt eine Datei in `game/` vor dem alphabetisch ersten Ordner | Ordner benennen (`1-…`), keine losen Dateien | DOS |
-| adb kann von der App geschriebene Logs/Einstellungen nicht lesen | Gegenrichtung der Rechte-Falle: Ordner ohne Setgid, App-umask 027 | Ordner `0775`/`02770` und Dateien `0664` ausdrücklich setzen | DOS, RETRO, FPS, WC2 |
+| adb kann von der App geschriebene Logs/Einstellungen nicht lesen | Gegenrichtung der Rechte-Falle: Ordner ohne Setgid, App-umask 027 | Ordner `0775`/`02770` und Dateien `0664` ausdrücklich setzen | DOS, FPS, WC2 |
 | `adb push` scheitert mit „remote fchown failed“ | App nie gestartet, Paketordner gehört `shell` | App einmal starten (legt `files/` an) oder nach `/data/local/tmp` pushen und hineinkopieren | DOS, 0AD |
 | `INSTALL_FAILED_VERSION_DOWNGRADE` | anderer Rechner/Arbeitsstand hat dieselbe App mit höherem `versionCode` installiert; mehrere Flavors/Branches zählen einen gemeinsamen `versionCode` | `versionCode` bei jeder weitergegebenen APK erhöhen, je Flavor getrennt führen und vor dem Bau den installierten Wert lesen; klären, wer die App baut; nie deinstallieren | DOS |
 | `adb devices` leer, obwohl Windows das ADB-Interface zeigt | adb-Server hängt | `adb kill-server`, `adb start-server` – nur, wenn gerade niemand sonst adb nutzt (beendet laufende Logger/Übertragungen) | XCOM, alle |
@@ -129,7 +129,7 @@ in falschen Farben angerichtet.
 |---|---|---|---|
 | SIGSEGV direkt beim Start | Stack des `android_main`-Threads nur ~1 MB, große Puffer auf dem Stack | große Puffer auf den Heap (`std::vector`, `make_unique`) | XRShell |
 | SIGSEGV im ersten Frame | Engine definiert globale Funktionszeiger mit GL-Namen (`glUseProgram`) – überdecken libGLESv3 | betroffene Datei per Präprozessor umbenennen; Build-Prüfung `llvm-nm … \| grep ' [BbDd] gl'` | WC2 |
-| Schwarzes Bild | Spielbild landet nicht im richtigen FBO/Swapchain-Bild | eigenes Offscreen-FBO, erst dann in die Swapchain kopieren | XRShell (racer3k) |
+| Schwarzes Bild | Spielbild landet nicht im richtigen FBO/Swapchain-Bild | eigenes Offscreen-FBO, erst dann in die Swapchain kopieren | XRShell |
 | Farben vertauscht | Pixelformat der Engine ≠ Texturformat | Kanäle beim Hochladen tauschen bzw. passendes Format | XRShell |
 | Bild steht auf dem Kopf | GL-Zeilen zählen von unten; Engine dreht erst beim Blit | beim Kopieren vertikal spiegeln; an bekanntem Layout prüfen, nicht an Zahlen | XCOM, RA |
 | Nur ein Ausschnitt oder Streifen | Texturausschnitt/`mediump` bei großen Bildern | richtigen Ausschnitt; `highp` bzw. `texelFetch` | XRShell |
@@ -170,7 +170,7 @@ oder den Topf falsch vom Feuer genommen (Beenden) – und schon ist die Sauerei 
 | ANR („Input dispatching timed out“) 5 s nach jedem Beenden | `android_main` kehrte nach `ANativeActivity_finish` sofort zurück | nach dem Beenden-Wunsch Ereignisse weiter abholen bis `APP_CMD_DESTROY` ◐ | DOS, DK1 |
 | Beenden über das Quest-Menü erreicht die Engine nie bzw. Prozess läuft Minuten weiter; nach Sitzungsverlust endlos `xrWaitFrame` | Quit nur bei laufender Session geprüft; XR-Session nach Spielende nicht abgemeldet; `SESSION_LOST` je Bild erneut behandelt | bei `EXITING`/`LOSS_PENDING` Engine-Quit auslösen; `SESSION_LOST` einmal melden, `SDL_QUIT` einspeisen; beim Spielende `xrRequestExitSession`, dann geordnet abbauen ◐ | NILE, LAWN, HEDGE |
 | Einstellungen der Engine gehen bei jedem Start verloren | Engine speichert nur beim regulären Ende, die App endet per `_exit` | vor `_exit` sichern; zusätzlich beim Schließen des VR-Menüs und bei Fokusverlust ◐ | NILE |
-| Spiel läuft bei abgesetzter Brille weiter (Ton, Rumble, Spielzeit) | Pause hing nur am eigenen Menü; ohne Session dreht die Schleife leer | eigener Pausengrund „Fokus/Session“: Ton und Rumble aus, Spielstand sichern; ohne Session mit Timeout pollen ◐ | DOS, FPS, RETRO |
+| Spiel läuft bei abgesetzter Brille weiter (Ton, Rumble, Spielzeit) | Pause hing nur am eigenen Menü; ohne Session dreht die Schleife leer | eigener Pausengrund „Fokus/Session“: Ton und Rumble aus, Spielstand sichern; ohne Session mit Timeout pollen ◐ | DOS, FPS |
 | Ton hörbar, aber nichts zu sehen | App gestartet, während die Brille lag – Inhalt irgendwo im Raum platziert | bei Fokus-Rückkehr nicht verankerte Inhalte neu vor den Nutzer stellen bzw. Richtungshinweis | FLEET, ISLAND |
 | App beendet sich lautlos oder hängt beim Start | Engine-Fehler erscheinen als MessageBox/Dialog – in der immersiven App unsichtbar, der modale Dialog hält die Schleife an | Meldungsfenster per Wrap (`SDL_ShowSimpleMessageBox`, `SDL_ShowMessageBox`, engine-eigene OK-Dialoge) auf die Fehlerseite der Ladeanzeige umleiten (Ladebild L7) ◐ | NILE, FARM, TERRA, DKFX, DIABLO |
 | Absturz beim Spielwechsel oder Beenden (libretro) | `dlclose` direkt nach `retro_deinit`, während ein Core-Thread noch auslief | Core nach `retro_init` nicht mehr entladen | DOS |
@@ -226,8 +226,8 @@ Engine erwartet – oder eine Zutat fehlt ganz.
 | Menü in Spieloptik erscheint nie | Frame-Handler vor dem Laden des Menü-Skripts gecacht | Reihenfolge der Initialisierung korrigieren | TH |
 | Startfilm/Musik hängt bzw. bleibt stumm, Engine-Thread 100 % CPU | `SDL_mixer` öffnet relative Pfade auf Android nur in den Assets – auch ein Laufzeitordner „.“ ist relativ | Musik/Filme immer mit absolutem Pfad laden (per Wrap, ohne Upstream-Patch); eine Basis „.“ vorher mit `getcwd` auflösen | WC2, WC1, DKFX |
 | Absturz beim Start einer Zufallskarte | Engine schreibt in den Datenordner, den die App nicht beschreiben darf | Schreibziele (Zufallskarte, Caches) ins Benutzerverzeichnis umbiegen ◐ | WC2, WC1 |
-| Normale Spielstände (Batteriespeicher) nach dem Beenden weg | Konsolen-Cores schreiben SRAM nicht selbst | `retro_get_memory_data` laden und atomar sichern (alle ~2 s bei Änderung, bei Pause und vor dem Entladen) ◐ | RETRO |
-| Spielstand eines anderen Spiels überschrieben | Ablage nur nach Dateiname ohne System; Punkte im Ordnernamen als Endung abgeschnitten | `saves/<system>/<Spiel>`, Endung nur bei Dateien entfernen; Altdateien einmalig übernehmen | RETRO |
+| Normale Spielstände (Batteriespeicher) nach dem Beenden weg | manche libretro-Cores schreiben SRAM nicht selbst | `retro_get_memory_data` laden und atomar sichern (alle ~2 s bei Änderung, bei Pause und vor dem Entladen) ◐ | XRShell |
+| Spielstand eines anderen Spiels überschrieben | Ablage nur nach Dateiname ohne System; Punkte im Ordnernamen als Endung abgeschnitten | `saves/<system>/<Spiel>`, Endung nur bei Dateien entfernen; Altdateien einmalig übernehmen | XRShell |
 | Minuszeichen und ‹ › im Menü in Spielgrafik fehlen | Bitmap-Schriften der Spiele haben kein „−“ (U+2212) und oft kein ‹ › | ASCII-„-“ bzw. vorhandene Glyphen nutzen (vorbeugend) | TTD, XCOM, TH, WC2 |
 
 ## G. Leistung und Bildqualität
@@ -245,11 +245,10 @@ klein angerichtet, dass man die Hälfte nicht erkennt.
 | Ruckeln nur im Menü | Menü wird jeden Frame bzw. bei jedem Hover komplett neu gezeichnet und hochgeladen; Statuszeile erzwingt Dauer-Redraws | Teil-Redraw, nur den geänderten Streifen hochladen, Statuszeile höchstens alle 2 s (gemessen 5,9 → 0,65 ms) | alle mit eigenem Menü, NILE, FARM |
 | Absturz nach 16 Minuten | Fehler in der Wegfindung (offen) | erst mit 10-Minuten-Stabilitätstest auffindbar – als Abnahmetor einplanen | TH |
 | 71,6 statt 72 fps, jedes vierte Bild doppelt | Quest 3 läuft standardmäßig mit 90 Hz | per `XR_FB_display_refresh_rate` die niedrigste Rate wählen, die ein Vielfaches der Spielrate ist (70-Hz-DOS → 72 Hz, 60 fps → 120 Hz) | FPS, DOS |
-| Angeforderte Bildwiederholrate wirkt nicht, Liste leer | die Runtime meldet direkt nach Sitzungsstart 0 Raten | Rückfall auf 72/80/90/120 Hz; nur anfragen, wenn die Rate abweicht | RETRO, FPS |
+| Angeforderte Bildwiederholrate wirkt nicht, Liste leer | die Runtime meldet direkt nach Sitzungsstart 0 Raten | Rückfall auf 72/80/90/120 Hz; nur anfragen, wenn die Rate abweicht | FPS |
 | Nach Brille ab/auf wieder 90 Hz | die Runtime startet jede Session mit ihrer Standardrate | bei `SESSION_STATE_READY` und `DISPLAY_REFRESH_RATE_CHANGED` neu anfordern ◐ | FPS, DOS |
 | Spieltakt driftet trotz passender Anzeigerate | Frist je Durchlauf `now() + Periode` – Aufwachverzögerungen summieren sich | feste Fristen (`next += period`); nach Pause/Rückstand neu aufsetzen, nie in Salven aufholen ◐ | FPS |
 | Spiel zu schnell/langsam nach Videomoduswechsel im Spiel | Run-Loop behielt die Bildrate vom Start | Takt nach jedem `retro_run` aus `SET_SYSTEM_AV_INFO` übernehmen | FPS, DOS |
-| Gleichmäßiges Ruckeln bei PAL-Spielen | 50 fps; die Quest 3 bietet keine 100 Hz | NTSC-Fassungen bevorzugen | RETRO |
 | Emulator zu langsam, obwohl die GPU Luft hat | Quest bleibt ohne Anforderung auf niedriger CPU-Stufe | `xrPerfSettingsSetPerformanceLevelEXT(CPU, SUSTAINED_HIGH)` nach `xrBeginSession` | DOS |
 | Ruckeln bei DOS-Emulation trotz passender Rate | Zyklen-Limit 100 % – `retro_run` p95 16 ms > 13,9 ms Budget bei 72 Hz | `dosbox_pure_cycle_limit` 0,85; vorab auf dem Gerät messen | DOS |
 | 3D-Shooter wirkt verschmiert | Pixel-Art-Filter (xBR) auf perspektivischen Texturen | für 3D Sharp-Bilinear, xBR nur für 2D-Pixel-Art; Filter pro Spiel | FPS, DOS |
@@ -290,7 +289,7 @@ weiter – nicht die Zutaten aus der eigenen Speisekammer (Spieldaten) und nicht
 | Persönliche Pfade/E-Mail im Repo, „push declined due to email privacy“ | Doku, Skript-Standardwerte, Commit-Autor; private Historie direkt veröffentlicht | Variablen/Platzhalter (`<XR-Ordner>`), noreply-Adresse; öffentlich nur Squash-Commits aus einem bereinigten Zweig (`publish-check` + `publish-prepare`) | alle |
 | Spieldaten-Nähe im Code | aus Spieldaten erzeugte Dateien (z. B. Menü-Skins in Spieloptik, Vorschaubilder von Menü und Ladebild) | nur Generator-Skripte veröffentlichen, nie die Ergebnisse; Vorschaubilder nur mit einem Ersatz-Theme ohne Spieldaten erzeugen | DOS, Ladebild-Welle |
 | Lizenzdatei fehlt | Port-Repo ohne COPYING | Lizenz des Upstream-Projekts übernehmen | TTD, WC2, XCOM |
-| Lizenzfrage OpenXR-Loader | GPL-2.0-only-Engine mit Apache-2.0-Loader | vor Weitergabe einer APK klären; Quellcode + Selbstbau ist unkritisch. GPL-2.0-oder-später und GPL-3.0 sind verträglich; nicht-kommerzielle Komponenten nur kostenlos weitergeben; Lizenztabelle (THIRD-PARTY) je Port; GPL-2.0-only-Ports bleiben privat, einzelne GPL-2.0-only-Dateien nach Möglichkeit aus dem Build nehmen | TTD, DOS, RETRO, FPS, HEDGE, DOM |
+| Lizenzfrage OpenXR-Loader | GPL-2.0-only-Engine mit Apache-2.0-Loader | vor Weitergabe einer APK klären; Quellcode + Selbstbau ist unkritisch. GPL-2.0-oder-später und GPL-3.0 sind verträglich; nicht-kommerzielle Komponenten nur kostenlos weitergeben; Lizenztabelle (THIRD-PARTY) je Port; GPL-2.0-only-Ports bleiben privat, einzelne GPL-2.0-only-Dateien nach Möglichkeit aus dem Build nehmen | TTD, DOS, FPS, HEDGE, DOM |
 | Push ins private Arbeits-Repo landet öffentlich | Repo umbenannt; ein alter Klon nutzt den alten Namen, GitHub leitet auf das jetzt öffentliche Repo weiter | nach jeder Umbenennung alle Klone umstellen; Sichtbarkeit vor dem Push bei GitHub prüfen | RA |
 | Altlasten in öffentlichen Repos (Grafiken, Namen) | Prüfung vor Veröffentlichung sieht nur den aktuellen Stand | regelmäßiger, nur lesender Watcher über Historie, Releases und Pages aller öffentlichen Repos | alle |
 | Fehler-Mails von GitHub nach dem Forken | geerbte Upstream-Workflows (Nightly, Coverity) laufen im Fork weiter und scheitern | nach Rückfrage `gh workflow disable`; bei jedem neuen Fork prüfen | MERCS |

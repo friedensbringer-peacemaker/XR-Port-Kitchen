@@ -3,7 +3,7 @@
   "title": "DOS-Spiele via XRShell + DOSBox Pure (Beispiel: Theme Park)",
   "title_en": "DOS games via XRShell + DOSBox Pure (example: Theme Park)",
   "status": "in-progress",
-  "last_verified": "2026-09-27 headset (XRShell mit snes9x: Bild, Ton, Menü v1); DOS-Pfad seit Menü v2 nicht erneut im Headset",
+  "last_verified": "2026-09-27 headset (XRShell mit einem libretro-Core: Bild, Ton, Menü v1); DOS-Pfad seit Menü v2 nicht erneut im Headset",
   "app": {
     "id": "xr.shell",
     "label": "xr.shell",
@@ -146,7 +146,7 @@
       "done_when": "App xr.shell unter Bibliothek → Unbekannte Quellen",
       "automatable": "full",
       "status": "done",
-      "evidence": "headset-ok-2026-09-27 (Flavor racer3k)"
+      "evidence": "headset-ok-2026-09-27 (libretro-Core)"
     },
     {
       "id": "S3",
@@ -203,7 +203,7 @@
       "done_when": "Text gestochen scharf, kein Flimmern",
       "automatable": "manual",
       "status": "done",
-      "evidence": "2026-09-27 headset (snes9x)"
+      "evidence": "2026-09-27 headset (libretro-Core)"
     },
     {
       "id": "L",

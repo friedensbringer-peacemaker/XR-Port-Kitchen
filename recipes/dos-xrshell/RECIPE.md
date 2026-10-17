@@ -1,7 +1,7 @@
 # DOS-Spiele via XRShell + DOSBox Pure (Beispiel: Theme Park)
 
 **Portierbarkeit ★★★★★ · XR-Potenzial ★★☆☆☆ · Reife der Basis ★★★★☆**
-Stand: XRShell lief am 2026-09-27 im Headset (Bild, Ton, Menü v1, damals mit dem SNES-Core). Der
+Stand: XRShell lief am 2026-09-27 im Headset (Bild, Ton, Menü v1, mit einem libretro-Core). Der
 DOS-Pfad ist seit Menü v2 nicht erneut im Headset geprüft. App `xr.shell`.
 
 Dieses Rezept ist der **Generalschlüssel** für DOS-Spiele ohne eigene Engine-Reimplementierung.
@@ -68,8 +68,8 @@ cd android
 ```
 
 APK: `android/build/outputs/apk/shell/debug/XRShell-shell-debug.apk`. Weitere Flavors:
-`island` (`xr.island`, nur DOSBox Pure), `retro` (`xr.retro`: snes9x, Mesen, SameBoy),
-`racer3k` (`xr.racer3k`).
+`island` (`xr.island`), `dos` (`xr.dosgames`, beide DOSBox Pure), `adventure`
+(`xr.adventure`: ScummVM), `fps` (`xr.shooter`: PrBoom, ECWolf, TyrQuake).
 </details>
 
 <details>
@@ -87,12 +87,12 @@ Laser liegt. Vorbild: `<XR-Ordner>/XR-HolidayIsland` (`xr.island`), Skill `xr-em
 | Stufe | Erfolgskriterium | Stand |
 |---|---|---|
 | S1 APK bauen | APK am Ausgabepfad | ✅ |
-| S2 Installieren | App unter „Unbekannte Quellen“ | ✅ 2026-09-27 (racer3k) |
+| S2 Installieren | App unter „Unbekannte Quellen“ | ✅ 2026-09-27 (libretro-Core) |
 | S3 Spielordner übertragen | `push-game.sh` listet den Ordner | ✅ |
 | S4 Erster Start | DOSBox-Bild statt Schachbrett | 🟨 seit Menü v2 nicht erneut geprüft |
 | S5 Tasten und Maus | ohne Tastatur bedienbar | ⬜ Profile ungeprüft |
-| S6 Ton | Effekte und Musik | ⬜ im Headset nur mit snes9x geprüft |
-| S7 Bildqualität | gestochen scharf | ✅ 2026-09-27 (snes9x) |
+| S6 Ton | Effekte und Musik | ⬜ im Headset nur mit einem anderen libretro-Core geprüft (2026-09-27) |
+| S7 Bildqualität | gestochen scharf | ✅ 2026-09-27 (libretro-Core) |
 | L Ladebild L1–L8 | Startbild statt drei Punkten, Ladeanzeige ≤ 1 s danach, Restzeit ±30 % | 🟨 gebaut, Headset-Abnahme offen |
 | F Fenster F1–F10 | greifen, verschieben, skalieren ohne Klick ins Spiel | 🟨 teilweise (F5/F6) |
 </details>

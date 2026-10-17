@@ -278,7 +278,7 @@ Aktivität, Android-Hinweis und Link, dazu eine Schnellprüfung „geht ein Port
 je Technik. Durchsuchen mit `kitchen catalog <Spiel>`. *(English: [catalog](catalog/README.md) of
 ~1,770 engines, source ports, decomp notes (not linked) and existing VR ports; search with `kitchen catalog <game>`.)*
 
-**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 199
+**Suppe versalzen?** → [Häufige Fehler und ihre Lösung](docs/HAEUFIGE-FEHLER.md): 198
 Fehler, die in den bisherigen Ports wirklich aufgetreten sind (Build, Gerät, Bild, Lebenszyklus,
 Eingabe, Daten, Leistung, Godot, .NET, Start und Ladeanzeige), jeweils mit Ursache, Lösung und betroffenem Port – plus eine Checkliste
 für jeden neuen Port.
