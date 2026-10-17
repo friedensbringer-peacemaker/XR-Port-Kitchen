@@ -6,14 +6,13 @@ Ports auf Basis von offiziell freigegebenem Quellcode sowie rekonstruierter Code
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern) (52) · Weitere Shooter, Action, Sims (41) · Strategie / RPG / Taktik (20) · Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung) (62) · SNES / NES / Mega Drive / GBA / DS (Decomp & Recomp) (2) · PlayStation 1 / PlayStation 2 (15) · GameCube / Wii / Original Xbox (2) · Xbox 360 – XenonRecomp / ReXGlue (19) · Mobile-/PC-Remaster-Decomps (RSDK u. a.) (10)
+**Abschnitte:** id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern) (51) · Weitere Shooter, Action, Sims (41) · Strategie / RPG / Taktik (20) · Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung) (59) · SNES / NES / Mega Drive / GBA / DS (Decomp & Recomp) (2) · PlayStation 1 / PlayStation 2 (15) · GameCube / Wii / Original Xbox (2) · Xbox 360 – XenonRecomp / ReXGlue (18) · Mobile-/PC-Remaster-Decomps (RSDK u. a.) (8)
 
-## id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern) (52)
+## id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern) (51)
 
 | Projekt | Originalspiel | Plattform | Art | Sprache | Lizenz/Rechtslage | Status | Android/ARM64 | URL |
 |---|---|---|---|---|---|---|---|---|
 | BStone | Blake Stone: Aliens of Gold / Planet Strike | DOS | source-port | C++/SDL2 | GPL (2013), Daten nötig | aktiv | – | <https://github.com/bibendovsky/bstone> |
-| BuildGDX / NuBuildGDX | Duke3D, Blood, Shadow Warrior, Witchaven 1/2, TekWar, Redneck Rampage u. a. | DOS | source-port | Java/libGDX | gemischt (TekWar-Quellen geleakt), Daten nötig | aktiv (NuBuildGDX) | offiziell (libGDX-Android) ? | <https://github.com/atsb/NuBuildGDX> |
 | CatacombGL | Catacomb 3-D-Reihe | DOS | source-port | C++/OpenGL | GPL, Daten nötig (GOG) | aktiv | – | <https://github.com/ArnoAnsems/CatacombGL> |
 | Chocolate Doom (inkl. Chocolate Heretic/Hexen/Strife) | Doom, Heretic, Hexen, Strife | DOS | source-port | C/SDL2 | GPL; Strife-Teil per Reverse Engineering, Daten nötig | stabil | inoffiziell | <https://github.com/chocolate-doom/chocolate-doom> |
 | Chocolate Heretic / GZDoom | Heretic, Hexen | DOS | source-port | C/C++ | GPL (2008 neu lizenziert), WAD nötig | aktiv | wie Doom-Ports | <https://github.com/chocolate-doom/chocolate-doom> |
@@ -136,13 +135,12 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Vanilla Conquer | C&C Tiberian Dawn, Red Alert | DOS/Win | source-port | C++/SDL2 | GPL-3 (EA 2020, Remastered-DLL-Code), Daten nötig | aktiv | inoffiziell | <https://github.com/TheAssemblyArmada/Vanilla-Conquer> |
 | Warzone 2100 | Warzone 2100 | Win/PS1 | source-port | C++/SDL2/Vulkan | GPL-2, Daten frei | aktiv | – | <https://github.com/Warzone2100/warzone2100> |
 
-## Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung) (62)
+## Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung) (59)
 
 | Projekt | Originalspiel | Plattform | Art | Sprache | Lizenz/Rechtslage | Status | Android/ARM64 | URL |
 |---|---|---|---|---|---|---|---|---|
 | arcanum-ce | Arcanum | Win | decomp | C++/SDL3 | Daten nötig | aktiv | – ? | <https://github.com/alexbatalov/arcanum-ce> |
 | BioMenaceDecomp | Bio Menace | DOS | decomp | C | Daten nötig (Spiel Freeware) | WIP | – | <https://github.com/lethal-guitar/BioMenaceDecomp> |
-| Call of Duty 4 / Black Ops Decomp (SwagSoftware) | CoD4: MW, CoD: Black Ops | Win | decomp | C++ | Grauzone, Activision-Risiko hoch | WIP | – | (siehe Wikipedia „reconstructed“) |
 | Cannonball | OutRun | Arcade | decomp | C++/SDL2 | MAME-ROM nötig | stabil | inoffiziell/PortMaster | <https://github.com/djyt/cannonball> |
 | cdcEngine (TR Legend / DX:HR) | Tomb Raider: Legend, Deus Ex: Human Revolution | Win | decomp | C++ | Grauzone | WIP | – | <https://github.com/TheIndra55/cdcEngine> |
 | Chasm-Reverse | Chasm: The Rift | DOS | decomp | C++/SDL2 | GPL-3, Daten nötig | aktiv | – | <https://github.com/Panzerschrek/Chasm-Reverse> |
@@ -161,8 +159,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | fallout2-ce (aus fallout2-re) | Fallout 2 | Win | decomp | C++/SDL2 | Sustainable Use License, Daten nötig | aktiv | offiziell (APK, iOS) | <https://github.com/alexbatalov/fallout2-ce> |
 | FlatOut-2-decomp | FlatOut 2 | Win | decomp | C++ | Grauzone | WIP | – | <https://github.com/ZackWilde27/FlatOut-2-decomp> |
 | GLFrontier / JJFFE | Frontier: Elite II / First Encounters | DOS/Amiga | decomp | C | Grauzone, Daten nötig | ruhend | – | <https://github.com/pcercuei/glfrontier ?> |
-| gta-reversed | GTA San Andreas | Win | decomp | C++ | Grauzone, Daten nötig | WIP | – | <https://github.com/gta-reversed/gta-reversed> |
-| gta2_re | GTA 2 | Win | decomp | C++ | Grauzone, Daten nötig | WIP | – | <https://github.com/CriminalRETeam/gta2_re> |
 | Halo: CE Decomp + Port | Halo: Combat Evolved | Xbox | decomp | C/SDL3/GLES3 | Xbox-Disc-Image nötig; Matching-Grad umstritten | aktiv (laut heldgames 09/2026) | **offiziell (Android arm64, Android 9+, GLES3)** | <https://github.com/punpckhdq/halo> |
 | hode | Heart of Darkness | Win/PS1 | decomp | C++/SDL2 | Daten nötig | stabil | inoffiziell | <http://cyxdown.free.fr/hode/> |
 | isle / isle-portable | LEGO Island | Win | decomp | C++/SDL3 | Grauzone, Daten nötig | aktiv | inoffiziell (Android-Fork mjkoo) | <https://github.com/isledecomp/isle-portable> |
@@ -237,7 +233,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | halo (punpckhdq) | Halo: Combat Evolved | Xbox | decomp | C/SDL3 | Disc-Image nötig | aktiv | **offiziell Android arm64** | <https://github.com/punpckhdq/halo> |
 | JSRF-Decompilation | Jet Set Radio Future | Xbox | decomp | C++ | eigenes Image nötig | WIP | – | <https://codeberg.org/KeybadeBlox/JSRF-Decompilation> |
 
-## Xbox 360 – XenonRecomp / ReXGlue (19)
+## Xbox 360 – XenonRecomp / ReXGlue (18)
 
 | Projekt | Originalspiel | Plattform | Art | Sprache | Lizenz/Rechtslage | Status | Android/ARM64 | URL |
 |---|---|---|---|---|---|---|---|---|
@@ -246,7 +242,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | band3_recomp / re-gh2 | Rock Band 3 / Guitar Hero II | Xbox 360 | recomp | C++ | eigenes Image nötig | WIP | nein | <https://github.com/ihatecompvir/band3_recomp> |
 | Crackdown2-Recomp | Crackdown 2 | Xbox 360 | recomp | C++ | eigenes Image nötig | WIP | nein | <https://github.com/matty45/Crackdown2-Recomp> |
 | Fable2Recomp | Fable II | Xbox 360 | recomp | C++/D3D12 | eigenes Image nötig | spielbar (laut Entwickler durchspielbar) | nein | <https://github.com/Fable2Recomp/Fable2Recomp> |
-| halo3_cache_release_recomp | Halo 3 (Delta-Build) | Xbox 360 | recomp | C++ | **Prototyp-Leak** | WIP | nein | <https://github.com/twist84/halo3_cache_release_recomp> |
 | KameoRePowered | Kameo: Elements of Power | Xbox 360 | recomp | C++ | eigenes Image nötig | WIP (v0.2.1) | nein | <https://github.com/birabittoh/KameoRePowered> |
 | LostOdysseyRecomp | Lost Odyssey | Xbox 360 | recomp | C++ | eigenes Image nötig | spielbar (experimentell) | nein | <https://github.com/freefrank/LostOdysseyRecomp> |
 | NaughtyBear_ReStuff | Naughty Bear | Xbox 360 | recomp | C++ | eigenes Image nötig | WIP (v1.5.1) | nein | <https://github.com/MaxDeadBear/NaughtyBear_ReStuff> |
@@ -261,12 +256,11 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | UnleashedRecomp | Sonic Unleashed | Xbox 360 | recomp | C++/Vulkan/D3D12 | eigenes Disc-Image nötig | stabil (v1.0.3) | nein (x86) | <https://github.com/hedge-dev/UnleashedRecomp> |
 | XenonRecomp (Werkzeug) | – | Xbox 360 | recomp | C++ | MIT | aktiv | – | <https://github.com/hedge-dev/XenonRecomp> |
 
-## Mobile-/PC-Remaster-Decomps (RSDK u. a.) (10)
+## Mobile-/PC-Remaster-Decomps (RSDK u. a.) (8)
 
 | Projekt | Originalspiel | Plattform | Art | Sprache | Lizenz/Rechtslage | Status | Android/ARM64 | URL |
 |---|---|---|---|---|---|---|---|---|
 | FNaF-Decomp / FlappyBird-Decomp / Cuphead-decomp / Geometry Dash | diverse Mobile/Indie | Mobile/PC | decomp | div. | Grauzone, teils aktiv laufende kommerzielle Titel | WIP | – | <https://github.com/CharlotteCross1998/awesome-game-decompilations> |
-| Minecraft LCE / mcpe-engine | Minecraft Legacy Console / Pocket Edition | X360/Switch/Mobile | decomp | C++ | Mojang-Recht, Grauzone | WIP | – | <https://github.com/GRAnimated/MinecraftLCE> |
 | OpenTower | Pizza Tower | Win (GameMaker) | decomp | GML | Grauzone | WIP | – | <https://github.com/femloy/OpenTower> |
 | skccport | Sonic & Knuckles Collection (1997) | Win | decomp | C | eigene Daten nötig | WIP | – | <https://git.sr.ht/~benoitren/skccport> |
 | Sonic 1/2 (2013) Decompilation (RSDKv4) | Sonic the Hedgehog 1 & 2 (Mobile-Remaster) | Android/iOS | decomp | C++/SDL2 | Data.rsdk aus eigener Kopie nötig | stabil | offiziell (Android), PortMaster | <https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation> |
@@ -274,4 +268,3 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Sonic CD (PC 1996) Decomp | Sonic CD (Gems/PC) | Win | decomp | C | eigene Daten nötig | WIP | – | <https://git.sr.ht/~benoitren/soniccddecompilation> |
 | Sonic Mania Decompilation (RSDKv5) | Sonic Mania (+ Plus) | Win/Konsolen | decomp | C++/SDL2 | Data.rsdk nötig | stabil | offiziell (Android), PortMaster | <https://github.com/Rubberduckycooly/Sonic-Mania-Decompilation> |
 | TerrariaOGC | Terraria (Konsolen-Fassung) | X360/Konsolen | decomp | C# | Grauzone | WIP | – | <https://github.com/PPrism/TerrariaOGC> |
-| Undertale-Decomp | Undertale | Win (GameMaker) | decomp | GML | **2019 entfernt (Takedown)** | entfernt | – | (nicht mehr verfügbar) |

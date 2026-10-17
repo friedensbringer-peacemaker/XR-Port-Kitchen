@@ -776,7 +776,6 @@ engine	Action/Jump'n'Run	Back to Skool disassembly	Back to Skool		Skool	As-is	?	
 engine	Action/Jump'n'Run	back-to-nature-c64-remake	Frog!		Java	As-is / MIT	?	playable · letzter Push 2022-12	ja	https://github.com/gborp/back-to-nature-c64-remake		
 engine	Action/Jump'n'Run	Bad Dudes vs Dragonninja	Bad Dudes Vs. DragonNinja		Assembly	MIT	frei (Freeware)	playable · letzter Push 2026-09	?	https://github.com/jotd666/baddudes		
 engine	Action/Jump'n'Run	Bagman500	Bagman		C++, Assembly / SDL	As-is	frei (Freeware)	playable · letzter Push 2026-02	?	https://github.com/jotd666/bagman		
-engine	Action/Jump'n'Run	Balloon Fight	Balloon Fight		DIV / DIV Games Studio	As-is	ja	playable · dead (letzter Push 2016-06)	ja	https://github.com/MikeDX/balloon-fight		
 engine	Action/Jump'n'Run	Ballz	Ballz		Java	As-is	?	playable · dead (letzter Push 2018-04)	?	https://github.com/JiachenRen/ballz		
 engine	Action/Jump'n'Run	BananiaJS	Banania		JavaScript	MIT	frei (Freeware)	playable · letzter Push 2022-10	?	https://github.com/BenjaminRi/Banania		
 engine	Action/Jump'n'Run	Barbarian	Barbarian: The Ultimate Warrior		BASIC / QB64	As-is	?	playable · eingestellt	?	http://barbarian.1987.free.fr/indexEN.htm		
@@ -871,12 +870,7 @@ engine	Action/Jump'n'Run	doukutsu-rs	Cave Story		Rust	MIT	frei (Freeware)	playab
 engine	Action/Jump'n'Run	DreamZZT	ZZT		C++	GPL2	?	WIP (teilw. spielbar) · dead (letzter Push 2011-08)	?	https://github.com/c99koder/DreamZZT		
 engine	Action/Jump'n'Run	Dstroy	Dstroy		C++ / SDL	GPL2	ja	playable	?	https://web.archive.org/web/20220104185512/http://narroin.free.fr/dstroy/		
 engine	Action/Jump'n'Run	Duck Game Rebuilt	Duck Game		C# / XNA	As-is	ja	playable · letzter Push 2026-06	?	https://github.com/TheFlyingFoool/DuckGameRebuilt		
-engine	Action/Jump'n'Run	Duck Hunt Disassembly	Duck Hunt		Assembly	As-is	ja	playable · letzter Push 2025-05	?	https://github.com/RussianManSMWC/Duck-ssembly-Hunt		
-engine	Action/Jump'n'Run	Duck Hunt JS	Duck Hunt		JavaScript / PixiJS	MIT	frei (Freeware)	playable · letzter Push 2026-06	?	https://github.com/MattSurabian/DuckHunt-JS		
-engine	Action/Jump'n'Run	Duck Hunt Remake	Duck Hunt		Python / pygame	As-is	frei (Freeware)	playable · dead (letzter Push 2019-12)	?	https://github.com/aosyborg/duckhunt		
-engine	Action/Jump'n'Run	Duck Hunter	Duck Hunt		Python	As-is	?	playable · eingestellt	?	https://app.box.com/shared/zkh7rt575i		
 engine	Action/Jump'n'Run	Duck Marines	ChuChu Rocket!		Lua / LÖVE	CC-BY-SA, CC-BY-NC-ND	frei (Freeware)	playable · dead (letzter Push 2019-06)	?	https://github.com/SimonLarsen/duckmarines		
-engine	Action/Jump'n'Run	DuckHunt	Duck Hunt		JavaScript	As-is	ja	playable · letzter Push 2022-07	?	https://github.com/grosbouddha/duckhunt		
 engine	Action/Jump'n'Run	Duckie Egg	Chuckie Egg		Assembly, C	As-is	frei (Freeware)	playable · fertig	?	https://forums.atariage.com/topic/203470-duckie-egg/		
 engine	Action/Jump'n'Run	DuckTales2 full disassembly	DuckTales 2		Assembly	As-is	ja	playable · fertig	?	https://www.romhacking.net/documents/725/		
 engine	Action/Jump'n'Run	Duke 2 Reconstructed	Duke Nukem II		C	GPL2	ja	playable · letzter Push 2025-04	?	https://github.com/lethal-guitar/Duke2Reconstructed		
@@ -1229,7 +1223,6 @@ engine	Action/Jump'n'Run	Surround Disassembly	Surround		Assembly	As-is	?	playabl
 engine	Action/Jump'n'Run	SyobonKZ	Shobon no Action		C++ / SDL, SDL3	GPL2	?	playable · letzter Push 2026-09	ja	https://github.com/M0REKZ/SyobonKZ		
 engine	Action/Jump'n'Run	Tempest Code Project	Tempest		Assembly	As-is	?	WIP (teilw. spielbar) · eingestellt	?	https://web.archive.org/web/20150929202131if_/http://www.ionpool.net/arcade/tempest_code_project/136002.txt		
 engine	Action/Jump'n'Run	temptations	Temptations		C / SDL2	As-is	frei (Freeware)	playable · letzter Push 2023-08	?	https://github.com/pipagerardo/temptations		
-engine	Action/Jump'n'Run	Tetris Disassembly	Tetris		Assembly	As-is	ja	playable · fertig	?	https://www.romhacking.net/documents/728/		
 engine	Action/Jump'n'Run	The A-Team Disassembly	The A-Team		Assembly	As-is	ja	playable · fertig	?	https://www.qotile.net/minidig/disassembly/a-team.asm		
 engine	Action/Jump'n'Run	The Bub's Brothers	Bubble Bobble		Python / pygame	MIT	frei (Freeware)	playable · eingestellt	?	https://sourceforge.net/projects/bub-n-bros/		
 engine	Action/Jump'n'Run	The Castles of Doctor Creep	The Castles of Dr. Creep		Assembly	Apache	?	playable · letzter Push 2023-04	?	https://github.com/Drunella/codc-easyflash		
@@ -1321,7 +1314,6 @@ engine	Renn-/Flugsim/Weltraum	GLFrontier	Elite II		C / OpenGL	As-is	?	WIP (teilw
 engine	Renn-/Flugsim/Weltraum	GLSpeed	Speed Haste		Pascal, C / OpenGL	GPL2	ja	playable · letzter Push 2023-06	?	https://github.com/jval1972/Speed		
 engine	Renn-/Flugsim/Weltraum	Gravitar	Gravitar		Assembly	As-is	frei (Freeware)	early · letzter Push 2026-09	?	https://github.com/jotd666/gravitar		
 engine	Renn-/Flugsim/Weltraum	grid-leader	Pole Position		Python / Panda3D	As-is	?	early · archiviert, dead (2012)	?	https://github.com/jonathanopalise/grid-leader		
-engine	Renn-/Flugsim/Weltraum	gta1_re	Grand Theft Auto		C++ / SDL3	As-is	ja	early · letzter Push 2026-07	?	https://github.com/CriminalRETeam/gta1_re		
 engine	Renn-/Flugsim/Weltraum	gta2net	Grand Theft Auto 2		C# / MonoGame	As-is	?	early · dead (letzter Push 2017-06)	?	https://github.com/peon501/GTA2.NET		
 engine	Renn-/Flugsim/Weltraum	Hardwar	Hardwar		C++ / OGRE	GPL3	?	early · dead (letzter Push 2016-07)	?	https://github.com/andrewfenn/Hardwar		
 engine	Renn-/Flugsim/Weltraum	hi-octane202x ᴬ	Hi-Octane		C++ (GitHub)	GPL-3.0	?	? · letzter Push 2026-09	?	https://github.com/woalexan/hi-octane202x		
@@ -1494,7 +1486,6 @@ engine	Sonstiges	Puzzle Moppet	Puzzle Moppet		C++ / Irrlicht	Multiple, WTFPL	fre
 engine	Sonstiges	Python Kye	Kye		Python / GTK	GPL2	frei (Freeware)	playable · fertig	?	http://games.moria.org.uk/kye/download-install		
 engine	Sonstiges	Pythonista Minesweeper	Minesweeper		Python / Pythonista	As-is	?	playable · dead (letzter Push 2021-02)	?	https://github.com/mevdschee/pythonista-minesweeper		
 engine	Sonstiges	QB64 Minesweeper	Minesweeper		BASIC / QB64	As-is	ja	playable · fertig	?	https://qb64forum.alephc.xyz/index.php?topic=455.0		
-engine	Sonstiges	re3 ᵂ	Grand Theft Auto 3		?	?	?	playable · aktiv	?	https://github.com/GTAmodding/re3		
 engine	Sonstiges	Red vs. Blue Disassembly	RealSports Football		Assembly	As-is	?	playable · fertig	?	https://www.qotile.net/minidig/disassembly/redblue.asm		
 engine	Sonstiges	Reflection Keen ᵂ	Commander Keen in Keen Dreams		?	GPL	?	? · aktiv	?	?		
 engine	Sonstiges	ReFlood ᵂ	Flashback: The Quest for Identity		C (GitHub)	GPL	?	playable · letzter Push 2026-09	?	https://github.com/VonKossa/ReFlood		
@@ -1591,7 +1582,6 @@ source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	EDuke32	
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	Raze	Duke 3D, Shadow Warrior, Blood, PowerSlave/Exhumed, Redneck Rampage	DOS	C++	GPL (Build-Code relizenziert), Daten nötig		aktiv	**Quest-VR** (RazeXR)	https://github.com/ZDoom/Raze		RazeXR
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	RazeXR	Build-Spiele (s. Raze)	DOS	C++/OpenXR	GPL, Daten nötig		aktiv	**Quest-VR**	https://github.com/Team-Beef-Studios/RazeXR		
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	VoidSW	Shadow Warrior (1997)	DOS	C/SDL2	Code GPL+Build-Lizenz (2005), GRP nötig		stabil	–	https://voidpoint.io/terminx/eduke32		
-source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	BuildGDX / NuBuildGDX	Duke3D, Blood, Shadow Warrior, Witchaven 1/2, TekWar, Redneck Rampage u. a.	DOS	Java/libGDX	gemischt (TekWar-Quellen geleakt), Daten nötig		aktiv (NuBuildGDX)	offiziell (libGDX-Android) ?	https://github.com/atsb/NuBuildGDX		
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	Taradino (ROTT-Port)	Rise of the Triad	DOS	C/SDL2	GPL (2002), Daten nötig		aktiv	–	https://github.com/fabiangreffrath/taradino		
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	BStone	Blake Stone: Aliens of Gold / Planet Strike	DOS	C++/SDL2	GPL (2013), Daten nötig		aktiv	–	https://github.com/bibendovsky/bstone		
 source-port	id Software / Raven / Apogee / 3D Realms (Ego-Shooter-Kern)	Reflection Keen	Keen Dreams, Catacomb 3-D/Abyss/Armageddon/Apocalypse, Wolf3D-Ableger	DOS	C/SDL2	GPL (Flat Rock 2014), Daten nötig		aktiv	inoffiziell	https://github.com/NY00123/refkeen		
@@ -1667,8 +1657,6 @@ decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompi
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	fallout2-ce (aus fallout2-re)	Fallout 2	Win	C++/SDL2	Sustainable Use License, Daten nötig		aktiv	offiziell (APK, iOS)	https://github.com/alexbatalov/fallout2-ce		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	fallout1-ce	Fallout	Win	C++/SDL2	Sustainable Use License, Daten nötig		aktiv	offiziell (APK)	https://github.com/alexbatalov/fallout1-ce		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	arcanum-ce	Arcanum	Win	C++/SDL3	Daten nötig		aktiv	– ?	https://github.com/alexbatalov/arcanum-ce		
-decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	gta-reversed	GTA San Andreas	Win	C++	Grauzone, Daten nötig		WIP	–	https://github.com/gta-reversed/gta-reversed		
-decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	gta2_re	GTA 2	Win	C++	Grauzone, Daten nötig		WIP	–	https://github.com/CriminalRETeam/gta2_re		
 source-port	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	TRX (TR1X / TR2X)	Tomb Raider I & II (+ Erweiterungen)	Win/DOS	C/SDL2	Grauzone, GOG/Steam-Daten nötig		aktiv	–	https://github.com/LostArtefacts/TRX		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	KeeperFX	Dungeon Keeper	DOS/Win	C	GPL-2.0-or-later, Daten nötig		aktiv	–	https://github.com/dkfans/keeperfx	dungeonkeeper-keeperfx	
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	openblack + bw1-decomp	Black & White	Win	C++	GPL-3, Daten nötig		aktiv	–	https://github.com/openblack/openblack		
@@ -1723,7 +1711,6 @@ decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompi
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	otii	Oregon Trail II	Win	C	Grauzone		WIP	–	https://github.com/katstasaph/otii		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	jazzjackrabbit2-decompiled	Jazz Jackrabbit 2	Win	C++	Grauzone (Alternative: Jazz² Resurrection = Reimpl.)		WIP	–	https://github.com/Mustafa1177/jazzjackrabbit2-decompiled		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	cdcEngine (TR Legend / DX:HR)	Tomb Raider: Legend, Deus Ex: Human Revolution	Win	C++	Grauzone		WIP	–	https://github.com/TheIndra55/cdcEngine		
-decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	Call of Duty 4 / Black Ops Decomp (SwagSoftware)	CoD4: MW, CoD: Black Ops	Win	C++	Grauzone, Activision-Risiko hoch		WIP	–	(siehe Wikipedia „reconstructed“)		
 decomp	Klassische PC-/DOS-Spiele (Decomp, Reverse Engineering, statische Recompilierung)	Halo: CE Decomp + Port	Halo: Combat Evolved	Xbox	C/SDL3/GLES3	Xbox-Disc-Image nötig; Matching-Grad umstritten		aktiv (laut heldgames 09/2026)	**offiziell (Android arm64, Android 9+, GLES3)**	https://github.com/punpckhdq/halo		
 decomp	SNES / NES / Mega Drive / GBA / DS (Decomp & Recomp)	Sonic 1/2 Disassemblies (Sonic Retro)	Sonic 1/2/3&K, Knuckles' Chaotix, Kid Chameleon	Mega Drive/32X	68k-ASM	eigenes ROM nötig		stabil	–	https://github.com/sonicretro		
 decomp	SNES / NES / Mega Drive / GBA / DS (Decomp & Recomp)	SOR2 New Era (Kontext)	Streets of Rage 2	Mega Drive	–	fanmade		aktiv	–	https://www.sor2newera.com		
@@ -1762,16 +1749,13 @@ recomp	Xbox 360 – XenonRecomp / ReXGlue	NaughtyBear_ReStuff	Naughty Bear	Xbox 
 recomp	Xbox 360 – XenonRecomp / ReXGlue	Armored-core-ReAnswered	Armored Core: For Answer	Xbox 360	C++	eigenes Image nötig		WIP	nein	https://github.com/flashfire199/Armored-core-ReAnswered		
 recomp	Xbox 360 – XenonRecomp / ReXGlue	reDAHM	Destroy All Humans! Path of the Furon	Xbox 360	C++	eigenes Image nötig		WIP	nein	https://github.com/masterspike52/reDAHM		
 recomp	Xbox 360 – XenonRecomp / ReXGlue	band3_recomp / re-gh2	Rock Band 3 / Guitar Hero II	Xbox 360	C++	eigenes Image nötig		WIP	nein	https://github.com/ihatecompvir/band3_recomp		
-recomp	Xbox 360 – XenonRecomp / ReXGlue	halo3_cache_release_recomp	Halo 3 (Delta-Build)	Xbox 360	C++	**Prototyp-Leak**		WIP	nein	https://github.com/twist84/halo3_cache_release_recomp		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Sonic 1/2 (2013) Decompilation (RSDKv4)	Sonic the Hedgehog 1 & 2 (Mobile-Remaster)	Android/iOS	C++/SDL2	Data.rsdk aus eigener Kopie nötig		stabil	offiziell (Android), PortMaster	https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Sonic CD (2011) Decompilation (RSDKv3)	Sonic CD	Win/Mobile	C++/SDL2	Data.rsdk nötig		stabil	offiziell (Android), PortMaster	https://github.com/Rubberduckycooly/Sonic-CD-11-Decompilation		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Sonic Mania Decompilation (RSDKv5)	Sonic Mania (+ Plus)	Win/Konsolen	C++/SDL2	Data.rsdk nötig		stabil	offiziell (Android), PortMaster	https://github.com/Rubberduckycooly/Sonic-Mania-Decompilation		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	skccport	Sonic & Knuckles Collection (1997)	Win	C	eigene Daten nötig		WIP	–	https://git.sr.ht/~benoitren/skccport		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Sonic CD (PC 1996) Decomp	Sonic CD (Gems/PC)	Win	C	eigene Daten nötig		WIP	–	https://git.sr.ht/~benoitren/soniccddecompilation		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	TerrariaOGC	Terraria (Konsolen-Fassung)	X360/Konsolen	C#	Grauzone		WIP	–	https://github.com/PPrism/TerrariaOGC		
-decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Minecraft LCE / mcpe-engine	Minecraft Legacy Console / Pocket Edition	X360/Switch/Mobile	C++	Mojang-Recht, Grauzone		WIP	–	https://github.com/GRAnimated/MinecraftLCE		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	OpenTower	Pizza Tower	Win (GameMaker)	GML	Grauzone		WIP	–	https://github.com/femloy/OpenTower		
-decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	Undertale-Decomp	Undertale	Win (GameMaker)	GML	**2019 entfernt (Takedown)**		entfernt	–	(nicht mehr verfügbar)		
 decomp	Mobile-/PC-Remaster-Decomps (RSDK u. a.)	FNaF-Decomp / FlappyBird-Decomp / Cuphead-decomp / Geometry Dash	diverse Mobile/Indie	Mobile/PC	div.	Grauzone, teils aktiv laufende kommerzielle Titel		WIP	–	https://github.com/CharlotteCross1998/awesome-game-decompilations		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	QuestZDoom (PicoZDoom)	Doom 1/2, Final Doom, Heretic, Hexen, Wolf3D (via Mods), Doom 64: Retribution, Brutal Doom, Chex Quest u. a.		LZDoom/GZDoom			Repo aktiv (Sep 2026), Update 2026-08-03	immersiv 6DoF · Team Beef · SideQuest, GitHub, Patreon	https://github.com/Team-Beef-Studios/QuestZDoom · https://sidequestvr.com/app/796		
 vr-port	Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico	QuakeQuest	Quake 1 (+ Missionpacks)		DarkPlaces			Repo aktiv Sep 2026	immersiv 6DoF · Team Beef · SideQuest, GitHub	https://github.com/Team-Beef-Studios/QuakeQuest · https://sidequestvr.com/app/93		
@@ -1795,7 +1779,6 @@ vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	openmw-v
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	OpenGothic-VR / Gothic-UnZENity	Gothic 2 DNdR (UnZENity: G1+G2)		OpenGothic / eigene Unity-Engine			v0.2.0 (Quest 3 + PCVR)	immersiv 6DoF · JaXt0r (+ Team) · GitHub	https://github.com/JaXt0r/OpenGothic-VR		
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	HaloCE-Quest-VR	Halo CE (Xbox-Daten)		Halo-CE-Dekompilierung + OpenXR (astromaddie)			1.0.1 (code 20), Okt 2026	immersiv 6DoF, Full-Body-IK, MP · moistman42069 · GitHub	https://github.com/moistman42069/HaloCE-Quest-VR		
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	QuestSam	Serious Sam Classic TFE + TSE		Serious Engine 1 (GPL)			aktiv	immersiv 6DoF · maranone · GitHub/SideQuest	https://github.com/maranone/QuestSam		
-vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	Vice City VR (Standalone)	GTA Vice City		reVC (Reverse Engineering)			2026 wieder online (zeitweise entfernt)	immersiv 6DoF · Hostile VR (BadHostile) · Build-Skript → APK selbst bauen	https://x.com/BadHostile/status/2089404557767926017		
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	QuestCraft	Minecraft Java		Pojlib + Vivecraft			6.0.0 stabil; 26.2-Experiment	immersiv 6DoF · QuestCraftPlusPlus · SideQuest, GitHub	https://github.com/QuestCraftPlusPlus/QuestCraft		
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	Wolfenstein 3D VR	Wolf3D Ep. 1 (Nachbau)		Unity-Remake			alt	immersiv · Further Beyond · itch.io	https://further-beyond.itch.io/wolf3dvr		
 vr-port	Standalone Quest (APK) / Weitere native Quest-Ports (Community)	Serious Sam VR / Last Hope (Community-Listings)	–		–			–	– · – · SideQuest	https://sidequestvr.com/app/48640		
@@ -1833,7 +1816,6 @@ vr-port	Nur PC-VR (Mods/Ports)	Daggerfall Unity VR (DFUVR)	Daggerfall		Daggerfal
 vr-port	Nur PC-VR (Mods/Ports)	DXU24	Deus Ex (UE1 → UE5 zur Laufzeit)		UE5			in Entwicklung	Übersetzer, VR geplant · DXU24-Projekt · –	https://www.pcgamer.com/ (Artikel DXU24)		
 vr-port	Nur PC-VR (Mods/Ports)	HaloCEVR / MCCVR	Halo CE / MCC		Halo			aktiv	Mod · LivingFray / moistman42069 · GitHub	https://github.com/LivingFray/HaloCEVR		
 vr-port	Nur PC-VR (Mods/Ports)	Portal 2 VR, L4D2VR	Portal 2, L4D2		Source			aktiv	Mod · Gistix, sd805 · GitHub	https://github.com/Gistix/portal2vr · https://github.com/sd805/l4d2vr		
-vr-port	Nur PC-VR (Mods/Ports)	Vice City VR (PC)	GTA Vice City		reVC			2026	Mod 6DoF · Hostile VR · ?	https://compoundvr.com/games/grand-theft-auto-vice-city/		
 vr-port	Nur PC-VR (Mods/Ports)	MotherVR	Alien: Isolation		eigene Engine			–	Mod · Nibre · GitHub	https://github.com/Nibre/MotherVR		
 vr-port	Nur PC-VR (Mods/Ports)	Vivecraft	Minecraft Java		–			aktiv	Mod · Vivecraft-Team · Web	https://vivecraft.org		
 vr-port	Nur PC-VR (Mods/Ports)	NomaiVR, Two Forks VR, Heaven VR, ShipbreakerVR, BaboonVR	Outer Wilds, Firewatch, Neon White, Hardspace Shipbreaker, Trombone Champ		Unity			aktiv/teils eingestellt	Mod 6DoF · Raicuparta · GitHub, itch.io, Patreon	https://raicuparta.com		

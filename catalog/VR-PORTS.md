@@ -6,7 +6,7 @@ Was es für die Quest (und PC-VR) schon gibt – vor einem neuen Port hier nachs
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16) · Standalone Quest (APK) / Weitere native Quest-Ports (Community) (10) · Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10) · Standalone Quest (APK) / Emulatoren / Kino-Bildschirm / Kompatibilitätsschichten (Quest) (8) · Nur PC-VR (Mods/Ports) (24) · Offizielle VR-Remaster (zur Abgrenzung) (10)
+**Abschnitte:** Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16) · Standalone Quest (APK) / Weitere native Quest-Ports (Community) (9) · Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10) · Standalone Quest (APK) / Emulatoren / Kino-Bildschirm / Kompatibilitätsschichten (Quest) (8) · Nur PC-VR (Mods/Ports) (23) · Offizielle VR-Remaster (zur Abgrenzung) (10)
 
 ## Standalone Quest (APK) / Team Beef (DrBeef / Baggyg / Bummser) – alle BYOD (eigene Spieldaten), meist auch Pico (16)
 
@@ -29,7 +29,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | RTCWQuest | Return to Castle Wolfenstein | iortcw (id Tech 3) | immersiv 6DoF · Team Beef · SideQuest, GitHub | Repo aktiv Sep 2026 | <https://github.com/Team-Beef-Studios/RTCWQuest> |
 | ST:EF-XR (ioef-sp) | Star Trek Voyager: Elite Force SP | ioEF (id Tech 3) | immersiv 6DoF · Team Beef · Patreon | in Entwicklung | <https://github.com/Team-Beef-Studios/ioef-sp> |
 
-## Standalone Quest (APK) / Weitere native Quest-Ports (Community) (10)
+## Standalone Quest (APK) / Weitere native Quest-Ports (Community) (9)
 
 | Projekt | Spiel | Engine-Basis | Art · Entwickler · Vertrieb | Stand | URL |
 |---|---|---|---|---|---|
@@ -41,7 +41,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | QuestSam | Serious Sam Classic TFE + TSE | Serious Engine 1 (GPL) | immersiv 6DoF · maranone · GitHub/SideQuest | aktiv | <https://github.com/maranone/QuestSam> |
 | Serious Sam VR / Last Hope (Community-Listings) | – | – | – · – · SideQuest | – | <https://sidequestvr.com/app/48640> |
 | Tiberian Dawn for Android and Meta Quest | C&C Tiberian Dawn (1995) | EA-GPL-Quellcode (Remaster-DLL) | MR, Raumfenster · Cesarus85 · GitHub, Webseite | aktiv (Sep 2026) | <https://cesarus85.github.io/Tiberian-Dawn-for-Android-and-Meta-Quest/> |
-| Vice City VR (Standalone) | GTA Vice City | reVC (Reverse Engineering) | immersiv 6DoF · Hostile VR (BadHostile) · Build-Skript → APK selbst bauen | 2026 wieder online (zeitweise entfernt) | <https://x.com/BadHostile/status/2089404557767926017> |
 | Wolfenstein 3D VR | Wolf3D Ep. 1 (Nachbau) | Unity-Remake | immersiv · Further Beyond · itch.io | alt | <https://further-beyond.itch.io/wolf3dvr> |
 
 ## Standalone Quest (APK) / SgtBilko76 „Port Royale“ (Quest/Pico, BYOD) – https://portroyale.online (10)
@@ -72,7 +71,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | WinlatorXR | Windows-Spiele (HL2, Portal, Halo CE via HWXR, GTA SA …) | Winlator Cmod (Wine+Box64+FEX), eigenes XrAPI über UDP | Kino-Bildschirm / Stereo 6DoF bei VR-Mods · Luboš V. (Fork-Kette brunodev85 → coffincolors → Pipetto) · SideQuest, GitHub | „Computers Are Totally Screwed 27“ (2026-07-01) | <https://sidequestvr.com/app/37320/winlatorxr> |
 | WinlatorXR (EasonZxp) | Windows-Spiele | Winlator | Bildschirm · EasonZxp · GitHub | ? | <https://github.com/EasonZxp/WinlatorXR> |
 
-## Nur PC-VR (Mods/Ports) (24)
+## Nur PC-VR (Mods/Ports) (23)
 
 | Projekt | Spiel | Engine-Basis | Art · Entwickler · Vertrieb | Stand | URL |
 |---|---|---|---|---|---|
@@ -98,7 +97,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | RealRTCW XR | RTCW | RealRTCW | 6DoF · Team Beef · – | in Entwicklung | <https://www.teambeefvr.com/> |
 | TheForceEngineVR | Star Wars: Dark Forces | The Force Engine | Mod 6DoF · SoVRHere · GitHub | v0.9.56-vr | <https://github.com/SoVRHere/TheForceEngineVR> |
 | TrackMania Forever OpenXR | TrackMania NF | – | Mod · SgtBilko76 · GitHub | – | <https://portroyale.online> |
-| Vice City VR (PC) | GTA Vice City | reVC | Mod 6DoF · Hostile VR · ? | 2026 | <https://compoundvr.com/games/grand-theft-auto-vice-city/> |
 | Vivecraft | Minecraft Java | – | Mod · Vivecraft-Team · Web | aktiv | <https://vivecraft.org> |
 
 ## Offizielle VR-Remaster (zur Abgrenzung) (10)

@@ -6,7 +6,7 @@ Open-Source-Nachbauten von Spiel-Engines, die mit den Originaldaten des Spiels l
 Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von anderen vorhanden · 💤 = seit 2022 ohne Commit / eingestellt.
 „?“ = nicht bekannt (nicht: „nein“). Erklärung und Bewertung: [README.md](README.md).
 
-**Abschnitte:** Strategie/RTS (112) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (66) · Rollenspiel (236) · Adventure (42) · Shooter/FPS (233) · Action/Jump'n'Run (542) · Renn-/Flugsim/Weltraum (105) · Sonstiges (159)
+**Abschnitte:** Strategie/RTS (112) · Aufbau/Wirtschaftssimulation (56) · Rundenstrategie/4X (66) · Rollenspiel (236) · Adventure (42) · Shooter/FPS (233) · Action/Jump'n'Run (535) · Renn-/Flugsim/Weltraum (104) · Sonstiges (158)
 
 ## Strategie/RTS (112)
 
@@ -783,7 +783,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | ZGloom | Gloom | ja | C++ / SDL2 | Custom | playable · letzter Push 2023-01 | ? | <https://github.com/Swizpig/ZGloom> |
 | μQuake 💤 | Quake | ja | C | GPL2 | early · dead (letzter Push 2021-04) | ? | <https://github.com/goshhhy/uquake> |
 
-## Action/Jump'n'Run (542)
+## Action/Jump'n'Run (535)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -819,7 +819,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | back-to-nature-c64-remake | Frog! | ? | Java | As-is / MIT | playable · letzter Push 2022-12 | ja | <https://github.com/gborp/back-to-nature-c64-remake> |
 | Bad Dudes vs Dragonninja | Bad Dudes Vs. DragonNinja | frei (Freeware) | Assembly | MIT | playable · letzter Push 2026-09 | ? | <https://github.com/jotd666/baddudes> |
 | Bagman500 | Bagman | frei (Freeware) | C++, Assembly / SDL | As-is | playable · letzter Push 2026-02 | ? | <https://github.com/jotd666/bagman> |
-| Balloon Fight 💤 | Balloon Fight | ja | DIV / DIV Games Studio | As-is | playable · dead (letzter Push 2016-06) | ja | <https://github.com/MikeDX/balloon-fight> |
 | Ballz 💤 | Ballz | ? | Java | As-is | playable · dead (letzter Push 2018-04) | ? | <https://github.com/JiachenRen/ballz> |
 | BananiaJS | Banania | frei (Freeware) | JavaScript | MIT | playable · letzter Push 2022-10 | ? | <https://github.com/BenjaminRi/Banania> |
 | Barbarian 💤 | Barbarian: The Ultimate Warrior | ? | BASIC / QB64 | As-is | playable · eingestellt | ? | <http://barbarian.1987.free.fr/indexEN.htm> |
@@ -914,12 +913,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | DreamZZT 💤 | ZZT | ? | C++ | GPL2 | WIP (teilw. spielbar) · dead (letzter Push 2011-08) | ? | <https://github.com/c99koder/DreamZZT> |
 | Dstroy | Dstroy | ja | C++ / SDL | GPL2 | playable | ? | <https://web.archive.org/web/20220104185512/http://narroin.free.fr/dstroy/> |
 | Duck Game Rebuilt | Duck Game | ja | C# / XNA | As-is | playable · letzter Push 2026-06 | ? | <https://github.com/TheFlyingFoool/DuckGameRebuilt> |
-| Duck Hunt Disassembly | Duck Hunt | ja | Assembly | As-is | playable · letzter Push 2025-05 | ? | <https://github.com/RussianManSMWC/Duck-ssembly-Hunt> |
-| Duck Hunt JS | Duck Hunt | frei (Freeware) | JavaScript / PixiJS | MIT | playable · letzter Push 2026-06 | ? | <https://github.com/MattSurabian/DuckHunt-JS> |
-| Duck Hunt Remake 💤 | Duck Hunt | frei (Freeware) | Python / pygame | As-is | playable · dead (letzter Push 2019-12) | ? | <https://github.com/aosyborg/duckhunt> |
-| Duck Hunter 💤 | Duck Hunt | ? | Python | As-is | playable · eingestellt | ? | <https://app.box.com/shared/zkh7rt575i> |
 | Duck Marines 💤 | ChuChu Rocket! | frei (Freeware) | Lua / LÖVE | CC-BY-SA, CC-BY-NC-ND | playable · dead (letzter Push 2019-06) | ? | <https://github.com/SimonLarsen/duckmarines> |
-| DuckHunt | Duck Hunt | ja | JavaScript | As-is | playable · letzter Push 2022-07 | ? | <https://github.com/grosbouddha/duckhunt> |
 | Duckie Egg | Chuckie Egg | frei (Freeware) | Assembly, C | As-is | playable · fertig | ? | <https://forums.atariage.com/topic/203470-duckie-egg/> |
 | DuckTales2 full disassembly | DuckTales 2 | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/725/> |
 | Duke 2 Reconstructed | Duke Nukem II | ja | C | GPL2 | playable · letzter Push 2025-04 | ? | <https://github.com/lethal-guitar/Duke2Reconstructed> |
@@ -1272,7 +1266,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | SyobonKZ | Shobon no Action | ? | C++ / SDL, SDL3 | GPL2 | playable · letzter Push 2026-09 | ja | <https://github.com/M0REKZ/SyobonKZ> |
 | Tempest Code Project 💤 | Tempest | ? | Assembly | As-is | WIP (teilw. spielbar) · eingestellt | ? | <https://web.archive.org/web/20150929202131if_/http://www.ionpool.net/arcade/tempest_code_project/136002.txt> |
 | temptations | Temptations | frei (Freeware) | C / SDL2 | As-is | playable · letzter Push 2023-08 | ? | <https://github.com/pipagerardo/temptations> |
-| Tetris Disassembly | Tetris | ja | Assembly | As-is | playable · fertig | ? | <https://www.romhacking.net/documents/728/> |
 | The A-Team Disassembly | The A-Team | ja | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/a-team.asm> |
 | The Bub's Brothers 💤 | Bubble Bobble | frei (Freeware) | Python / pygame | MIT | playable · eingestellt | ? | <https://sourceforge.net/projects/bub-n-bros/> |
 | The Castles of Doctor Creep | The Castles of Dr. Creep | ? | Assembly | Apache | playable · letzter Push 2023-04 | ? | <https://github.com/Drunella/codc-easyflash> |
@@ -1330,7 +1323,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | zSILENCER 💤 | Silencer | ? | C++ / SDL2 | As-is | playable · dead (letzter Push 2020-12) | ? | <https://github.com/zsilencer/zSILENCER> |
 | zztgo 💤 | ZZT | ? | Go | MIT | WIP (teilw. spielbar) · dead (letzter Push 2020-06) | ? | <https://github.com/benhoyt/zztgo> |
 
-## Renn-/Flugsim/Weltraum (105)
+## Renn-/Flugsim/Weltraum (104)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -1369,7 +1362,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | GLSpeed | Speed Haste | ja | Pascal, C / OpenGL | GPL2 | playable · letzter Push 2023-06 | ? | <https://github.com/jval1972/Speed> |
 | Gravitar | Gravitar | frei (Freeware) | Assembly | As-is | early · letzter Push 2026-09 | ? | <https://github.com/jotd666/gravitar> |
 | grid-leader 💤 | Pole Position | ? | Python / Panda3D | As-is | early · archiviert, dead (2012) | ? | <https://github.com/jonathanopalise/grid-leader> |
-| gta1_re | Grand Theft Auto | ja | C++ / SDL3 | As-is | early · letzter Push 2026-07 | ? | <https://github.com/CriminalRETeam/gta1_re> |
 | gta2net 💤 | Grand Theft Auto 2 | ? | C# / MonoGame | As-is | early · dead (letzter Push 2017-06) | ? | <https://github.com/peon501/GTA2.NET> |
 | Hardwar 💤 | Hardwar | ? | C++ / OGRE | GPL3 | early · dead (letzter Push 2016-07) | ? | <https://github.com/andrewfenn/Hardwar> |
 | hi-octane202x ᴬ | Hi-Octane | ? | C++ (GitHub) | GPL-3.0 | ? · letzter Push 2026-09 | ? | <https://github.com/woalexan/hi-octane202x> |
@@ -1440,7 +1432,7 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Twisted Metal: Harbor City | Twisted Metal: Black | ja | C | As-is | early · letzter Push 2026-08 | ? | <https://github.com/jacobleeharris/tmhc> |
 | Wheelie disassembly | Wheelie | ja | Skool | As-is | WIP (teilw. spielbar) · letzter Push 2025-09 | ? | <https://github.com/pobtastic/wheelie> |
 
-## Sonstiges (159)
+## Sonstiges (158)
 
 | Engine | Originalspiel | Originaldaten | Sprache/Framework | Lizenz | Status | Android | Repo |
 |---|---|---|---|---|---|---|---|
@@ -1547,7 +1539,6 @@ Legende: 📖 = Rezept in der Kitchen · 🥽 = schon als Quest-VR-Port von ande
 | Python Kye | Kye | frei (Freeware) | Python / GTK | GPL2 | playable · fertig | ? | <http://games.moria.org.uk/kye/download-install> |
 | Pythonista Minesweeper 💤 | Minesweeper | ? | Python / Pythonista | As-is | playable · dead (letzter Push 2021-02) | ? | <https://github.com/mevdschee/pythonista-minesweeper> |
 | QB64 Minesweeper | Minesweeper | ja | BASIC / QB64 | As-is | playable · fertig | ? | <https://qb64forum.alephc.xyz/index.php?topic=455.0> |
-| re3 ᵂ | Grand Theft Auto 3 | ? | ? | ? | playable · aktiv | ? | <https://github.com/GTAmodding/re3> |
 | Red vs. Blue Disassembly | RealSports Football | ? | Assembly | As-is | playable · fertig | ? | <https://www.qotile.net/minidig/disassembly/redblue.asm> |
 | Reflection Keen ᵂ | Commander Keen in Keen Dreams | ? | ? | GPL | ? · aktiv | ? | ? |
 | ReFlood ᵂ | Flashback: The Quest for Identity | ? | C (GitHub) | GPL | playable · letzter Push 2026-09 | ? | <https://github.com/VonKossa/ReFlood> |
